@@ -1,0 +1,77 @@
+{
+  "total": 10,
+  "passed": 10,
+  "timestamp": "2026-05-31T11:50:13.890725",
+  "results": [
+    {
+      "id": 1,
+      "name": "SaaS冷启动",
+      "status": "PASS",
+      "clarity_score": 47.0,
+      "knowledge_found": 4
+    },
+    {
+      "id": 2,
+      "name": "电商复购",
+      "status": "PASS",
+      "clarity_score": 40.4,
+      "knowledge_found": 5
+    },
+    {
+      "id": 3,
+      "name": "教育完课率",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 3
+    },
+    {
+      "id": 4,
+      "name": "内容社区活跃",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 5
+    },
+    {
+      "id": 5,
+      "name": "金融新功能推广",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 3
+    },
+    {
+      "id": 6,
+      "name": "社交病毒传播",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 4
+    },
+    {
+      "id": 7,
+      "name": "B2B线索转化",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 3
+    },
+    {
+      "id": 8,
+      "name": "订阅付费转化",
+      "status": "PASS",
+      "clarity_score": 40.4,
+      "knowledge_found": 4
+    },
+    {
+      "id": 9,
+      "name": "本地生活商家冷启动",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 3
+    },
+    {
+      "id": 10,
+      "name": "游戏长期留存",
+      "status": "PASS",
+      "clarity_score": 37.4,
+      "knowledge_found": 5
+    }
+  ]
+}

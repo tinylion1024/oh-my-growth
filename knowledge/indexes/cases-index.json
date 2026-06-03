@@ -1,0 +1,4304 @@
+{
+  "metadata": {
+    "version": "1.2.0",
+    "last_updated": "2026-05-29",
+    "total_cases": 81,
+    "evidence_tier_definition": {
+      "A": "元分析、系统综述、官方统计、权威教材",
+      "B": "同行评审论文、公开数据集、行业标准、良好文档的基准",
+      "C": "结构化专家意见、内部历史数据、仔细收集的现场证据",
+      "D": "LLM建议、类比、常识、非正式启发式",
+      "E": "博客文章、营销文案、社交媒体、未注明来源的声称"
+    }
+  },
+  "cases": [
+    {
+      "id": "deepseek",
+      "name": "DeepSeek（深度求索）- AI开源突围战",
+      "file": "cases/china/deepseek.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "开源模型",
+          "低成本训练",
+          "viral增长",
+          "技术突破",
+          "出海"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "未公开"
+      },
+      "summary": "DeepSeek（深度求索）是2023年7月成立于杭州的人工智能公司，由量化基金幻方量化（High-Flyer）联合创始人梁文锋创立。DeepSeek最初是幻方量化的AI研究部门，2023年独立运营，成为中国AI大模型领域的技术派代表。与多数中国AI公司不同，DeepSeek选择了一条**技术驱动+开源开放**的路径。2024年1月发布DeepSeek-R1模型后，DeepSeek迅速成为全球AI...",
+      "replicable_points": [
+        "1. 开源模型增长飞轮",
+        "框架：",
+        "2. 成本叙事引爆传播",
+        "执行步骤："
+      ]
+    },
+    {
+      "id": "douyin-algorithm",
+      "name": "抖音-算法推荐增长",
+      "file": "cases/china/douyin-algorithm.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video"
+        ],
+        "stage": [],
+        "problem": [],
+        "tactics": [
+          "社交",
+          "算法推荐",
+          "短视频",
+          "内容分发"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "抖音由字节跳动于2016年9月上线，最初定位是\"新生代音乐短视频社区\"。凭借字节跳动的算法技术积累和抖音国际版TikTok的成功，抖音成为的现象级产品。2019年DAU突破4亿，2021年DAU突破6亿，2022年DAU突破7亿。抖音的成功证明了算法推荐比社交关系更高效的内容分发模式，也证明了\"记录美好生活\"的口号成功吸引了大众用户。...",
+      "replicable_points": [
+        "1. 推荐算法驱动的增长策略",
+        "推荐系统设计框架：",
+        "2. 短视频内容运营方法论",
+        "内容运营SOP：",
+        "3. 工具赋能降低创作门槛"
+      ]
+    },
+    {
+      "id": "bilibili",
+      "name": "B站-社区氛围增长",
+      "file": "cases/china/bilibili.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "社交",
+          "社区",
+          "Z世代",
+          "ACG",
+          "弹幕"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "B站最初是AcFun（A站）粉丝创立的备选网站，2009年6月上线，早期定位是\"动画、漫画、游戏\"垂直ACG社区。2012年开始破圈，从二次元向更广泛的年轻用户扩展。2019年五四宣传片《后浪》引发社会讨论，B站正式进入主流视野。B站的核心竞争力是独特的社区文化——弹幕文化、会员答题制度、UP主生态，这些构成了B站的护城河。...",
+      "replicable_points": [
+        "1. 社区文化塑造方法",
+        "社区文化建立框架：",
+        "2. 用户等级体系设计",
+        "用户成长体系设计：",
+        "积分体系设计："
+      ]
+    },
+    {
+      "id": "ctrip",
+      "name": "携程-旅游平台增长",
+      "file": "cases/china/ctrip.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "travel"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "旅游",
+          "OTA",
+          "平台",
+          "酒店",
+          "机票"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "gmv": "百万级"
+      },
+      "summary": "携程由梁建章、范敏等人创立于1999年，是中国最早的在线旅游平台之一。携程从酒店预订起步，逐步扩展到机票、旅游度假、商旅管理等全品类旅游服务。2003年在NASDAQ上市，是中国在线旅游行业的标杆企业。携程经历艺龙、去哪儿等竞争对手的挑战，通过内生增长和外延并购，成为中国最大的在线旅游平台。...",
+      "replicable_points": [
+        "1. 低频消费产品的运营策略",
+        "低频产品运营框架：",
+        "2. 服务保障体系设计",
+        "服务保障体系：",
+        "3. 供应链建设方法论"
+      ]
+    },
+    {
+      "id": "taobao-live",
+      "name": "淘宝直播-内容电商转型",
+      "file": "cases/china/taobao-live.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "直播",
+          "内容电商",
+          "KOL",
+          "带货"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "淘宝直播是阿里巴巴在2016年推出的直播带货平台，初期定位为\"内容电商\"，希望通过直播的形式解决传统图文电商的痛点：决策周期长、转化率低、用户粘性不足。2019年开始爆发，2020年疫情加速发展，形成了一个全新的万亿级市场。...",
+      "replicable_points": [
+        "1. 直播电商定位",
+        "不是所有商品都适合直播：",
+        "2. 主播培养路径",
+        "3. 内容节奏设计",
+        "标准直播流程："
+      ]
+    },
+    {
+      "id": "zhihu",
+      "name": "知乎-知识分享增长",
+      "file": "cases/china/zhihu.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "社交",
+          "知识",
+          "问答",
+          "内容社区",
+          "专业"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "1亿+"
+      },
+      "summary": "知乎由周源创立于2010年，最初采用邀请制，定位为\"高质量问答社区\"。早期种子用户包括李开复、马化腾等科技圈大佬，通过专业问答建立了\"认真、专业\"的社区形象。2013年开放注册后用户规模快速扩张，但内容质量参差不齐问题逐渐凸显。知乎逐步从纯问答平台扩展为内容社区，并探索知识付费等商业化路径。2021年在纽交所上市。...",
+      "replicable_points": [
+        "1. 知识社区的内容运营方法",
+        "内容质量体系：",
+        "2. 专业内容破圈策略",
+        "破圈执行路径：",
+        "内容破圈原则："
+      ]
+    },
+    {
+      "id": "kuaishou-baina",
+      "name": "快手白拿-现金膨胀裂变增长",
+      "file": "cases/china/kuaishou-baina.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "现金激励",
+          "邀请裂变",
+          "金币暴涨",
+          "下沉市场",
+          "信息差套利"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "\"快手白拿\"是快手极速版APP中一系列\"免费获得现金/商品\"玩法的统称，其核心是通过\"现金膨胀\"、\"邀请得现金\"、\"金币暴涨\"等机制，实现用户的快速获取和活跃。**背景洞察：**- 快手极速版拉新分为3个版本：官方版本、地推版本、网推版本- 官方版本入口：快手极速版任务页，找到\"现金膨胀中，邀请好友立即赚\"任务- \"邀2人必得126元\"是核心钩子- 信息差套利：邀请老用户（30天未使用极速版）也能...",
+      "replicable_points": [
+        "1. 信息差裂变设计",
+        "2. 阶梯奖励临界点设计",
+        "3. 隐藏任务稀缺感营造"
+      ]
+    },
+    {
+      "id": "ant-forest",
+      "name": "蚂蚁森林-用户粘性增长",
+      "file": "cases/china/ant-forest.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "social"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "金融",
+          "游戏化",
+          "公益",
+          "环保",
+          "社交"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "5亿+"
+      },
+      "summary": "蚂蚁森林是蚂蚁集团于2016年8月推出的公益产品，用户通过低碳行为（步行、骑行、公交等）获得能量，能量可以兑换种植真树。蚂蚁森林将公益与游戏化结合，创造了一种新型的用户粘性机制。上线后迅速成为支付宝最重要的留存功能之一，累计植树4亿棵，成为全球最大的个人参与环保行动。...",
+      "replicable_points": [
+        "1. 游戏化+公益的产品设计",
+        "公益游戏化设计框架：",
+        "2. 真实反馈增强成就感",
+        "真实反馈设计：",
+        "3. 社交+环保的结合"
+      ]
+    },
+    {
+      "id": "widget-growth",
+      "name": "桌面Widget增长案例",
+      "file": "cases/china/widget-growth.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "Widget",
+          "桌面美化",
+          "社交货币",
+          "锁屏",
+          "高频曝光"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "桌面Widget（桌面小部件）并非新事物，但近年在移动端焕发新生。随着iOS 16/17/18持续加码锁屏Widget、Android 12+支持Material You动态颜色，Widget从\"上古时代的小工具\"演变为\"桌面美学载体\"。市场背景数据显示：用户平均安装80个App，但只定期使用9个，52%的用户认为Widget对快速获取信息很有价值。然而Day 1留存仅25%，30天留存4%，90...",
+      "replicable_points": [
+        "1. 信息型Widget：显示核心指标吸引每日查看",
+        "设计框架：",
+        "2. 控制型Widget：嵌入核心功能增加打开频率",
+        "设计框架：",
+        "3. 分享型设计：Widget截图传播种草"
+      ]
+    },
+    {
+      "id": "child-english-insight",
+      "name": "少儿英语产品用户洞察案例",
+      "file": "cases/china/child-english-insight.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "education"
+        ],
+        "stage": [],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "教育",
+          "用户洞察",
+          "增长方法"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "某少儿在线英语教育产品团队在增长过程中遇到瓶颈，需要更高效的用户洞察方法来找出增长机会。团队通过四种洞察技巧的综合运用，最终实现了转化率和销量提升2倍以上的显著成果。本案例展示了如何通过多元化的洞察方法，系统性地理解用户，发现产品机会，优化运营策略。用户洞察不仅是定性了解，更需要定量数据支撑；不仅是内部数据，更需要外部视角；不仅是数据表象，更需要深入一线的真实感知。团队通过百度指数、用户留言、行业...",
+      "replicable_points": [
+        "1. 用户洞察方法论",
+        "洞察方法矩阵：",
+        "2. 洞察应用流程",
+        "洞察应用框架：",
+        "3. 洞察能力提升"
+      ]
+    },
+    {
+      "id": "wechat-pay",
+      "name": "微信支付-红包裂变",
+      "file": "cases/china/wechat-pay.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "fintech"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "支付",
+          "社交",
+          "红包",
+          "微信生态",
+          "线下"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "gmv": "亿级"
+      },
+      "summary": "微信支付由腾讯于2014年初推出，依托微信的社交优势，通过微信红包实现爆发式增长。微信红包在2014年春节引爆市场，一夜之间让微信支付绑卡用户过亿。此后微信支付快速扩展到线下扫码支付，与支付宝形成双寡头格局。微信支付的核心竞争力是微信的社交关系链，以及红包带来的用户粘性。...",
+      "replicable_points": [
+        "1. 红包+社交的产品设计",
+        "红包产品设计框架：",
+        "2. 线下支付拓展策略",
+        "线下支付拓展：",
+        "3. 微信生态协同"
+      ]
+    },
+    {
+      "id": "qutoutiao",
+      "name": "趣头条-看新闻赚金币",
+      "file": "cases/china/qutoutiao.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "资讯",
+          "游戏化",
+          "金币激励",
+          "裂变",
+          "下沉市场"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "趣头条于2016年上线，定位为\"下沉市场的资讯平台\"，采用\"看新闻赚金币\"的激励模式。用户阅读新闻、签到、邀请好友可获得金币，金币可兑换现金提现。趣头条通过金币激励在下沉市场快速崛起，2018年9月上市，刷新了中国互联网企业最快上市记录。凭借这套机制，趣头条在三四五线城市获得了大量用户。...",
+      "replicable_points": [
+        "1. 师徒制设计",
+        "收徒体系框架：",
+        "2. 金币激励设计",
+        "激励体系框架："
+      ]
+    },
+    {
+      "id": "wechat-redpacket",
+      "name": "微信红包-社交裂变增长",
+      "file": "cases/china/wechat-redpacket.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "fintech",
+          "social"
+        ],
+        "stage": [],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "支付",
+          "社交裂变",
+          "红包",
+          "绑定银行卡",
+          "春晚营销"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "微信红包于2014年春节前夕上线，最初是微信支付团队的一个内部创新项目。上线后凭借春节红包场景迅速爆发，一夜之间让微信支付绑卡用户过亿，完成了支付宝花费多年才完成的用户积累。微信红包的成功是中国互联网史上最重要的增长案例之一，它证明了社交关系是比任何广告都强大的获客武器，也证明了场景切入比功能推广更有效。...",
+      "replicable_points": [
+        "1. 社交红包的玩法设计",
+        "红包产品设计原则：",
+        "2. 节日营销与产品结合",
+        "节日营销SOP：",
+        "3. 支付产品的社交裂变策略"
+      ]
+    },
+    {
+      "id": "beike",
+      "name": "贝壳-居住平台增长",
+      "file": "cases/china/beike.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "居住",
+          "平台",
+          "经纪人",
+          "VR看房"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "数百亿美元"
+      },
+      "summary": "贝壳找房由链家左晖创立于2018年，前身是链家网，定位为\"住\"的开放平台。贝壳继承链家20年的行业积累，推出ACN（Agent Cooperation Network）经纪人协作网络，解决传统中介博弈的问题。2020年8月在纽交所上市，成为中国居住服务领域最大的平台。贝壳的核心竞争力是真房源数据库\"楼盘字典\"和ACN协作网络。...",
+      "replicable_points": [
+        "1. 平台型组织的激励机制设计",
+        "ACN激励机制：",
+        "2. ACN经纪人协作网络",
+        "ACN设计框架：",
+        "3. 技术赋能传统行业"
+      ]
+    },
+    {
+      "id": "zhipu-ai",
+      "name": "智谱AI（Z.ai/GLM）——中国大模型独角兽的差异化成长之路",
+      "file": "cases/china/zhipu-ai.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "大模型",
+          "基础模型",
+          "MaaS平台",
+          "智能体",
+          "开放生态"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "香港联交所上市，股票代码：02513"
+      },
+      "summary": "智谱AI成立于2019年，孵化自清华大学NLP实验室，由唐杰教授和李娟子博士创立，是国内最早布局大模型技术的创业公司之一。智谱以\"构建国产原创GLM大模型架构\"为核心使命，坚持全栈自研路线，覆盖从预训练基座模型、微调工具、MaaS平台到智能体产品的完整技术链条。2025年，智谱完成品牌升级，国际版更名为Z.ai，同年在香港联交所上市，成为国内首家成功登陆二级市场的大型语言模型创业公司。智谱的战略定...",
+      "replicable_points": [
+        "1. 全栈自研技术路线",
+        "框架：",
+        "2. Z计划创投生态模式",
+        "执行步骤："
+      ]
+    },
+    {
+      "id": "white-get-gift",
+      "name": "白拿送礼-社交裂变增长",
+      "file": "cases/china/white-get-gift.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition",
+          "referral"
+        ],
+        "tactics": [
+          "社交裂变",
+          "免费获客",
+          "送礼",
+          "游戏化",
+          "分享增长"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "\"白拿送礼\"是一种结合社交裂变与游戏化的电商增长玩法，核心理念是\"免费获得商品\"或\"通过送礼实现双向优惠\"。**背景洞察：**- 2018-2022年中国礼物经济产业市场规模从8000亿元增至12262亿元- 预计2027年中国礼物经济市场规模将达16197亿元- 春节、中秋等传统节日，82%消费者有购买礼物习惯- 消费者希望通过朋友推荐、社交互动完成购物...",
+      "replicable_points": []
+    },
+    {
+      "id": "douyin-pay",
+      "name": "抖音支付-电商金融",
+      "file": "cases/china/douyin-pay.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "fintech",
+          "ecommerce"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "支付",
+          "电商",
+          "抖音生态",
+          "闭环"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "抖音支付是字节跳动旗下的支付产品，于2020年上线，最初服务于抖音电商场景。抖音电商的快速发展（GMV从数千亿到万亿级）带动了抖音支付的扩张。抖音支付依托抖音的流量优势和电商场景，逐步发展出抖音月付（信用消费）、抖音月付分期等服务，并尝试向生活、金融等场景延伸。抖音支付是支付宝和微信支付之外最具潜力的支付玩家。...",
+      "replicable_points": [
+        "1. 内容平台的金融拓展",
+        "内容平台金融策略：",
+        "2. 电商+支付+金融的闭环",
+        "闭环设计：",
+        "3. 补贴获客策略"
+      ]
+    },
+    {
+      "id": "jd-finance",
+      "name": "京东金融-金条白条增长",
+      "file": "cases/china/jd-finance.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "fintech"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "金融",
+          "白条",
+          "金条",
+          "信贷",
+          "京东生态"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "京东金融成立于2013年，是京东集团旗下的金融科技公司。京东金融以京东电商场景为依托，发展出白条（消费分期）、金条（现金贷）等核心产品，以及供应链金融、财富管理等业务。京东金融利用京东平台的消费数据和物流数据，构建了独特的信用评估体系，实现了消费金融业务的快速发展。...",
+      "replicable_points": [
+        "1. 电商+金融的场景设计",
+        "消费金融场景设计：",
+        "2. 信用评估方法论",
+        "数据驱动信用评估：",
+        "3. 场景分期拓展"
+      ]
+    },
+    {
+      "id": "dewu",
+      "name": "得物-潮流社区增长",
+      "file": "cases/china/dewu.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "潮牌",
+          "社区",
+          "二手",
+          "Z世代"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "gmv": "百亿级"
+      },
+      "summary": "得物原名\"毒\"，2015年起步于球鞋鉴定，2019年更名为得物，从垂直球鞋鉴定平台扩展为潮流社区+电商平台。得物以\"先鉴别再发货\"的核心服务建立信任，逐步扩展到潮流服装、配饰、手表、美妆等多个品类。2021年成为年轻人最受欢迎的潮流电商平台之一，GMV突破百亿。得物的成功在于抓住了年轻人对潮流文化的追求，以及对假货的痛点，通过鉴定服务建立了独特的平台价值。...",
+      "replicable_points": [
+        "1. 鉴定信任模式设计",
+        "鉴定服务设计框架：",
+        "2. 社区+电商闭环",
+        "社区电商闭环设计：",
+        "3. 垂直人群扩展策略"
+      ]
+    },
+    {
+      "id": "mita-ai-search",
+      "name": "秘塔AI搜索 - AI搜索赛道的差异化突围",
+      "file": "cases/china/mita-ai-search.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI搜索",
+          "无广告",
+          "深度研究",
+          "结构化输出",
+          "B端API"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "秘塔AI搜索是上海秘塔网络科技推出的AI搜索产品，成立于AI大模型浪潮之中。2025年，秘塔AI搜索凭借\"无广告纯净体验+深度研究能力+高性价比API\"三大核心差异化迅速出圈，被业界誉为\"中国版Perplexity\"。从学术研究到企业运营，从律师备课到开发者集成，秘塔AI正以多场景适配能力，成为不同群体的效率提升核心助手。秘塔AI基于自研Metall M大模型构建核心能力矩阵，2025年的系列升级...",
+      "replicable_points": [
+        "1. 无广告差异化定位",
+        "框架：",
+        "2. 深度研究能力建设",
+        "执行步骤："
+      ]
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "小红书-社区种草转化",
+      "file": "cases/china/xiaohongshu.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "种草",
+          "社区",
+          "UGC",
+          "内容营销"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "小红书最初定位是\"香港购物指南\"，帮助中国消费者了解海外商品。2014年转型为\"海外生活方式分享平台\"，用户可以分享海外购物、生活方式内容。2019年开始强化电商闭环，从纯内容平台向\"种草-拔草\"一体化转型。...",
+      "replicable_points": [
+        "1. 社区内容运营方法",
+        "内容质量评估体系：",
+        "内容方向规划：",
+        "2. 种草转化链路设计",
+        "转化路径优化："
+      ]
+    },
+    {
+      "id": "didi",
+      "name": "滴滴-出行平台增长",
+      "file": "cases/china/didi.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "transportation"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "出行",
+          "平台",
+          "双边市场",
+          "补贴"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "5亿+",
+        "valuation": "数百亿美元"
+      },
+      "summary": "滴滴由程维创立于2012年，经过与快的、优步中国的合并，成为中国最大的出行平台。滴滴从网约车起步，逐步扩展到出租车、顺风车、代驾、公交、单车等出行场景。2016年获得苹果10亿美元投资，2021年6月在美国纽交所上市。滴滴的发展历程也是中国出行市场从补贴大战到监管合规的缩影。...",
+      "replicable_points": [
+        "1. 补贴策略设计",
+        "补贴策略框架：",
+        "2. 平台安全体系构建",
+        "安全体系设计：",
+        "3. 多元化业务布局"
+      ]
+    },
+    {
+      "id": "douyin-jisu-ban",
+      "name": "抖音极速版-看视频赚金币",
+      "file": "cases/china/douyin-jisu-ban.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "短视频",
+          "游戏化",
+          "金币激励",
+          "裂变",
+          "下沉市场"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "抖音极速版于2019年8月上线，是抖音面向下沉市场的精简版本。极速版采用了\"看视频赚金币\"的激励模式，用户观看视频、签到、完成任务可以获得金币，金币可以兑换现金或提现。这一模式让抖音在三四线城市和乡镇市场实现了快速渗透。极速版通过金币激励大幅降低了用户获取成本，同时过河拆桥式地让用户主动拉新。目前抖音极速版DAU占抖音总DAU的40%以上，成为抖音增长的重要引擎。...",
+      "replicable_points": [
+        "1. 金币激励体系设计",
+        "金币体系框架：",
+        "2. 邀请裂变机制",
+        "邀请设计：",
+        "3. 极速版策略"
+      ]
+    },
+    {
+      "id": "jd-member-ops",
+      "name": "京东-用户精细化运营",
+      "file": "cases/china/jd-member-ops.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "会员体系",
+          "用户运营",
+          "复购"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "5亿+"
+      },
+      "summary": "京东从中关村一个小柜台起家，2004年转型线上，定位\"品质电商\"，与阿里形成差异化。核心优势是自建物流体系（京东物流），主打\"211限时达\"等高品质配送服务。2014年赴美上市，目前是中国第二大电商平台。京东的用户增长策略从早期的拼价格、拼物流，逐步转向精细化用户运营，通过会员体系、生命周期管理、数据驱动等手段提升用户价值。...",
+      "replicable_points": [
+        "1. 会员体系设计",
+        "会员价值测算方法：",
+        "2. 用户生命周期运营",
+        "生命周期管理SOP：",
+        "3. 数据驱动的个性化"
+      ]
+    },
+    {
+      "id": "silver-hair-growth",
+      "name": "银发人群增长-视频奖励与任务体系",
+      "file": "cases/china/silver-hair-growth.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "银发经济",
+          "看视频赚钱",
+          "任务体系",
+          "师徒裂变",
+          "金币激励"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "银发人群（50岁以上老年人）是移动互联网增长最快的群体之一。随着智能手机普及，中老年用户成为各大平台争夺的重要增量。**核心特征**：- 时间充裕，日均在线时间长- 价格敏感，对\"真金白银\"激励敏感度高- 熟人社交为主，推荐信任度高- 学习成本高，需要简化交互...",
+      "replicable_points": [
+        "1. 银发激励体系设计框架",
+        "2. 师徒制裂变设计框架",
+        "3. 银发产品设计检查清单"
+      ]
+    },
+    {
+      "id": "momo",
+      "name": "陌陌-陌生社交增长",
+      "file": "cases/china/momo.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "social"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "社交",
+          "直播",
+          "陌生人社交",
+          "LBS",
+          "音视频"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "1亿+"
+      },
+      "summary": "陌陌由唐岩创立于2011年，定位陌生人社交，通过地理位置帮助用户发现附近的陌生人并建立联系。上线后用户快速增长，2014年在纳斯达克上市。陌陌的核心发展路径是从\"陌生人社交\"逐步转型为\"直播+社交\"模式，2016年上线直播功能后，直播收入成为核心营收来源。陌陌是中国陌生人社交领域的代表性产品，也是理解LBS社交、直播转型的重要案例。...",
+      "replicable_points": [
+        "1. 陌生人社交的产品设计",
+        "陌生人社交产品框架：",
+        "2. 直播转型的策略",
+        "社交平台直播转型SOP：",
+        "3. 功能矩阵满足多元需求"
+      ]
+    },
+    {
+      "id": "pinduoduo-group-buy",
+      "name": "拼多多-拼团裂变增长",
+      "file": "cases/china/pinduoduo-group-buy.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce",
+          "social"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "电商",
+          "社交裂变",
+          "拼团",
+          "下沉市场",
+          "微信生态"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "2015年，电商市场已被阿里、京东双寡头垄断。传统电商的流量成本持续攀升，商家获客困难。同一时间，微信用户突破6亿，微信支付通过春晚红包初步建立用户认知。拼多多看到了社交电商的机会——通过微信的社交关系链，将购物行为社交化，实现低成本获客。...",
+      "replicable_points": [
+        "1. 拼团模式设计",
+        "核心要素：",
+        "执行步骤：",
+        "2. 微信生态裂变路径",
+        "触点矩阵："
+      ]
+    },
+    {
+      "id": "vipshop",
+      "name": "唯品会-特卖模式增长",
+      "file": "cases/china/vipshop.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "特卖",
+          "库存",
+          "品牌折扣"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "4000万+"
+      },
+      "summary": "唯品会由沈亚创立，2008年起步于奢侈品的限时特卖，定位\"名牌折扣+限时抢购\"的特卖模式。2012年在纽交所上市，2016年曾尝试私有化但未成功。唯品会早期通过\"品牌尾货\"模式崛起，帮助品牌消化库存，同时让消费者买到低价名牌。但特卖模式天花板明显，增长逐渐放缓，后期通过扩展品类、深化会员运营、布局线下新零售等方式寻求突破。...",
+      "replicable_points": [
+        "1. 特卖模式的用户心理把握",
+        "特卖模式设计框架：",
+        "2. 限时抢购的玩法设计",
+        "限时抢购SOP：",
+        "3. 供应链与运营协同"
+      ]
+    },
+    {
+      "id": "kuaishou-jisu-ban",
+      "name": "快手极速版-看视频赚现金",
+      "file": "cases/china/kuaishou-jisu-ban.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "referral"
+        ],
+        "tactics": [
+          "短视频",
+          "游戏化",
+          "现金激励",
+          "裂变",
+          "下沉市场"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "快手极速版于2019年上线，采用\"看视频赚现金\"的激励模式，与抖音极速版形成直接竞争。极速版通过现金红包吸引用户，观看视频、签到、邀请好友可获得现金奖励，现金可提现到微信。凭借快手在下沉市场的深厚积累，极速版进一步强化了这部分用户的粘性，成为快手用户增长的重要引擎。...",
+      "replicable_points": [
+        "1. 现金激励体系设计",
+        "现金体系框架：",
+        "2. 极速版产品策略",
+        "精简版设计："
+      ]
+    },
+    {
+      "id": "alipay",
+      "name": "支付宝-支付增长",
+      "file": "cases/china/alipay.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "fintech"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "支付",
+          "金融",
+          "场景",
+          "生态",
+          "超级App"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "10亿+",
+        "gmv": "万亿级"
+      },
+      "summary": "支付宝由阿里巴巴于2004年创立，最初是解决淘宝交易的信任问题。随着淘宝发展，支付宝逐渐成为独立的第三方支付平台。2014年蚂蚁集团成立，支付宝成为集团核心业务。支付宝从支付工具逐步扩展到金融科技平台，拥有余额宝、花呗、借呗等金融产品，以及蚂蚁森林等社交功能。支付宝与微信支付共同成为中国两大支付平台。...",
+      "replicable_points": [
+        "1. 支付场景拓展策略",
+        "场景拓展框架：",
+        "2. 公益+社交的产品设计",
+        "公益产品设计：",
+        "3. 金融产品矩阵搭建"
+      ]
+    },
+    {
+      "id": "baba-farm",
+      "name": "芭芭农场-游戏化增长",
+      "file": "cases/china/baba-farm.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition",
+          "referral",
+          "retention"
+        ],
+        "tactics": [
+          "游戏化",
+          "养成",
+          "社交裂变",
+          "用户留存",
+          "免费获客"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "芭芭农场是淘宝APP内的互动游戏模块，于2020年上线。核心玩法是用户通过虚拟种植果树完成任务，获得肥料浇水施肥，最终免费领取真实水果。**背景洞察：**- 中国人对于种菜的田园生活有天然渴望- 从QQ农场偷菜到如今的免费领水果，证明农场养成具有持续吸引力- 利用碎片化时间，既能享受\"种豆得豆、种瓜得瓜\"的游戏乐趣，又能获得免费水果**产品定位：**...",
+      "replicable_points": []
+    },
+    {
+      "id": "soul",
+      "name": "Soul-匿名社交增长",
+      "file": "cases/china/soul.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "social"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "社交",
+          "灵魂匹配",
+          "匿名",
+          "Z世代",
+          "AI匹配"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "",
+      "replicable_points": []
+    },
+    {
+      "id": "minimax-ai",
+      "name": "MiniMax（海螺AI/稀宇科技）- AI产品爆发式增长",
+      "file": "cases/china/minimax-ai.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video",
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI陪伴",
+          "视频生成",
+          "免费获客",
+          "内容营销",
+          "出海"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "估值飙升"
+      },
+      "summary": "MiniMax（稀宇科技）成立于2021年，是国内最早专注于大模型研发的AI公司之一。与其他AI公司从通用对话助手切入不同，MiniMax选择了一条差异化路径——**情感陪伴AI + 视频生成AI**双引擎驱动。**核心产品矩阵：**- **Talkie（海外）**：情感陪伴AI，主打AI角色定制与互动，用户规模超1.47亿- **星野（国内）**：Talkie国内版，情感陪伴+卡牌收集玩法- *...",
+      "replicable_points": [
+        "1. 双引擎产品矩阵策略",
+        "框架：",
+        "2. 游戏化情感陪伴产品设计",
+        "执行步骤：",
+        "3. 视频生成产品低价渗透"
+      ]
+    },
+    {
+      "id": "doubao-bytedance",
+      "name": "豆包（字节跳动）- 互联网巨头的AI助手增长",
+      "file": "cases/china/doubao-bytedance.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI助手",
+          "免费获客",
+          "字节生态",
+          "流量分发",
+          "补贴"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "亿级（估算）"
+      },
+      "summary": "豆包是字节跳动于2023年8月推出的AI助手产品，依托字节跳动强大的流量生态和分发能力，迅速成为国内AI助手市场的头部产品。豆包通过抖音、头条等字节系产品进行大规模推广，结合字节跳动独特的\"APP工厂\"模式，在短时间内实现了爆发式增长。豆包也是国内最早采用免费策略的AI助手产品之一。...",
+      "replicable_points": [
+        "1. 大厂流量赋能策略",
+        "框架：",
+        "2. APP工厂模式",
+        "执行步骤："
+      ]
+    },
+    {
+      "id": "webank",
+      "name": "微众银行-互联网银行增长",
+      "file": "cases/china/webank.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "金融",
+          "互联网银行",
+          "微信生态",
+          "纯线上"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "微众银行由腾讯于2014年12月发起设立，是中国首家互联网银行。微众银行没有物理网点，所有业务通过线上方式开展。微众银行的核心产品是微粒贷，面向微信/QQ用户提供纯信用贷款。微众银行通过大数据风控、互联网运营等方式，实现了没有网点情况下的规模化获客和低不良率。微众银行是中国互联网金融的重要创新，也是理解数字银行、场景金融的重要案例。...",
+      "replicable_points": [
+        "1. 互联网银行的获客策略",
+        "互联网银行获客框架：",
+        "2. 信用评估方法",
+        "数据驱动信用评估：",
+        "3. 场景金融拓展"
+      ]
+    },
+    {
+      "id": "tencent-yuanbao",
+      "name": "腾讯元宝（Tencent Yuanbao）- AI to C 的生态攻坚战",
+      "file": "cases/china/tencent-yuanbao.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI助手",
+          "腾讯生态",
+          "微信嵌入",
+          "DeepSeek借力",
+          "饱和式投流"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "腾讯元宝是腾讯于2025年初正式大力推广的AI助手产品，定位为腾讯AI to C战略的核心载体。2025年初，元宝通过率先接入DeepSeek-R1模型，借助DeepSeek的热度完成了漂亮的公众亮相，一度冲上App下载榜首。腾讯对元宝寄予厚望，将其视为在AI时代争夺用户入口的关键产品。腾讯拥有国内最大的社交生态——微信（日搜索量达6亿），为元宝提供了庞大的流量基础。元宝也是目前唯一一款可以抓取微...",
+      "replicable_points": [
+        "1. 借势成熟模型的快速入场法",
+        "框架：",
+        "2. 生态嵌入的流量转化策略",
+        "框架：",
+        "3. 饱和式投流的节奏把控"
+      ]
+    },
+    {
+      "id": "ele",
+      "name": "饿了么-外卖平台增长",
+      "file": "cases/china/ele.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "on_demand"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "本地生活",
+          "外卖",
+          "平台",
+          "阿里生态"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "1亿+"
+      },
+      "summary": "饿了么由张旭豪创立于2008年，是中国最早的外卖平台之一。2018年被阿里巴巴以95亿美元全资收购，成为阿里本地生活服务的一部分。饿了么与美团展开激烈竞争，在阿里生态支持下扩展到蜂鸟配送、商家赋能、会员体系等业务。当前在外卖市场份额约30%，是美团外卖的主要竞争者。...",
+      "replicable_points": [
+        "1. 即时配送体系构建",
+        "配送体系设计：",
+        "2. 商家赋能策略",
+        "商家赋能框架：",
+        "3. 生态协同模式"
+      ]
+    },
+    {
+      "id": "kimi-moonshot-ai",
+      "name": "Kimi（月之暗面）- AI助手爆发式增长",
+      "file": "cases/china/kimi-moonshot-ai.md",
+      "region": "china",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI助手",
+          "免费获客",
+          "内容营销",
+          "社交传播",
+          "长上下文"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "30亿美元+",
+        "users": "数千万（估算）"
+      },
+      "summary": "Kimi是月之暗面（Moonshot AI）推出的AI助手产品，成立于2023年3月，专注于长上下文窗口的大模型研发。Kimi凭借20万字超长上下文能力，在2024年迅速出圈，成为中国AI助手市场的头部产品。公司在短时间内完成多轮融资，估值迅速攀升，成为国内AI大模型领域的独角兽。...",
+      "replicable_points": [
+        "1. 差异化场景定位",
+        "框架：",
+        "2. 内容营销引爆",
+        "执行步骤："
+      ]
+    },
+    {
+      "id": "douyin-ecommerce",
+      "name": "抖音电商-直播带货爆发",
+      "file": "cases/china/douyin-ecommerce.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "短视频",
+          "兴趣电商",
+          "算法推荐",
+          "直播带货"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "抖音2016年上线，定位为\"音乐短视频社区\"。2018年抖音日活突破2.5亿，开始商业化。2019年抖音小店上线，开始电商试水。2020年疫情催化直播电商爆发，抖音成立电商部门，2021年独立为\"抖音电商\"，提出\"兴趣电商\"概念，2022年GMV突破1.5万亿。...",
+      "replicable_points": [
+        "1. 内容电商定位",
+        "判断是否适合抖音电商：",
+        "2. 直播间运营方法",
+        "提升留存率的技巧：",
+        "提升转化率的技巧："
+      ]
+    },
+    {
+      "id": "meituan",
+      "name": "美团-本地生活平台增长",
+      "file": "cases/china/meituan.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "本地生活",
+          "平台",
+          "外卖",
+          "美团优选"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "美团由王兴创立于2010年，最初是团购网站，经过\"千团大战\"存活下来。2013年进入外卖市场，2015年与大众点评合并，2018年上市后持续扩展到酒旅、出行、闪购等业务。美团通过\"Food+Platform\"战略，成为中国最大的本地生活服务平台，覆盖餐饮、酒旅、出行、零售等多个领域。美团的成功证明了\"脏活累活\"的地推能力是本地生活的核心竞争力。...",
+      "replicable_points": [
+        "1. 本地生活平台的地推策略",
+        "地推团队建设：",
+        "2. 超级平台交叉销售逻辑",
+        "交叉销售设计：",
+        "3. 供给端拓展方法论"
+      ]
+    },
+    {
+      "id": "yunji",
+      "name": "云集-社交电商裂变",
+      "file": "cases/china/yunji.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce",
+          "social"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "电商",
+          "B2B",
+          "跨境",
+          "物流"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "云集由肖尚略创立于2015年，定位社交电商平台，采用会员制+分销模式快速崛起。店主通过社交关系链销售商品，获得销售佣金。云集早期采用多级分销模式，2019年上市后因合规问题调整模式，从多级分销转向一级分销。2021年战略转型，从社交电商转向\"电商+SaaS\"双轮驱动。云集的发展历程是中国社交电商的典型代表，也是理解分销模式风险和机遇的重要案例。...",
+      "replicable_points": [
+        "1. 会员制社交电商模式",
+        "会员制社交电商设计框架：",
+        "2. 店主裂变机制设计",
+        "店主激励体系设计：",
+        "3. 分销合规边界把控"
+      ]
+    },
+    {
+      "id": "quark-ai",
+      "name": "夸克AI（阿里巴巴）- 超级入口的AI突围",
+      "file": "cases/china/quark-ai.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI助手",
+          "超级入口",
+          "阿里生态",
+          "年轻用户",
+          "高考服务"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "夸克是阿里巴巴于2023年推出的智能搜索产品，2024年全面集成AI能力，成为阿里AI to C战略的核心载体。夸克凭借阿里生态的支撑和年轻用户群体的精准定位，2024年累计下载量突破3.7亿次，成为国内AI应用年度下载量第一。夸克的用户群体中，00后年轻人占比超过半数，与AI应用的用户画像高度吻合。阿里将夸克定义为\"顶级AI to C超级入口\"，是阿里在AI时代争夺用户入口的关键产品。...",
+      "replicable_points": [
+        "1. 超级入口定位",
+        "框架：",
+        "2. 垂直场景突破",
+        "执行步骤："
+      ]
+    },
+    {
+      "id": "jd-furniture-roi252",
+      "name": "京东家具双11投放案例：ROI达到252",
+      "file": "cases/china/jd-furniture-roi252.md",
+      "region": "china",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [],
+        "problem": [],
+        "tactics": [],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "艾理思家具是一家专注于美式实木家具的电商品牌，在京东平台开设了官方旗舰店。店铺定位中高端市场，主打进口实木和真皮材质的产品，满足追求品质生活的消费者需求。2020年双11期间，艾理思家具希望借助大促流量实现销售爆发，决定加大推广投放力度。团队通过精细化的投放策略、深入的竞品分析和科学的AIDA转化模型，最终实现了ROI 252的惊人成绩，远超行业平均水平。本次投放案例不仅展示了家具品类在京东平台的...",
+      "replicable_points": [
+        "1. 电商投放策略框架",
+        "投放策略模板：",
+        "2. 主推商品选择方法",
+        "选品方法论：",
+        "3. AIDA转化模型应用"
+      ]
+    },
+    {
+      "id": "cursor-ai-editor",
+      "name": "Cursor - AI编程工具爆发式增长",
+      "file": "cases/overseas/cursor-ai-editor.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai",
+          "saas"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI编程",
+          "SaaS",
+          "工具",
+          "免费获客",
+          "社区"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "25亿美元+",
+        "users": "数百万+"
+      },
+      "summary": "Cursor是由Anysphere公司开发的AI代码编辑器，成立于2022年。它基于VS Code架构，集成了大语言模型能力，为开发者提供AI辅助编程功能。Cursor在短时间内迅速崛起，成为AI编程工具领域的标杆产品，估值从2023年的几亿美元增长到2024年的25亿美元以上，2026年年化收入已突破2亿美元。...",
+      "replicable_points": [
+        "1. 开发者工具免费获客策略",
+        "框架：",
+        "2. 开发者社区运营",
+        "核心平台："
+      ]
+    },
+    {
+      "id": "claude-anthropic",
+      "name": "Anthropic/Claude — AI助手产品增长案例",
+      "file": "cases/overseas/claude-anthropic.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10",
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI",
+          "大语言模型",
+          "企业级AI",
+          "AI安全",
+          "平台生态"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "超500亿美元"
+      },
+      "summary": "Anthropic由前OpenAI高管Dario Amodei、Daniela Amodei兄妹等人于2021年在旧金山创立，核心团队大多来自OpenAI。Anthropic的差异化定位是\"AI安全\"——不仅追求模型能力强大，更追求模型行为可控、对齐人类意图。Claude于2023年2月发布，最初通过API和Slack集成提供服务。2023年7月，Claude 2发布并向公众开放网页访问。2024...",
+      "replicable_points": [
+        "1. 安全差异化驱动企业销售",
+        "2. 合作伙伴生态快速渗透",
+        "3. 订阅分层覆盖不同价值用户",
+        "4. 全云厂商覆盖消除分发壁垒",
+        "5. 品牌承诺作为护城河"
+      ]
+    },
+    {
+      "id": "uber",
+      "name": "Uber-双边市场增长",
+      "file": "cases/overseas/uber.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "transportation"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "出行",
+          "平台",
+          "双边市场",
+          "动态定价",
+          "司机运营"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "1亿+"
+      },
+      "summary": "Uber由Travis Kalanick和Garrett Camp于2009年在旧金山创立，最初是高端租车服务，后来转型为众包出行平台。Uber通过app连接司机和乘客，颠覆了传统出租车行业。Uber通过补贴大战击败了Lyft等竞争对手，但也在全球多个市场面临监管挑战。2019年在纽交所上市，目前是全球最大的出行平台之一。...",
+      "replicable_points": [
+        "1. 双边市场增长策略",
+        "双边市场框架：",
+        "2. 动态定价机制",
+        "动态定价设计：",
+        "3. 供给端运营方法"
+      ]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney-社区驱动增长",
+      "file": "cases/overseas/midjourney.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI",
+          "图像生成",
+          "Discord社区",
+          "口碑传播",
+          "内容营销"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "2000万+"
+      },
+      "summary": "Midjourney由David Holz于2021年创立，David Holz曾是Leap Motion的CTO。Midjourney是一个文本生成图像的AI工具，用户通过自然语言描述即可生成精美的图片。2022年7月正式推出，通过Discord社区实现病毒式传播，成为AI图像生成领域的标杆产品。Midjourney从未花一分钱做广告，完全依赖社区驱动增长，证明了好产品+好社区可以创造指数级增长...",
+      "replicable_points": [
+        "1. Discord社区运营策略",
+        "社区建设框架：",
+        "2. 病毒内容设计",
+        "分享机制设计：",
+        "3. AI产品增长策略"
+      ]
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox-推荐裂变增长",
+      "file": "cases/overseas/dropbox.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "saas",
+          "storage"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [
+          "acquisition",
+          "referral"
+        ],
+        "tactics": [
+          "SaaS",
+          "存储",
+          "邀请裂变",
+          "免费获客",
+          "分享"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "7亿+"
+      },
+      "summary": "Dropbox由Drew Houston于2007年创立，当时他意识到自己经常在不同电脑间传输文件，U盘太麻烦，邮件太慢。Dropbox解决了这个痛点——一个可以同步任何文件的云存储服务。早期没有资金做广告，靠推荐计划实现零成本获客，用户从0增长到数亿。...",
+      "replicable_points": [
+        "1. 推荐裂变机制设计",
+        "推荐奖励设计原则：",
+        "2. 病毒系数监控",
+        "病毒系数计算：",
+        "病毒系数解读："
+      ]
+    },
+    {
+      "id": "slack",
+      "name": "Slack-产品驱动增长",
+      "file": "cases/overseas/slack.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "saas"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [
+          "monetization"
+        ],
+        "tactics": [
+          "SaaS",
+          "协作",
+          "工具",
+          "社区",
+          "免费+付费"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "无限",
+        "valuation": "2014-2018"
+      },
+      "summary": "Slack的前身是游戏公司Tiny Speck，团队成员分布在全球各地，沟通成为痛点。团队开发了一款内部工具用于解决沟通问题，无意间发现这个工具比游戏更有价值。于是2012年正式转型，2013年以Slack品牌正式对外运营。...",
+      "replicable_points": [
+        "1. PLG模式设计",
+        "适合PLG的产品特征：",
+        "执行步骤：",
+        "2. 网络效应构建",
+        "让产品不可替代的技巧："
+      ]
+    },
+    {
+      "id": "airbnb",
+      "name": "Airbnb-信任机制增长",
+      "file": "cases/overseas/airbnb.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "travel"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "住宿",
+          "平台",
+          "双边市场",
+          "信任机制",
+          "体验"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "1.5亿+"
+      },
+      "summary": "Airbnb由Brian Chesky、Joe Gebbia和Nathan Blecharczyk于2008年在旧金山创立，最初是\"睡气垫床+早餐\"的概念（Air Bed and Breakfast）。Airbnb解决了旅行者寻找住宿的问题，同时也帮助房东将闲置房间变现。Airbnb通过信任机制、摄影服务和本地化运营，成为全球最大的共享住宿平台。2020年在纳斯达克上市，是疫情后最大的IPO之一。...",
+      "replicable_points": [
+        "1. 共享经济信任机制设计",
+        "信任体系设计：",
+        "2. 供给端增长策略",
+        "供给端增长框架：",
+        "3. 本地化运营方法"
+      ]
+    },
+    {
+      "id": "pika-ai",
+      "name": "Pika AI-社区+产品驱动增长",
+      "file": "cases/overseas/pika-ai.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video",
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI",
+          "视频生成",
+          "Discord社区",
+          "产品驱动",
+          "内容营销"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "500万+"
+      },
+      "summary": "Pika由Demi Guo和Chenlin Meng于2023年创立，二人均为斯坦福大学博士休学创业。公司专注于开发AI视频生成和编辑工具，用户可通过文字描述或图片生成视频。2023年6月以Discord社区形式低调上线，2023年11月正式发布Pika 1.0并宣布融资，迅速积累50万用户，每周生成数百万个视频。Pika的核心差异化在于简单易用的视频编辑体验，支持多种视觉风格（3D动画、动漫、电...",
+      "replicable_points": [
+        "1. Discord社区运营策略",
+        "社区建设框架：",
+        "2. 视频产品的传播设计",
+        "分享机制设计：",
+        "3. AI产品增长飞轮"
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion-社区驱动增长",
+      "file": "cases/overseas/notion.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "saas"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "SaaS",
+          "协作",
+          "社区",
+          "模板生态",
+          "免费获客"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "100亿+美元",
+        "users": "2000万+"
+      },
+      "summary": "Notion由Ivan Zhao和Simon Last于2013年创立，是一款\"All-in-One\"的工作空间工具，可以用于笔记、文档、任务管理、数据库、wiki等。Notion的独特之处在于其极高的可定制性和模块化设计，用户可以像搭积木一样构建自己的工作空间。Notion通过强大的社区文化、模板生态和个人用户免费策略，实现了快速增长，成为新一代 productivity 工具的代表。...",
+      "replicable_points": [
+        "1. 社区驱动增长策略",
+        "社区运营框架：",
+        "2. 模板生态建设",
+        "模板生态设计：",
+        "3. 免费版获客设计"
+      ]
+    },
+    {
+      "id": "warby-parker",
+      "name": "Warby Parker-眼镜直销",
+      "file": "cases/overseas/warby-parker.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "眼镜",
+          "DTC",
+          "Home Try-On",
+          "订阅",
+          "透明定价"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "30亿+美元",
+        "users": "数百万"
+      },
+      "summary": "Warby Parker由Neil Blumenthal、Dave Gilboa、Andrew Hunt和Jeffrey Raider于2010年在费城创立。四位创始人相识于沃顿商学院，创业灵感来自Gilboa在购买眼镜时的糟糕体验——一副眼镜要价800美元，但实际成本可能只有50美元。品牌名字来源于两个虚构角色：Warby佩奇（Parker）和Zagg佩奇（Fletcher），这两个名字是创始人...",
+      "replicable_points": [
+        "1. DTC模式设计",
+        "DTC眼镜框架：",
+        "2. Home Try-On体验设计",
+        "Home Try-On框架：",
+        "3. 价格差异化策略"
+      ]
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe-开发者生态增长",
+      "file": "cases/overseas/stripe.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "fintech"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "支付",
+          "开发者",
+          "API",
+          "平台",
+          "SaaS"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "950亿+"
+      },
+      "summary": "",
+      "replicable_points": []
+    },
+    {
+      "id": "suno-music-ai",
+      "name": "Suno — AI音乐生成产品增长案例",
+      "file": "cases/overseas/suno-music-ai.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI音乐",
+          "生成式AI",
+          "消费级AI",
+          "SaaS",
+          "订阅"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "5亿美元"
+      },
+      "summary": "Suno由四位前Kensho（AI初创公司）员工于2022年在马萨诸塞州剑桥市创立。核心团队背景集中在机器学习和音频AI领域。Suno的差异化定位是**让任何人都能通过简单的文字提示创作完整歌曲**——包括作词、作曲、编曲、人声和伴奏。2023年12月20日，Suno公开发布Web应用，并通过与Microsoft的合作（作为Copilot插件）迅速获得大量用户。2024年产品快速迭代，2025年9...",
+      "replicable_points": [
+        "1. 前置Wow Moment——让价值在第一次使用就完整呈现",
+        "2. 免费层触发转化而非留存",
+        "3. 从消费级到专业级的渐进式扩展",
+        "4. 善用产业资本（战略投资者）"
+      ]
+    },
+    {
+      "id": "silver-hair-reward-platforms",
+      "name": "海外银发奖励平台-Swagbucks/InboxDollars",
+      "file": "cases/overseas/silver-hair-reward-platforms.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "任务墙",
+          "积分奖励",
+          "银发用户",
+          "问卷调查",
+          "APP试玩"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "海外银发人群（50岁以上）是奖励类平台的重要用户群体。与国内\"看视频赚金币\"不同，海外平台以**任务墙(Offer Wall)** 为核心，用户通过完成问卷、试玩APP、观看广告等任务获得积分，积分兑换礼品卡或现金。**代表平台**：- **Swagbucks**：北美最大奖励平台，Task-based Rewards- **InboxDollars**：邮件阅读+视频奖励，老年人友好- **Mi...",
+      "replicable_points": [
+        "1. 任务墙设计框架",
+        "2. 老年人支付体系设计"
+      ]
+    },
+    {
+      "id": "openai-chatgpt",
+      "name": "OpenAI/ChatGPT-生成式AI产品增长",
+      "file": "cases/overseas/openai-chatgpt.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10",
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI",
+          "大语言模型",
+          "消费应用",
+          "平台生态",
+          "SaaS"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "5000亿美元+"
+      },
+      "summary": "OpenAI成立于2015年12月，由Sam Altman、Elon Musk等人创立，总部位于旧金山。OpenAI最初作为非营利AI研究实验室，后于2019年转型为\"利润上限\"结构，以吸引外部投资。ChatGPT于2022年11月30日发布，基于GPT-3.5（后升级为GPT-4/4o/5）大语言模型。发布后迅速成为史上增长最快的消费者应用，两个月内月活用户突破1亿。ChatGPT被公认为引爆了...",
+      "replicable_points": [
+        "1. Freemium驱动病毒传播",
+        "2. 快速迭代保持热度",
+        "3. 平台生态扩展边界",
+        "4. 战略合作加速增长",
+        "5. 分层订阅最大化用户价值"
+      ]
+    },
+    {
+      "id": "allbirds",
+      "name": "Allbirds-口碑增长",
+      "file": "cases/overseas/allbirds.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "鞋",
+          "DTC",
+          "可持续",
+          "口碑",
+          "简约"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "22亿美元"
+      },
+      "summary": "Allbirds由Tim Brown和Joey Zwillinger于2015年3月在新西兰成立。Tim Brown是前职业足球运动员，Joey是可持续发展领域的创业者。两人共同发现了用桉树纤维制作鞋子的创新方法，创造了\"世界上最舒适的鞋子\"。Allbirds的核心差异化是可持续时尚——使用桉树纤维、甘蔗等天然材料制作鞋子，碳足迹极低。品牌的极简设计、无logo风格在硅谷科技圈迅速流行，成为科技精...",
+      "replicable_points": [
+        "1. 产品差异化策略",
+        "差异化框架：",
+        "2. 口碑传播设计",
+        "口碑增长框架：",
+        "3. DTC模式运营"
+      ]
+    },
+    {
+      "id": "zoom",
+      "name": "Zoom-病毒式增长",
+      "file": "cases/overseas/zoom.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "video",
+          "saas"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "SaaS",
+          "视频会议",
+          "病毒传播",
+          "免费获客",
+          "产品驱动"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "3亿+",
+        "valuation": "1000亿+美元"
+      },
+      "summary": "Zoom由Eric Yuan于2011年创立，Eric Yuan曾是WebEx的工程副总裁，离开后创立了Zoom。Zoom专注于视频会议产品，凭借极简的产品体验和病毒式传播，在竞争激烈的视频会议市场脱颖而出。2019年在NASDAQ上市，2020年疫情爆发后用户爆发式增长，成为全球最大的视频会议平台。Zoom的成功证明了产品力是最好的营销，以及简单体验可以创造惊人增长。...",
+      "replicable_points": [
+        "1. 产品驱动增长的策略",
+        "产品驱动增长框架：",
+        "2. 病毒式传播设计",
+        "病毒传播设计：",
+        "3. 免费版获客模式"
+      ]
+    },
+    {
+      "id": "calendly",
+      "name": "Calendly-工具产品增长",
+      "file": "cases/overseas/calendly.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "saas"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "工具",
+          "日程",
+          "预约",
+          "免费获客",
+          "集成生态"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "30亿美元+",
+        "users": "1000万+"
+      },
+      "summary": "Calendly由John O'Connor和Natasha Matiasevich于2012年创立。创始人发现日程安排是每个职场人都会遇到的痛点——反复邮件沟通、时区混乱、多次确认。Calendly通过简化预约流程，让用户可以分享链接，让对方选择可用时间，自动完成日程安排。Calendly的核心价值是\"消除日程协调的痛苦\"。用户可以设置自己的日历可用时段，分享链接给其他人，对方选择时间后自动创建...",
+      "replicable_points": [
+        "1. 工具产品病毒增长",
+        "病毒增长框架：",
+        "2. 免费版获客设计",
+        "免费版策略：",
+        "3. 场景扩展方法"
+      ]
+    },
+    {
+      "id": "glossier",
+      "name": "Glossier-社交电商",
+      "file": "cases/overseas/glossier.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "fashion"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "美妆",
+          "DTC",
+          "社区",
+          "KOC",
+          "社交电商"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "12亿美元",
+        "users": "数百万"
+      },
+      "summary": "Glossier由Emily Weiss于2014年在纽约创立。Weiss曾在时尚杂志工作，创办了美妆博客\"Into The Gloss\"，积累了数十万忠实读者。博客的成功让她看到了美妆行业的变革机会——消费者不再迷信大牌，而是更相信真实用户的评价和口碑。Glossier的核心理念是\"皮肤优先\"，主张简化护肤步骤，用最少的成分达到最好的效果。品牌从护肤品切入，逐步扩展到彩妆领域。Glossier的...",
+      "replicable_points": [
+        "1. 社区驱动增长策略",
+        "社区运营框架：",
+        "2. KOC营销方法",
+        "KOC矩阵建设：",
+        "3. DTC品牌建设"
+      ]
+    },
+    {
+      "id": "dollar-shave-club",
+      "name": "Dollar Shave Club-订阅电商",
+      "file": "cases/overseas/dollar-shave-club.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "订阅",
+          "DTC",
+          "剃须刀",
+          "病毒视频",
+          "个护"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "Dollar Shave Club由Michael Dubin和Eric Klufts于2012年7月在洛杉矶创立。创始人Dubin曾是内容营销从业者，Klufts则有消费品背景。两人在一次聚会上聊到剃须刀的高昂价格和繁琐购买体验，决定用订阅模式颠覆这个被吉列垄断的市场。2012年3月，Dollar Shave Club发布了一支病毒视频，创始人亲自出镜，用幽默直接的方式介绍品牌。视频在48小时内...",
+      "replicable_points": [
+        "1. 病毒视频冷启动策略",
+        "病毒视频公式：",
+        "2. 订阅模式设计框架",
+        "订阅模式设计：",
+        "3. 品牌社区建设方法"
+      ]
+    },
+    {
+      "id": "airbnb-host",
+      "name": "Airbnb-房源增长策略",
+      "file": "cases/overseas/airbnb-host.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "travel"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "住宿",
+          "房东",
+          "平台",
+          "信任",
+          "保障"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "",
+      "replicable_points": []
+    },
+    {
+      "id": "runway-ai",
+      "name": "Runway AI-内容生态驱动增长",
+      "file": "cases/overseas/runway-ai.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "video",
+          "ai"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI",
+          "视频生成",
+          "影视合作",
+          "内容生态",
+          "产品驱动"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "$5.3B+（2025年）"
+      },
+      "summary": "Runway AI由Cristóbal Valenzuela、Anastasis Germanidis和Alejandro Matamala于2018年创立，是一家专注于生成式AI媒体制作的科技公司。Runway最初是作为创意工具平台起步，2022年凭借Stable Diffusion（参与开发）进入AI图像生成领域，2023年推出Gen系列视频生成模型迅速走红。公司通过与好莱坞影视公司合作、举办...",
+      "replicable_points": [
+        "1. 行业合作策略",
+        "影视合作框架：",
+        "2. 活动运营策略",
+        "社区活动设计：",
+        "3. 平台生态策略"
+      ]
+    },
+    {
+      "id": "elevenlabs-ai",
+      "name": "ElevenLabs — AI语音合成产品增长案例",
+      "file": "cases/overseas/elevenlabs-ai.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI语音",
+          "生成式AI",
+          "企业级AI",
+          "B2B SaaS",
+          "API"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "11亿美元"
+      },
+      "summary": "ElevenLabs由波兰创始人Piotr Dąbkowski（CTO）和Mati Staniszewski（CEO）于2022年创立，总部位于伦敦，在纽约设有美国总部。两位创始人均来自机器学习背景，创业前专注于语音合成研究。ElevenLabs的差异化定位是**构建最自然、最具表现力的AI语音合成平台**，从最初的语音生成工具，逐步扩展为覆盖语音、音频、音乐、代理的完整AI音频生态系统。增长核心...",
+      "replicable_points": [
+        "1. API优先策略——用最低摩擦的方式获取开发者",
+        "2. 从单点工具到平台生态的渐进式扩展",
+        "3. 企业销售的分层推进策略",
+        "4. 安全与信任作为差异化竞争优势"
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity-答案引擎增长",
+      "file": "cases/overseas/perplexity.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI",
+          "搜索引擎",
+          "答案引擎",
+          "产品驱动",
+          "免费获客"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "4500万+ MAU",
+        "valuation": "$20亿"
+      },
+      "summary": "Perplexity AI由Aravind Srinivas、Denis Yarats、Johnny Ho和Andy Konwinski于2022年8月创立，创始团队成员来自Google、DeepMind等顶级AI研究机构。Perplexity是一款AI答案引擎，直接提供带有引用来源的答案，而非传统搜索引擎的链接列表。产品通过\"答案优于链接\"的差异化定位迅速获得用户青睐。2022年上线后增长迅猛，...",
+      "replicable_points": [
+        "1. 答案引擎增长策略",
+        "产品差异化框架：",
+        "2. 社交媒体增长机制",
+        "病毒传播设计：",
+        "3. Freemium商业模式"
+      ]
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot-入站营销增长",
+      "file": "cases/overseas/hubspot.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "saas"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "SaaS",
+          "营销自动化",
+          "入站营销",
+          "CRM",
+          "内容营销"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "HubSpot由Brian Halligan和Dharmesh Shah于2006年在MIT创立，是入站营销（Inbound Marketing）理念的提出者和践行者。HubSpot通过免费工具、优质内容和社区运营，实现了低成本获客和用户增长。HubSpot从营销自动化工具起家，逐步扩展到销售、服务CRM等领域，成为B2B SaaS领域的标杆公司。HubSpot的入站营销方法论深刻影响了全球营销行...",
+      "replicable_points": [
+        "1. 入站营销方法论",
+        "入站营销框架：",
+        "2. 免费工具引流策略",
+        "免费工具设计：",
+        "3. 教育内容体系搭建"
+      ]
+    },
+    {
+      "id": "windsurf-ai-editor",
+      "name": "Windsurf - AI编程工具差异化增长",
+      "file": "cases/overseas/windsurf-ai-editor.md",
+      "region": "overseas",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ai",
+          "saas"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI编程",
+          "SaaS",
+          "工具",
+          "收购整合",
+          "企业市场"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "被Cognition收购"
+      },
+      "summary": "Windsurf是由Windsurf Inc.开发的AI代码助手，成立于2023年，创始人兼CEO为Jeff Wang。公司以\"让开发者保持心流状态\"为核心理念，通过差异化的产品设计迅速获得用户青睐。2025年7月，AI编程工具公司Cognition（以AI工程师Devin闻名）宣布收购Windsurf，交易估值约30亿美元，成为AI编程工具领域最大收购案之一。...",
+      "replicable_points": [
+        "1. 差异化定位策略",
+        "框架：",
+        "2. 企业市场突破",
+        "关键步骤："
+      ]
+    },
+    {
+      "id": "doordash",
+      "name": "DoorDash-外卖平台增长",
+      "file": "cases/overseas/doordash.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "on_demand"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "外卖",
+          "平台",
+          "本地生活",
+          "配送"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "500亿+"
+      },
+      "summary": "",
+      "replicable_points": []
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot — AI编程工具市场开创者与增长",
+      "file": "cases/overseas/github-copilot.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai",
+          "saas"
+        ],
+        "stage": [
+          "1-10",
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "AI编程",
+          "SaaS",
+          "B2D",
+          "生态",
+          "平台"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "归属于Microsoft（GitHub 2018年收购价75亿美元，Copilot单独估值不可估量）"
+      },
+      "summary": "GitHub Copilot由GitHub与OpenAI合作开发，于2021年6月推出技术预览，2021年10月正式商业化。它是全球首个规模化商用的AI配对编程工具，基于OpenAI的Codex模型（GPT-4的后代），能够为开发者提供代码补全、代码生成、代码解释等功能。GitHub Copilot的诞生标志着AI编程工具品类的正式确立，随后迅速催生了一个庞大竞争格局——Amazon CodeWh...",
+      "replicable_points": [
+        "1. 平台生态锁定策略",
+        "框架：",
+        "2. 自下而上的开发者采用策略",
+        "框架：",
+        "3. 多层级定价策略"
+      ]
+    },
+    {
+      "id": "character-ai",
+      "name": "Character.AI-社区裂变增长",
+      "file": "cases/overseas/character-ai.md",
+      "region": "overseas",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ai"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "AI",
+          "对话机器人",
+          "社区",
+          "UGC",
+          "免费获客"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "1000万+（高峰期）",
+        "valuation": "$10亿+"
+      },
+      "summary": "Character.AI由Noam Shazeer和Daniel de Freitas于2021年创立，二人曾是Google LaMDA项目的核心成员。Character.AI是一个AI对话平台，用户可以创建个性化的AI角色进行聊天，角色可以基于名人、动漫人物或完全原创。2022年9月开放beta测试后迅速爆发，2023年3月估值已达10亿美元。平台支持用户创建和分享自己的AI角色，形成了独特的U...",
+      "replicable_points": [
+        "1. UGC社区增长策略",
+        "角色平台建设框架：",
+        "2. 情感陪伴产品定位",
+        "情感价值设计：",
+        "3. AI产品增长指标"
+      ]
+    },
+    {
+      "id": "shein",
+      "name": "SHEIN-快时尚出海",
+      "file": "cases/vertical/shein.md",
+      "region": "vertical",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "ecommerce",
+          "fashion"
+        ],
+        "stage": [],
+        "problem": [],
+        "tactics": [
+          "快时尚",
+          "出海",
+          "供应链",
+          "KOC",
+          "DTC"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "1000亿美元+",
+        "gmv": "300亿美元+"
+      },
+      "summary": "SHEIN由Chris Xu于2008年在南京创立，最初是一个婚纱电商网站，2012年转型为快时尚女装品牌。SHEIN通过极致的供应链速度和社交媒体营销，成为全球下载量最高 shopping app，估值超过1000亿美元，超越H&M和Zara的总和。SHEIN的核心竞争力是\"小批量、多款式、快翻单\"的供应链模式，每天可以上新1000+款，单款首单只生产100-200件，根据销售数据快速翻单。这种...",
+      "replicable_points": [
+        "1. 快时尚供应链模式",
+        "供应链框架：",
+        "2. 社交媒体营销策略",
+        "社交营销框架：",
+        "3. 数据驱动选品"
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok-海外增长",
+      "file": "cases/vertical/tiktok.md",
+      "region": "vertical",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "social",
+          "video"
+        ],
+        "stage": [],
+        "problem": [],
+        "tactics": [
+          "短视频",
+          "出海",
+          "算法推荐",
+          "全球",
+          "社交"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "TikTok是字节跳动旗下抖音的海外版，2017年以TikTok品牌进入国际市场。2017年底收购 Musical.ly（美国短视频平台），2018年整合为统一的TikTok。凭借抖音验证的算法技术和运营经验，TikTok成为全球下载量最大的应用之一，2022年MAU突破10亿。...",
+      "replicable_points": [
+        "1. 出海增长策略",
+        "判断是否适合出海：",
+        "2. 本地化执行框架",
+        "3. 收购整合策略",
+        "什么时候适合收购："
+      ]
+    },
+    {
+      "id": "dtc-brand",
+      "name": "跨境电商独立站-品牌出海",
+      "file": "cases/vertical/dtc-brand.md",
+      "region": "vertical",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "ecommerce"
+        ],
+        "stage": [
+          "1-10"
+        ],
+        "problem": [],
+        "tactics": [
+          "跨境",
+          "DTC",
+          "独立站",
+          "品牌",
+          "Shopify"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "跨境电商独立站是中国品牌出海的重要模式之一。与在Amazon、eBay等平台上销售不同，独立站让品牌拥有自己的销售渠道、用户数据和品牌体验。代表性企业包括Anker（安克）、Shein、Zaful等。2015年后，Shopify等SaaS建站工具的普及大幅降低了独立站的建站门槛。Facebook、Google等广告平台提供了精准的流量获取渠道。中国卖家开始大量进入独立站领域，形成了\"站群模式\"、\"...",
+      "replicable_points": [
+        "1. 独立站建站策略",
+        "建站框架：",
+        "2. 流量获取方法论",
+        "流量框架：",
+        "3. 品牌化转型路径"
+      ]
+    },
+    {
+      "id": "tencent-games",
+      "name": "腾讯游戏-出海增长",
+      "file": "cases/vertical/tencent-games.md",
+      "region": "vertical",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "gaming"
+        ],
+        "stage": [],
+        "problem": [],
+        "tactics": [
+          "游戏",
+          "出海",
+          "投资",
+          "IP",
+          "电竞"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "腾讯游戏成立于2003年，是中国最大的游戏公司，也是全球最大的游戏公司。腾讯游戏通过自研+代理+投资的模式，建立了全球最大的游戏帝国。旗下拥有《王者荣耀》、《和平精英》等国民级手游，以及《英雄联盟》、《堡垒之夜》等全球顶级PC游戏。腾讯游戏的出海战略以\"投资+代理\"为核心，通过入股或收购全球知名游戏公司，获取顶级游戏的中国大陆运营权或全球合作。代表性的投资包括拳头游戏（Riot Games）、Su...",
+      "replicable_points": [
+        "1. 游戏出海策略",
+        "游戏出海框架：",
+        "2. 投资布局模式",
+        "投资框架：",
+        "3. 电竞生态建设"
+      ]
+    },
+    {
+      "id": "vipkid",
+      "name": "VIPKID-少儿英语增长",
+      "file": "cases/vertical/vipkid.md",
+      "region": "vertical",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "education"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "教育",
+          "英语",
+          "在线",
+          "一对一",
+          "少儿"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "数十亿美元"
+      },
+      "summary": "VIPKID由米雯娟创立于2013年，是国内最大的在线少儿英语平台。VIPKID通过1对1北美外教在线教学，为4-15岁儿童提供英语教育服务。VIPKID凭借\"纯北美外教\"的定位、高品质的教学质量，建立了良好的口碑，成为在线教育行业的标杆公司。VIPKID曾获得腾讯、红杉资本等顶级投资，估值超过30亿美元，但随着\"双减\"政策落地，K12培训行业整体受挫，VIPKID也面临转型压力。...",
+      "replicable_points": [
+        "1. 在线教育增长策略",
+        "在线教育增长框架：",
+        "2. 师资供给体系",
+        "外教招募SOP：",
+        "3. 口碑推荐设计"
+      ]
+    },
+    {
+      "id": "bytedance-overseas",
+      "name": "字节跳动-海外产品矩阵",
+      "file": "cases/vertical/bytedance-overseas.md",
+      "region": "vertical",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "social",
+          "content"
+        ],
+        "stage": [],
+        "problem": [],
+        "tactics": [
+          "互联网",
+          "出海",
+          "产品矩阵",
+          "本地化",
+          "投资"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "valuation": "4000亿美元+"
+      },
+      "summary": "字节跳动由张一鸣于2012年在北京创立，是中国最具国际化的互联网公司之一。字节跳动以\"推荐算法\"为核心竞争力，通过TikTok（抖音海外版）、TopBuzz、Helo等产品矩阵，在全球市场取得了巨大成功。2017年，字节跳动以10亿美元收购Musical.ly，整合进TikTok，一跃成为全球短视频领域的领导者。字节跳动的海外产品覆盖150多个国家和地区，海外收入超过数十亿美元。字节跳动的成功证明...",
+      "replicable_points": [
+        "1. 出海产品矩阵策略",
+        "产品矩阵框架：",
+        "2. 技术中台建设",
+        "技术中台框架：",
+        "3. 本地化团队搭建"
+      ]
+    },
+    {
+      "id": "yuanfudao",
+      "name": "猿辅导-题库产品增长",
+      "file": "cases/vertical/yuanfudao.md",
+      "region": "vertical",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "education"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "教育",
+          "在线",
+          "英语",
+          "AI辅导",
+          "题库"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "4亿+",
+        "valuation": "155亿美元（IPO前）"
+      },
+      "summary": "猿辅导由李勇创立于2012年，是中国领先的智能教育公司。旗下产品包括：小猿搜题（拍照搜题）、猿题库（题库练习）、小猿口算（口算批改）、斑马AI课（AI课程）等。猿辅导最初以题库工具切入市场，通过免费工具聚集海量用户，再通过数据沉淀和用户运营实现课程转化。2021年\"双减\"政策后，猿辅导转型职业教育、素质教育等方向。猿辅导的\"工具+课程\"模式是中国在线教育的重要创新。...",
+      "replicable_points": [
+        "1. 工具+课程的产品矩阵",
+        "产品矩阵设计：",
+        "2. 数据驱动的转化",
+        "数据驱动转化框架：",
+        "3. 品牌投放策略"
+      ]
+    },
+    {
+      "id": "coursera",
+      "name": "Coursera-在线教育增长",
+      "file": "cases/vertical/coursera.md",
+      "region": "vertical",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "education"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "教育",
+          "在线",
+          "MOOC",
+          "B2C",
+          "认证"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "7700万+"
+      },
+      "summary": "Coursera由斯坦福大学教授Daphne Koller和Andrew Ng于2012年创立，是全球最大的在线教育平台之一。Coursera与全球200多所大学和知名企业合作，提供高质量的在线课程、证书项目和学位项目。2021年在纽交所上市。Coursera的核心竞争力是顶级大学的课程内容和名企背书，通过免费+付费的模式实现商业化，成为MOOC（大型开放在线课程）的标志性公司。...",
+      "replicable_points": [
+        "1. 在线教育增长策略",
+        "在线教育平台增长框架：",
+        "2. 证书体系设计",
+        "证书产品设计原则：",
+        "3. B端市场拓展"
+      ]
+    },
+    {
+      "id": "shareit",
+      "name": "SHAREit（茄子快传）-工具出海",
+      "file": "cases/vertical/shareit.md",
+      "region": "vertical",
+      "evidence_tier": "C",
+      "evidence_sources": [
+        "媒体报道",
+        "用户访谈",
+        "行业观察"
+      ],
+      "confidence": 0.75,
+      "tags": {
+        "industry": [
+          "content"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [],
+        "tactics": [
+          "工具",
+          "出海",
+          "预装",
+          "新兴市场",
+          "转型"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {},
+      "summary": "茄子快传由杨元春于2012年在中国创立，是一款跨平台文件传输工具。用户可以在没有网络的情况下，通过Wi-Fi Direct或其他技术快速传输文件。茄子快传在印度、东南亚、中东等新兴市场获得了爆发式增长，成为印度等市场占有率最高的传输工具。2017年，茄子快传开始从单一工具向内容平台转型，推出游戏、视频、音乐等内容服务。通过工具积累的庞大用户基础，茄子快传尝试成为新兴市场的\"内容分发平台\"，从工具成...",
+      "replicable_points": [
+        "1. 工具出海策略",
+        "工具出海框架：",
+        "2. 预装渠道建设",
+        "预装策略：",
+        "3. 平台转型方法"
+      ]
+    },
+    {
+      "id": "duolingo",
+      "name": "Duolingo-游戏化学习增长",
+      "file": "cases/vertical/duolingo.md",
+      "region": "vertical",
+      "evidence_tier": "B",
+      "evidence_sources": [
+        "公开财报",
+        "媒体报道",
+        "行业分析"
+      ],
+      "confidence": 0.85,
+      "tags": {
+        "industry": [
+          "education"
+        ],
+        "stage": [
+          "10-100"
+        ],
+        "problem": [
+          "acquisition"
+        ],
+        "tactics": [
+          "教育",
+          "游戏化",
+          "学习",
+          "免费获客",
+          "AI"
+        ],
+        "business_model": []
+      },
+      "key_metrics": {
+        "users": "5亿+"
+      },
+      "summary": "Duolingo由Luis von Ahn（同时也是验证码CAPTCHA发明者）创立，理念是\"让所有人免费学习语言\"。通过游戏化的设计，让学习语言变得有趣，从而提高学习坚持率。2019年亏损状态下IPO，但凭借用户规模和增长潜力，市值一度突破500亿美元。...",
+      "replicable_points": [
+        "1. 游戏化机制设计",
+        "设计游戏化机制的步骤：",
+        "2. 留存机制设计",
+        "防止用户流失的方法：",
+        "3. 变现模式设计"
+      ]
+    }
+  ],
+  "index_by_industry": {
+    "ai": [
+      "deepseek",
+      "zhipu-ai",
+      "mita-ai-search",
+      "minimax-ai",
+      "doubao-bytedance",
+      "tencent-yuanbao",
+      "kimi-moonshot-ai",
+      "quark-ai",
+      "cursor-ai-editor",
+      "midjourney",
+      "pika-ai",
+      "runway-ai",
+      "perplexity",
+      "windsurf-ai-editor",
+      "github-copilot",
+      "character-ai"
+    ],
+    "video": [
+      "douyin-algorithm",
+      "bilibili",
+      "kuaishou-baina",
+      "douyin-jisu-ban",
+      "kuaishou-jisu-ban",
+      "minimax-ai",
+      "pika-ai",
+      "zoom",
+      "runway-ai",
+      "tiktok"
+    ],
+    "travel": [
+      "ctrip",
+      "airbnb",
+      "airbnb-host"
+    ],
+    "ecommerce": [
+      "taobao-live",
+      "white-get-gift",
+      "douyin-pay",
+      "dewu",
+      "xiaohongshu",
+      "jd-member-ops",
+      "pinduoduo-group-buy",
+      "vipshop",
+      "baba-farm",
+      "douyin-ecommerce",
+      "yunji",
+      "dollar-shave-club",
+      "shein",
+      "dtc-brand"
+    ],
+    "social": [
+      "ant-forest",
+      "wechat-redpacket",
+      "momo",
+      "pinduoduo-group-buy",
+      "soul",
+      "yunji",
+      "tiktok",
+      "bytedance-overseas"
+    ],
+    "education": [
+      "child-english-insight",
+      "vipkid",
+      "yuanfudao",
+      "coursera",
+      "duolingo"
+    ],
+    "fintech": [
+      "wechat-pay",
+      "wechat-redpacket",
+      "douyin-pay",
+      "jd-finance",
+      "alipay",
+      "stripe"
+    ],
+    "transportation": [
+      "didi",
+      "uber"
+    ],
+    "on_demand": [
+      "ele",
+      "doordash"
+    ],
+    "saas": [
+      "cursor-ai-editor",
+      "dropbox",
+      "slack",
+      "notion",
+      "zoom",
+      "calendly",
+      "hubspot",
+      "windsurf-ai-editor",
+      "github-copilot"
+    ],
+    "storage": [
+      "dropbox"
+    ],
+    "fashion": [
+      "glossier",
+      "shein"
+    ],
+    "gaming": [
+      "tencent-games"
+    ],
+    "content": [
+      "bytedance-overseas",
+      "shareit"
+    ]
+  },
+  "index_by_problem": {
+    "acquisition": [
+      "deepseek",
+      "child-english-insight",
+      "white-get-gift",
+      "baba-farm",
+      "minimax-ai",
+      "doubao-bytedance",
+      "kimi-moonshot-ai",
+      "cursor-ai-editor",
+      "dropbox",
+      "notion",
+      "zoom",
+      "calendly",
+      "perplexity",
+      "windsurf-ai-editor",
+      "character-ai",
+      "duolingo"
+    ],
+    "referral": [
+      "kuaishou-baina",
+      "qutoutiao",
+      "wechat-redpacket",
+      "white-get-gift",
+      "douyin-jisu-ban",
+      "silver-hair-growth",
+      "pinduoduo-group-buy",
+      "kuaishou-jisu-ban",
+      "baba-farm",
+      "dropbox"
+    ],
+    "retention": [
+      "baba-farm"
+    ],
+    "monetization": [
+      "slack"
+    ]
+  },
+  "index_by_tactic": {
+    "开源模型": [
+      "deepseek"
+    ],
+    "低成本训练": [
+      "deepseek"
+    ],
+    "viral增长": [
+      "deepseek"
+    ],
+    "技术突破": [
+      "deepseek"
+    ],
+    "出海": [
+      "deepseek",
+      "minimax-ai",
+      "shein",
+      "tiktok",
+      "tencent-games",
+      "bytedance-overseas",
+      "shareit"
+    ],
+    "社交": [
+      "douyin-algorithm",
+      "bilibili",
+      "zhihu",
+      "ant-forest",
+      "wechat-pay",
+      "momo",
+      "soul",
+      "tiktok"
+    ],
+    "算法推荐": [
+      "douyin-algorithm",
+      "douyin-ecommerce",
+      "tiktok"
+    ],
+    "短视频": [
+      "douyin-algorithm",
+      "douyin-jisu-ban",
+      "kuaishou-jisu-ban",
+      "douyin-ecommerce",
+      "tiktok"
+    ],
+    "内容分发": [
+      "douyin-algorithm"
+    ],
+    "社区": [
+      "bilibili",
+      "dewu",
+      "xiaohongshu",
+      "cursor-ai-editor",
+      "slack",
+      "notion",
+      "glossier",
+      "character-ai"
+    ],
+    "z世代": [
+      "bilibili",
+      "dewu",
+      "soul"
+    ],
+    "acg": [
+      "bilibili"
+    ],
+    "弹幕": [
+      "bilibili"
+    ],
+    "旅游": [
+      "ctrip"
+    ],
+    "ota": [
+      "ctrip"
+    ],
+    "平台": [
+      "ctrip",
+      "beike",
+      "didi",
+      "ele",
+      "meituan",
+      "uber",
+      "airbnb",
+      "stripe",
+      "airbnb-host",
+      "doordash",
+      "github-copilot"
+    ],
+    "酒店": [
+      "ctrip"
+    ],
+    "机票": [
+      "ctrip"
+    ],
+    "电商": [
+      "taobao-live",
+      "douyin-pay",
+      "dewu",
+      "xiaohongshu",
+      "jd-member-ops",
+      "pinduoduo-group-buy",
+      "vipshop",
+      "douyin-ecommerce",
+      "yunji"
+    ],
+    "直播": [
+      "taobao-live",
+      "momo"
+    ],
+    "内容电商": [
+      "taobao-live"
+    ],
+    "kol": [
+      "taobao-live"
+    ],
+    "带货": [
+      "taobao-live"
+    ],
+    "知识": [
+      "zhihu"
+    ],
+    "问答": [
+      "zhihu"
+    ],
+    "内容社区": [
+      "zhihu"
+    ],
+    "专业": [
+      "zhihu"
+    ],
+    "现金激励": [
+      "kuaishou-baina",
+      "kuaishou-jisu-ban"
+    ],
+    "邀请裂变": [
+      "kuaishou-baina",
+      "dropbox"
+    ],
+    "金币暴涨": [
+      "kuaishou-baina"
+    ],
+    "下沉市场": [
+      "kuaishou-baina",
+      "qutoutiao",
+      "douyin-jisu-ban",
+      "pinduoduo-group-buy",
+      "kuaishou-jisu-ban"
+    ],
+    "信息差套利": [
+      "kuaishou-baina"
+    ],
+    "金融": [
+      "ant-forest",
+      "jd-finance",
+      "alipay",
+      "webank"
+    ],
+    "游戏化": [
+      "ant-forest",
+      "qutoutiao",
+      "white-get-gift",
+      "douyin-jisu-ban",
+      "kuaishou-jisu-ban",
+      "baba-farm",
+      "duolingo"
+    ],
+    "公益": [
+      "ant-forest"
+    ],
+    "环保": [
+      "ant-forest"
+    ],
+    "widget": [
+      "widget-growth"
+    ],
+    "桌面美化": [
+      "widget-growth"
+    ],
+    "社交货币": [
+      "widget-growth"
+    ],
+    "锁屏": [
+      "widget-growth"
+    ],
+    "高频曝光": [
+      "widget-growth"
+    ],
+    "教育": [
+      "child-english-insight",
+      "vipkid",
+      "yuanfudao",
+      "coursera",
+      "duolingo"
+    ],
+    "用户洞察": [
+      "child-english-insight"
+    ],
+    "增长方法": [
+      "child-english-insight"
+    ],
+    "支付": [
+      "wechat-pay",
+      "wechat-redpacket",
+      "douyin-pay",
+      "alipay",
+      "stripe"
+    ],
+    "红包": [
+      "wechat-pay",
+      "wechat-redpacket"
+    ],
+    "微信生态": [
+      "wechat-pay",
+      "pinduoduo-group-buy",
+      "webank"
+    ],
+    "线下": [
+      "wechat-pay"
+    ],
+    "资讯": [
+      "qutoutiao"
+    ],
+    "金币激励": [
+      "qutoutiao",
+      "douyin-jisu-ban",
+      "silver-hair-growth"
+    ],
+    "裂变": [
+      "qutoutiao",
+      "douyin-jisu-ban",
+      "kuaishou-jisu-ban"
+    ],
+    "社交裂变": [
+      "wechat-redpacket",
+      "white-get-gift",
+      "pinduoduo-group-buy",
+      "baba-farm"
+    ],
+    "绑定银行卡": [
+      "wechat-redpacket"
+    ],
+    "春晚营销": [
+      "wechat-redpacket"
+    ],
+    "居住": [
+      "beike"
+    ],
+    "经纪人": [
+      "beike"
+    ],
+    "vr看房": [
+      "beike"
+    ],
+    "大模型": [
+      "zhipu-ai"
+    ],
+    "基础模型": [
+      "zhipu-ai"
+    ],
+    "maas平台": [
+      "zhipu-ai"
+    ],
+    "智能体": [
+      "zhipu-ai"
+    ],
+    "开放生态": [
+      "zhipu-ai"
+    ],
+    "免费获客": [
+      "white-get-gift",
+      "baba-farm",
+      "minimax-ai",
+      "doubao-bytedance",
+      "kimi-moonshot-ai",
+      "cursor-ai-editor",
+      "dropbox",
+      "notion",
+      "zoom",
+      "calendly",
+      "perplexity",
+      "character-ai",
+      "duolingo"
+    ],
+    "送礼": [
+      "white-get-gift"
+    ],
+    "分享增长": [
+      "white-get-gift"
+    ],
+    "抖音生态": [
+      "douyin-pay"
+    ],
+    "闭环": [
+      "douyin-pay"
+    ],
+    "白条": [
+      "jd-finance"
+    ],
+    "金条": [
+      "jd-finance"
+    ],
+    "信贷": [
+      "jd-finance"
+    ],
+    "京东生态": [
+      "jd-finance"
+    ],
+    "潮牌": [
+      "dewu"
+    ],
+    "二手": [
+      "dewu"
+    ],
+    "ai搜索": [
+      "mita-ai-search"
+    ],
+    "无广告": [
+      "mita-ai-search"
+    ],
+    "深度研究": [
+      "mita-ai-search"
+    ],
+    "结构化输出": [
+      "mita-ai-search"
+    ],
+    "b端api": [
+      "mita-ai-search"
+    ],
+    "种草": [
+      "xiaohongshu"
+    ],
+    "ugc": [
+      "xiaohongshu",
+      "character-ai"
+    ],
+    "内容营销": [
+      "xiaohongshu",
+      "minimax-ai",
+      "kimi-moonshot-ai",
+      "midjourney",
+      "pika-ai",
+      "hubspot"
+    ],
+    "出行": [
+      "didi",
+      "uber"
+    ],
+    "双边市场": [
+      "didi",
+      "uber",
+      "airbnb"
+    ],
+    "补贴": [
+      "didi",
+      "doubao-bytedance"
+    ],
+    "会员体系": [
+      "jd-member-ops"
+    ],
+    "用户运营": [
+      "jd-member-ops"
+    ],
+    "复购": [
+      "jd-member-ops"
+    ],
+    "银发经济": [
+      "silver-hair-growth"
+    ],
+    "看视频赚钱": [
+      "silver-hair-growth"
+    ],
+    "任务体系": [
+      "silver-hair-growth"
+    ],
+    "师徒裂变": [
+      "silver-hair-growth"
+    ],
+    "陌生人社交": [
+      "momo"
+    ],
+    "lbs": [
+      "momo"
+    ],
+    "音视频": [
+      "momo"
+    ],
+    "拼团": [
+      "pinduoduo-group-buy"
+    ],
+    "特卖": [
+      "vipshop"
+    ],
+    "库存": [
+      "vipshop"
+    ],
+    "品牌折扣": [
+      "vipshop"
+    ],
+    "场景": [
+      "alipay"
+    ],
+    "生态": [
+      "alipay",
+      "github-copilot"
+    ],
+    "超级app": [
+      "alipay"
+    ],
+    "养成": [
+      "baba-farm"
+    ],
+    "用户留存": [
+      "baba-farm"
+    ],
+    "灵魂匹配": [
+      "soul"
+    ],
+    "匿名": [
+      "soul"
+    ],
+    "ai匹配": [
+      "soul"
+    ],
+    "ai陪伴": [
+      "minimax-ai"
+    ],
+    "视频生成": [
+      "minimax-ai",
+      "pika-ai",
+      "runway-ai"
+    ],
+    "ai助手": [
+      "doubao-bytedance",
+      "tencent-yuanbao",
+      "kimi-moonshot-ai",
+      "quark-ai"
+    ],
+    "字节生态": [
+      "doubao-bytedance"
+    ],
+    "流量分发": [
+      "doubao-bytedance"
+    ],
+    "互联网银行": [
+      "webank"
+    ],
+    "纯线上": [
+      "webank"
+    ],
+    "腾讯生态": [
+      "tencent-yuanbao"
+    ],
+    "微信嵌入": [
+      "tencent-yuanbao"
+    ],
+    "deepseek借力": [
+      "tencent-yuanbao"
+    ],
+    "饱和式投流": [
+      "tencent-yuanbao"
+    ],
+    "本地生活": [
+      "ele",
+      "meituan",
+      "doordash"
+    ],
+    "外卖": [
+      "ele",
+      "meituan",
+      "doordash"
+    ],
+    "阿里生态": [
+      "ele",
+      "quark-ai"
+    ],
+    "社交传播": [
+      "kimi-moonshot-ai"
+    ],
+    "长上下文": [
+      "kimi-moonshot-ai"
+    ],
+    "兴趣电商": [
+      "douyin-ecommerce"
+    ],
+    "直播带货": [
+      "douyin-ecommerce"
+    ],
+    "美团优选": [
+      "meituan"
+    ],
+    "b2b": [
+      "yunji"
+    ],
+    "跨境": [
+      "yunji",
+      "dtc-brand"
+    ],
+    "物流": [
+      "yunji"
+    ],
+    "超级入口": [
+      "quark-ai"
+    ],
+    "年轻用户": [
+      "quark-ai"
+    ],
+    "高考服务": [
+      "quark-ai"
+    ],
+    "ai编程": [
+      "cursor-ai-editor",
+      "windsurf-ai-editor",
+      "github-copilot"
+    ],
+    "saas": [
+      "cursor-ai-editor",
+      "dropbox",
+      "slack",
+      "notion",
+      "stripe",
+      "suno-music-ai",
+      "openai-chatgpt",
+      "zoom",
+      "hubspot",
+      "windsurf-ai-editor",
+      "github-copilot"
+    ],
+    "工具": [
+      "cursor-ai-editor",
+      "slack",
+      "calendly",
+      "windsurf-ai-editor",
+      "shareit"
+    ],
+    "ai": [
+      "claude-anthropic",
+      "midjourney",
+      "pika-ai",
+      "openai-chatgpt",
+      "runway-ai",
+      "perplexity",
+      "character-ai",
+      "duolingo"
+    ],
+    "大语言模型": [
+      "claude-anthropic",
+      "openai-chatgpt"
+    ],
+    "企业级ai": [
+      "claude-anthropic",
+      "elevenlabs-ai"
+    ],
+    "ai安全": [
+      "claude-anthropic"
+    ],
+    "平台生态": [
+      "claude-anthropic",
+      "openai-chatgpt"
+    ],
+    "动态定价": [
+      "uber"
+    ],
+    "司机运营": [
+      "uber"
+    ],
+    "图像生成": [
+      "midjourney"
+    ],
+    "discord社区": [
+      "midjourney",
+      "pika-ai"
+    ],
+    "口碑传播": [
+      "midjourney"
+    ],
+    "存储": [
+      "dropbox"
+    ],
+    "分享": [
+      "dropbox"
+    ],
+    "协作": [
+      "slack",
+      "notion"
+    ],
+    "免费+付费": [
+      "slack"
+    ],
+    "住宿": [
+      "airbnb",
+      "airbnb-host"
+    ],
+    "信任机制": [
+      "airbnb"
+    ],
+    "体验": [
+      "airbnb"
+    ],
+    "产品驱动": [
+      "pika-ai",
+      "zoom",
+      "runway-ai",
+      "perplexity"
+    ],
+    "模板生态": [
+      "notion"
+    ],
+    "眼镜": [
+      "warby-parker"
+    ],
+    "dtc": [
+      "warby-parker",
+      "allbirds",
+      "glossier",
+      "dollar-shave-club",
+      "shein",
+      "dtc-brand"
+    ],
+    "home_try-on": [
+      "warby-parker"
+    ],
+    "订阅": [
+      "warby-parker",
+      "suno-music-ai",
+      "dollar-shave-club"
+    ],
+    "透明定价": [
+      "warby-parker"
+    ],
+    "开发者": [
+      "stripe"
+    ],
+    "api": [
+      "stripe",
+      "elevenlabs-ai"
+    ],
+    "ai音乐": [
+      "suno-music-ai"
+    ],
+    "生成式ai": [
+      "suno-music-ai",
+      "elevenlabs-ai"
+    ],
+    "消费级ai": [
+      "suno-music-ai"
+    ],
+    "任务墙": [
+      "silver-hair-reward-platforms"
+    ],
+    "积分奖励": [
+      "silver-hair-reward-platforms"
+    ],
+    "银发用户": [
+      "silver-hair-reward-platforms"
+    ],
+    "问卷调查": [
+      "silver-hair-reward-platforms"
+    ],
+    "app试玩": [
+      "silver-hair-reward-platforms"
+    ],
+    "消费应用": [
+      "openai-chatgpt"
+    ],
+    "鞋": [
+      "allbirds"
+    ],
+    "可持续": [
+      "allbirds"
+    ],
+    "口碑": [
+      "allbirds"
+    ],
+    "简约": [
+      "allbirds"
+    ],
+    "视频会议": [
+      "zoom"
+    ],
+    "病毒传播": [
+      "zoom"
+    ],
+    "日程": [
+      "calendly"
+    ],
+    "预约": [
+      "calendly"
+    ],
+    "集成生态": [
+      "calendly"
+    ],
+    "美妆": [
+      "glossier"
+    ],
+    "koc": [
+      "glossier",
+      "shein"
+    ],
+    "社交电商": [
+      "glossier"
+    ],
+    "剃须刀": [
+      "dollar-shave-club"
+    ],
+    "病毒视频": [
+      "dollar-shave-club"
+    ],
+    "个护": [
+      "dollar-shave-club"
+    ],
+    "房东": [
+      "airbnb-host"
+    ],
+    "信任": [
+      "airbnb-host"
+    ],
+    "保障": [
+      "airbnb-host"
+    ],
+    "影视合作": [
+      "runway-ai"
+    ],
+    "内容生态": [
+      "runway-ai"
+    ],
+    "ai语音": [
+      "elevenlabs-ai"
+    ],
+    "b2b_saas": [
+      "elevenlabs-ai"
+    ],
+    "搜索引擎": [
+      "perplexity"
+    ],
+    "答案引擎": [
+      "perplexity"
+    ],
+    "营销自动化": [
+      "hubspot"
+    ],
+    "入站营销": [
+      "hubspot"
+    ],
+    "crm": [
+      "hubspot"
+    ],
+    "收购整合": [
+      "windsurf-ai-editor"
+    ],
+    "企业市场": [
+      "windsurf-ai-editor"
+    ],
+    "配送": [
+      "doordash"
+    ],
+    "b2d": [
+      "github-copilot"
+    ],
+    "对话机器人": [
+      "character-ai"
+    ],
+    "快时尚": [
+      "shein"
+    ],
+    "供应链": [
+      "shein"
+    ],
+    "全球": [
+      "tiktok"
+    ],
+    "独立站": [
+      "dtc-brand"
+    ],
+    "品牌": [
+      "dtc-brand"
+    ],
+    "shopify": [
+      "dtc-brand"
+    ],
+    "游戏": [
+      "tencent-games"
+    ],
+    "投资": [
+      "tencent-games",
+      "bytedance-overseas"
+    ],
+    "ip": [
+      "tencent-games"
+    ],
+    "电竞": [
+      "tencent-games"
+    ],
+    "英语": [
+      "vipkid",
+      "yuanfudao"
+    ],
+    "在线": [
+      "vipkid",
+      "yuanfudao",
+      "coursera"
+    ],
+    "一对一": [
+      "vipkid"
+    ],
+    "少儿": [
+      "vipkid"
+    ],
+    "互联网": [
+      "bytedance-overseas"
+    ],
+    "产品矩阵": [
+      "bytedance-overseas"
+    ],
+    "本地化": [
+      "bytedance-overseas"
+    ],
+    "ai辅导": [
+      "yuanfudao"
+    ],
+    "题库": [
+      "yuanfudao"
+    ],
+    "mooc": [
+      "coursera"
+    ],
+    "b2c": [
+      "coursera"
+    ],
+    "认证": [
+      "coursera"
+    ],
+    "预装": [
+      "shareit"
+    ],
+    "新兴市场": [
+      "shareit"
+    ],
+    "转型": [
+      "shareit"
+    ],
+    "学习": [
+      "duolingo"
+    ]
+  },
+  "index_by_stage": {
+    "1-10": [
+      "deepseek",
+      "bilibili",
+      "kuaishou-baina",
+      "widget-growth",
+      "beike",
+      "white-get-gift",
+      "douyin-pay",
+      "dewu",
+      "mita-ai-search",
+      "xiaohongshu",
+      "douyin-jisu-ban",
+      "silver-hair-growth",
+      "pinduoduo-group-buy",
+      "kuaishou-jisu-ban",
+      "baba-farm",
+      "soul",
+      "minimax-ai",
+      "doubao-bytedance",
+      "webank",
+      "tencent-yuanbao",
+      "kimi-moonshot-ai",
+      "yunji",
+      "quark-ai",
+      "cursor-ai-editor",
+      "claude-anthropic",
+      "pika-ai",
+      "notion",
+      "stripe",
+      "suno-music-ai",
+      "openai-chatgpt",
+      "calendly",
+      "glossier",
+      "elevenlabs-ai",
+      "perplexity",
+      "windsurf-ai-editor",
+      "github-copilot",
+      "dtc-brand"
+    ],
+    "10-100": [
+      "ctrip",
+      "taobao-live",
+      "zhihu",
+      "ant-forest",
+      "wechat-pay",
+      "qutoutiao",
+      "zhipu-ai",
+      "jd-finance",
+      "didi",
+      "jd-member-ops",
+      "momo",
+      "vipshop",
+      "alipay",
+      "ele",
+      "meituan",
+      "claude-anthropic",
+      "uber",
+      "midjourney",
+      "dropbox",
+      "slack",
+      "airbnb",
+      "warby-parker",
+      "silver-hair-reward-platforms",
+      "openai-chatgpt",
+      "allbirds",
+      "zoom",
+      "dollar-shave-club",
+      "airbnb-host",
+      "runway-ai",
+      "hubspot",
+      "doordash",
+      "github-copilot",
+      "character-ai",
+      "vipkid",
+      "yuanfudao",
+      "coursera",
+      "shareit",
+      "duolingo"
+    ]
+  }
+}

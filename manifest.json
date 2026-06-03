@@ -1,0 +1,70 @@
+{
+  "name": "growth-master-skill",
+  "version": "1.1.0",
+  "description": "智能增长顾问 - 知识驱动的增长决策系统",
+  "author": "Growth Master Team",
+  "license": "MIT",
+  "maturity": "production-scaffold",
+  "public_release": "sanitized",
+  "tags": [
+    "growth",
+    "decision",
+    "strategy",
+    "monetization",
+    "acquisition",
+    "retention",
+    "multi-agent",
+    "knowledge-driven"
+  ],
+  "capabilities": [
+    "assess",
+    "design",
+    "learn",
+    "audit",
+    "match"
+  ],
+  "knowledge_base": {
+    "cases": 77,
+    "weapons": 111,
+    "theories": 12,
+    "modules": 7
+  },
+  "agents": {
+    "core": [
+      "lead-agent",
+      "growth-agent",
+      "monetization-agent",
+      "roi-agent",
+      "execution-agent",
+      "skeptic-agent",
+      "narrative-agent"
+    ],
+    "knowledge": [
+      "case-agent",
+      "weapon-agent",
+      "theory-agent"
+    ]
+  },
+  "entry_points": {
+    "skill": "SKILL.md",
+    "readme": "README.md",
+    "install": "scripts/install.sh"
+  },
+  "testing": {
+    "e2e_score": 97.0,
+    "pass_rate": "100%",
+    "scenarios": 10
+  },
+  "dependencies": {
+    "python": ">=3.8",
+    "external": []
+  },
+  "structure": {
+    "agents": "agents/",
+    "knowledge": "knowledge/",
+    "references": "references/",
+    "scripts": "scripts/",
+    "templates": "templates/",
+    "tests": "tests/"
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "metadata": {
+    "version": "1.1.0",
+    "last_updated": "2024-01-15",
+    "total_theories": 12,
+    "evidence_tier_definition": {
+      "A": "元分析、系统综述、官方统计、权威教材",
+      "B": "同行评审论文、公开数据集、行业标准、良好文档的基准",
+      "C": "结构化专家意见、内部历史数据、仔细收集的现场证据",
+      "D": "LLM建议、类比、常识、非正式启发式",
+      "E": "博客文章、营销文案、社交媒体、未注明来源的声称"
+    }
+  },
+  "theories": [
+    {
+      "id": "growth-hacking",
+      "name": "增长黑客派",
+      "file": "schools/01-growth-hacking.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["Sean Ellis研究", "增长黑客书籍", "行业实践"],
+      "confidence": 0.88,
+      "core_question": "如何用数据驱动决策？",
+      "core_principles": [
+        "快速实验，数据驱动",
+        "AARRR漏斗模型",
+        "ICE优先级排序",
+        "高频迭代"
+      ],
+      "applicable_scenarios": [
+        "有数据基础的产品",
+        "需要快速验证假设",
+        "A/B测试可行"
+      ],
+      "key_tactics": ["A/B测试", "数据分析", "MVP验证"],
+      "related_weapons": [1, 2, 6, 7],
+      "related_cases": ["dropbox", "airbnb"]
+    },
+    {
+      "id": "plg",
+      "name": "产品驱动增长",
+      "file": "schools/02-plg.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["OpenView研究", "SaaS行业报告", "成功案例分析"],
+      "confidence": 0.90,
+      "core_question": "如何让产品自己会说话？",
+      "core_principles": [
+        "产品即营销",
+        "Freemium模式",
+        "自助式体验",
+        "病毒式传播"
+      ],
+      "applicable_scenarios": [
+        "SaaS工具",
+        "低使用门槛产品",
+        "有自传播属性"
+      ],
+      "key_tactics": ["Freemium", "Onboarding优化", "产品内传播"],
+      "related_weapons": [51, 52, 54, 58],
+      "related_cases": ["slack", "notion", "dropbox"]
+    },
+    {
+      "id": "network-effects",
+      "name": "网络效应",
+      "file": "schools/03-network-effects.md",
+      "evidence_tier": "A",
+      "evidence_sources": ["学术研究", "平台经济学", "成功案例分析"],
+      "confidence": 0.92,
+      "core_question": "如何利用双边市场？",
+      "core_principles": [
+        "用户价值随用户数增长",
+        "双边市场平衡",
+        "临界质量突破",
+        "防御性护城河"
+      ],
+      "applicable_scenarios": [
+        "平台型产品",
+        "社交网络",
+        "Marketplace"
+      ],
+      "key_tactics": ["双边激励", "临界质量策略"],
+      "related_weapons": [11, 12, 17],
+      "related_cases": ["airbnb", "uber"]
+    },
+    {
+      "id": "content-growth",
+      "name": "内容增长",
+      "file": "schools/04-content-growth.md",
+      "evidence_tier": "C",
+      "evidence_sources": ["内容营销实践", "HubSpot方法论", "行业观察"],
+      "confidence": 0.80,
+      "core_question": "如何用内容持续获客？",
+      "core_principles": [
+        "SEO长尾流量",
+        "入站营销",
+        "内容资产积累",
+        "一鱼多吃"
+      ],
+      "applicable_scenarios": [
+        "有内容生产能力",
+        "用户有搜索需求",
+        "长期品牌建设"
+      ],
+      "key_tactics": ["SEO", "内容营销", "入站营销"],
+      "related_weapons": [26, 27, 28, 29, 30, 31],
+      "related_cases": ["hubspot", "xiaohongshu"]
+    },
+    {
+      "id": "community-growth",
+      "name": "社区增长",
+      "file": "schools/05-community-growth.md",
+      "evidence_tier": "C",
+      "evidence_sources": ["社区运营实践", "用户心理学", "成功案例分析"],
+      "confidence": 0.78,
+      "core_question": "如何运营超级用户？",
+      "core_principles": [
+        "超级用户计划",
+        "用户共创",
+        "社区自治",
+        "口碑传播"
+      ],
+      "applicable_scenarios": [
+        "高粘性产品",
+        "有粉丝基础",
+        "用户愿意参与"
+      ],
+      "key_tactics": ["大使计划", "用户共创", "社区运营"],
+      "related_weapons": [41, 42, 43, 44, 49, 50],
+      "related_cases": ["notion", "xiaohongshu"]
+    },
+    {
+      "id": "brand-growth",
+      "name": "品牌驱动",
+      "file": "schools/06-brand-growth.md",
+      "evidence_tier": "C",
+      "evidence_sources": ["品牌营销理论", "成功案例分析", "消费者心理学"],
+      "confidence": 0.75,
+      "core_question": "如何建立品牌心智？",
+      "core_principles": [
+        "品牌故事",
+        "价值观营销",
+        "心智占领",
+        "长期投资"
+      ],
+      "applicable_scenarios": [
+        "差异化定位",
+        "有品牌预算",
+        "长期战略"
+      ],
+      "key_tactics": ["品牌叙事", "PR", "价值观营销"],
+      "related_weapons": [96, 97, 98, 99, 102, 103],
+      "related_cases": ["allbirds", "glossier", "shein"]
+    },
+    {
+      "id": "viral-growth",
+      "name": "病毒传播",
+      "file": "schools/07-viral-growth.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["病毒营销研究", "社交网络分析", "成功案例"],
+      "confidence": 0.85,
+      "core_question": "如何让用户主动传播？",
+      "core_principles": [
+        "K因子 > 1",
+        "传播循环设计",
+        "降低传播摩擦",
+        "激励机制"
+      ],
+      "applicable_scenarios": [
+        "有社交属性",
+        "低门槛分享",
+        "有奖励预算"
+      ],
+      "key_tactics": ["邀请裂变", "分享激励", "病毒循环"],
+      "related_weapons": [11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+      "related_cases": ["dropbox", "pinduoduo", "wechat-redpacket"]
+    },
+    {
+      "id": "performance-marketing",
+      "name": "付费广告",
+      "file": "schools/08-performance-marketing.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["广告平台数据", "营销ROI研究", "行业实践"],
+      "confidence": 0.88,
+      "core_question": "如何精准投放？",
+      "core_principles": [
+        "LTV > CAC",
+        "精准定向",
+        "再营销",
+        "ROI优化"
+      ],
+      "applicable_scenarios": [
+        "有广告预算",
+        "用户画像清晰",
+        "转化路径明确"
+      ],
+      "key_tactics": ["搜索广告", "信息流", "再营销", "Lookalike"],
+      "related_weapons": [86, 87, 88, 89, 90, 91, 92, 93, 94, 95],
+      "related_cases": []
+    },
+    {
+      "id": "gamification",
+      "name": "游戏化",
+      "file": "schools/09-gamification.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["游戏化研究", "行为心理学", "成功案例分析"],
+      "confidence": 0.85,
+      "core_question": "如何让用户上瘾？",
+      "core_principles": [
+        "即时反馈",
+        "进度可视化",
+        "成就系统",
+        "社交竞争"
+      ],
+      "applicable_scenarios": [
+        "需要高频使用",
+        "行为习惯培养",
+        "用户留存提升"
+      ],
+      "key_tactics": ["积分", "勋章", "排行榜", "打卡"],
+      "related_weapons": [68, 69, 73],
+      "related_cases": ["duolingo", "ant-forest"]
+    },
+    {
+      "id": "flywheel",
+      "name": "增长飞轮",
+      "file": "schools/10-flywheel.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["Amazon案例研究", "系统思维理论", "平台战略"],
+      "confidence": 0.88,
+      "core_question": "如何建立复利增长？",
+      "core_principles": [
+        "自我强化循环",
+        "每个环节贡献",
+        "长期复利",
+        "系统思维"
+      ],
+      "applicable_scenarios": [
+        "平台型产品",
+        "多边市场",
+        "长期战略"
+      ],
+      "key_tactics": ["飞轮设计", "正向循环"],
+      "related_weapons": [],
+      "related_cases": ["amazon", "airbnb"]
+    },
+    {
+      "id": "business-models",
+      "name": "商业模型",
+      "file": "schools/11-business-models.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["商业模式研究", "定价策略理论", "SaaS最佳实践"],
+      "confidence": 0.88,
+      "core_question": "如何确保盈利？",
+      "core_principles": [
+        "单位经济健康",
+        "LTV/CAC平衡",
+        "分层定价",
+        "规模效应"
+      ],
+      "applicable_scenarios": [
+        "商业化阶段",
+        "定价策略",
+        "收入优化"
+      ],
+      "key_tactics": ["定价策略", "成本优化", "收入多元化"],
+      "related_weapons": [76, 77, 78, 79, 80, 81, 82, 83, 84, 85],
+      "related_cases": ["slack", "notion"]
+    },
+    {
+      "id": "growthhackers",
+      "name": "GrowthHackers方法论",
+      "file": "schools/12-growthhackers.md",
+      "evidence_tier": "B",
+      "evidence_sources": ["GrowthHackers社区", "Sean Ellis方法论", "企业实践"],
+      "confidence": 0.85,
+      "core_question": "如何系统化增长？",
+      "core_principles": [
+        "北极星指标",
+        "增长流程",
+        "跨职能团队",
+        "持续实验"
+      ],
+      "applicable_scenarios": [
+        "组织增长体系",
+        "增长团队搭建",
+        "系统化运营"
+      ],
+      "key_tactics": ["北极星指标", "增长流程", "实验文化"],
+      "related_weapons": [],
+      "related_cases": []
+    }
+  ],
+  "index_by_problem": {
+    "acquisition": ["growth-hacking", "plg", "content-growth", "viral-growth", "performance-marketing"],
+    "activation": ["plg", "gamification"],
+    "retention": ["gamification", "community-growth", "flywheel"],
+    "monetization": ["business-models", "plg"],
+    "referral": ["viral-growth", "network-effects"]
+  },
+  "index_by_industry": {
+    "saas": ["plg", "growth-hacking", "business-models"],
+    "ecommerce": ["viral-growth", "brand-growth", "performance-marketing"],
+    "content": ["content-growth", "community-growth"],
+    "marketplace": ["network-effects", "flywheel"],
+    "education": ["gamification", "content-growth"],
+    "social": ["viral-growth", "network-effects", "community-growth"]
+  }
+}

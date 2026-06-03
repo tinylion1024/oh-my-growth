@@ -1,0 +1,30 @@
+{
+  "feedback_id": "fb-example-001",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "session_id": "session-example",
+  "input_summary": {
+    "problem_type": "acquisition",
+    "industry": "saas",
+    "stage": "1-10",
+    "mode": "Fast Scan"
+  },
+  "rating": {
+    "stars": 4,
+    "usefulness": "有一定帮助"
+  },
+  "qualitative": {
+    "most_helpful": "案例匹配很准确，Dropbox的案例很有参考价值",
+    "missing_info": "缺少具体的技术实现建议",
+    "will_act": true,
+    "suggestions": "希望增加更多的ROI计算模板"
+  },
+  "case_feedback": {
+    "relevant": true,
+    "want_more": false
+  },
+  "output_metadata": {
+    "agents_used": ["Lead", "Growth", "ROI", "Skeptic", "Case"],
+    "confidence": "Medium",
+    "output_length": 1500
+  }
+}
