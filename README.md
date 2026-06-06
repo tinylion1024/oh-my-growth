@@ -6,6 +6,9 @@
 
 整合 **81个案例** · **111种玩法** · **12大流派** · **13个专业Agent** · **完整决策框架**
 
+输入一个增长问题，直接输出：
+`阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
+
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-23%2F23%20scripted%20checks-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
@@ -20,13 +23,46 @@
 
 **Growth Master** 是一个**面向增长行业人的策略外脑 skill**。
 
-你可以把它理解为：**一个读过 81 个增长案例、掌握 111 种增长打法，并能先做诊断再给方案的增长外脑**，帮你：
+你可以把它理解为：**一个读过 81 个增长案例、掌握 111 种增长打法，并能先做诊断再给方案的增长外脑**。
+
+它不是单纯的案例库，也不是只会列点子的 prompt 包。它会先判断：
+
+- 你现在到底处于哪个增长阶段
+- 主问题更偏用户获取还是用户深耕
+- 当前最该围绕哪个北极星指标
+- 应该先做什么，不该分散到什么方向
+
+然后再给出可执行输出：
 
 - 🎯 **诊断增长问题** — 先判断主矛盾、阶段约束和优先级
 - 📋 **校验决策文档** — 检查报告是否覆盖关键章节、事实标记和行动闭环
 - 🛠️ **输出策略方案** — 建议做什么、先别做什么、先做哪一个实验
 - 📚 **匹配成功案例** — 谁做过类似的事？怎么做到的？
 - 🔢 **形成可执行判断** — 用证据、案例和轻量决策引擎支撑结论
+
+## ✅ 你会直接拿到什么
+
+对于一个典型增长问题，项目会直接产出这类结果：
+
+- 当前阶段判断：产品验证期 / 增长放大期 / 规模经营期
+- 主业务过程：用户获取 or 用户深耕
+- 北极星指标与约束线
+- 一句话判断
+- 核心矛盾
+- 优先级排序
+- 建议现在做 / 建议先别做
+- 两周实验
+- 数据与归因要求
+
+如果你是增长负责人，这些内容已经足够支撑一次周会判断、一次策略讨论，或者一版初始决策稿。
+
+## 🔒 为什么值得信
+
+- **不是空想建议**：每次输出都会联动案例、玩法、理论和证据等级
+- **不是只会给招**：先做阶段判断、北极星判断和旅程断点判断
+- **不是不可验证**：内置两周实验、成功信号、停止信号
+- **不是黑盒**：当前有 `23/23` 脚本化检查通过
+- **不是品牌套壳**：方法层已经抽象成通用增长框架，能独立服务项目本身
 
 ---
 
@@ -119,10 +155,370 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 - [实验设计](./knowledge/guides/experiment-design.md)
 - [归因与身份识别](./knowledge/guides/attribution-and-identity.md)
 
-## 📚 知识直达索引
+### 质量保障
+
+| 机制 | 作用 |
+|------|------|
+| ✅ **现状清晰度门控** | 信息不足时主动追问，避免盲目诊断 |
+| ✅ **证据分级系统** | A/B/C/D/E 五级可信度，透明标注 |
+| ✅ **安全边界检测** | 自动识别财务/法律/监管风险 |
+| ✅ **输出契约** | 10 个必选章节，确保报告完整 |
+
+---
+
+## 🚀 快速开始
+
+### 安装
+
+```bash
+# 克隆仓库
+git clone https://github.com/tinylion1024/growth-master-skill.git
+
+# 运行环境
+# Python 3.8+，当前脚本默认仅使用标准库
+
+# 安装到 Claude 技能目录（可选）
+cp -R growth-master-skill ~/.claude/skills/
+```
+
+### 验证安装
+
+```bash
+# 运行主测试集
+python3 scripts/run_tests.py
+# ✅ 23/23 checks passed
+```
+
+### 第一次使用
+
+```bash
+# 快速生成策略外脑诊断
+python scripts/cli.py diagnose "电商平台如何提升复购率" \
+  --industry ecommerce --problem retention
+
+# 搜索相关案例和玩法
+python scripts/cli.py search "裂变" --limit 5
+
+# 匹配相关案例
+python scripts/cli.py match "教育产品如何做裂变" --problem referral
+
+# 场景化入口
+python scripts/cli.py retention "如何提升月活跃用户留存率" --industry content
+
+# 结构化上下文输入
+python scripts/cli.py diagnose "如何提升月活跃用户留存率" \
+  --industry content --problem retention \
+  --context-json '{"goal":"提升30日留存","metric":"30日留存率","budget":"10万元","team":"产品1+工程2+运营1"}'
+
+# 从文件加载结构化上下文
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral \
+  --context-file examples/referral-context.json --view report
+```
+
+---
+
+## 💼 使用场景
+
+### 场景一：增长外脑诊断
+
+**问题**：老板问「我们要不要做邀请裂变？」
+
+```bash
+python scripts/cli.py diagnose "是否应该做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral
+```
+
+**输出**：
+- 阶段判断（当前阶段 / 主业务过程 / 北极星 / 约束线）
+- 一句话判断
+- 核心矛盾
+- 优先级排序
+- 建议现在做 / 建议先别做
+- 两周实验
+- 数据与归因要求
+- 可切换为负责人摘要 / 报告版 / JSON 版
+- 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
+
+---
+
+### 场景二：校验决策文档
+
+**问题**：已经有一份分析稿，想确认结构是否完整
+
+```bash
+python scripts/cli.py validate report.md
+```
+
+**输出**：
+- 报告总分
+- 是否通过校验
+- 缺失章节或缺少的关键信息
+- 事实标记是否完整
+
+---
+
+### 场景三：设计增长策略
+
+**问题**：知道要提升留存，但不知道具体怎么做
+
+```bash
+python scripts/cli.py design "如何提升月活跃用户留存率" \
+  --industry content --problem retention
+```
+
+**输出**：
+- 策略方向
+- 主抓手优先级
+- 为什么现在做
+- 两周实验与成功/停止信号
+- 案例和理论支撑
+
+---
+
+### 场景四：匹配成功案例
+
+**问题**：想看看别人是怎么做游戏化增长的
+
+```bash
+python scripts/cli.py match "游戏化提升用户活跃" \
+  --industry education
+```
+
+**输出**：
+- 匹配案例列表（带相似度评分）
+- 各案例核心策略
+- 可复制要点
+- 注意事项
+
+---
+
+### 场景五：给增长负责人准备汇报稿
+
+**问题**：要去周会或季度评审，想直接拿到可以讲的摘要
+
+```bash
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral --view executive
+```
+
+**输出**：
+- 董事会/负责人摘要
+- 本周拍板事项
+- 先别做什么
+- 当前置信度
+
+---
+
+### 场景六：导出可校验决策稿
+
+**问题**：想生成一版可继续修改的正式决策稿
+
+```bash
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral --view report > report.md
+
+python scripts/cli.py validate report.md
+```
+
+**输出**：
+- 满足报告契约的 Markdown 决策稿
+- 可进一步进入校验和迭代
+
+---
+
+## 🔢 贝叶斯决策引擎
+
+### 什么是贝叶斯决策？
+
+贝叶斯决策将不确定的增长决策转化为**可审计的概率推理过程**：
+
+```
+初始假设 → 设置先验概率 → 收集证据 → 更新后验概率 → 比较阈值 → 推荐行动
+```
+
+### 核心概念
+
+| 概念 | 说明 | 示例 |
+|------|------|------|
+| **先验** | 初始置信度 | 35%（有案例参考） |
+| **证据** | 支持或反对的信息 | Notion 成功案例（B级） |
+| **更新** | 证据影响 | +15% |
+| **后验** | 更新后置信度 | 50% |
+| **决策** | 基于阈值的行动 | 推荐小实验 |
+
+### 使用示例
+
+```python
+from scripts.bayesian_decision import BayesianDecision
+
+# 初始化
+bd = BayesianDecision()
+
+# 设置假设
+bd.set_hypothesis("邀请裂变能带来有效增长")
+bd.set_prior(0.35, rationale="有Notion、Dropbox案例参考")
+
+# 添加证据
+bd.add_evidence("Notion案例", "B", "support")
+bd.add_evidence("SaaS行业报告", "B", "support")
+
+# 更新并获取决策
+bd.update()
+print(f"后验置信度: {bd.get_posterior():.0%}")  # 52%
+print(f"决策建议: {bd.get_decision_text()['action']}")  # 推荐小规模实验
+```
+
+### 行动阈值
+
+| 后验范围 | 决策 | 说明 |
+|----------|------|------|
+| ≥ 75% | **直接投入** | 高置信度，可执行 |
+| 50-75% | **小实验** | 中等置信度，需验证 |
+| 30-50% | **收集证据** | 低置信度，信息不足 |
+| < 30% | **停止** | 极低置信度，不推荐 |
+
+### 证据等级与更新幅度
+
+| 等级 | 定义 | 更新幅度 |
+|------|------|---------|
+| A | 元分析、系统综述 | ±25% |
+| B | 同行评审、行业报告 | ±15% |
+| C | 专家意见、内部数据 | ±10% |
+| D | LLM建议、类比 | ±5% |
+| E | 博客、营销文案 | 0% |
+
+### 敏感性分析
+
+每个贝叶斯决策自动生成敏感性分析：
+
+```markdown
+🔍 结论有多稳固？
+- 反转条件: 如果病毒系数 < 0.3，结论反转为不推荐
+- 关键假设: 用户有足够的邀请动机
+- 风险点: 奖励机制成本未验证
+```
+
+---
+
+## 🎯 博弈论战略框架
+
+### 什么是博弈论决策？
+
+分析竞争、定价、谈判等战略互动：
+
+```
+识别博弈类型 → 构建收益矩阵 → 分析均衡 → 历史校准 → 承诺检验 → 战略建议
+```
+
+### 适用场景
+
+| 场景 | 博弈框架 | 核心问题 |
+|------|----------|----------|
+| **竞争反应** | 囚徒困境 | 对手会怎么反应？ |
+| **定价策略** | 信号博弈 | 如何定价不被跟进？ |
+| **平台策略** | 双边市场 | 如何启动双边平台？ |
+| **谈判分配** | 讨价还价 | 如何分配利益？ |
+
+### 使用示例
+
+```python
+# 博弈论分析流程
+from scripts.gametheory_analysis import GameTheoryAnalysis
+
+ga = GameTheoryAnalysis()
+ga.set_players(["我方", "竞争对手"])
+ga.set_strategies({
+    "我方": ["降价", "不降价"],
+    "竞争对手": ["跟进", "不跟进"]
+})
+ga.build_payoff_matrix(...)  # 构建收益矩阵
+ga.find_nash_equilibrium()   # 找到纳什均衡
+ga.calibrate_with_history()  # 历史行为校准
+```
+
+---
+
+## 📊 Kelly 资源分配框架
+
+### 什么是 Kelly 准则？
+
+计算最优投入比例，回答"应该投入多少资源"：
+
+```
+f* = (bp - q) / b
+
+f* = 最优投入比例
+b  = 净赔率（盈利/亏损）
+p  = 胜率
+q  = 失败概率
+```
+
+### 行动包输出
+
+```yaml
+kelly_result:
+  fraction: "15% 预算"
+  action: "启动邀请裂变 MVP"
+  budget: "15万"
+  add_condition: "病毒系数 > 0.5 → 加仓到 30万"
+  stop_condition: "CAC > 80元 → 停止"
+  review: "30天后复盘"
+```
+
+---
+
+## 🏗️ 完整框架体系
+
+### 核心决策框架
+
+| 框架 | 用途 | 文档 |
+|------|------|------|
+| **贝叶斯决策** | 概率推理、证据更新 | [bayesian-decision.md](./references/bayesian-decision.md) |
+| **博弈论战略** | 竞争分析、均衡预测 | [gametheory-framework.md](./references/gametheory-framework.md) |
+| **Kelly 分配** | 资源投入优化 | [kelly-allocation.md](./references/kelly-allocation.md) |
+| **商业模式** | 商业设计与诊断 | [business-model.md](./references/business-model.md) |
+
+---
+
+## 🏗️ 架构概览
+
+```
+用户输入
+    │
+    ▼
+┌─────────────────┐
+│ Lead Agent      │ ← 编排协调、问题分类
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    ▼         ▼
+┌───────┐ ┌───────┐
+│ 知识  │ │ 决策  │
+│ Agent │ │ Agent │
+│ 群    │ │ 群    │
+└───┬───┘ └───┬───┘
+    │         │
+    └────┬────┘
+         ▼
+┌─────────────────┐
+│ Narrative Agent │ ← 输出生成
+└─────────────────┘
+```
+
+**知识 Agent 群**：Case · Weapon · Theory · Competitor
+
+**决策 Agent 群**：Growth · Monetization · ROI · Execution · Skeptic
+
+---
+
+## 📚 知识库索引
+
+如果你已经确认要深挖案例或玩法，再从这里进入知识层。第一次访问仓库，建议先看上面的快速开始和使用场景。
 
 - [案例库总览](./knowledge/cases/README.md)
 - [玩法武器库总览](./knowledge/weapons/index.md)
+- [方法指南总览](./knowledge/guides/README.md)
 - [中国案例目录](./knowledge/cases/china/README.md)
 - [海外案例目录](./knowledge/cases/overseas/README.md)
 - [垂直行业案例目录](./knowledge/cases/vertical/README.md)
@@ -406,361 +802,6 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 </details>
 
 <!-- AUTO-WEAPON-INDEX:END -->
-
-### 质量保障
-
-| 机制 | 作用 |
-|------|------|
-| ✅ **现状清晰度门控** | 信息不足时主动追问，避免盲目诊断 |
-| ✅ **证据分级系统** | A/B/C/D/E 五级可信度，透明标注 |
-| ✅ **安全边界检测** | 自动识别财务/法律/监管风险 |
-| ✅ **输出契约** | 10 个必选章节，确保报告完整 |
-
----
-
-## 🚀 快速开始
-
-### 安装
-
-```bash
-# 克隆仓库
-git clone https://github.com/tinylion1024/growth-master-skill.git
-
-# 运行环境
-# Python 3.8+，当前脚本默认仅使用标准库
-
-# 安装到 Claude 技能目录（可选）
-cp -R growth-master-skill ~/.claude/skills/
-```
-
-### 验证安装
-
-```bash
-# 运行主测试集
-python3 scripts/run_tests.py
-# ✅ 23/23 checks passed
-```
-
-### 第一次使用
-
-```bash
-# 快速生成策略外脑诊断
-python scripts/cli.py diagnose "电商平台如何提升复购率" \
-  --industry ecommerce --problem retention
-
-# 搜索相关案例和玩法
-python scripts/cli.py search "裂变" --limit 5
-
-# 匹配相关案例
-python scripts/cli.py match "教育产品如何做裂变" --problem referral
-
-# 场景化入口
-python scripts/cli.py retention "如何提升月活跃用户留存率" --industry content
-
-# 结构化上下文输入
-python scripts/cli.py diagnose "如何提升月活跃用户留存率" \
-  --industry content --problem retention \
-  --context-json '{"goal":"提升30日留存","metric":"30日留存率","budget":"10万元","team":"产品1+工程2+运营1"}'
-
-# 从文件加载结构化上下文
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral \
-  --context-file examples/referral-context.json --view report
-```
-
----
-
-## 💼 使用场景
-
-### 场景一：增长外脑诊断
-
-**问题**：老板问「我们要不要做邀请裂变？」
-
-```bash
-python scripts/cli.py diagnose "是否应该做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral
-```
-
-**输出**：
-- 阶段判断（当前阶段 / 主业务过程 / 北极星 / 约束线）
-- 一句话判断
-- 核心矛盾
-- 优先级排序
-- 建议现在做 / 建议先别做
-- 两周实验
-- 数据与归因要求
-- 可切换为负责人摘要 / 报告版 / JSON 版
-- 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
-
----
-
-### 场景二：校验决策文档
-
-**问题**：已经有一份分析稿，想确认结构是否完整
-
-```bash
-python scripts/cli.py validate report.md
-```
-
-**输出**：
-- 报告总分
-- 是否通过校验
-- 缺失章节或缺少的关键信息
-- 事实标记是否完整
-
----
-
-### 场景三：设计增长策略
-
-**问题**：知道要提升留存，但不知道具体怎么做
-
-```bash
-python scripts/cli.py design "如何提升月活跃用户留存率" \
-  --industry content --problem retention
-```
-
-**输出**：
-- 策略方向
-- 主抓手优先级
-- 为什么现在做
-- 两周实验与成功/停止信号
-- 案例和理论支撑
-
----
-
-### 场景五：给增长负责人准备汇报稿
-
-**问题**：要去周会或季度评审，想直接拿到可以讲的摘要
-
-```bash
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral --view executive
-```
-
-**输出**：
-- 董事会/负责人摘要
-- 本周拍板事项
-- 先别做什么
-- 当前置信度
-
----
-
-### 场景六：导出可校验决策稿
-
-**问题**：想生成一版可继续修改的正式决策稿
-
-```bash
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral --view report > report.md
-
-python scripts/cli.py validate report.md
-```
-
-**输出**：
-- 满足报告契约的 Markdown 决策稿
-- 可进一步进入校验和迭代
-
----
-
-### 场景四：匹配成功案例
-
-**问题**：想看看别人是怎么做游戏化增长的
-
-```bash
-python scripts/cli.py match "游戏化提升用户活跃" \
-  --industry education
-```
-
-**输出**：
-- 匹配案例列表（带相似度评分）
-- 各案例核心策略
-- 可复制要点
-- 注意事项
-
----
-
-## 🔢 贝叶斯决策引擎
-
-### 什么是贝叶斯决策？
-
-贝叶斯决策将不确定的增长决策转化为**可审计的概率推理过程**：
-
-```
-初始假设 → 设置先验概率 → 收集证据 → 更新后验概率 → 比较阈值 → 推荐行动
-```
-
-### 核心概念
-
-| 概念 | 说明 | 示例 |
-|------|------|------|
-| **先验** | 初始置信度 | 35%（有案例参考） |
-| **证据** | 支持或反对的信息 | Notion 成功案例（B级） |
-| **更新** | 证据影响 | +15% |
-| **后验** | 更新后置信度 | 50% |
-| **决策** | 基于阈值的行动 | 推荐小实验 |
-
-### 使用示例
-
-```python
-from scripts.bayesian_decision import BayesianDecision
-
-# 初始化
-bd = BayesianDecision()
-
-# 设置假设
-bd.set_hypothesis("邀请裂变能带来有效增长")
-bd.set_prior(0.35, rationale="有Notion、Dropbox案例参考")
-
-# 添加证据
-bd.add_evidence("Notion案例", "B", "support")
-bd.add_evidence("SaaS行业报告", "B", "support")
-
-# 更新并获取决策
-bd.update()
-print(f"后验置信度: {bd.get_posterior():.0%}")  # 52%
-print(f"决策建议: {bd.get_decision_text()['action']}")  # 推荐小规模实验
-```
-
-### 行动阈值
-
-| 后验范围 | 决策 | 说明 |
-|----------|------|------|
-| ≥ 75% | **直接投入** | 高置信度，可执行 |
-| 50-75% | **小实验** | 中等置信度，需验证 |
-| 30-50% | **收集证据** | 低置信度，信息不足 |
-| < 30% | **停止** | 极低置信度，不推荐 |
-
-### 证据等级与更新幅度
-
-| 等级 | 定义 | 更新幅度 |
-|------|------|---------|
-| A | 元分析、系统综述 | ±25% |
-| B | 同行评审、行业报告 | ±15% |
-| C | 专家意见、内部数据 | ±10% |
-| D | LLM建议、类比 | ±5% |
-| E | 博客、营销文案 | 0% |
-
-### 敏感性分析
-
-每个贝叶斯决策自动生成敏感性分析：
-
-```markdown
-🔍 结论有多稳固？
-- 反转条件: 如果病毒系数 < 0.3，结论反转为不推荐
-- 关键假设: 用户有足够的邀请动机
-- 风险点: 奖励机制成本未验证
-```
-
----
-
-## 🎯 博弈论战略框架
-
-### 什么是博弈论决策？
-
-分析竞争、定价、谈判等战略互动：
-
-```
-识别博弈类型 → 构建收益矩阵 → 分析均衡 → 历史校准 → 承诺检验 → 战略建议
-```
-
-### 适用场景
-
-| 场景 | 博弈框架 | 核心问题 |
-|------|----------|----------|
-| **竞争反应** | 囚徒困境 | 对手会怎么反应？ |
-| **定价策略** | 信号博弈 | 如何定价不被跟进？ |
-| **平台策略** | 双边市场 | 如何启动双边平台？ |
-| **谈判分配** | 讨价还价 | 如何分配利益？ |
-
-### 使用示例
-
-```python
-# 博弈论分析流程
-from scripts.gametheory_analysis import GameTheoryAnalysis
-
-ga = GameTheoryAnalysis()
-ga.set_players(["我方", "竞争对手"])
-ga.set_strategies({
-    "我方": ["降价", "不降价"],
-    "竞争对手": ["跟进", "不跟进"]
-})
-ga.build_payoff_matrix(...)  # 构建收益矩阵
-ga.find_nash_equilibrium()   # 找到纳什均衡
-ga.calibrate_with_history()  # 历史行为校准
-```
-
----
-
-## 📊 Kelly 资源分配框架
-
-### 什么是 Kelly 准则？
-
-计算最优投入比例，回答"应该投入多少资源"：
-
-```
-f* = (bp - q) / b
-
-f* = 最优投入比例
-b  = 净赔率（盈利/亏损）
-p  = 胜率
-q  = 失败概率
-```
-
-### 行动包输出
-
-```yaml
-kelly_result:
-  fraction: "15% 预算"
-  action: "启动邀请裂变 MVP"
-  budget: "15万"
-  add_condition: "病毒系数 > 0.5 → 加仓到 30万"
-  stop_condition: "CAC > 80元 → 停止"
-  review: "30天后复盘"
-```
-
----
-
-## 🏗️ 完整框架体系
-
-### 核心决策框架
-
-| 框架 | 用途 | 文档 |
-|------|------|------|
-| **贝叶斯决策** | 概率推理、证据更新 | [bayesian-decision.md](./references/bayesian-decision.md) |
-| **博弈论战略** | 竞争分析、均衡预测 | [gametheory-framework.md](./references/gametheory-framework.md) |
-| **Kelly 分配** | 资源投入优化 | [kelly-allocation.md](./references/kelly-allocation.md) |
-| **商业模式** | 商业设计与诊断 | [business-model.md](./references/business-model.md) |
-
----
-
-## 🏗️ 架构概览
-
-```
-用户输入
-    │
-    ▼
-┌─────────────────┐
-│ Lead Agent      │ ← 编排协调、问题分类
-└────────┬────────┘
-         │
-    ┌────┴────┐
-    ▼         ▼
-┌───────┐ ┌───────┐
-│ 知识  │ │ 决策  │
-│ Agent │ │ Agent │
-│ 群    │ │ 群    │
-└───┬───┘ └───┬───┘
-    │         │
-    └────┬────┘
-         ▼
-┌─────────────────┐
-│ Narrative Agent │ ← 输出生成
-└─────────────────┘
-```
-
-**知识 Agent 群**：Case · Weapon · Theory · Competitor
-
-**决策 Agent 群**：Growth · Monetization · ROI · Execution · Skeptic
 
 ---
 
