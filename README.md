@@ -8,7 +8,6 @@
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-33%2F33%20passing-brightgreen.svg)](./tests/)
-[![Coverage](https://img.shields.io/badge/yao--skills-100%25%20integrated-success.svg)](./references/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
