@@ -7,7 +7,7 @@
 整合 **81个案例** · **111种玩法** · **12大流派** · **13个专业Agent** · **完整决策框架**
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-22%2F22%20scripted%20checks-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-23%2F23%20scripted%20checks-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
@@ -55,17 +55,21 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  📌 一句话判断                                          │
+│  📌 阶段判断                                            │
 ├─────────────────────────────────────────────────────────┤
-│  推荐小规模实验：冷启动阶段先押注「Beta邀请制」           │
-│  置信度：中（先验证能否稳定拿到高意向种子用户）            │
+│  产品验证期 · 用户获取                                  │
+│  北极星：新增高意向用户数                               │
 │                                                         │
-│  核心矛盾：                                              │
+│  📌 一句话判断                                          │
+│  推荐小规模实验：冷启动阶段先押注「Beta邀请制」           │
+│                                                         │
+│  📌 核心矛盾                                            │
 │  不是渠道不够多，而是还没找到可复制的低成本主路径         │
 │                                                         │
-│  优先级排序：Beta邀请制 > 竞品用户转化 > KOL试用          │
+│  📌 优先级排序                                          │
+│  Beta邀请制 > Landing Page注册 > Product Hunt发布       │
 │                                                         │
-│  两周实验：                                              │
+│  📌 两周实验                                            │
 │  1. 只验证一个动作                                      │
 │  2. 追踪新增高意向用户数                                 │
 │  3. 不成立就停止扩预算                                   │
@@ -76,7 +80,7 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ## 🎯 核心功能
 
-### 五大模式，覆盖从诊断到执行建议
+### 六大模式，覆盖从诊断到执行建议
 
 | 模式 | 一句话描述 | 适用场景 |
 |------|-----------|----------|
@@ -109,6 +113,11 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 - [增长操作框架](./references/growth-operating-framework.md)
 - [工作流定义](./references/workflow.md)
 - [输出模板](./references/output-schema.md)
+- [方法指南总览](./knowledge/guides/README.md)
+- [阶段判断](./knowledge/guides/stage-diagnosis.md)
+- [用户旅程诊断](./knowledge/guides/user-journey-diagnosis.md)
+- [实验设计](./knowledge/guides/experiment-design.md)
+- [归因与身份识别](./knowledge/guides/attribution-and-identity.md)
 
 ## 📚 知识直达索引
 
@@ -415,7 +424,7 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-org/growth-master-skill.git
+git clone https://github.com/tinylion1024/growth-master-skill.git
 
 # 运行环境
 # Python 3.8+，当前脚本默认仅使用标准库
@@ -427,13 +436,9 @@ cp -R growth-master-skill ~/.claude/skills/
 ### 验证安装
 
 ```bash
-# 验证 Agent 定义
-python scripts/validate-agents.py
-# ✅ 13/13 agents valid
-
-# 验证知识索引
-python scripts/validate-indexes.py
-# ✅ 81 cases, 111 weapons, 12 theories indexed
+# 运行主测试集
+python3 scripts/run_tests.py
+# ✅ 23/23 checks passed
 ```
 
 ### 第一次使用
@@ -477,11 +482,13 @@ python scripts/cli.py diagnose "是否应该做邀请裂变" \
 ```
 
 **输出**：
+- 阶段判断（当前阶段 / 主业务过程 / 北极星 / 约束线）
 - 一句话判断
 - 核心矛盾
 - 优先级排序
 - 建议现在做 / 建议先别做
 - 两周实验
+- 数据与归因要求
 - 可切换为负责人摘要 / 报告版 / JSON 版
 - 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
 
@@ -724,15 +731,6 @@ kelly_result:
 | **Kelly 分配** | 资源投入优化 | [kelly-allocation.md](./references/kelly-allocation.md) |
 | **商业模式** | 商业设计与诊断 | [business-model.md](./references/business-model.md) |
 
-### 扩展框架
-
-| 框架 | 用途 | 文档 |
-|------|------|------|
-| 教程生产 | 学习内容生成 | [tutorial-production.md](./references/tutorial-production.md) |
-| 学习构建 | 个性化学习路径 | [learning-builder.md](./references/learning-builder.md) |
-| Web 安全 | 安全审计 | [websecurity-audit.md](./references/websecurity-audit.md) |
-| 微信读书 | 阅读报告 | [weread-report.md](./references/weread-report.md) |
-
 ---
 
 ## 🏗️ 架构概览
@@ -774,6 +772,8 @@ kelly_result:
 | [用户指南](./docs/user-guide.md) | 详细使用教程 |
 | [开发者指南](./docs/developer-guide.md) | 扩展与定制 |
 | [最佳实践](./docs/best-practices.md) | 使用技巧 |
+| [增长操作框架](./references/growth-operating-framework.md) | 阶段、北极星、旅程、策略环 |
+| [方法指南总览](./knowledge/guides/README.md) | 阶段判断、旅程、实验、归因 |
 | [贝叶斯决策](./references/bayesian-decision.md) | 概率推理框架 |
 
 ---
@@ -781,19 +781,23 @@ kelly_result:
 ## 🧪 测试覆盖
 
 ```bash
-# 运行全部测试
-python scripts/validate-agents.py   # Agent 定义验证
-python scripts/validate-indexes.py  # 知识索引验证
-python scripts/e2e_test_runner.py   # E2E 测试
-python tests/test_bayesian_decision.py  # 贝叶斯决策测试
+# 运行主测试集
+python3 scripts/run_tests.py
+
+# 单独跑 CLI 集成测试
+python3 -m pytest tests/test_cli_integration.py
+
+# 单独验证 Agent / 索引
+python3 scripts/validate-agents.py
+python3 scripts/validate-indexes.py
 ```
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| Agent 测试 | 13/13 | ✅ |
-| E2E 测试 | 10/10 | ✅ |
-| 贝叶斯决策 | 10/10 | ✅ |
-| 报告评分 | 97/100 | ✅ |
+| 脚本化主测试 | 23/23 | ✅ |
+| CLI 集成测试 | diagnose / assess / match / validate | ✅ |
+| Agent / 索引验证 | 结构和知识完整性 | ✅ |
+| 去品牌化检查 | 公共 Markdown 无品牌字样 | ✅ |
 
 ---
 
