@@ -306,7 +306,7 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 </details>
 
 <details>
-<summary>留存增长（15）</summary>
+<summary>留存增长（10）</summary>
 
 - [邮件生命周期](<./knowledge/weapons/06-retention/weapons/066-邮件生命周期.md>) · Low effort · Medium impact · C级证据
 - [推送通知](<./knowledge/weapons/06-retention/weapons/067-推送通知.md>) · Low effort · Medium impact · C级证据
@@ -318,22 +318,28 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 - [用户成就系统](<./knowledge/weapons/06-retention/weapons/073-用户成就系统.md>) · Low effort · Medium impact · C级证据
 - [习惯培养](<./knowledge/weapons/06-retention/weapons/074-习惯培养.md>) · Low effort · Low impact · C级证据
 - [流失召回](<./knowledge/weapons/06-retention/weapons/075-流失召回.md>) · High effort · High impact · A级证据
+
+</details>
+
+<details>
+<summary>变现增长（10）</summary>
+
 - [分层定价](<./knowledge/weapons/07-monetization/weapons/076-分层定价.md>) · Medium effort · Medium impact · B级证据
 - [使用量计费](<./knowledge/weapons/07-monetization/weapons/077-使用量计费.md>) · Medium effort · High impact · B级证据
 - [年付折扣](<./knowledge/weapons/07-monetization/weapons/078-年付折扣.md>) · Medium effort · High impact · B级证据
 - [限时优惠](<./knowledge/weapons/07-monetization/weapons/079-限时优惠.md>) · Medium effort · High impact · B级证据
 - [功能升级提示](<./knowledge/weapons/07-monetization/weapons/080-功能升级提示.md>) · High effort · High impact · B级证据
-
-</details>
-
-<details>
-<summary>变现增长（12）</summary>
-
 - [捆绑套餐](<./knowledge/weapons/07-monetization/weapons/081-捆绑套餐.md>) · Medium effort · High impact · B级证据
 - [企业版升级](<./knowledge/weapons/07-monetization/weapons/082-企业版升级.md>) · Low effort · Medium impact · C级证据
 - [增值插件市场](<./knowledge/weapons/07-monetization/weapons/083-增值插件市场.md>) · Low effort · Medium impact · C级证据
 - [付费模板市场](<./knowledge/weapons/07-monetization/weapons/084-付费模板市场.md>) · Medium effort · High impact · B级证据
 - [Upsell邮件](<./knowledge/weapons/07-monetization/weapons/085-Upsell邮件.md>) · Medium effort · High impact · A级证据
+
+</details>
+
+<details>
+<summary>付费广告（10）</summary>
+
 - [Google Ads](<./knowledge/weapons/08-paid-ads/weapons/086-Google Ads.md>) · Medium effort · Medium impact · B级证据
 - [Facebook Ads](<./knowledge/weapons/08-paid-ads/weapons/087-Facebook Ads.md>) · Medium effort · Medium impact · B级证据
 - [TikTok Ads](<./knowledge/weapons/08-paid-ads/weapons/088-TikTok Ads.md>) · High effort · High impact · B级证据
@@ -341,15 +347,15 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 - [再营销广告](<./knowledge/weapons/08-paid-ads/weapons/090-再营销广告.md>) · Low effort · Medium impact · B级证据
 - [Lookalike人群](<./knowledge/weapons/08-paid-ads/weapons/091-Lookalike人群.md>) · Low effort · Medium impact · C级证据
 - [App Store Ads](<./knowledge/weapons/08-paid-ads/weapons/092-App Store Ads.md>) · Low effort · Medium impact · C级证据
+- [KOL投放](<./knowledge/weapons/08-paid-ads/weapons/093-KOL投放.md>) · Medium effort · Medium impact · B级证据
+- [联盟营销](<./knowledge/weapons/08-paid-ads/weapons/094-联盟营销.md>) · Medium effort · Medium impact · B级证据
+- [Influencer合作](<./knowledge/weapons/08-paid-ads/weapons/095-Influencer合作.md>) · Medium effort · Medium impact · B级证据
 
 </details>
 
 <details>
-<summary>付费广告（10）</summary>
+<summary>品牌增长（8）</summary>
 
-- [KOL投放](<./knowledge/weapons/08-paid-ads/weapons/093-KOL投放.md>) · Medium effort · Medium impact · B级证据
-- [联盟营销](<./knowledge/weapons/08-paid-ads/weapons/094-联盟营销.md>) · Medium effort · Medium impact · B级证据
-- [Influencer合作](<./knowledge/weapons/08-paid-ads/weapons/095-Influencer合作.md>) · Medium effort · Medium impact · B级证据
 - [品牌故事](<./knowledge/weapons/09-brand/weapons/096-品牌故事.md>) · Medium effort · High impact · C级证据
 - [创始人IP](<./knowledge/weapons/09-brand/weapons/097-创始人IP.md>) · Low effort · High impact · B级证据
 - [PR媒体](<./knowledge/weapons/09-brand/weapons/098-PR媒体.md>) · Medium effort · Medium impact · C级证据
@@ -357,23 +363,17 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 - [品牌视觉统一](<./knowledge/weapons/09-brand/weapons/100-品牌视觉统一.md>) · Medium effort · Medium impact · B级证据
 - [标志性活动](<./knowledge/weapons/09-brand/weapons/101-标志性活动.md>) · High effort · Medium impact · C级证据
 - [价值观营销](<./knowledge/weapons/09-brand/weapons/102-价值观营销.md>) · High effort · Medium impact · C级证据
+- [社会议题](<./knowledge/weapons/09-brand/weapons/103-社会议题.md>) · Low effort · Medium impact · C级证据
 
 </details>
 
 <details>
-<summary>品牌增长（5）</summary>
+<summary>B2B销售（8）</summary>
 
-- [社会议题](<./knowledge/weapons/09-brand/weapons/103-社会议题.md>) · Low effort · Medium impact · C级证据
 - [冷启动外呼](<./knowledge/weapons/10-b2b-sales/weapons/104-冷启动外呼.md>) · Medium effort · High impact · C级证据
 - [LinkedIn外联](<./knowledge/weapons/10-b2b-sales/weapons/105-LinkedIn外联.md>) · Low effort · Medium impact · C级证据
 - [Webinar](<./knowledge/weapons/10-b2b-sales/weapons/106-Webinar.md>) · Medium effort · Medium impact · C级证据
 - [Demo演示](<./knowledge/weapons/10-b2b-sales/weapons/107-Demo演示.md>) · Medium effort · High impact · C级证据
-
-</details>
-
-<details>
-<summary>B2B销售（4）</summary>
-
 - [白皮书下载](<./knowledge/weapons/10-b2b-sales/weapons/108-白皮书下载.md>) · Medium effort · Medium impact · C级证据
 - [销售自动化](<./knowledge/weapons/10-b2b-sales/weapons/109-销售自动化.md>) · Low effort · High impact · B级证据
 - [客户成功](<./knowledge/weapons/10-b2b-sales/weapons/110-客户成功.md>) · High effort · High impact · B级证据

@@ -12,8 +12,10 @@ echo "========================================="
 echo ""
 
 echo "--- Validation Checks ---"
+python3 "$ROOT_DIR/scripts/enrich-weapons.py"
 python3 "$ROOT_DIR/scripts/validate-agents.py"
 python3 "$ROOT_DIR/scripts/update-indexes.py"
+python3 "$ROOT_DIR/scripts/validate-weapons.py"
 python3 "$ROOT_DIR/scripts/validate-indexes.py"
 
 echo ""

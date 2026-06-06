@@ -40,12 +40,12 @@
     {
       "id": "retention",
       "name": "留存增长",
-      "count": 15
+      "count": 10
     },
     {
       "id": "monetization",
       "name": "变现增长",
-      "count": 12
+      "count": 10
     },
     {
       "id": "paid-ads",
@@ -55,12 +55,12 @@
     {
       "id": "brand",
       "name": "品牌增长",
-      "count": 5
+      "count": 8
     },
     {
       "id": "b2b-sales",
       "name": "B2B销售",
-      "count": 4
+      "count": 8
     }
   ],
   "weapons": [
@@ -892,7 +892,7 @@
     {
       "id": 76,
       "name": "分层定价",
-      "category": "retention",
+      "category": "monetization",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
@@ -903,7 +903,7 @@
     {
       "id": 77,
       "name": "使用量计费",
-      "category": "retention",
+      "category": "monetization",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
@@ -914,7 +914,7 @@
     {
       "id": 78,
       "name": "年付折扣",
-      "category": "retention",
+      "category": "monetization",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
@@ -925,7 +925,7 @@
     {
       "id": 79,
       "name": "限时优惠",
-      "category": "retention",
+      "category": "monetization",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
@@ -936,7 +936,7 @@
     {
       "id": 80,
       "name": "功能升级提示",
-      "category": "retention",
+      "category": "monetization",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
@@ -1002,7 +1002,7 @@
     {
       "id": 86,
       "name": "Google Ads",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
@@ -1013,7 +1013,7 @@
     {
       "id": 87,
       "name": "Facebook Ads",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
@@ -1024,7 +1024,7 @@
     {
       "id": 88,
       "name": "TikTok Ads",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
@@ -1035,7 +1035,7 @@
     {
       "id": 89,
       "name": "YouTube Ads",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
@@ -1046,7 +1046,7 @@
     {
       "id": 90,
       "name": "再营销广告",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "B",
@@ -1057,7 +1057,7 @@
     {
       "id": 91,
       "name": "Lookalike人群",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1068,7 +1068,7 @@
     {
       "id": 92,
       "name": "App Store Ads",
-      "category": "monetization",
+      "category": "paid-ads",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1112,7 +1112,7 @@
     {
       "id": 96,
       "name": "品牌故事",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
@@ -1123,7 +1123,7 @@
     {
       "id": 97,
       "name": "创始人IP",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "Low",
       "impact": "High",
       "evidence_tier": "B",
@@ -1134,7 +1134,7 @@
     {
       "id": 98,
       "name": "PR媒体",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1145,7 +1145,7 @@
     {
       "id": 99,
       "name": "行业大会",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1156,7 +1156,7 @@
     {
       "id": 100,
       "name": "品牌视觉统一",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
@@ -1167,7 +1167,7 @@
     {
       "id": 101,
       "name": "标志性活动",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1178,7 +1178,7 @@
     {
       "id": 102,
       "name": "价值观营销",
-      "category": "paid-ads",
+      "category": "brand",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1200,7 +1200,7 @@
     {
       "id": 104,
       "name": "冷启动外呼",
-      "category": "brand",
+      "category": "b2b-sales",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
@@ -1211,7 +1211,7 @@
     {
       "id": 105,
       "name": "LinkedIn外联",
-      "category": "brand",
+      "category": "b2b-sales",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1222,7 +1222,7 @@
     {
       "id": 106,
       "name": "Webinar",
-      "category": "brand",
+      "category": "b2b-sales",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
@@ -1233,7 +1233,7 @@
     {
       "id": 107,
       "name": "Demo演示",
-      "category": "brand",
+      "category": "b2b-sales",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",

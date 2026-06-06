@@ -24,6 +24,19 @@ CASE_REGION_TITLES = {
     "vertical": "垂直行业案例",
 }
 
+WEAPON_CATEGORY_BY_DIR = {
+    "01-cold-start": "cold-start",
+    "02-viral-referral": "viral-referral",
+    "03-content-growth": "content-growth",
+    "04-community": "community",
+    "05-plg": "plg",
+    "06-retention": "retention",
+    "07-monetization": "monetization",
+    "08-paid-ads": "paid-ads",
+    "09-brand": "brand",
+    "10-b2b-sales": "b2b-sales",
+}
+
 
 def load_json(path: Path):
     with open(path, "r", encoding="utf-8") as handle:
@@ -170,6 +183,7 @@ def sync_weapons_index():
         source_by_id[weapon_id] = {
             "front_matter": front_matter,
             "file": markdown_file.relative_to(KNOWLEDGE_ROOT).as_posix(),
+            "category": WEAPON_CATEGORY_BY_DIR.get(markdown_file.parent.parent.name, ""),
         }
 
     category_counter = Counter()
@@ -183,6 +197,8 @@ def sync_weapons_index():
             weapon["description"] = front_matter["description"]
         if source.get("file"):
             weapon["file"] = source["file"]
+        if source.get("category"):
+            weapon["category"] = source["category"]
         category_counter[weapon.get("category", "")] += 1
 
     for category in payload.get("categories", []):
