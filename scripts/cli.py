@@ -148,6 +148,13 @@ def render_strategy_brain(title: str, analysis: Dict) -> None:
     print("=" * 60)
     print(f"\n上下文: {analysis['context_summary']}")
 
+    print("\n【阶段判断】")
+    print(f"  当前阶段: {analysis['stage_diagnosis']['current_stage']}")
+    print(f"  主业务过程: {analysis['growth_process']['name']}")
+    print(f"  北极星指标: {analysis['north_star']['metric']}")
+    print(f"  约束线: {analysis['north_star']['guardrail']}")
+    print(f"  用户旅程卡点: {analysis['journey_focus']['stage']} - {analysis['journey_focus']['focus']}")
+
     print("\n【一句话判断】")
     print(f"  {analysis['decision_line']}")
 
@@ -194,6 +201,10 @@ def render_strategy_brain(title: str, analysis: Dict) -> None:
         print("\n【理论支撑】")
         for theory in analysis["reference_theories"]:
             print(f"  • {theory['name']}")
+
+    print("\n【数据与归因要求】")
+    for item in analysis["measurement_notes"]:
+        print(f"  • {item}")
 
     if analysis["missing_info"]:
         print("\n【还缺哪些信息】")

@@ -95,6 +95,21 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 | 🛠️ 玩法 | **111种** | 裂变、PLG、内容增长、留存... |
 | 📖 理论 | **12流派** | 增长黑客、网络效应、PLG... |
 
+## 🧭 核心框架
+
+项目现在默认按一套更完整的增长经营框架组织策略判断，而不是直接罗列玩法：
+
+- 先判断当前处于 `产品验证期 / 增长放大期 / 规模经营期`
+- 再判断主问题属于 `用户获取` 还是 `用户深耕`
+- 再定义当前最该围绕的 `北极星指标` 与 `约束线`
+- 最后才进入案例、玩法、理论和实验建议
+
+这套框架已经接入 `diagnose`、`assess` 和场景快捷入口的输出层。
+
+- [增长操作框架](./references/growth-operating-framework.md)
+- [工作流定义](./references/workflow.md)
+- [输出模板](./references/output-schema.md)
+
 ## 📚 知识直达索引
 
 - [案例库总览](./knowledge/cases/README.md)

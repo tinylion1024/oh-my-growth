@@ -50,7 +50,9 @@ def test_diagnose_outputs_strategy_brain_sections():
 
     assert result.returncode == 0, result.stderr
     assert "增长策略外脑" in result.stdout
+    assert "【阶段判断】" in result.stdout
     assert "【核心矛盾】" in result.stdout
+    assert "【数据与归因要求】" in result.stdout
     assert "【建议先别做】" in result.stdout
     assert "【两周实验】" in result.stdout
 
@@ -71,6 +73,7 @@ def test_diagnose_executive_view_is_compact():
 
     assert result.returncode == 0, result.stderr
     assert "董事会/负责人摘要" in result.stdout
+    assert "北极星" in result.stdout
     assert "这周拍板" in result.stdout
     assert "优先级" in result.stdout
 
@@ -139,6 +142,8 @@ def test_structured_context_is_reflected_in_json_view():
 
     assert result.returncode == 0, result.stderr
     assert '"goal": "提升30日留存"' in result.stdout
+    assert '"stage_diagnosis"' in result.stdout
+    assert '"north_star"' in result.stdout
     assert '"metric": "30日留存率"' in result.stdout or '"30日留存率 (observed)"' in result.stdout
     assert '"resources": "产品1+工程2+运营1"' in result.stdout
 

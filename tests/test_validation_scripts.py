@@ -60,3 +60,37 @@ def test_validate_agents_without_external_yaml_dependency():
     result = run_script("scripts/validate-agents.py")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "All agents validated successfully" in result.stdout
+
+
+def test_growth_framework_guides_exist_and_are_sanitized():
+    expected_guides = {
+        "README.md",
+        "stage-diagnosis.md",
+        "north-star-metric.md",
+        "user-journey-diagnosis.md",
+        "growth-loop.md",
+        "experiment-design.md",
+        "attribution-and-identity.md",
+    }
+    guides_dir = ROOT_DIR / "knowledge" / "guides"
+    assert expected_guides.issubset({path.name for path in guides_dir.iterdir() if path.is_file()})
+
+    public_paths = [
+        ROOT_DIR / "README.md",
+        ROOT_DIR / "SKILL.md",
+        ROOT_DIR / "references",
+        ROOT_DIR / "knowledge" / "guides",
+        ROOT_DIR / "knowledge" / "modules",
+    ]
+
+    for base in public_paths:
+        if base.is_file():
+            contents = base.read_text(encoding="utf-8")
+            assert "UGS-P" not in contents
+            assert "UGS" not in contents
+            continue
+
+        for path in base.rglob("*.md"):
+            contents = path.read_text(encoding="utf-8")
+            assert "UGS-P" not in contents, path
+            assert "UGS" not in contents, path

@@ -1,20 +1,32 @@
 # Knowledge Router - 知识检索路由
 
+## 先做上层路由
+
+在进入案例、玩法和理论检索前，先用一层通用增长框架给问题定向：
+
+1. 当前更像产品验证期、增长放大期还是规模经营期
+2. 主问题属于用户获取还是用户深耕
+3. 北极星指标和约束线分别是什么
+4. 用户旅程主断点在哪一段
+
+只有这些基本判断成立后，后续检索才不会退化成“相关关键词匹配”。
+
 ## 检索策略
 
 ### 多维度检索
 
 ```
-检索 = 行业匹配 × 阶段匹配 × 问题匹配 × 玩法匹配
+检索 = 行业匹配 × 阶段匹配 × 问题匹配 × 旅程匹配 × 玩法匹配
 ```
 
 ### 检索流程
 
 ```
 1. 解析用户输入 → 提取关键词和特征
-2. 多维度匹配 → 计算相似度
-3. 排序筛选 → Top N结果
-4. 提取关键信息 → 输出
+2. 做阶段/业务过程/北极星/旅程判断
+3. 多维度匹配 → 计算相似度
+4. 排序筛选 → Top N结果
+5. 提取关键信息 → 输出
 ```
 
 ## 案例检索
@@ -44,6 +56,7 @@ def match_cases(user_input, case_library):
     #     "industry": "saas",
     #     "stage": "1-10",
     #     "problem": "acquisition",
+    #     "journey_stage": "认知/到达",
     #     "keywords": ["邀请", "裂变", "协作"]
     # }
     
@@ -65,9 +78,13 @@ def match_cases(user_input, case_library):
         if case.problem_type == features.problem:
             score += 0.3
         
-        # 关键词匹配（权重0.2）
+        # 旅程匹配（权重0.1）
+        if case.journey_stage == features.journey_stage:
+            score += 0.1
+
+        # 关键词匹配（权重0.1）
         keyword_score = keyword_similarity(features.keywords, case.keywords)
-        score += 0.2 * keyword_score
+        score += 0.1 * keyword_score
         
         scores.append((case, score))
     
@@ -95,6 +112,13 @@ def extract_case_info(case):
 ### 玩法分类体系
 
 ```
+
+### 玩法选择前的判断顺序
+
+1. 先判断当前问题更偏用户获取还是用户深耕
+2. 再判断阶段是验证、放大还是经营优化
+3. 再看用户旅程断点
+4. 最后才匹配玩法模块
 weapons/
 ├── 01-cold-start/         # 冷启动
 ├── 02-viral-referral/     # 病毒裂变
@@ -183,6 +207,12 @@ def match_theories(features):
       "warnings": ["注意事项"]
     }
   ],
+  "framework_context": {
+    "stage_diagnosis": "增长放大期",
+    "growth_process": "用户获取",
+    "north_star": "新增高意向用户数",
+    "journey_stage": "认知/到达"
+  },
   "recommended_weapons": [
     {
       "id": 12,

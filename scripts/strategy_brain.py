@@ -22,6 +22,40 @@ STAGE_LABELS = {
     "10-100": "规模化",
 }
 
+STAGE_FRAMEWORK = {
+    "0-1": {
+        "name": "产品验证期",
+        "focus": "先验证可复制主路径与核心价值成立，再决定是否放大投入。",
+        "reason": "这个阶段最怕表面增长，真正关键的是高意向用户是否持续留下。",
+    },
+    "1-10": {
+        "name": "增长放大期",
+        "focus": "把已验证动作变成稳定系统，同时补齐漏斗、归因和资源协同。",
+        "reason": "这个阶段最重要的是放大已成立抓手，而不是重新分散尝试。",
+    },
+    "10-100": {
+        "name": "规模经营期",
+        "focus": "平衡效率、收入质量和长期价值，并为新增量做准备。",
+        "reason": "这个阶段的主要问题通常不是有没有动作，而是资源配置和结构优化。",
+    },
+}
+
+PROBLEM_TO_PROCESS = {
+    "acquisition": ("用户获取", "先稳定新增路径、控制 CAC，并验证用户质量。"),
+    "activation": ("用户深耕", "先缩短首次价值到达时间，提升关键动作转化。"),
+    "retention": ("用户深耕", "先修复持续回访与复购理由，避免假活跃。"),
+    "monetization": ("用户深耕", "先验证价值付费链条，再放大商业化动作。"),
+    "referral": ("用户获取", "先验证分享动机和邀请转化，再考虑放大裂变机制。"),
+}
+
+PROBLEM_TO_JOURNEY = {
+    "acquisition": ("认知/到达", "流量来源与到达后的高意向转化是否成立。"),
+    "activation": ("注册/激活", "用户能否在首次使用中尽快获得核心价值。"),
+    "retention": ("留存", "用户是否持续获得回来使用的理由。"),
+    "monetization": ("付费", "核心价值和付费触发点是否真正对齐。"),
+    "referral": ("分享", "产品价值是否强到足以支撑用户主动传播。"),
+}
+
 CATEGORY_ACTIONS = {
     "cold-start": ["先集中拿到 20-50 个高意向种子用户", "优先验证转介绍或高触达渠道是否能稳定出单"],
     "viral-referral": ["只设计一个低摩擦分享触点", "先跑奖励成本可控的双边激励实验"],
@@ -83,11 +117,18 @@ class StrategyBrain:
         decision_text, confidence_label, posterior = self._build_confidence(query, context, results, top_option)
         decision_process = self._build_decision_process(options)
         actions = self._build_actions(query, context, top_option)
+        growth_process = self._build_growth_process(context)
+        north_star = self._build_north_star(context)
         return {
             "query": query,
             "mode": mode,
             "context_summary": self._build_context_summary(context),
             "problem_label": PROBLEM_LABELS.get(context.get("problem_type", ""), "增长"),
+            "stage_diagnosis": self._build_stage_diagnosis(context),
+            "growth_process": growth_process,
+            "north_star": north_star,
+            "journey_focus": self._build_journey_focus(context),
+            "measurement_notes": self._build_measurement_notes(context, top_option, north_star, growth_process),
             "decision_line": self._build_decision_line(query, context, top_option, decision_text, confidence_label),
             "core_tension": self._build_core_tension(query, context, top_option),
             "why_now": self._build_why_now(context, top_option, results),
@@ -141,6 +182,11 @@ class StrategyBrain:
             "",
             f"- **目标**：{current_state['goal']}",
             f"- **阶段**：{current_state['stage']}",
+            f"- **阶段判断**：{analysis['stage_diagnosis']['current_stage']}，{analysis['stage_diagnosis']['focus']}",
+            f"- **主业务过程**：{analysis['growth_process']['name']}",
+            f"- **北极星指标**：{analysis['north_star']['metric']}",
+            f"- **约束线**：{analysis['north_star']['guardrail']}",
+            f"- **旅程卡点**：{analysis['journey_focus']['stage']}",
             f"- **约束**：{current_state['constraints']}",
             f"- **资源**：{current_state['resources']}",
             "- **关键事实**：",
@@ -177,6 +223,15 @@ class StrategyBrain:
         lines.extend(
             [
                 "",
+                "## 增长框架定位",
+                "",
+                f"- **当前阶段**：{analysis['stage_diagnosis']['current_stage']}",
+                f"- **阶段重点**：{analysis['stage_diagnosis']['focus']}",
+                f"- **主业务过程**：{analysis['growth_process']['name']}，{analysis['growth_process']['focus']}",
+                f"- **北极星指标**：{analysis['north_star']['metric']}",
+                f"- **约束线**：{analysis['north_star']['guardrail']}",
+                f"- **旅程卡点**：{analysis['journey_focus']['stage']}，{analysis['journey_focus']['focus']}",
+                "",
                 "## 判断过程",
                 "",
                 "### 候选方案对比",
@@ -196,6 +251,16 @@ class StrategyBrain:
                 f"### 为什么是 {top_name}",
                 "",
                 analysis["core_tension"],
+                "",
+                "### 数据与归因要求",
+                "",
+            ]
+        )
+        for item in analysis["measurement_notes"]:
+            lines.append(f"- {item}")
+
+        lines.extend(
+            [
                 "",
                 "### 为什么不是其他选项",
                 "",
@@ -291,6 +356,10 @@ class StrategyBrain:
             "",
             f"**一句话判断**：{analysis['decision_line']}",
             "",
+            f"**阶段判断**：{analysis['stage_diagnosis']['current_stage']}，{analysis['growth_process']['name']}",
+            "",
+            f"**北极星**：{analysis['north_star']['metric']}（约束线：{analysis['north_star']['guardrail']}）",
+            "",
             f"**核心矛盾**：{analysis['core_tension']}",
             "",
             f"**优先级**：{top_names}",
@@ -304,6 +373,74 @@ class StrategyBrain:
             lines.append(f"- {item}")
         lines.extend(["", f"**置信度**：{analysis['confidence_label']} ({analysis['confidence_score']:.2f})"])
         return "\n".join(lines)
+
+    def _build_stage_diagnosis(self, context: Dict[str, str]) -> Dict[str, str]:
+        stage = context.get("stage", "")
+        frame = STAGE_FRAMEWORK.get(
+            stage,
+            {
+                "name": STAGE_LABELS.get(stage, "阶段待明确"),
+                "focus": "先明确当前阶段，再决定是否押注获客、留存还是变现。",
+                "reason": "阶段不清会导致优先级判断失真。",
+            },
+        )
+        return {
+            "current_stage": frame["name"],
+            "focus": frame["focus"],
+            "reason": frame["reason"],
+        }
+
+    def _build_growth_process(self, context: Dict[str, str]) -> Dict[str, str]:
+        problem = context.get("problem_type", "")
+        name, focus = PROBLEM_TO_PROCESS.get(problem, ("增长经营", "先判断问题更偏新增还是偏价值深耕。"))
+        return {
+            "name": name,
+            "focus": focus,
+            "reason": f"当前问题更接近{PROBLEM_LABELS.get(problem, '增长')}，因此优先按{name}处理。",
+        }
+
+    def _build_north_star(self, context: Dict[str, str]) -> Dict[str, str]:
+        metric = self._primary_metric(context)
+        problem = context.get("problem_type", "")
+        guardrail_map = {
+            "acquisition": "CAC 不失控，且首周激活率不下滑",
+            "activation": "新增转化不能靠过度打扰或补贴硬拉",
+            "retention": "提升复访时不能牺牲用户体验或制造假活跃",
+            "monetization": "付费提升不能明显伤害留存和口碑",
+            "referral": "邀请增长不能换来低质量用户或滥用",
+        }
+        return {
+            "metric": metric,
+            "guardrail": guardrail_map.get(problem, "不能破坏长期用户价值"),
+            "reason": f"当前优先围绕 {metric} 配置资源，避免同时追太多指标。",
+        }
+
+    def _build_journey_focus(self, context: Dict[str, str]) -> Dict[str, str]:
+        problem = context.get("problem_type", "")
+        stage, focus = PROBLEM_TO_JOURNEY.get(problem, ("用户旅程待明确", "先明确用户在哪一段断掉。"))
+        return {
+            "stage": stage,
+            "focus": focus,
+        }
+
+    def _build_measurement_notes(
+        self,
+        context: Dict[str, str],
+        top_option: Optional[StrategyOption],
+        north_star: Dict[str, str],
+        growth_process: Dict[str, str],
+    ) -> List[str]:
+        option_name = top_option.name if top_option else "当前主抓手"
+        notes = [
+            f"主指标统一围绕 {north_star['metric']}，并给出当前值、目标值和观察周期。",
+            f"至少补一条约束线：{north_star['guardrail']}。",
+            f"{growth_process['name']}相关动作需要能追踪到「{option_name}」前后指标变化。",
+        ]
+        if context.get("problem_type") in {"acquisition", "referral"}:
+            notes.append("渠道、内容或分享动作至少要能做基础来源归因，避免只看总量。")
+        else:
+            notes.append("主价值动作、触达动作和留存/付费结果要使用同一口径复盘。")
+        return notes
 
     def _build_context_summary(self, context: Dict[str, str]) -> str:
         parts = []
