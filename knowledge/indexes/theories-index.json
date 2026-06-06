@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.1.0",
-    "last_updated": "2024-01-15",
+    "version": "1.2.0",
+    "last_updated": "2026-06-06",
     "total_theories": 12,
     "evidence_tier_definition": {
       "A": "元分析、系统综述、官方统计、权威教材",
@@ -17,7 +17,11 @@
       "name": "增长黑客派",
       "file": "schools/01-growth-hacking.md",
       "evidence_tier": "B",
-      "evidence_sources": ["Sean Ellis研究", "增长黑客书籍", "行业实践"],
+      "evidence_sources": [
+        "Sean Ellis研究",
+        "增长黑客书籍",
+        "行业实践"
+      ],
       "confidence": 0.88,
       "core_question": "如何用数据驱动决策？",
       "core_principles": [
@@ -31,17 +35,33 @@
         "需要快速验证假设",
         "A/B测试可行"
       ],
-      "key_tactics": ["A/B测试", "数据分析", "MVP验证"],
-      "related_weapons": [1, 2, 6, 7],
-      "related_cases": ["dropbox", "airbnb"]
+      "key_tactics": [
+        "A/B测试",
+        "数据分析",
+        "MVP验证"
+      ],
+      "related_weapons": [
+        1,
+        2,
+        6,
+        7
+      ],
+      "related_cases": [
+        "dropbox",
+        "airbnb"
+      ]
     },
     {
       "id": "plg",
       "name": "产品驱动增长",
       "file": "schools/02-plg.md",
       "evidence_tier": "B",
-      "evidence_sources": ["OpenView研究", "SaaS行业报告", "成功案例分析"],
-      "confidence": 0.90,
+      "evidence_sources": [
+        "OpenView研究",
+        "SaaS行业报告",
+        "成功案例分析"
+      ],
+      "confidence": 0.9,
       "core_question": "如何让产品自己会说话？",
       "core_principles": [
         "产品即营销",
@@ -54,16 +74,33 @@
         "低使用门槛产品",
         "有自传播属性"
       ],
-      "key_tactics": ["Freemium", "Onboarding优化", "产品内传播"],
-      "related_weapons": [51, 52, 54, 58],
-      "related_cases": ["slack", "notion", "dropbox"]
+      "key_tactics": [
+        "Freemium",
+        "Onboarding优化",
+        "产品内传播"
+      ],
+      "related_weapons": [
+        51,
+        52,
+        54,
+        58
+      ],
+      "related_cases": [
+        "slack",
+        "notion",
+        "dropbox"
+      ]
     },
     {
       "id": "network-effects",
       "name": "网络效应",
       "file": "schools/03-network-effects.md",
       "evidence_tier": "A",
-      "evidence_sources": ["学术研究", "平台经济学", "成功案例分析"],
+      "evidence_sources": [
+        "学术研究",
+        "平台经济学",
+        "成功案例分析"
+      ],
       "confidence": 0.92,
       "core_question": "如何利用双边市场？",
       "core_principles": [
@@ -77,17 +114,31 @@
         "社交网络",
         "Marketplace"
       ],
-      "key_tactics": ["双边激励", "临界质量策略"],
-      "related_weapons": [11, 12, 17],
-      "related_cases": ["airbnb", "uber"]
+      "key_tactics": [
+        "双边激励",
+        "临界质量策略"
+      ],
+      "related_weapons": [
+        11,
+        12,
+        17
+      ],
+      "related_cases": [
+        "airbnb",
+        "uber"
+      ]
     },
     {
       "id": "content-growth",
       "name": "内容增长",
       "file": "schools/04-content-growth.md",
       "evidence_tier": "C",
-      "evidence_sources": ["内容营销实践", "HubSpot方法论", "行业观察"],
-      "confidence": 0.80,
+      "evidence_sources": [
+        "内容营销实践",
+        "HubSpot方法论",
+        "行业观察"
+      ],
+      "confidence": 0.8,
       "core_question": "如何用内容持续获客？",
       "core_principles": [
         "SEO长尾流量",
@@ -100,16 +151,34 @@
         "用户有搜索需求",
         "长期品牌建设"
       ],
-      "key_tactics": ["SEO", "内容营销", "入站营销"],
-      "related_weapons": [26, 27, 28, 29, 30, 31],
-      "related_cases": ["hubspot", "xiaohongshu"]
+      "key_tactics": [
+        "SEO",
+        "内容营销",
+        "入站营销"
+      ],
+      "related_weapons": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "related_cases": [
+        "hubspot",
+        "xiaohongshu"
+      ]
     },
     {
       "id": "community-growth",
       "name": "社区增长",
       "file": "schools/05-community-growth.md",
       "evidence_tier": "C",
-      "evidence_sources": ["社区运营实践", "用户心理学", "成功案例分析"],
+      "evidence_sources": [
+        "社区运营实践",
+        "用户心理学",
+        "成功案例分析"
+      ],
       "confidence": 0.78,
       "core_question": "如何运营超级用户？",
       "core_principles": [
@@ -123,16 +192,34 @@
         "有粉丝基础",
         "用户愿意参与"
       ],
-      "key_tactics": ["大使计划", "用户共创", "社区运营"],
-      "related_weapons": [41, 42, 43, 44, 49, 50],
-      "related_cases": ["notion", "xiaohongshu"]
+      "key_tactics": [
+        "大使计划",
+        "用户共创",
+        "社区运营"
+      ],
+      "related_weapons": [
+        41,
+        42,
+        43,
+        44,
+        49,
+        50
+      ],
+      "related_cases": [
+        "notion",
+        "xiaohongshu"
+      ]
     },
     {
       "id": "brand-growth",
       "name": "品牌驱动",
       "file": "schools/06-brand-growth.md",
       "evidence_tier": "C",
-      "evidence_sources": ["品牌营销理论", "成功案例分析", "消费者心理学"],
+      "evidence_sources": [
+        "品牌营销理论",
+        "成功案例分析",
+        "消费者心理学"
+      ],
       "confidence": 0.75,
       "core_question": "如何建立品牌心智？",
       "core_principles": [
@@ -146,16 +233,35 @@
         "有品牌预算",
         "长期战略"
       ],
-      "key_tactics": ["品牌叙事", "PR", "价值观营销"],
-      "related_weapons": [96, 97, 98, 99, 102, 103],
-      "related_cases": ["allbirds", "glossier", "shein"]
+      "key_tactics": [
+        "品牌叙事",
+        "PR",
+        "价值观营销"
+      ],
+      "related_weapons": [
+        96,
+        97,
+        98,
+        99,
+        102,
+        103
+      ],
+      "related_cases": [
+        "allbirds",
+        "glossier",
+        "shein"
+      ]
     },
     {
       "id": "viral-growth",
       "name": "病毒传播",
       "file": "schools/07-viral-growth.md",
       "evidence_tier": "B",
-      "evidence_sources": ["病毒营销研究", "社交网络分析", "成功案例"],
+      "evidence_sources": [
+        "病毒营销研究",
+        "社交网络分析",
+        "成功案例"
+      ],
       "confidence": 0.85,
       "core_question": "如何让用户主动传播？",
       "core_principles": [
@@ -169,16 +275,43 @@
         "低门槛分享",
         "有奖励预算"
       ],
-      "key_tactics": ["邀请裂变", "分享激励", "病毒循环"],
-      "related_weapons": [11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-      "related_cases": ["dropbox", "pinduoduo", "wechat-redpacket"]
+      "key_tactics": [
+        "邀请裂变",
+        "分享激励",
+        "病毒循环"
+      ],
+      "related_weapons": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "related_cases": [
+        "dropbox",
+        "pinduoduo",
+        "wechat-redpacket"
+      ]
     },
     {
       "id": "performance-marketing",
       "name": "付费广告",
       "file": "schools/08-performance-marketing.md",
       "evidence_tier": "B",
-      "evidence_sources": ["广告平台数据", "营销ROI研究", "行业实践"],
+      "evidence_sources": [
+        "广告平台数据",
+        "营销ROI研究",
+        "行业实践"
+      ],
       "confidence": 0.88,
       "core_question": "如何精准投放？",
       "core_principles": [
@@ -192,8 +325,24 @@
         "用户画像清晰",
         "转化路径明确"
       ],
-      "key_tactics": ["搜索广告", "信息流", "再营销", "Lookalike"],
-      "related_weapons": [86, 87, 88, 89, 90, 91, 92, 93, 94, 95],
+      "key_tactics": [
+        "搜索广告",
+        "信息流",
+        "再营销",
+        "Lookalike"
+      ],
+      "related_weapons": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
       "related_cases": []
     },
     {
@@ -201,7 +350,11 @@
       "name": "游戏化",
       "file": "schools/09-gamification.md",
       "evidence_tier": "B",
-      "evidence_sources": ["游戏化研究", "行为心理学", "成功案例分析"],
+      "evidence_sources": [
+        "游戏化研究",
+        "行为心理学",
+        "成功案例分析"
+      ],
       "confidence": 0.85,
       "core_question": "如何让用户上瘾？",
       "core_principles": [
@@ -215,16 +368,32 @@
         "行为习惯培养",
         "用户留存提升"
       ],
-      "key_tactics": ["积分", "勋章", "排行榜", "打卡"],
-      "related_weapons": [68, 69, 73],
-      "related_cases": ["duolingo", "ant-forest"]
+      "key_tactics": [
+        "积分",
+        "勋章",
+        "排行榜",
+        "打卡"
+      ],
+      "related_weapons": [
+        68,
+        69,
+        73
+      ],
+      "related_cases": [
+        "duolingo",
+        "ant-forest"
+      ]
     },
     {
       "id": "flywheel",
       "name": "增长飞轮",
       "file": "schools/10-flywheel.md",
       "evidence_tier": "B",
-      "evidence_sources": ["Amazon案例研究", "系统思维理论", "平台战略"],
+      "evidence_sources": [
+        "Amazon案例研究",
+        "系统思维理论",
+        "平台战略"
+      ],
       "confidence": 0.88,
       "core_question": "如何建立复利增长？",
       "core_principles": [
@@ -238,16 +407,26 @@
         "多边市场",
         "长期战略"
       ],
-      "key_tactics": ["飞轮设计", "正向循环"],
+      "key_tactics": [
+        "飞轮设计",
+        "正向循环"
+      ],
       "related_weapons": [],
-      "related_cases": ["amazon", "airbnb"]
+      "related_cases": [
+        "amazon",
+        "airbnb"
+      ]
     },
     {
       "id": "business-models",
       "name": "商业模型",
       "file": "schools/11-business-models.md",
       "evidence_tier": "B",
-      "evidence_sources": ["商业模式研究", "定价策略理论", "SaaS最佳实践"],
+      "evidence_sources": [
+        "商业模式研究",
+        "定价策略理论",
+        "SaaS最佳实践"
+      ],
       "confidence": 0.88,
       "core_question": "如何确保盈利？",
       "core_principles": [
@@ -261,16 +440,38 @@
         "定价策略",
         "收入优化"
       ],
-      "key_tactics": ["定价策略", "成本优化", "收入多元化"],
-      "related_weapons": [76, 77, 78, 79, 80, 81, 82, 83, 84, 85],
-      "related_cases": ["slack", "notion"]
+      "key_tactics": [
+        "定价策略",
+        "成本优化",
+        "收入多元化"
+      ],
+      "related_weapons": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "related_cases": [
+        "slack",
+        "notion"
+      ]
     },
     {
       "id": "growthhackers",
       "name": "GrowthHackers方法论",
       "file": "schools/12-growthhackers.md",
       "evidence_tier": "B",
-      "evidence_sources": ["GrowthHackers社区", "Sean Ellis方法论", "企业实践"],
+      "evidence_sources": [
+        "GrowthHackers社区",
+        "Sean Ellis方法论",
+        "企业实践"
+      ],
       "confidence": 0.85,
       "core_question": "如何系统化增长？",
       "core_principles": [
@@ -284,24 +485,68 @@
         "增长团队搭建",
         "系统化运营"
       ],
-      "key_tactics": ["北极星指标", "增长流程", "实验文化"],
+      "key_tactics": [
+        "北极星指标",
+        "增长流程",
+        "实验文化"
+      ],
       "related_weapons": [],
       "related_cases": []
     }
   ],
   "index_by_problem": {
-    "acquisition": ["growth-hacking", "plg", "content-growth", "viral-growth", "performance-marketing"],
-    "activation": ["plg", "gamification"],
-    "retention": ["gamification", "community-growth", "flywheel"],
-    "monetization": ["business-models", "plg"],
-    "referral": ["viral-growth", "network-effects"]
+    "acquisition": [
+      "growth-hacking",
+      "plg",
+      "content-growth",
+      "viral-growth",
+      "performance-marketing"
+    ],
+    "activation": [
+      "plg",
+      "gamification"
+    ],
+    "retention": [
+      "gamification",
+      "community-growth",
+      "flywheel"
+    ],
+    "monetization": [
+      "business-models",
+      "plg"
+    ],
+    "referral": [
+      "viral-growth",
+      "network-effects"
+    ]
   },
   "index_by_industry": {
-    "saas": ["plg", "growth-hacking", "business-models"],
-    "ecommerce": ["viral-growth", "brand-growth", "performance-marketing"],
-    "content": ["content-growth", "community-growth"],
-    "marketplace": ["network-effects", "flywheel"],
-    "education": ["gamification", "content-growth"],
-    "social": ["viral-growth", "network-effects", "community-growth"]
+    "saas": [
+      "plg",
+      "growth-hacking",
+      "business-models"
+    ],
+    "ecommerce": [
+      "viral-growth",
+      "brand-growth",
+      "performance-marketing"
+    ],
+    "content": [
+      "content-growth",
+      "community-growth"
+    ],
+    "marketplace": [
+      "network-effects",
+      "flywheel"
+    ],
+    "education": [
+      "gamification",
+      "content-growth"
+    ],
+    "social": [
+      "viral-growth",
+      "network-effects",
+      "community-growth"
+    ]
   }
 }

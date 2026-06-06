@@ -1,8 +1,8 @@
 # Growth Master Skill - Python Dependencies
 # For E2E testing and validation scripts
 
-# No external dependencies required - uses Python standard library only
-# The scripts use: json, os, re, argparse, dataclasses, enum, datetime
+# Runtime scripts use Python standard library only.
+# Current validation and CLI flows do not require third-party packages.
 
 # Optional: For enhanced functionality
 # pyyaml>=6.0        # YAML parsing (if needed for config)

@@ -1,10 +1,10 @@
 {
   "name": "growth-master-skill",
-  "version": "1.1.0",
-  "description": "智能增长顾问 - 知识驱动的增长决策系统",
+  "version": "3.0.0",
+  "description": "增长策略外脑 - 面向增长行业人的知识驱动决策 skill",
   "author": "Growth Master Team",
   "license": "MIT",
-  "maturity": "production-scaffold",
+  "maturity": "beta",
   "public_release": "sanitized",
   "tags": [
     "growth",
@@ -18,13 +18,18 @@
   ],
   "capabilities": [
     "assess",
+    "diagnose",
     "design",
-    "learn",
-    "audit",
-    "match"
+    "search",
+    "match",
+    "validate",
+    "cold-start",
+    "retention",
+    "monetization",
+    "referral"
   ],
   "knowledge_base": {
-    "cases": 77,
+    "cases": 81,
     "weapons": 111,
     "theories": 12,
     "modules": 7
@@ -51,9 +56,9 @@
     "install": "scripts/install.sh"
   },
   "testing": {
-    "e2e_score": 97.0,
-    "pass_rate": "100%",
-    "scenarios": 10
+    "scripted_checks": 22,
+    "pass_rate": "22/22",
+    "scenario_templates": 10
   },
   "dependencies": {
     "python": ">=3.8",

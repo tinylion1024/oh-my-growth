@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
-"""
-知识检索增强模块
-支持语义相似度检索，替代简单的关键词匹配
-"""
+"""Knowledge retrieval helpers for cases, weapons, and theories."""
 
 import json
 import re
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Optional, Set
 
 BASE_DIR = Path(__file__).parent.parent
 
@@ -31,6 +28,8 @@ class KnowledgeRetriever:
         self.cases = []
         self.weapons = []
         self.theories = []
+        self.weapon_categories: Dict[str, str] = {}
+        self.weapon_details: Dict[str, Dict[str, str]] = {}
         self._load_indexes()
 
     def _load_indexes(self):
@@ -50,6 +49,10 @@ class KnowledgeRetriever:
             with open(weapons_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.weapons = data.get('weapons', [])
+                self.weapon_categories = {
+                    item.get("id", ""): item.get("name", "")
+                    for item in data.get("categories", [])
+                }
 
         # 加载理论索引
         theories_path = indexes_dir / "theories-index.json"
@@ -58,72 +61,181 @@ class KnowledgeRetriever:
                 data = json.load(f)
                 self.theories = data.get('theories', [])
 
+        self.weapon_details = self._load_weapon_details()
+
+    def _load_weapon_details(self) -> Dict[str, Dict[str, str]]:
+        """Load richer weapon metadata from the markdown source files."""
+        details: Dict[str, Dict[str, str]] = {}
+        for path in (BASE_DIR / "knowledge" / "weapons").glob("**/weapons/*.md"):
+            content = path.read_text(encoding="utf-8")
+            front_matter = self._parse_front_matter(content)
+            weapon_id = str(front_matter.get("id", "")).strip()
+            if not weapon_id:
+                continue
+            details[weapon_id] = {
+                "description": front_matter.get("description", "").strip(),
+                "category_label": front_matter.get("category", "").strip(),
+                "file": str(path.relative_to(BASE_DIR)),
+            }
+        return details
+
+    def _parse_front_matter(self, content: str) -> Dict[str, str]:
+        """Parse the simple front matter used by knowledge markdown files."""
+        if not content.startswith("---"):
+            return {}
+
+        match = re.match(r"^---\n(.*?)\n---\n", content, re.DOTALL)
+        if not match:
+            return {}
+
+        data: Dict[str, str] = {}
+        for line in match.group(1).splitlines():
+            if ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            data[key.strip()] = value.strip()
+        return data
+
+    def _normalize_text(self, text: str) -> str:
+        return re.sub(r"\s+", " ", text.lower().replace("_", " ").replace("-", " ")).strip()
+
     def _tokenize(self, text: str) -> List[str]:
-        """简单分词"""
-        # 移除标点符号
-        text = re.sub(r'[^\w\s一-鿿]', ' ', text.lower())
-        # 分词
-        tokens = text.split()
-        return tokens
+        """Tokenize English terms and Chinese phrases/bigrams for retrieval."""
+        normalized = self._normalize_text(text)
+        normalized = re.sub(r"[^0-9a-z\u4e00-\u9fff\s]", " ", normalized)
+
+        tokens: List[str] = []
+        tokens.extend(re.findall(r"[a-z0-9]+", normalized))
+
+        for chunk in re.findall(r"[\u4e00-\u9fff]+", normalized):
+            tokens.append(chunk)
+            if len(chunk) == 1:
+                continue
+            for size in (2, 3):
+                if len(chunk) < size:
+                    continue
+                for index in range(len(chunk) - size + 1):
+                    tokens.append(chunk[index:index + size])
+
+        # Preserve token order for substring scoring while removing duplicates.
+        return list(dict.fromkeys(token for token in tokens if token))
 
     def _compute_similarity(self, query_tokens: List[str], doc_tokens: List[str]) -> float:
-        """计算简单的词重叠相似度"""
+        """Combine token overlap and substring matching for mixed CN/EN text."""
         if not query_tokens or not doc_tokens:
             return 0.0
 
         query_set = set(query_tokens)
         doc_set = set(doc_tokens)
 
-        # Jaccard 相似度
         intersection = len(query_set & doc_set)
         union = len(query_set | doc_set)
+        token_score = intersection / union if union else 0.0
 
-        if union == 0:
-            return 0.0
+        doc_text = " ".join(doc_tokens)
+        substring_hits = 0
+        for token in query_tokens:
+            if len(token) < 2:
+                continue
+            if token in doc_text:
+                substring_hits += 1
 
-        return intersection / union
+        substring_score = min(0.45, substring_hits * 0.08)
+        return token_score + substring_score
 
     def _expand_query(self, query: str, context: Dict) -> List[str]:
-        """查询扩展 - 添加同义词和相关词"""
-        expansions = []
+        """Expand queries using lightweight domain synonyms."""
+        expansions: List[str] = []
 
-        # 行业同义词
         industry_synonyms = {
             "saas": ["软件", "订阅", "b2b", "企业服务"],
-            "电商": ["购物", "零售", "交易", "平台"],
-            "教育": ["学习", "培训", "课程", "知识"],
-            "金融": ["支付", "理财", "信贷", "fintech"],
-            "社交": ["社区", "好友", "互动", "关系"],
-            "内容": ["媒体", "视频", "文章", "信息"],
+            "ecommerce": ["电商", "购物", "零售", "交易", "平台"],
+            "education": ["教育", "学习", "培训", "课程", "知识"],
+            "fintech": ["金融", "支付", "理财", "信贷"],
+            "social": ["社交", "社区", "好友", "互动", "关系"],
+            "content": ["内容", "媒体", "视频", "文章", "信息"],
+            "marketplace": ["平台", "双边市场", "供给", "商家"],
         }
 
-        # 问题同义词
         problem_synonyms = {
-            "获客": ["增长", "拉新", "用户", "注册"],
-            "留存": ["粘性", "活跃", "回访", "留存率"],
-            "变现": ["收入", "付费", "盈利", "商业化"],
-            "裂变": ["传播", "分享", "邀请", "病毒"],
+            "acquisition": ["获客", "增长", "拉新", "用户", "注册", "冷启动"],
+            "retention": ["留存", "粘性", "活跃", "回访", "留存率", "复购"],
+            "monetization": ["变现", "收入", "付费", "盈利", "商业化", "定价"],
+            "referral": ["裂变", "传播", "分享", "邀请", "病毒", "推荐"],
+            "activation": ["激活", "首购", "转化", "体验价值"],
         }
 
-        # 行业扩展
-        industry = context.get('industry', '').lower()
-        if industry in industry_synonyms:
-            expansions.extend(industry_synonyms[industry])
-
-        # 问题类型扩展
-        problem = context.get('problem_type', '').lower()
-        problem_cn = {
-            'acquisition': '获客',
-            'retention': '留存',
-            'monetization': '变现',
-            'referral': '裂变',
+        category_keywords = {
+            "cold-start": ["冷启动", "种子用户", "早期用户", "首批用户"],
+            "viral-referral": ["裂变", "邀请", "推荐", "病毒", "分享"],
+            "content-growth": ["内容", "seo", "教程", "newsletter", "案例研究"],
+            "community": ["社区", "用户社群", "超级用户", "共创"],
+            "plg": ["产品驱动增长", "plg", "freemium", "onboarding", "模板"],
+            "retention": ["留存", "活跃", "召回", "复购", "习惯"],
+            "monetization": ["变现", "付费", "定价", "upsell", "订阅"],
+            "paid-ads": ["广告", "投放", "获客成本", "cac", "推广"],
+            "brand": ["品牌", "pr", "创始人ip", "视觉"],
+            "b2b-sales": ["销售", "线索", "demo", "客户成功", "外联"],
         }
-        if problem in problem_cn:
-            problem_text = problem_cn[problem]
-            if problem_text in problem_synonyms:
-                expansions.extend(problem_synonyms[problem_text])
 
-        return expansions
+        theory_keywords = {
+            "growth-hacking": ["增长黑客", "实验", "aarrr", "ice"],
+            "plg": ["产品驱动增长", "plg", "自传播", "自助体验"],
+            "network-effects": ["网络效应", "双边市场", "临界质量"],
+            "content-growth": ["内容增长", "内容营销", "seo", "入站"],
+            "community-growth": ["社区增长", "超级用户", "共创"],
+            "brand-growth": ["品牌增长", "品牌资产", "价值观"],
+            "viral-growth": ["病毒增长", "裂变", "推荐", "分享"],
+            "performance-marketing": ["效果营销", "投放", "广告"],
+            "gamification": ["游戏化", "积分", "成就", "排行榜"],
+            "flywheel": ["飞轮", "复利增长", "长期增长"],
+            "business-models": ["商业模式", "变现", "付费", "定价"],
+        }
+
+        industry = context.get("industry", "").lower()
+        problem = context.get("problem_type", "").lower()
+
+        expansions.extend(industry_synonyms.get(industry, []))
+        expansions.extend(problem_synonyms.get(problem, []))
+
+        query_text = self._normalize_text(query)
+        for category_id, keywords in category_keywords.items():
+            if any(keyword in query_text for keyword in keywords):
+                expansions.extend(keywords)
+                expansions.append(category_id)
+
+        for theory_id, keywords in theory_keywords.items():
+            if any(keyword in query_text for keyword in keywords):
+                expansions.extend(keywords)
+                expansions.append(theory_id)
+
+        return list(dict.fromkeys(expansions))
+
+    def _build_query_tokens(self, query: str, context: Dict) -> List[str]:
+        query_tokens = self._tokenize(query)
+        expansions = self._expand_query(query, context)
+        query_tokens.extend(self._tokenize(" ".join(expansions)))
+        return list(dict.fromkeys(query_tokens))
+
+    def _problem_to_categories(self, problem: str) -> Set[str]:
+        mapping = {
+            "acquisition": {"cold-start", "content-growth", "paid-ads", "plg"},
+            "activation": {"plg", "community", "retention"},
+            "retention": {"retention", "community", "gamification"},
+            "monetization": {"monetization", "plg", "b2b-sales"},
+            "referral": {"viral-referral", "community", "plg"},
+        }
+        return mapping.get(problem, set())
+
+    def _problem_to_theories(self, problem: str) -> Set[str]:
+        mapping = {
+            "acquisition": {"growth-hacking", "content-growth", "plg"},
+            "activation": {"growth-hacking", "plg", "gamification"},
+            "retention": {"gamification", "flywheel", "community-growth"},
+            "monetization": {"business-models", "plg"},
+            "referral": {"viral-growth", "network-effects", "plg"},
+        }
+        return mapping.get(problem, set())
 
     def search_cases(
         self,
@@ -135,23 +247,22 @@ class KnowledgeRetriever:
         if context is None:
             context = {}
 
-        query_tokens = self._tokenize(query)
-        expansions = self._expand_query(query, context)
-        query_tokens.extend(self._tokenize(' '.join(expansions)))
+        query_tokens = self._build_query_tokens(query, context)
 
         results = []
 
         for case in self.cases:
-            # 构建文档文本
             doc_text = ' '.join([
                 case.get('name', ''),
                 case.get('summary', ''),
+                case.get('region', ''),
                 ' '.join(case.get('tags', {}).get('tactics', [])),
+                ' '.join(case.get('tags', {}).get('industry', [])),
+                ' '.join(case.get('tags', {}).get('problem', [])),
                 ' '.join(case.get('replicable_points', []))
             ])
             doc_tokens = self._tokenize(doc_text)
 
-            # 计算相似度
             score = self._compute_similarity(query_tokens, doc_tokens)
 
             # 行业匹配加分
@@ -200,53 +311,52 @@ class KnowledgeRetriever:
         if context is None:
             context = {}
 
-        query_tokens = self._tokenize(query)
-        expansions = self._expand_query(query, context)
-        query_tokens.extend(self._tokenize(' '.join(expansions)))
+        query_tokens = self._build_query_tokens(query, context)
 
         results = []
 
         for weapon in self.weapons:
-            # 构建文档文本
+            weapon_id = str(weapon.get("id", ""))
+            weapon_detail = self.weapon_details.get(weapon_id, {})
+            category_id = weapon.get("category", "")
+            category_name = self.weapon_categories.get(category_id, "")
+            description = weapon.get("description") or weapon_detail.get("description", "")
+
             doc_text = ' '.join([
                 weapon.get('name', ''),
-                weapon.get('description', ''),
-                weapon.get('category', '')
+                description,
+                category_id,
+                category_name,
+                weapon_detail.get("category_label", ""),
             ])
             doc_tokens = self._tokenize(doc_text)
 
-            # 计算相似度
             score = self._compute_similarity(query_tokens, doc_tokens)
 
-            # 问题类型匹配
             problem = context.get('problem_type', '').lower()
-            problem_index = {
-                'acquisition': 'acquisition',
-                'retention': 'retention',
-                'monetization': 'monetization',
-                'referral': 'referral',
-            }
-            if problem in problem_index:
-                # 检查是否在问题索引中
-                pass  # 简化处理
+            if category_id in self._problem_to_categories(problem):
+                score += 0.35
 
-            # 阶段匹配
-            stage = context.get('stage', '')
-            if stage:
-                pass  # 简化处理
+            if context.get("industry", "").lower() == "saas" and category_id == "plg":
+                score += 0.12
+
+            if context.get("stage", "") == "0-1" and category_id == "cold-start":
+                score += 0.12
 
             if score > 0:
                 results.append(SearchResult(
-                    id=str(weapon.get('id', '')),
+                    id=weapon_id,
                     name=weapon.get('name', ''),
                     type='weapon',
                     score=min(1.0, score),
-                    highlights=[weapon.get('description', '')],
+                    highlights=[description or category_name or category_id],
                     metadata={
-                        'category': weapon.get('category', ''),
+                        'category': category_id,
+                        'category_name': category_name,
                         'effort': weapon.get('effort', 'Medium'),
                         'impact': weapon.get('impact', 'Medium'),
-                        'evidence_tier': weapon.get('evidence_tier', 'C')
+                        'evidence_tier': weapon.get('evidence_tier', 'C'),
+                        'file': weapon_detail.get("file", "")
                     }
                 ))
 
@@ -264,19 +374,24 @@ class KnowledgeRetriever:
         if context is None:
             context = {}
 
-        query_tokens = self._tokenize(query)
+        query_tokens = self._build_query_tokens(query, context)
 
         results = []
 
         for theory in self.theories:
             doc_text = ' '.join([
+                theory.get('id', ''),
                 theory.get('name', ''),
-                theory.get('description', ''),
-                ' '.join(theory.get('key_principles', []))
+                theory.get('core_question', ''),
+                ' '.join(theory.get('core_principles', [])),
+                ' '.join(theory.get('applicable_scenarios', [])),
+                ' '.join(theory.get('key_tactics', [])),
             ])
             doc_tokens = self._tokenize(doc_text)
 
             score = self._compute_similarity(query_tokens, doc_tokens)
+            if theory.get("id", "") in self._problem_to_theories(context.get("problem_type", "").lower()):
+                score += 0.25
 
             if score > 0:
                 results.append(SearchResult(
@@ -284,9 +399,10 @@ class KnowledgeRetriever:
                     name=theory.get('name', ''),
                     type='theory',
                     score=min(1.0, score),
-                    highlights=theory.get('key_principles', [])[:3],
+                    highlights=theory.get('core_principles', [])[:3],
                     metadata={
-                        'evidence_tier': theory.get('evidence_tier', 'B')
+                        'evidence_tier': theory.get('evidence_tier', 'B'),
+                        'file': theory.get('file', '')
                     }
                 ))
 

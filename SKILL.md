@@ -1,23 +1,24 @@
 ---
 name: growth-master-skill
-description: 智能增长顾问 - 知识驱动的增长决策系统。整合87个案例、111种玩法、12大流派，通过多Agent协作生成决策BRD、策略方案、案例推荐。
+description: 增长策略外脑 - 面向增长行业人的知识驱动决策 skill。整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、建议做/不做与实验计划。
 metadata:
   author: Growth Master Team
   maturity: production
-  version: 1.3.0
+  version: 3.0.0
   license: MIT
 ---
 
-# Growth Master - 智能增长顾问
+# Growth Master - 增长策略外脑
 
-将增长知识库与多Agent决策引擎融合，提供端到端的增长解决方案。
+将增长知识库与多Agent决策引擎融合，帮助增长负责人完成前 70% 的策略思考。
 
-**核心价值**：从"查阅知识"升级为"智能增长顾问"
+**核心价值**：从“查阅知识”升级为“先诊断、再判断、后给实验”的增长外脑
 
 ## Use This Skill For
 
-- 评估增长/变现机会，判断是否值得投入资源
-- 设计增长策略，获得具体的玩法组合和实施路径
+- 先判断主矛盾、阶段约束和优先级，而不是直接给招
+- 输出策略判断，明确建议做什么、先别做什么、为什么现在做
+- 设计增长策略，获得可落地的玩法组合和最小实验计划
 - 学习增长知识，获取案例、理论、方法论的系统性指引
 - 审计现有方案，识别风险和改进空间
 - 匹配成功案例，找到可借鉴的参考
@@ -34,6 +35,7 @@ metadata:
 
 | 模式 | 适用场景 | Agent组合 | 输出模板 |
 |------|----------|-----------|----------|
+| Strategy Brain | 诊断、排序、实验建议 | Lead + Growth + ROI + Skeptic + Case + Weapon | [策略外脑模板](references/output-schema.md#strategy-brain-模板) |
 | Fast Scan | 快速判断、证据不足 | Lead + ROI + Skeptic | [快速扫描模板](references/output-schema.md#fast-scan) |
 | Decision BRD | 正式决策、需预算审批 | 全Agent协作 | [决策文档模板](references/output-schema.md#decision-brd) |
 | Strategy Design | 具体策略设计 | Lead + Growth + Weapon + Theory | [策略设计模板](references/output-schema.md#strategy-design) |
@@ -45,14 +47,14 @@ metadata:
 详见 [workflow.md](references/workflow.md)
 
 ```
-用户输入 → 问题理解 → 知识检索 → 多Agent评估 → 冲突解决 → 输出生成
+用户输入 → 问题诊断 → 知识检索 → 优先级判断 → 实验建议 → 输出生成
 ```
 
-1. **问题理解** → Lead Agent 分析问题类型、业务阶段、行业特征，选择模式
-2. **知识检索** → Case/Weapon/Theory Agent 从知识库检索相关案例、玩法、理论
-3. **多Agent评估** → Growth/Monetization/ROI/Execution/Skeptic 并行评估
-4. **冲突解决** → Lead Agent 汇总归类（共识/分歧/不确定），按优先级规则解决
-5. **输出生成** → Narrative Agent 生成标准化报告
+1. **问题诊断** → 先判断主目标、增长阶段、最大约束与最可能的主矛盾
+2. **知识检索** → Case/Weapon/Theory Agent 检索最相关的案例、打法和理论
+3. **优先级判断** → 用 ROI、执行复杂度、阶段匹配度和证据强度排序
+4. **建议做 / 不做** → 明确指出当前该押注什么，不该分散到什么方向
+5. **实验计划** → 输出最小实验、成功信号、停止信号和复盘节奏
 
 ## Agent 体系
 
@@ -132,7 +134,7 @@ output:
 
 ```
 knowledge/
-├── cases/           # 87个增长案例（china/overseas/vertical）
+├── cases/           # 81个增长案例（china/overseas/vertical）
 ├── weapons/         # 111种增长玩法
 ├── guides/          # 核心方法论
 ├── schools/         # 12大流派理论

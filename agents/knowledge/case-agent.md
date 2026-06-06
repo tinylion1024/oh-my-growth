@@ -1,6 +1,6 @@
 ---
 name: case-agent
-description: 从77个案例库中匹配相似成功案例，提供参考借鉴
+description: 从81个案例库中匹配相似成功案例，提供参考借鉴
 model: inherit
 ---
 

@@ -10,6 +10,7 @@
 │ Step 1: 意图识别                     │
 │                                     │
 │ 用户想要：                           │
+│   - 先形成判断？→ diagnose           │
 │   - 评估机会？→ assess               │
 │   - 设计策略？→ design               │
 │   - 学习知识？→ learn                │
@@ -32,7 +33,9 @@
 ┌─────────────────────────────────────┐
 │ Step 3: 模式选择                     │
 │                                     │
-│ if 证据充分 && 需要正式决策:         │
+│ if 需要先找主矛盾和优先级:           │
+│     → Strategy Brain                │
+│ elif 证据充分 && 需要正式决策:       │
 │     → Decision BRD                  │
 │ elif 需要具体策略:                   │
 │     → Strategy Design               │
@@ -52,7 +55,36 @@
 └─────────────────────────────────────┘
 ```
 
-## 五大模式详解
+## 六大模式详解
+
+### 0. Strategy Brain (策略外脑)
+
+**触发条件**：
+- 增长负责人需要先形成判断
+- 需要明确主矛盾和优先级
+- 需要“建议做/不做 + 最小实验”
+
+**Agent组合**：
+- Lead Agent
+- Growth Agent
+- ROI Agent
+- Skeptic Agent
+- Case Agent
+- Weapon Agent
+
+**流程**：
+```
+Lead诊断 → [Case, Weapon]检索 → [Growth, ROI, Skeptic]判断 → Lead排序 → Narrative输出
+```
+
+**输出**：
+- 一句话判断
+- 核心矛盾
+- 优先级排序
+- 建议现在做 / 先别做
+- 两周实验
+
+---
 
 ### 1. Fast Scan (快速扫描)
 

@@ -135,15 +135,11 @@ def extract_sections(content: str) -> Dict[str, str]:
     """Extract sections from markdown content."""
     sections = {}
 
-    # Split by ## headers
-    parts = re.split(r'\n## ', content)
-
-    for part in parts[1:]:  # Skip content before first ##
-        lines = part.strip().split('\n')
-        if lines:
-            title = lines[0].strip()
-            body = '\n'.join(lines[1:]) if len(lines) > 1 else ""
-            sections[title] = body
+    pattern = re.compile(r"^##\s+(.+?)\n(.*?)(?=^##\s+|\Z)", re.MULTILINE | re.DOTALL)
+    for match in pattern.finditer(content.strip()):
+        title = match.group(1).strip()
+        body = match.group(2).strip()
+        sections[title] = body
 
     return sections
 

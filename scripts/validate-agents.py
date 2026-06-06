@@ -3,16 +3,32 @@
 Validate Agent definitions
 """
 
-import os
+import re
 import sys
-import yaml
 from pathlib import Path
 
 REQUIRED_FIELDS = ['name', 'description', 'model']
 
+
+def parse_front_matter(content):
+    """Parse the small YAML subset used by agent markdown files."""
+    match = re.match(r'^---\n(.*?)\n---\n', content, re.DOTALL)
+    if not match:
+        return None, "Invalid front matter format"
+
+    parsed = {}
+    for line in match.group(1).splitlines():
+        if not line.strip():
+            continue
+        if ":" not in line:
+            return None, f"Invalid front matter line: {line}"
+        key, value = line.split(":", 1)
+        parsed[key.strip()] = value.strip()
+    return parsed, None
+
 def validate_agent(file_path):
     """Validate a single agent file"""
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
     # Check front matter
@@ -20,14 +36,13 @@ def validate_agent(file_path):
         return False, "Missing YAML front matter"
 
     # Parse front matter
-    try:
-        parts = content.split('---', 2)
-        if len(parts) < 3:
-            return False, "Invalid front matter format"
+    parts = content.split('---', 2)
+    if len(parts) < 3:
+        return False, "Invalid front matter format"
 
-        front_matter = yaml.safe_load(parts[1])
-    except Exception as e:
-        return False, f"YAML parse error: {e}"
+    front_matter, error = parse_front_matter(content)
+    if error:
+        return False, error
 
     # Check required fields
     for field in REQUIRED_FIELDS:

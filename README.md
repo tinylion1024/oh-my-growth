@@ -2,12 +2,12 @@
 
 # 🚀 Growth Master
 
-**智能增长顾问 — 让增长决策有据可依**
+**增长策略外脑 — 替增长负责人完成前 70% 的策略思考**
 
-整合 **87个案例** · **111种玩法** · **12大流派** · **13个专业Agent** · **完整决策框架**
+整合 **81个案例** · **111种玩法** · **12大流派** · **13个专业Agent** · **完整决策框架**
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-33%2F33%20passing-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-22%2F22%20scripted%20checks-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
@@ -18,15 +18,15 @@
 
 ## 💡 这是什么？
 
-**Growth Master** 是一个**知识驱动的增长决策系统**。
+**Growth Master** 是一个**面向增长行业人的策略外脑 skill**。
 
-你可以把它理解为：**一个读过 87 个增长案例、掌握 24 种增长玩法的智能顾问**，帮你：
+你可以把它理解为：**一个读过 81 个增长案例、掌握 111 种增长打法，并能先做诊断再给方案的增长外脑**，帮你：
 
-- 🎯 **评估增长机会** — 这个想法值得投入吗？
-- 📋 **生成决策文档** — 一份完整的 BRD，包含 ROI 分析和风险评估
-- 🛠️ **设计增长策略** — 具体该怎么干？有哪些可借鉴的玩法？
+- 🎯 **诊断增长问题** — 先判断主矛盾、阶段约束和优先级
+- 📋 **校验决策文档** — 检查报告是否覆盖关键章节、事实标记和行动闭环
+- 🛠️ **输出策略方案** — 建议做什么、先别做什么、先做哪一个实验
 - 📚 **匹配成功案例** — 谁做过类似的事？怎么做到的？
-- 🔢 **贝叶斯决策** — 用概率量化不确定性，让决策过程可审计
+- 🔢 **形成可执行判断** — 用证据、案例和轻量决策引擎支撑结论
 
 ---
 
@@ -35,33 +35,40 @@
 ### 场景：SaaS 产品如何获取首批用户？
 
 ```bash
-# 方式一：CLI 命令行
-python scripts/cli.py assess "SaaS产品如何获取首批1000用户" \
-  --industry saas --stage 0-1
+# 方式一：策略外脑诊断
+python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
+  --industry saas --stage 0-1 --problem acquisition
 
-# 方式二：在 Claude Code 中
+# 方式二：场景化快捷入口
+python scripts/cli.py cold-start "AI写作SaaS如何拿到前100个种子用户" \
+  --industry saas
+
+# 方式三：在 Claude Code 中
 /growth-master-skill assess 我们是一个AI写作SaaS，想获取首批种子用户
+
+# 方式四：负责人摘要视图
+python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
+  --industry saas --stage 0-1 --problem acquisition --view executive
 ```
 
 ### 输出示例：
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  📌 先看结论                                            │
+│  📌 一句话判断                                          │
 ├─────────────────────────────────────────────────────────┤
-│  建议：推荐启动「小规模邀请裂变实验」                     │
-│  置信度：中（需要验证病毒系数）                          │
+│  推荐小规模实验：冷启动阶段先押注「Beta邀请制」           │
+│  置信度：中（先验证能否稳定拿到高意向种子用户）            │
 │                                                         │
-│  理由：                                                  │
-│  1. 成本可控（预算 3 万，周期 30 天）                    │
-│  2. 有 Notion、Dropbox 成功案例支撑                      │
-│  3. 适合 SaaS 冷启动阶段                                 │
+│  核心矛盾：                                              │
+│  不是渠道不够多，而是还没找到可复制的低成本主路径         │
 │                                                         │
-│  匹配案例：Notion（模板社区）、Dropbox（邀请奖励）        │
-│  推荐玩法：邀请裂变、内容营销、PLG                       │
+│  优先级排序：Beta邀请制 > 竞品用户转化 > KOL试用          │
 │                                                         │
-│  主要风险：病毒系数可能不足、邀请奖励成本                 │
-│  下一步：设计 MVP 方案，预计 100 种子用户验证             │
+│  两周实验：                                              │
+│  1. 只验证一个动作                                      │
+│  2. 追踪新增高意向用户数                                 │
+│  3. 不成立就停止扩预算                                   │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -69,11 +76,12 @@ python scripts/cli.py assess "SaaS产品如何获取首批1000用户" \
 
 ## 🎯 核心功能
 
-### 五大模式，覆盖完整决策链
+### 五大模式，覆盖从诊断到执行建议
 
 | 模式 | 一句话描述 | 适用场景 |
 |------|-----------|----------|
-| **Fast Scan** | 30 秒快速判断 | 这个想法靠谱吗？ |
+| **Strategy Brain** | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
+| **Fast Scan** | 快速判断 | 这个想法靠谱吗？ |
 | **Decision BRD** | 完整决策文档 | 需要申请预算/资源 |
 | **Strategy Design** | 可落地的策略 | 知道要做什么，但不知道怎么做 |
 | **Case Match** | 找成功案例 | 想看看别人怎么做的 |
@@ -83,7 +91,7 @@ python scripts/cli.py assess "SaaS产品如何获取首批1000用户" \
 
 | 类型 | 数量 | 说明 |
 |------|------|------|
-| 📚 案例 | **87个** | 拼多多、抖音、Notion、Airbnb... |
+| 📚 案例 | **81个** | 拼多多、抖音、Notion、Airbnb... |
 | 🛠️ 玩法 | **111种** | 裂变、PLG、内容增长、留存... |
 | 📖 理论 | **12流派** | 增长黑客、网络效应、PLG... |
 
@@ -106,8 +114,8 @@ python scripts/cli.py assess "SaaS产品如何获取首批1000用户" \
 # 克隆仓库
 git clone https://github.com/your-org/growth-master-skill.git
 
-# 安装依赖
-pip install pyyaml jsonschema
+# 运行环境
+# Python 3.8+，当前脚本默认仅使用标准库
 
 # 安装到 Claude 技能目录（可选）
 cp -R growth-master-skill ~/.claude/skills/
@@ -122,61 +130,73 @@ python scripts/validate-agents.py
 
 # 验证知识索引
 python scripts/validate-indexes.py
-# ✅ 87 cases, 24 weapons, 12 theories indexed
+# ✅ 81 cases, 111 weapons, 12 theories indexed
 ```
 
 ### 第一次使用
 
 ```bash
-# 快速评估一个增长想法
-python scripts/cli.py assess "电商平台如何提升复购率" \
+# 快速生成策略外脑诊断
+python scripts/cli.py diagnose "电商平台如何提升复购率" \
   --industry ecommerce --problem retention
 
 # 搜索相关案例和玩法
 python scripts/cli.py search "裂变" --limit 5
+
+# 匹配相关案例
+python scripts/cli.py match "教育产品如何做裂变" --problem referral
+
+# 场景化入口
+python scripts/cli.py retention "如何提升月活跃用户留存率" --industry content
+
+# 结构化上下文输入
+python scripts/cli.py diagnose "如何提升月活跃用户留存率" \
+  --industry content --problem retention \
+  --context-json '{"goal":"提升30日留存","metric":"30日留存率","budget":"10万元","team":"产品1+工程2+运营1"}'
+
+# 从文件加载结构化上下文
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral \
+  --context-file examples/referral-context.json --view report
 ```
 
 ---
 
 ## 💼 使用场景
 
-### 场景一：评估增长机会
+### 场景一：增长外脑诊断
 
 **问题**：老板问「我们要不要做邀请裂变？」
 
 ```bash
-python scripts/cli.py assess "是否应该做邀请裂变" \
-  --industry saas --stage 1-10
+python scripts/cli.py diagnose "是否应该做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral
 ```
 
 **输出**：
-- 一句话建议（推荐/不推荐/先小试）
-- 核心理由（2-3 点）
-- 主要风险
-- 类似案例参考
+- 一句话判断
+- 核心矛盾
+- 优先级排序
+- 建议现在做 / 建议先别做
+- 两周实验
+- 可切换为负责人摘要 / 报告版 / JSON 版
+- 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
 
 ---
 
-### 场景二：生成决策文档
+### 场景二：校验决策文档
 
-**问题**：需要写一份 BRD 申请预算
+**问题**：已经有一份分析稿，想确认结构是否完整
 
 ```bash
-python scripts/cli.py brd "SaaS产品付费转化率优化" \
-  --context '{"current_rate": "1.5%", "target": "3%", "budget": "50万"}'
+python scripts/cli.py validate report.md
 ```
 
-**输出**（10 个标准章节）：
-1. 先看结论
-2. 先把现状说清楚
-3. 现状够不够清楚
-4. 判断过程
-5. 推荐方案
-6. 资源分配
-7. 接下来怎么做
-8. 做完以后可能怎样
-9. 什么时候回头看
-10. 注意事项
+**输出**：
+- 报告总分
+- 是否通过校验
+- 缺失章节或缺少的关键信息
+- 事实标记是否完整
 
 ---
 
@@ -190,11 +210,45 @@ python scripts/cli.py design "如何提升月活跃用户留存率" \
 ```
 
 **输出**：
-- 策略方向（如：内容驱动 + 社区运营）
-- 推荐玩法组合（3-5 种）
-- 成功案例参考
-- 实施路径（分阶段）
-- 关键指标
+- 策略方向
+- 主抓手优先级
+- 为什么现在做
+- 两周实验与成功/停止信号
+- 案例和理论支撑
+
+---
+
+### 场景五：给增长负责人准备汇报稿
+
+**问题**：要去周会或季度评审，想直接拿到可以讲的摘要
+
+```bash
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral --view executive
+```
+
+**输出**：
+- 董事会/负责人摘要
+- 本周拍板事项
+- 先别做什么
+- 当前置信度
+
+---
+
+### 场景六：导出可校验决策稿
+
+**问题**：想生成一版可继续修改的正式决策稿
+
+```bash
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral --view report > report.md
+
+python scripts/cli.py validate report.md
+```
+
+**输出**：
+- 满足报告契约的 Markdown 决策稿
+- 可进一步进入校验和迭代
 
 ---
 
