@@ -61,6 +61,10 @@ def replace_section(content: str, start_marker: str, end_marker: str, replacemen
     return pattern.sub(replacement, content, count=1)
 
 
+def markdown_link(label: str, target: str) -> str:
+    return f"[{label}](<{target}>)"
+
+
 def render_case_index(cases_payload):
     cases = cases_payload.get("cases", [])
     lines = [CASE_INDEX_START]
@@ -83,7 +87,8 @@ def render_case_index(cases_payload):
             suffix = f" · {case.get('evidence_tier', 'N/A')}级证据"
             if tactics:
                 suffix += f" · {tactics}"
-            lines.append(f"- [{case['name']}](./knowledge/{case['file']}){suffix}")
+            target = f"./knowledge/{case['file']}"
+            lines.append(f"- {markdown_link(case['name'], target)}{suffix}")
         lines.extend(["", "</details>", ""])
 
     lines.append(CASE_INDEX_END)
@@ -113,7 +118,7 @@ def render_weapon_index(weapons_payload):
             file_path = weapon.get("file")
             label = weapon["name"]
             if file_path:
-                label = f"[{label}](./knowledge/{file_path})"
+                label = markdown_link(label, f"./knowledge/{file_path}")
             effort = weapon.get("effort", "N/A")
             impact = weapon.get("impact", "N/A")
             evidence_tier = weapon.get("evidence_tier", "N/A")

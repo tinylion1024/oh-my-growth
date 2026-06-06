@@ -27,8 +27,9 @@ def test_update_indexes_and_validate_indexes():
     assert all(weapon.get("file") for weapon in weapons_payload["weapons"])
 
     readme_content = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
-    assert "[DeepSeek（深度求索）- AI开源突围战](./knowledge/cases/china/deepseek.md)" in readme_content
-    assert "[Beta邀请制](./knowledge/weapons/01-cold-start/weapons/007-Beta邀请制.md)" in readme_content
+    assert "[DeepSeek（深度求索）- AI开源突围战](<./knowledge/cases/china/deepseek.md>)" in readme_content
+    assert "[Beta邀请制](<./knowledge/weapons/01-cold-start/weapons/007-Beta邀请制.md>)" in readme_content
+    assert "[Landing Page注册](<./knowledge/weapons/01-cold-start/weapons/008-Landing Page注册.md>)" in readme_content
 
     validate_result = run_script("scripts/validate-indexes.py")
     assert validate_result.returncode == 0, validate_result.stdout + validate_result.stderr
