@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -21,6 +22,13 @@ def test_update_indexes_and_validate_indexes():
     update_result = run_script("scripts/update-indexes.py")
     assert update_result.returncode == 0, update_result.stderr
     assert "Indexes updated:" in update_result.stdout
+
+    weapons_payload = json.loads((ROOT_DIR / "knowledge/indexes/weapons-index.json").read_text(encoding="utf-8"))
+    assert all(weapon.get("file") for weapon in weapons_payload["weapons"])
+
+    readme_content = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
+    assert "[DeepSeek（深度求索）- AI开源突围战](./knowledge/cases/china/deepseek.md)" in readme_content
+    assert "[Beta邀请制](./knowledge/weapons/01-cold-start/weapons/007-Beta邀请制.md)" in readme_content
 
     validate_result = run_script("scripts/validate-indexes.py")
     assert validate_result.returncode == 0, validate_result.stdout + validate_result.stderr

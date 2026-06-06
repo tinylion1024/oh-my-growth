@@ -55,3 +55,9 @@ htmlcov/
 # Environment variables
 .env
 .env.local
+
+# Local planning / completion artifacts
+/COMPLETION-REPORT.md
+/OPTIMIZATION-PLAN.md
+/ITERATION-*.md
+/WORKLOG*.md

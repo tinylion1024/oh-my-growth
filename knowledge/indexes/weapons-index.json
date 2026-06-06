@@ -72,7 +72,8 @@
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "创始人亲自拉人"
+      "description": "创始人亲自拉人",
+      "file": "weapons/01-cold-start/weapons/001-手动拉种子用户.md"
     },
     {
       "id": 2,
@@ -82,37 +83,41 @@
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "精准触达"
+      "description": "精准触达",
+      "file": "weapons/01-cold-start/weapons/002-冷邮件-私信.md"
     },
     {
       "id": 3,
-      "name": "创始人直销",
+      "name": "社区深度参与",
       "category": "cold-start",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "Reddit/论坛"
+      "description": "Reddit/论坛",
+      "file": "weapons/01-cold-start/weapons/003-社区深度参与.md"
     },
     {
       "id": 4,
-      "name": "社区借力",
+      "name": "手动服务前100用户",
       "category": "cold-start",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "高接触服务"
+      "description": "高接触服务",
+      "file": "weapons/01-cold-start/weapons/004-手动服务前100用户.md"
     },
     {
       "id": 5,
-      "name": "竞品用户转化",
+      "name": "创始人个人IP",
       "category": "cold-start",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "内容输出"
+      "description": "内容输出",
+      "file": "weapons/01-cold-start/weapons/005-创始人个人IP.md"
     },
     {
       "id": 6,
@@ -122,7 +127,8 @@
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "收集意向"
+      "description": "收集意向",
+      "file": "weapons/01-cold-start/weapons/006-Waitlist候补名单.md"
     },
     {
       "id": 7,
@@ -132,37 +138,41 @@
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "稀缺感"
+      "description": "稀缺感",
+      "file": "weapons/01-cold-start/weapons/007-Beta邀请制.md"
     },
     {
       "id": 8,
-      "name": "PH/媒体首发",
+      "name": "Landing Page注册",
       "category": "cold-start",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "验证需求"
+      "description": "验证需求",
+      "file": "weapons/01-cold-start/weapons/008-Landing Page注册.md"
     },
     {
       "id": 9,
-      "name": "KOL试用",
+      "name": "Product Hunt发布",
       "category": "cold-start",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.78,
-      "description": "冷启动曝光"
+      "description": "冷启动曝光",
+      "file": "weapons/01-cold-start/weapons/009-Product Hunt发布.md"
     },
     {
       "id": 10,
-      "name": "行业论坛推广",
+      "name": "种子用户群",
       "category": "cold-start",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "Discord/微信"
+      "description": "Discord/微信",
+      "file": "weapons/01-cold-start/weapons/010-种子用户群.md"
     },
     {
       "id": 11,
@@ -172,7 +182,8 @@
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "单边奖励"
+      "description": "单边奖励",
+      "file": "weapons/02-viral-referral/weapons/011-邀请奖励机制.md"
     },
     {
       "id": 12,
@@ -182,7 +193,8 @@
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.9,
-      "description": "邀请人+被邀请人"
+      "description": "邀请人+被邀请人",
+      "file": "weapons/02-viral-referral/weapons/012-双边奖励.md"
     },
     {
       "id": 13,
@@ -192,127 +204,140 @@
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "功能裂变"
+      "description": "功能裂变",
+      "file": "weapons/02-viral-referral/weapons/013-分享解锁功能.md"
     },
     {
       "id": 14,
-      "name": "拼团机制",
+      "name": "分享解锁内容",
       "category": "viral-referral",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.92,
-      "description": "内容裂变"
+      "description": "内容裂变",
+      "file": "weapons/02-viral-referral/weapons/014-分享解锁内容.md"
     },
     {
       "id": 15,
-      "name": "砍价裂变",
+      "name": "裂变海报生成",
       "category": "viral-referral",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "视觉传播"
+      "description": "视觉传播",
+      "file": "weapons/02-viral-referral/weapons/015-裂变海报生成.md"
     },
     {
       "id": 16,
-      "name": "助力解锁",
+      "name": "排行榜分享",
       "category": "viral-referral",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "竞争驱动"
+      "description": "竞争驱动",
+      "file": "weapons/02-viral-referral/weapons/016-排行榜分享.md"
     },
     {
       "id": 17,
-      "name": "红包裂变",
+      "name": "拼团机制",
       "category": "viral-referral",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.92,
-      "description": "社交电商"
+      "description": "社交电商",
+      "file": "weapons/02-viral-referral/weapons/017-拼团机制.md"
     },
     {
       "id": 18,
-      "name": "分销佣金",
+      "name": "砍价玩法",
       "category": "viral-referral",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "损失厌恶"
+      "description": "损失厌恶",
+      "file": "weapons/02-viral-referral/weapons/018-砍价玩法.md"
     },
     {
       "id": 19,
-      "name": "社交礼物",
+      "name": "社交挑战赛",
       "category": "viral-referral",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "活动传播"
+      "description": "活动传播",
+      "file": "weapons/02-viral-referral/weapons/019-社交挑战赛.md"
     },
     {
       "id": 20,
-      "name": "集卡/集福",
+      "name": "模板分享裂变",
       "category": "viral-referral",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "内容传播"
+      "description": "内容传播",
+      "file": "weapons/02-viral-referral/weapons/020-模板分享裂变.md"
     },
     {
       "id": 21,
-      "name": "老带新优惠",
+      "name": "AI生成内容分享",
       "category": "viral-referral",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "技术驱动"
+      "description": "技术驱动",
+      "file": "weapons/02-viral-referral/weapons/021-AI生成内容分享.md"
     },
     {
       "id": 22,
-      "name": "团购优惠",
+      "name": "分享后去水印",
       "category": "viral-referral",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "降低摩擦"
+      "description": "降低摩擦",
+      "file": "weapons/02-viral-referral/weapons/022-分享后去水印.md"
     },
     {
       "id": 23,
-      "name": "分享得积分",
+      "name": "推荐码体系",
       "category": "viral-referral",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "追踪激励"
+      "description": "追踪激励",
+      "file": "weapons/02-viral-referral/weapons/023-推荐码体系.md"
     },
     {
       "id": 24,
-      "name": "内容裂变",
+      "name": "邀请排行榜",
       "category": "viral-referral",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "竞争激励"
+      "description": "竞争激励",
+      "file": "weapons/02-viral-referral/weapons/024-邀请排行榜.md"
     },
     {
       "id": 25,
-      "name": "任务裂变",
+      "name": "好友助力解锁",
       "category": "viral-referral",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "社交撬动"
+      "description": "社交撬动",
+      "file": "weapons/02-viral-referral/weapons/025-好友助力解锁.md"
     },
     {
       "id": 26,
@@ -322,247 +347,272 @@
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "搜索流量"
+      "description": "搜索流量",
+      "file": "weapons/03-content-growth/weapons/026-SEO关键词矩阵.md"
     },
     {
       "id": 27,
-      "name": "免费工具",
+      "name": "程序化SEO页面",
       "category": "content-growth",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "规模化"
+      "description": "规模化",
+      "file": "weapons/03-content-growth/weapons/027-程序化SEO页面.md"
     },
     {
       "id": 28,
-      "name": "博客内容营销",
+      "name": "长尾关键词文章",
       "category": "content-growth",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "精准流量"
+      "description": "精准流量",
+      "file": "weapons/03-content-growth/weapons/028-长尾关键词文章.md"
     },
     {
       "id": 29,
-      "name": "视频内容",
+      "name": "教程型内容",
       "category": "content-growth",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.78,
-      "description": "价值内容"
+      "description": "价值内容",
+      "file": "weapons/03-content-growth/weapons/029-教程型内容.md"
     },
     {
       "id": 30,
-      "name": "播客营销",
+      "name": "行业报告",
       "category": "content-growth",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "权威建立"
+      "description": "权威建立",
+      "file": "weapons/03-content-growth/weapons/030-行业报告.md"
     },
     {
       "id": 31,
-      "name": "模板/资源包",
+      "name": "免费工具",
       "category": "content-growth",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "Tool marketing"
+      "description": "Tool marketing",
+      "file": "weapons/03-content-growth/weapons/031-免费工具.md"
     },
     {
       "id": 32,
-      "name": "白皮书/报告",
+      "name": "YouTube教程",
       "category": "content-growth",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "视频流量"
+      "description": "视频流量",
+      "file": "weapons/03-content-growth/weapons/032-YouTube教程.md"
     },
     {
       "id": 33,
-      "name": "案例研究",
+      "name": "TikTok矩阵",
       "category": "content-growth",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.78,
-      "description": "短视频"
+      "description": "短视频",
+      "file": "weapons/03-content-growth/weapons/033-TikTok矩阵.md"
     },
     {
       "id": 34,
-      "name": "用户故事",
-      "category": "content-growth",
-      "effort": "Low",
-      "impact": "Medium",
-      "evidence_tier": "C",
-      "confidence": 0.72,
-      "description": "邮件资产"
-    },
-    {
-      "id": 35,
-      "name": "课程/教程",
-      "category": "content-growth",
-      "effort": "High",
-      "impact": "High",
-      "evidence_tier": "B",
-      "confidence": 0.82,
-      "description": "品牌建设"
-    },
-    {
-      "id": 36,
       "name": "Newsletter",
       "category": "content-growth",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
+      "confidence": 0.72,
+      "description": "邮件资产",
+      "file": "weapons/03-content-growth/weapons/034-Newsletter.md"
+    },
+    {
+      "id": 35,
+      "name": "播客",
+      "category": "content-growth",
+      "effort": "High",
+      "impact": "High",
+      "evidence_tier": "B",
+      "confidence": 0.82,
+      "description": "品牌建设",
+      "file": "weapons/03-content-growth/weapons/035-播客.md"
+    },
+    {
+      "id": 36,
+      "name": "客座博客",
+      "category": "content-growth",
+      "effort": "Low",
+      "impact": "Medium",
+      "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "外链+曝光"
+      "description": "外链+曝光",
+      "file": "weapons/03-content-growth/weapons/036-客座博客.md"
     },
     {
       "id": 37,
-      "name": "社区问答",
+      "name": "免费电子书",
       "category": "content-growth",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "资源引流"
+      "description": "资源引流",
+      "file": "weapons/03-content-growth/weapons/037-免费电子书.md"
     },
     {
       "id": 38,
-      "name": "UGC激励",
+      "name": "案例研究",
       "category": "content-growth",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "成功背书"
+      "description": "成功背书",
+      "file": "weapons/03-content-growth/weapons/038-案例研究.md"
     },
     {
       "id": 39,
+      "name": "模板资源库",
+      "category": "content-growth",
+      "effort": "Low",
+      "impact": "Medium",
+      "evidence_tier": "C",
+      "confidence": 0.75,
+      "description": "工具引流",
+      "file": "weapons/03-content-growth/weapons/039-模板资源库.md"
+    },
+    {
+      "id": 40,
       "name": "内容再分发",
       "category": "content-growth",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
-      "confidence": 0.75,
-      "description": "工具引流"
-    },
-    {
-      "id": 40,
-      "name": "热点借势",
-      "category": "content-growth",
-      "effort": "Low",
-      "impact": "Medium",
-      "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "一鱼多吃"
+      "description": "一鱼多吃",
+      "file": "weapons/03-content-growth/weapons/040-内容再分发.md"
     },
     {
       "id": 41,
-      "name": "社区运营",
+      "name": "Discord社区",
       "category": "community",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.78,
-      "description": "社区平台"
+      "description": "社区平台",
+      "file": "weapons/04-community/weapons/041-Discord社区.md"
     },
     {
       "id": 42,
-      "name": "超级用户计划",
+      "name": "Slack社区",
       "category": "community",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "实时互动"
+      "description": "实时互动",
+      "file": "weapons/04-community/weapons/042-Slack社区.md"
     },
     {
       "id": 43,
-      "name": "用户社群",
+      "name": "用户大使计划",
       "category": "community",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "KOL运营"
+      "description": "KOL运营",
+      "file": "weapons/04-community/weapons/043-用户大使计划.md"
     },
     {
       "id": 44,
-      "name": "KOC招募",
+      "name": "用户共创",
       "category": "community",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "产品共创"
+      "description": "产品共创",
+      "file": "weapons/04-community/weapons/044-用户共创.md"
     },
     {
       "id": 45,
-      "name": "用户活动",
+      "name": "线下Meetup",
       "category": "community",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "真实连接"
+      "description": "真实连接",
+      "file": "weapons/04-community/weapons/045-线下Meetup.md"
     },
     {
       "id": 46,
-      "name": "话题运营",
+      "name": "用户访谈公开化",
       "category": "community",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "透明度"
+      "description": "透明度",
+      "file": "weapons/04-community/weapons/046-用户访谈公开化.md"
     },
     {
       "id": 47,
-      "name": "用户荣誉体系",
+      "name": "用户故事栏目",
       "category": "community",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "UGC内容"
+      "description": "UGC内容",
+      "file": "weapons/04-community/weapons/047-用户故事栏目.md"
     },
     {
       "id": 48,
-      "name": "贡献者激励",
+      "name": "社区挑战赛",
       "category": "community",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "活动驱动"
+      "description": "活动驱动",
+      "file": "weapons/04-community/weapons/048-社区挑战赛.md"
     },
     {
       "id": 49,
-      "name": "社区专属福利",
+      "name": "超级用户计划",
       "category": "community",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "忠诚度"
+      "description": "忠诚度",
+      "file": "weapons/04-community/weapons/049-超级用户计划.md"
     },
     {
       "id": 50,
-      "name": "线下聚会",
+      "name": "用户UGC活动",
       "category": "community",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "内容征集"
+      "description": "内容征集",
+      "file": "weapons/04-community/weapons/050-用户UGC活动.md"
     },
     {
       "id": 51,
@@ -572,7 +622,8 @@
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.92,
-      "description": "免费+付费"
+      "description": "免费+付费",
+      "file": "weapons/05-plg/weapons/051-Freemium模式.md"
     },
     {
       "id": 52,
@@ -582,17 +633,19 @@
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "体验转化"
+      "description": "体验转化",
+      "file": "weapons/05-plg/weapons/052-免费试用.md"
     },
     {
       "id": 53,
-      "name": "产品内传播",
+      "name": "无需登录体验",
       "category": "plg",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "降低门槛"
+      "description": "降低门槛",
+      "file": "weapons/05-plg/weapons/053-无需登录体验.md"
     },
     {
       "id": 54,
@@ -602,117 +655,129 @@
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.88,
-      "description": "快速激活"
+      "description": "快速激活",
+      "file": "weapons/05-plg/weapons/054-快速Onboarding.md"
     },
     {
       "id": 55,
-      "name": "模板分享",
+      "name": "产品内引导",
       "category": "plg",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "Tooltip"
+      "description": "Tooltip",
+      "file": "weapons/05-plg/weapons/055-产品内引导.md"
     },
     {
       "id": 56,
-      "name": "协作功能",
+      "name": "模板库",
       "category": "plg",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "降低门槛"
+      "description": "降低门槛",
+      "file": "weapons/05-plg/weapons/056-模板库.md"
     },
     {
       "id": 57,
-      "name": "公开分享链接",
+      "name": "空状态设计",
       "category": "plg",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.78,
-      "description": "引导上手"
+      "description": "引导上手",
+      "file": "weapons/05-plg/weapons/057-空状态设计.md"
     },
     {
       "id": 58,
-      "name": "嵌入功能",
+      "name": "产品内分享",
       "category": "plg",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "自然传播"
+      "description": "自然传播",
+      "file": "weapons/05-plg/weapons/058-产品内分享.md"
     },
     {
       "id": 59,
-      "name": "API开放",
+      "name": "产品水印",
       "category": "plg",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "品牌传播"
+      "description": "品牌传播",
+      "file": "weapons/05-plg/weapons/059-产品水印.md"
     },
     {
       "id": 60,
-      "name": "插件生态",
+      "name": "团队协作",
       "category": "plg",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "社交裂变"
+      "description": "社交裂变",
+      "file": "weapons/05-plg/weapons/060-团队协作.md"
     },
     {
       "id": 61,
-      "name": "Webhook集成",
+      "name": "使用量限制触发",
       "category": "plg",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "付费转化"
+      "description": "付费转化",
+      "file": "weapons/05-plg/weapons/061-使用量限制触发.md"
     },
     {
       "id": 62,
-      "name": "团队邀请",
+      "name": "成果导出传播",
       "category": "plg",
       "effort": "Low",
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.9,
-      "description": "价值展示"
+      "description": "价值展示",
+      "file": "weapons/05-plg/weapons/062-成果导出传播.md"
     },
     {
       "id": 63,
-      "name": "工作区共享",
+      "name": "使用报告",
       "category": "plg",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "成就感知"
+      "description": "成就感知",
+      "file": "weapons/05-plg/weapons/063-使用报告.md"
     },
     {
       "id": 64,
-      "name": "导出带品牌",
+      "name": "内置社区入口",
       "category": "plg",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "社区导流"
+      "description": "社区导流",
+      "file": "weapons/05-plg/weapons/064-内置社区入口.md"
     },
     {
       "id": 65,
-      "name": "价值展示页",
+      "name": "产品内推荐",
       "category": "plg",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "交叉推荐"
+      "description": "交叉推荐",
+      "file": "weapons/05-plg/weapons/065-产品内推荐.md"
     },
     {
       "id": 66,
@@ -722,17 +787,19 @@
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "自动触达"
+      "description": "自动触达",
+      "file": "weapons/06-retention/weapons/066-邮件生命周期.md"
     },
     {
       "id": 67,
-      "name": "Push通知",
+      "name": "推送通知",
       "category": "retention",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "即时触达"
+      "description": "即时触达",
+      "file": "weapons/06-retention/weapons/067-推送通知.md"
     },
     {
       "id": 68,
@@ -742,437 +809,481 @@
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.88,
-      "description": "习惯养成"
+      "description": "习惯养成",
+      "file": "weapons/06-retention/weapons/068-连续使用奖励.md"
     },
     {
       "id": 69,
-      "name": "签到打卡",
+      "name": "里程碑提示",
       "category": "retention",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "成就感"
+      "description": "成就感",
+      "file": "weapons/06-retention/weapons/069-里程碑提示.md"
     },
     {
       "id": 70,
-      "name": "排行榜",
+      "name": "数据报告邮件",
       "category": "retention",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "价值感知"
+      "description": "价值感知",
+      "file": "weapons/06-retention/weapons/070-数据报告邮件.md"
     },
     {
       "id": 71,
-      "name": "成就系统",
+      "name": "周报/月报",
       "category": "retention",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "定期回顾"
+      "description": "定期回顾",
+      "file": "weapons/06-retention/weapons/071-周报-月报.md"
     },
     {
       "id": 72,
-      "name": "召回邮件",
+      "name": "新功能提醒",
       "category": "retention",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "持续价值"
+      "description": "持续价值",
+      "file": "weapons/06-retention/weapons/072-新功能提醒.md"
     },
     {
       "id": 73,
-      "name": "优惠召回",
+      "name": "用户成就系统",
       "category": "retention",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "游戏化"
+      "description": "游戏化",
+      "file": "weapons/06-retention/weapons/073-用户成就系统.md"
     },
     {
       "id": 74,
-      "name": "新功能通知",
+      "name": "习惯培养",
       "category": "retention",
       "effort": "Low",
       "impact": "Low",
       "evidence_tier": "C",
       "confidence": 0.68,
-      "description": "使用引导"
+      "description": "使用引导",
+      "file": "weapons/06-retention/weapons/074-习惯培养.md"
     },
     {
       "id": 75,
-      "name": "个性化推荐",
+      "name": "流失召回",
       "category": "retention",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.9,
-      "description": "赢回用户"
+      "description": "赢回用户",
+      "file": "weapons/06-retention/weapons/075-流失召回.md"
     },
     {
       "id": 76,
-      "name": "积分体系",
+      "name": "分层定价",
       "category": "retention",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "Tier Pricing"
+      "description": "Tier Pricing",
+      "file": "weapons/07-monetization/weapons/076-分层定价.md"
     },
     {
       "id": 77,
-      "name": "会员等级",
+      "name": "使用量计费",
       "category": "retention",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "Usage Pricing"
+      "description": "Usage Pricing",
+      "file": "weapons/07-monetization/weapons/077-使用量计费.md"
     },
     {
       "id": 78,
-      "name": "社交绑定",
+      "name": "年付折扣",
       "category": "retention",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "锁定收入"
+      "description": "锁定收入",
+      "file": "weapons/07-monetization/weapons/078-年付折扣.md"
     },
     {
       "id": 79,
-      "name": "数据资产沉淀",
+      "name": "限时优惠",
       "category": "retention",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "紧迫感"
+      "description": "紧迫感",
+      "file": "weapons/07-monetization/weapons/079-限时优惠.md"
     },
     {
       "id": 80,
-      "name": "习惯养成设计",
+      "name": "功能升级提示",
       "category": "retention",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.88,
-      "description": "教育用户"
+      "description": "教育用户",
+      "file": "weapons/07-monetization/weapons/080-功能升级提示.md"
     },
     {
       "id": 81,
-      "name": "分层定价",
+      "name": "捆绑套餐",
       "category": "monetization",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "提升客单价"
+      "description": "提升客单价",
+      "file": "weapons/07-monetization/weapons/081-捆绑套餐.md"
     },
     {
       "id": 82,
-      "name": "限时优惠",
+      "name": "企业版升级",
       "category": "monetization",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "向上销售"
+      "description": "向上销售",
+      "file": "weapons/07-monetization/weapons/082-企业版升级.md"
     },
     {
       "id": 83,
-      "name": "打包销售",
+      "name": "增值插件市场",
       "category": "monetization",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "生态收入"
+      "description": "生态收入",
+      "file": "weapons/07-monetization/weapons/083-增值插件市场.md"
     },
     {
       "id": 84,
-      "name": "增值服务",
+      "name": "付费模板市场",
       "category": "monetization",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "内容变现"
+      "description": "内容变现",
+      "file": "weapons/07-monetization/weapons/084-付费模板市场.md"
     },
     {
       "id": 85,
-      "name": "订阅模式",
+      "name": "Upsell邮件",
       "category": "monetization",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "A",
       "confidence": 0.92,
-      "description": "追加销售"
+      "description": "追加销售",
+      "file": "weapons/07-monetization/weapons/085-Upsell邮件.md"
     },
     {
       "id": 86,
-      "name": "按量付费",
+      "name": "Google Ads",
       "category": "monetization",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "搜索广告"
+      "description": "搜索广告",
+      "file": "weapons/08-paid-ads/weapons/086-Google Ads.md"
     },
     {
       "id": 87,
-      "name": "广告变现",
+      "name": "Facebook Ads",
       "category": "monetization",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.78,
-      "description": "社交广告"
+      "description": "社交广告",
+      "file": "weapons/08-paid-ads/weapons/087-Facebook Ads.md"
     },
     {
       "id": 88,
-      "name": "佣金分成",
+      "name": "TikTok Ads",
       "category": "monetization",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "短视频广告"
+      "description": "短视频广告",
+      "file": "weapons/08-paid-ads/weapons/088-TikTok Ads.md"
     },
     {
       "id": 89,
-      "name": "企业版",
+      "name": "YouTube Ads",
       "category": "monetization",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "视频广告"
+      "description": "视频广告",
+      "file": "weapons/08-paid-ads/weapons/089-YouTube Ads.md"
     },
     {
       "id": 90,
-      "name": "年付折扣",
+      "name": "再营销广告",
       "category": "monetization",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "Retargeting"
+      "description": "Retargeting",
+      "file": "weapons/08-paid-ads/weapons/090-再营销广告.md"
     },
     {
       "id": 91,
-      "name": "追加销售",
+      "name": "Lookalike人群",
       "category": "monetization",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "相似扩展"
+      "description": "相似扩展",
+      "file": "weapons/08-paid-ads/weapons/091-Lookalike人群.md"
     },
     {
       "id": 92,
-      "name": "交叉销售",
+      "name": "App Store Ads",
       "category": "monetization",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "应用商店"
+      "description": "应用商店",
+      "file": "weapons/08-paid-ads/weapons/092-App Store Ads.md"
     },
     {
       "id": 93,
-      "name": "Google Ads",
+      "name": "KOL投放",
       "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "网红合作"
+      "description": "网红合作",
+      "file": "weapons/08-paid-ads/weapons/093-KOL投放.md"
     },
     {
       "id": 94,
-      "name": "Facebook Ads",
+      "name": "联盟营销",
       "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.78,
-      "description": "Affiliate"
+      "description": "Affiliate",
+      "file": "weapons/08-paid-ads/weapons/094-联盟营销.md"
     },
     {
       "id": 95,
-      "name": "信息流广告",
+      "name": "Influencer合作",
       "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "影响者"
+      "description": "影响者",
+      "file": "weapons/08-paid-ads/weapons/095-Influencer合作.md"
     },
     {
       "id": 96,
-      "name": "KOL投放",
+      "name": "品牌故事",
       "category": "paid-ads",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "叙事"
+      "description": "叙事",
+      "file": "weapons/09-brand/weapons/096-品牌故事.md"
     },
     {
       "id": 97,
-      "name": "再营销广告",
+      "name": "创始人IP",
       "category": "paid-ads",
       "effort": "Low",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "个人品牌"
+      "description": "个人品牌",
+      "file": "weapons/09-brand/weapons/097-创始人IP.md"
     },
     {
       "id": 98,
-      "name": "原生广告",
+      "name": "PR媒体",
       "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "新闻报道"
+      "description": "新闻报道",
+      "file": "weapons/09-brand/weapons/098-PR媒体.md"
     },
     {
       "id": 99,
-      "name": "DSP投放",
+      "name": "行业大会",
       "category": "paid-ads",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "演讲曝光"
+      "description": "演讲曝光",
+      "file": "weapons/09-brand/weapons/099-行业大会.md"
     },
     {
       "id": 100,
-      "name": "SEM竞价",
+      "name": "品牌视觉统一",
       "category": "paid-ads",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "识别度"
+      "description": "识别度",
+      "file": "weapons/09-brand/weapons/100-品牌视觉统一.md"
     },
     {
       "id": 101,
-      "name": "线下广告",
+      "name": "标志性活动",
       "category": "paid-ads",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.68,
-      "description": "品牌符号"
+      "description": "品牌符号",
+      "file": "weapons/09-brand/weapons/101-标志性活动.md"
     },
     {
       "id": 102,
-      "name": "地铁/电梯广告",
+      "name": "价值观营销",
       "category": "paid-ads",
       "effort": "High",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "情感连接"
+      "description": "情感连接",
+      "file": "weapons/09-brand/weapons/102-价值观营销.md"
     },
     {
       "id": 103,
-      "name": "品牌故事",
+      "name": "社会议题",
       "category": "brand",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.7,
-      "description": "价值观表达"
+      "description": "价值观表达",
+      "file": "weapons/09-brand/weapons/103-社会议题.md"
     },
     {
       "id": 104,
-      "name": "媒体报道",
+      "name": "冷启动外呼",
       "category": "brand",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "电话销售"
+      "description": "电话销售",
+      "file": "weapons/10-b2b-sales/weapons/104-冷启动外呼.md"
     },
     {
       "id": 105,
-      "name": "价值观营销",
+      "name": "LinkedIn外联",
       "category": "brand",
       "effort": "Low",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.68,
-      "description": "B2B社交"
+      "description": "B2B社交",
+      "file": "weapons/10-b2b-sales/weapons/105-LinkedIn外联.md"
     },
     {
       "id": 106,
-      "name": "公益联名",
+      "name": "Webinar",
       "category": "brand",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "在线研讨会"
+      "description": "在线研讨会",
+      "file": "weapons/10-b2b-sales/weapons/106-Webinar.md"
     },
     {
       "id": 107,
-      "name": "跨界合作",
+      "name": "Demo演示",
       "category": "brand",
       "effort": "Medium",
       "impact": "High",
       "evidence_tier": "C",
       "confidence": 0.75,
-      "description": "产品展示"
+      "description": "产品展示",
+      "file": "weapons/10-b2b-sales/weapons/107-Demo演示.md"
     },
     {
       "id": 108,
-      "name": "冷启动外呼",
+      "name": "白皮书下载",
       "category": "b2b-sales",
       "effort": "Medium",
       "impact": "Medium",
       "evidence_tier": "C",
       "confidence": 0.72,
-      "description": "留资转化"
+      "description": "留资转化",
+      "file": "weapons/10-b2b-sales/weapons/108-白皮书下载.md"
     },
     {
       "id": 109,
-      "name": "演示预约",
+      "name": "销售自动化",
       "category": "b2b-sales",
       "effort": "Low",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.8,
-      "description": "流程优化"
+      "description": "流程优化",
+      "file": "weapons/10-b2b-sales/weapons/109-销售自动化.md"
     },
     {
       "id": 110,
-      "name": "客户成功运营",
+      "name": "客户成功",
       "category": "b2b-sales",
       "effort": "High",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.85,
-      "description": "续费增长"
+      "description": "续费增长",
+      "file": "weapons/10-b2b-sales/weapons/110-客户成功.md"
     },
     {
       "id": 111,
-      "name": "转介绍激励",
+      "name": "转介绍计划",
       "category": "b2b-sales",
       "effort": "Low",
       "impact": "High",
       "evidence_tier": "B",
       "confidence": 0.82,
-      "description": "口碑推荐"
+      "description": "口碑推荐",
+      "file": "weapons/10-b2b-sales/weapons/111-转介绍计划.md"
     }
   ],
   "index_by_problem": {

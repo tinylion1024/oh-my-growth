@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synchronize index metadata and enrich weapon descriptions from source files."""
+"""Synchronize indexes and refresh README knowledge navigation blocks."""
 
 import json
 import re
@@ -10,6 +10,19 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent.parent
 INDEX_DIR = ROOT_DIR / "knowledge" / "indexes"
 WEAPON_SOURCE_DIR = ROOT_DIR / "knowledge" / "weapons"
+README_PATH = ROOT_DIR / "README.md"
+KNOWLEDGE_ROOT = ROOT_DIR / "knowledge"
+
+CASE_INDEX_START = "<!-- AUTO-CASE-INDEX:START -->"
+CASE_INDEX_END = "<!-- AUTO-CASE-INDEX:END -->"
+WEAPON_INDEX_START = "<!-- AUTO-WEAPON-INDEX:START -->"
+WEAPON_INDEX_END = "<!-- AUTO-WEAPON-INDEX:END -->"
+
+CASE_REGION_TITLES = {
+    "china": "中国案例",
+    "overseas": "海外案例",
+    "vertical": "垂直行业案例",
+}
 
 
 def load_json(path: Path):
@@ -38,13 +51,105 @@ def parse_front_matter(path: Path):
     return data
 
 
+def replace_section(content: str, start_marker: str, end_marker: str, replacement: str) -> str:
+    pattern = re.compile(
+        re.escape(start_marker) + r".*?" + re.escape(end_marker),
+        re.DOTALL,
+    )
+    if not pattern.search(content):
+        raise ValueError(f"Missing README marker pair: {start_marker} ... {end_marker}")
+    return pattern.sub(replacement, content, count=1)
+
+
+def render_case_index(cases_payload):
+    cases = cases_payload.get("cases", [])
+    lines = [CASE_INDEX_START]
+
+    for region_id in ["china", "overseas", "vertical"]:
+        region_cases = sorted(
+            [case for case in cases if case.get("region") == region_id],
+            key=lambda item: item.get("name", ""),
+        )
+        title = CASE_REGION_TITLES[region_id]
+        lines.extend(
+            [
+                "<details>",
+                f"<summary>{title}（{len(region_cases)}）</summary>",
+                "",
+            ]
+        )
+        for case in region_cases:
+            tactics = "、".join(case.get("tags", {}).get("tactics", [])[:3])
+            suffix = f" · {case.get('evidence_tier', 'N/A')}级证据"
+            if tactics:
+                suffix += f" · {tactics}"
+            lines.append(f"- [{case['name']}](./knowledge/{case['file']}){suffix}")
+        lines.extend(["", "</details>", ""])
+
+    lines.append(CASE_INDEX_END)
+    return "\n".join(lines)
+
+
+def render_weapon_index(weapons_payload):
+    categories = weapons_payload.get("categories", [])
+    weapons = weapons_payload.get("weapons", [])
+    lines = [WEAPON_INDEX_START]
+
+    for category in categories:
+        category_id = category["id"]
+        category_name = category["name"]
+        category_weapons = sorted(
+            [weapon for weapon in weapons if weapon.get("category") == category_id],
+            key=lambda item: int(item.get("id", 0)),
+        )
+        lines.extend(
+            [
+                "<details>",
+                f"<summary>{category_name}（{len(category_weapons)}）</summary>",
+                "",
+            ]
+        )
+        for weapon in category_weapons:
+            file_path = weapon.get("file")
+            label = weapon["name"]
+            if file_path:
+                label = f"[{label}](./knowledge/{file_path})"
+            effort = weapon.get("effort", "N/A")
+            impact = weapon.get("impact", "N/A")
+            evidence_tier = weapon.get("evidence_tier", "N/A")
+            lines.append(
+                f"- {label} · {effort} effort · {impact} impact · {evidence_tier}级证据"
+            )
+        lines.extend(["", "</details>", ""])
+
+    lines.append(WEAPON_INDEX_END)
+    return "\n".join(lines)
+
+
+def sync_readme_indexes(cases_payload, weapons_payload):
+    content = README_PATH.read_text(encoding="utf-8")
+    content = replace_section(
+        content,
+        CASE_INDEX_START,
+        CASE_INDEX_END,
+        render_case_index(cases_payload),
+    )
+    content = replace_section(
+        content,
+        WEAPON_INDEX_START,
+        WEAPON_INDEX_END,
+        render_weapon_index(weapons_payload),
+    )
+    README_PATH.write_text(content, encoding="utf-8")
+
+
 def sync_cases_index():
     path = INDEX_DIR / "cases-index.json"
     payload = load_json(path)
     payload["metadata"]["total_cases"] = len(payload.get("cases", []))
     payload["metadata"]["last_updated"] = str(date.today())
     write_json(path, payload)
-    return payload["metadata"]["total_cases"]
+    return payload
 
 
 def sync_weapons_index():
@@ -57,14 +162,22 @@ def sync_weapons_index():
         weapon_id = str(front_matter.get("id", "")).strip()
         if not weapon_id:
             continue
-        source_by_id[weapon_id] = front_matter
+        source_by_id[weapon_id] = {
+            "front_matter": front_matter,
+            "file": markdown_file.relative_to(KNOWLEDGE_ROOT).as_posix(),
+        }
 
     category_counter = Counter()
     for weapon in payload.get("weapons", []):
         weapon_id = str(weapon.get("id", ""))
         source = source_by_id.get(weapon_id, {})
-        if source.get("description"):
-            weapon["description"] = source["description"]
+        front_matter = source.get("front_matter", {})
+        if front_matter.get("name"):
+            weapon["name"] = front_matter["name"]
+        if front_matter.get("description"):
+            weapon["description"] = front_matter["description"]
+        if source.get("file"):
+            weapon["file"] = source["file"]
         category_counter[weapon.get("category", "")] += 1
 
     for category in payload.get("categories", []):
@@ -73,7 +186,7 @@ def sync_weapons_index():
     payload["metadata"]["total_weapons"] = len(payload.get("weapons", []))
     payload["metadata"]["last_updated"] = str(date.today())
     write_json(path, payload)
-    return payload["metadata"]["total_weapons"]
+    return payload
 
 
 def sync_theories_index():
@@ -82,13 +195,18 @@ def sync_theories_index():
     payload["metadata"]["total_theories"] = len(payload.get("theories", []))
     payload["metadata"]["last_updated"] = str(date.today())
     write_json(path, payload)
-    return payload["metadata"]["total_theories"]
+    return payload
 
 
 def main():
-    case_count = sync_cases_index()
-    weapon_count = sync_weapons_index()
-    theory_count = sync_theories_index()
+    cases_payload = sync_cases_index()
+    weapons_payload = sync_weapons_index()
+    theories_payload = sync_theories_index()
+    sync_readme_indexes(cases_payload, weapons_payload)
+
+    case_count = cases_payload["metadata"]["total_cases"]
+    weapon_count = weapons_payload["metadata"]["total_weapons"]
+    theory_count = theories_payload["metadata"]["total_theories"]
     print(
         f"Indexes updated: {case_count} cases, {weapon_count} weapons, {theory_count} theories"
     )
