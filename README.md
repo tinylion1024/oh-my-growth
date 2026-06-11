@@ -2,18 +2,337 @@
 
 # 🚀 oh-my-growth
 
-**增长策略外脑 — Claude Code 专用增长决策插件**
+**Growth Strategy External Brain — Claude Code Plugin**
+
+Integrating **81 Cases** · **111 Growth Plays** · **12 Schools** · **Complete Decision Framework**
+
+Input a growth question, output: `Stage Diagnosis` · `Core Tension` · `Priority Ranking` · `Do/Don't` · `2-Week Experiment`
+
+[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](./VERSION)
+[![Tests](https://img.shields.io/badge/tests-84%2F84%20passed-brightgreen.svg)](./tests/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+
+[Install](#-install) · [Quick Start](#-quick-start) · [Core Frameworks](#-core-frameworks) · [Documentation](#-documentation)
+
+**[中文文档](#-oh-my-growth---增长策略外脑)**
+
+</div>
+
+---
+
+## 💡 What is This?
+
+**oh-my-growth** is a **Claude Code plugin for growth strategy decisions**.
+
+Use it directly in your Claude Code session:
+
+```
+/oh-my-growth diagnose My DAU dropped 20%, what should I do?
+/oh-my-growth assess We're planning referral, evaluate feasibility first
+/oh-my-growth design How to design monetization strategy for SaaS?
+```
+
+It first determines:
+
+- Which growth stage you're in (validation / scaling / optimization)
+- Whether the problem is user acquisition or user engagement
+- What your North Star metric should be
+- What to focus on and what to avoid
+
+Then outputs actionable recommendations:
+
+- 🎯 **Diagnose Growth Problems** — Identify core tension, stage constraints, and priorities
+- 📋 **Validate Decision Docs** — Check if reports cover key sections, fact markers, and action loops
+- 🛠️ **Output Strategy Plans** — What to do, what not to do, which experiment to run first
+- 📚 **Match Success Cases** — Who has done similar things? How did they do it?
+- 🔢 **Form Executable Judgments** — Backed by evidence, cases, and lightweight decision engines
+
+---
+
+## 📦 Install
+
+### Option 1: One-Click Install (Recommended)
+
+```bash
+cd growth-master-skill
+./scripts/install.sh
+```
+
+### Option 2: Manual Install
+
+```bash
+# Clone repository
+git clone https://github.com/tinylion1024/growth-master-skill.git
+
+# Install to Claude Code skills directory
+cp -R growth-master-skill ~/.claude/skills/oh-my-growth
+```
+
+### Verify Installation
+
+In Claude Code, type:
+```
+/oh-my-growth diagnose test installation
+```
+
+---
+
+## ✨ Quick Start
+
+### Use in Claude Code
+
+```
+/oh-my-growth diagnose How to get first 1000 users for SaaS product
+/oh-my-growth assess Should we do referral program
+/oh-my-growth design How to improve monthly active user retention
+/oh-my-growth match Gamification to boost user activity
+/oh-my-growth learn How to systematically learn referral growth
+```
+
+### CLI Mode (Standalone)
+
+```bash
+# Strategy brain diagnosis
+python scripts/cli.py diagnose "How to get first 1000 users for SaaS" \
+  --industry saas --stage 0-1 --problem acquisition
+
+# Scenario shortcut
+python scripts/cli.py cold-start "How to get first 100 seed users for AI writing SaaS" \
+  --industry saas
+```
+
+### Sample Output:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  📌 Stage Diagnosis                                     │
+├─────────────────────────────────────────────────────────┤
+│  Validation Stage · User Acquisition                    │
+│  North Star: New high-intent users                      │
+│                                                         │
+│  📌 One-Liner Judgment                                  │
+│  Recommend small experiment: Bet on "Beta Invite"       │
+│                                                         │
+│  📌 Core Tension                                        │
+│  Not lack of channels, but no replicable low-cost path  │
+│                                                         │
+│  📌 Priority Ranking                                    │
+│  Beta Invite > Landing Page > Product Hunt Launch       │
+│                                                         │
+│  📌 2-Week Experiment                                   │
+│  1. Validate one action only                            │
+│  2. Track new high-intent users                         │
+│  3. Stop if hypothesis fails                            │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 Core Features
+
+### Seven Entry Points
+
+| Mode | CLI Entry | Description | Use Case |
+|------|-----------|-------------|----------|
+| **Strategy Brain** | `diagnose` | Diagnosis + Priority + Experiment | Growth lead needs quick judgment |
+| **Opportunity Assess** | `assess` | Evaluate if worth deeper analysis | Current state unclear, need clarity first |
+| **Strategy Design** | `design` | Actionable strategy | Know what to do, need execution path |
+| **Fast Scan** | `fast-scan` | Quick judgment | Is this idea worth pursuing? |
+| **Decision BRD** | `brd` | Full decision document | Need budget/resource approval |
+| **Case Match** | `match` | Find success cases | Want to see how others did it |
+| **Learning Path** | `learn` | Systematic learning path | Want to deep dive into a growth area |
+
+### Knowledge Base Scale
+
+| Type | Count | Description |
+|------|-------|-------------|
+| 📚 Cases | **81** | Pinduoduo, TikTok, Notion, Airbnb... |
+| 🛠️ Plays | **111** | Referral, PLG, Content Growth, Retention... |
+| 📖 Theories | **12 Schools** | Growth Hacking, Network Effects, PLG... |
+
+---
+
+## 🧭 Core Frameworks
+
+The project organizes strategy judgment around a complete growth operating framework:
+
+- First determine: `Product Validation / Growth Scaling / Scale Optimization`
+- Then determine: `User Acquisition` or `User Engagement`
+- Then define: `North Star Metric` and `Constraints`
+- Finally: Cases, plays, theories, and experiment recommendations
+
+### Quality Assurance
+
+| Mechanism | Purpose |
+|-----------|---------|
+| ✅ **Current State Clarity Gate** | Ask follow-up questions when information is insufficient |
+| ✅ **Evidence Tier System** | A/B/C/D/E five-level confidence, transparent labeling |
+| ✅ **Safety Boundary Detection** | Auto-identify financial/legal/regulatory risks |
+| ✅ **Output Contract** | 10 required sections, ensure report completeness |
+
+---
+
+## 🔢 Bayesian Decision Engine
+
+### What is Bayesian Decision?
+
+Converts uncertain growth decisions into an **auditable probabilistic reasoning process**:
+
+```
+Initial Hypothesis → Set Prior → Collect Evidence → Update Posterior → Compare Threshold → Recommend Action
+```
+
+### Action Thresholds
+
+| Posterior Range | Decision | Description |
+|-----------------|----------|-------------|
+| ≥ 75% | **Invest Now** | High confidence, actionable |
+| 50-75% | **Run Experiment** | Medium confidence, needs validation |
+| 30-50% | **Collect Evidence** | Low confidence, insufficient info |
+| < 30% | **Stop** | Very low confidence, not recommended |
+
+### Evidence Tiers
+
+| Tier | Definition | Update Magnitude |
+|------|------------|------------------|
+| A | Meta-analysis, systematic reviews | ±25% |
+| B | Peer-reviewed, industry reports | ±15% |
+| C | Expert opinions, internal data | ±10% |
+| D | LLM suggestions, analogies | ±5% |
+| E | Blogs, marketing copy | 0% |
+
+---
+
+## 📊 Kelly Allocation Framework
+
+### What is Kelly Criterion?
+
+Calculate optimal investment ratio, answering "how much resource to invest":
+
+```
+f* = (bp - q) / b
+
+f* = Optimal investment fraction
+b  = Net odds (profit/loss)
+p  = Win probability
+q  = Loss probability
+```
+
+### Action Package Output
+
+```yaml
+kelly_result:
+  fraction: "15% budget"
+  action: "Launch referral MVP"
+  budget: "$15K"
+  add_condition: "K-factor > 0.5 → Scale to $30K"
+  stop_condition: "CAC > $10 → Stop"
+  review: "Review in 30 days"
+```
+
+---
+
+## 🏗️ Architecture Overview
+
+```
+User Input
+    │
+    ▼
+┌─────────────────┐
+│ Lead Agent      │ ← Orchestration, problem classification
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    ▼         ▼
+┌───────┐ ┌───────┐
+│知识   │ │ 决策  │
+│ Agent │ │ Agent │
+│ 群    │ │ 群    │
+└───┬───┘ └───┬───┘
+    │         │
+    └────┬────┘
+         ▼
+┌─────────────────┐
+│ Narrative Agent │ ← Output generation
+└─────────────────┘
+```
+
+**Knowledge Agents**: Case · Weapon · Theory · Competitor
+
+**Decision Agents**: Growth · Monetization · ROI · Execution · Skeptic
+
+---
+
+## 📖 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [SKILL.md](./SKILL.md) | Complete skill definition |
+| [Growth Operating Framework](./references/growth-operating-framework.md) | Stage, North Star, Journey, Strategy Loop |
+| [Bayesian Decision](./references/bayesian-decision.md) | Probabilistic reasoning framework |
+| [Game Theory Framework](./references/gametheory-framework.md) | Competitive analysis, equilibrium prediction |
+| [Kelly Allocation](./references/kelly-allocation.md) | Resource investment optimization |
+
+---
+
+## 🧪 Test Coverage
+
+```bash
+# Run main test suite
+python3 scripts/run_tests.py
+
+# Run CLI integration tests only
+python3 -m pytest tests/test_cli_integration.py
+
+# Validate agents and indexes
+python3 scripts/validate-agents.py
+python3 scripts/validate-indexes.py
+```
+
+| Test Type | Coverage | Status |
+|-----------|----------|--------|
+| Scripted Main Tests | 84/84 | ✅ |
+| CLI Integration Tests | diagnose / assess / match / validate / learn | ✅ |
+| Golden Scenario Regression | Wrong stage / Wrong constraint / Wrong direction | ✅ |
+| Agent/Index Validation | Structure and knowledge integrity | ✅ |
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome!
+
+- 📝 Submit new cases (see `knowledge/cases/` format)
+- 🛠️ Add growth plays (see `knowledge/weapons/` format)
+- 🐛 Report issues (open an Issue)
+- 💡 Feature suggestions (open an Issue or PR)
+
+---
+
+## 📄 License
+
+MIT License - Free to use, modify, and distribute
+
+---
+
+<br/>
+<br/>
+<hr/>
+
+<div align="center">
+
+# 🚀 oh-my-growth - 增长策略外脑
+
+**Claude Code 专用增长决策插件**
 
 整合 **81个案例** · **111种玩法** · **12大流派** · **完整决策框架**
 
 输入一个增长问题，直接输出：
 `阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
 
-[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-84%2F84%20passed-brightgreen.svg)](./tests/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
-
 [安装](#-安装) · [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
+
+**[English](#-oh-my-growth)**
 
 </div>
 
@@ -100,11 +419,6 @@ python scripts/cli.py cold-start "AI写作SaaS如何拿到前100个种子用户"
   --industry saas
 ```
 
-# 方式四：负责人摘要视图
-python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
-  --industry saas --stage 0-1 --problem acquisition --view executive
-```
-
 ### 输出示例：
 
 ```
@@ -134,7 +448,7 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ## 🎯 核心功能
 
-### 七个核心入口，覆盖从诊断到执行建议
+### 七个核心入口
 
 | 模式 | CLI 入口 | 一句话描述 | 适用场景 |
 |------|----------|-----------|----------|
@@ -146,11 +460,6 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 | **Case Match** | `match` | 找成功案例 | 想看看别人怎么做的 |
 | **Learning Path** | `learn` | 系统学习路径 | 想深入了解某个增长领域 |
 
-辅助命令：`search` 用于直接检索案例 / 玩法 / 理论，`validate` 用于校验输出文档是否满足报告契约。场景快捷入口：`cold-start` / `retention` / `monetization` / `referral`。
-
-- `assess` 默认输出是否值得继续深入、还缺什么、建议下一步进入 `diagnose` 还是 `design`
-- `design` 默认输出玩法组合、实施路径、关键指标和证据依据
-
 ### 知识库规模
 
 | 类型 | 数量 | 说明 |
@@ -159,25 +468,16 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 | 🛠️ 玩法 | **111种** | 裂变、PLG、内容增长、留存... |
 | 📖 理论 | **12流派** | 增长黑客、网络效应、PLG... |
 
+---
+
 ## 🧭 核心框架
 
-项目现在默认按一套更完整的增长经营框架组织策略判断，而不是直接罗列玩法：
+项目现在默认按一套更完整的增长经营框架组织策略判断：
 
 - 先判断当前处于 `产品验证期 / 增长放大期 / 规模经营期`
 - 再判断主问题属于 `用户获取` 还是 `用户深耕`
 - 再定义当前最该围绕的 `北极星指标` 与 `约束线`
 - 最后才进入案例、玩法、理论和实验建议
-
-这套框架已经接入 `diagnose`、`assess` 和场景快捷入口的输出层。
-
-- [增长操作框架](./references/growth-operating-framework.md)
-- [工作流定义](./references/workflow.md)
-- [输出模板](./references/output-schema.md)
-- [方法指南总览](./knowledge/guides/README.md)
-- [阶段判断](./knowledge/guides/stage-diagnosis.md)
-- [用户旅程诊断](./knowledge/guides/user-journey-diagnosis.md)
-- [实验设计](./knowledge/guides/experiment-design.md)
-- [归因与身份识别](./knowledge/guides/attribution-and-identity.md)
 
 ### 质量保障
 
@@ -190,312 +490,14 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ---
 
-## 🚀 快速开始
-
-### 安装
-
-```bash
-# 克隆仓库
-git clone https://github.com/tinylion1024/growth-master-skill.git
-
-# 运行环境
-# Python 3.8+，当前脚本默认仅使用标准库
-
-# 安装到 Claude 技能目录（可选）
-cp -R growth-master-skill ~/.claude/skills/
-```
-
-### 验证安装
-
-```bash
-# 运行主测试集
-python3 scripts/run_tests.py
-# ✅ 82/82 checks passed
-```
-
-### 第一次使用
-
-```bash
-# 快速生成策略外脑诊断
-python scripts/cli.py diagnose "电商平台如何提升复购率" \
-  --industry ecommerce --problem retention
-
-# 快速判断一个方向值不值得做
-python scripts/cli.py fast-scan "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral
-
-# 生成正式决策 BRD 草稿
-python scripts/cli.py brd "是否应该做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral
-
-# 搜索相关案例和玩法
-python scripts/cli.py search "裂变" --limit 5 \
-  --context-json '{"company_profile":{"business_model":"saas"}}'
-
-# 匹配相关案例
-python scripts/cli.py match "教育产品如何做裂变" --problem referral \
-  --context-json '{"company_profile":{"business_model":"content community"}}'
-
-# 围绕一个主题生成学习路径
-python scripts/cli.py learn "如何系统学习裂变增长" --problem referral \
-  --profile-file examples/company-profile.json
-
-# 场景化入口
-python scripts/cli.py retention "如何提升月活跃用户留存率" --industry content
-
-# 结构化上下文输入
-python scripts/cli.py diagnose "如何提升月活跃用户留存率" \
-  --industry content --problem retention \
-  --context-json '{"goal":"提升30日留存","metric":"30日留存率","budget":"10万元","team":"产品1+工程2+运营1"}'
-
-# 从文件加载结构化上下文
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral \
-  --context-file examples/referral-context.json --view report
-
-# 加载公司画像和历史实验台账
-python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
-  --problem acquisition \
-  --profile-file examples/company-profile.json \
-  --history-file examples/experiment-log.json \
-  --view weekly
-
-# 生成季度经营摘要（含 Kelly 预算建议）
-python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
-  --problem acquisition \
-  --profile-file examples/company-profile.json \
-  --history-file examples/experiment-log.json \
-  --view qbr
-```
-
----
-
-## 💼 使用场景
-
-### 场景一：增长外脑诊断
-
-**问题**：老板问「我们要不要做邀请裂变？」
-
-```bash
-python scripts/cli.py diagnose "是否应该做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral
-```
-
-**输出**：
-- 阶段判断（当前阶段 / 主业务过程 / 北极星 / 约束线）
-- 一句话判断
-- 核心矛盾
-- 优先级排序
-- 建议现在做 / 建议先别做
-- 两周实验
-- 数据与归因要求
-- 可切换为负责人摘要 / 报告版 / JSON 版
-- 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
-- 支持 `--profile-file` / `--history-file` 注入公司画像和历史实验台账
-- `search / match / learn` 现在也支持结构化上下文，并会显式解释为什么这些案例/理论/玩法更像你
-- 同一个泛问题在不同 `metric / journey_stage / team / budget` 下，会返回不同的 Top1 主抓手，而不是固定模板答案
-- 预算已知时会自动生成 Kelly 风险预算建议、加仓条件和停止条件
-- 竞争 / 平台 / 定价场景下会补充 Game Theory 姿态判断
-
----
-
-### 场景二：校验决策文档
-
-**问题**：已经有一份分析稿，想确认结构是否完整
-
-```bash
-python scripts/cli.py validate report.md
-```
-
-**输出**：
-- 报告总分
-- 是否通过校验
-- 缺失章节或缺少的关键信息
-- 事实标记是否完整
-
----
-
-### 场景三：设计增长策略
-
-**问题**：知道要提升留存，但不知道具体怎么做
-
-```bash
-python scripts/cli.py design "如何提升月活跃用户留存率" \
-  --industry content --problem retention
-```
-
-**输出**：
-- 策略方向
-- 主抓手优先级
-- 为什么现在做
-- 两周实验与成功/停止信号
-- 案例和理论支撑
-
----
-
-### 场景四：匹配成功案例
-
-**问题**：想看看别人是怎么做游戏化增长的
-
-```bash
-python scripts/cli.py match "游戏化提升用户活跃" \
-  --industry education
-```
-
-**输出**：
-- 匹配案例列表（带相似度评分）
-- 各案例核心策略
-- 可复制要点
-- 注意事项
-
----
-
-### 场景五：给增长负责人准备汇报稿
-
-**问题**：要去周会或季度评审，想直接拿到可以讲的摘要
-
-```bash
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral --view executive
-```
-
-**输出**：
-- 董事会/负责人摘要
-- 本周拍板事项
-- 先别做什么
-- 当前置信度
-
----
-
-### 场景六：导出可校验决策稿
-
-**问题**：想生成一版可继续修改的正式决策稿
-
-```bash
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral --view report > report.md
-
-python scripts/cli.py validate report.md
-```
-
-**输出**：
-- 满足报告契约的 Markdown 决策稿
-- 可进一步进入校验和迭代
-
----
-
-### 场景七：给周会和实验管理直接出产物
-
-**问题**：希望直接拿到周会摘要、实验卡和决策 memo
-
-```bash
-python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
-  --problem acquisition \
-  --profile-file examples/company-profile.json \
-  --history-file examples/experiment-log.json \
-  --view weekly
-
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --problem referral \
-  --profile-file examples/company-profile.json \
-  --history-file examples/experiment-log.json \
-  --view experiment-card
-
-python scripts/cli.py diagnose "我们要不要做邀请裂变" \
-  --problem referral \
-  --profile-file examples/company-profile.json \
-  --history-file examples/experiment-log.json \
-  --view decision-memo
-
-python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
-  --problem acquisition \
-  --profile-file examples/company-profile.json \
-  --history-file examples/experiment-log.json \
-  --view qbr
-```
-
-**输出**：
-- `weekly`：周会摘要、负责人、本周不做什么、复盘信号
-- `experiment-card`：假设、步骤、成功/停止信号、历史提醒
-- `decision-memo`：决策请求、依据、备选不优先原因、组织历史约束
-- `qbr`：季度主题、经营判断、优先事项、风险、Kelly 预算分配建议
-- 在竞争 / 平台场景下，这些视图会附带 Game Theory 姿态判断
-
----
-
-### 场景八：快速判断一个方向值不值得做
-
-**问题**：临时会上有人提议“先做邀请裂变试试”
-
-```bash
-python scripts/cli.py fast-scan "我们要不要做邀请裂变" \
-  --industry saas --stage 1-10 --problem referral
-```
-
-**输出**：
-- 一句话建议
-- 2-3 条核心理由
-- 主要风险
-- 下一步动作
-
----
-
-### 场景九：围绕某个问题快速补课
-
-**问题**：想系统看懂裂变、案例和相关理论
-
-```bash
-python scripts/cli.py learn "如何系统学习裂变增长" --problem referral
-```
-
-**输出**：
-- 优先阅读的方法指南
-- 相关理论
-- 先看的案例
-- 建议对照的玩法
-
----
-
 ## 🔢 贝叶斯决策引擎
 
 ### 什么是贝叶斯决策？
 
-贝叶斯决策将不确定的增长决策转化为**可审计的概率推理过程**：
+将不确定的增长决策转化为**可审计的概率推理过程**：
 
 ```
 初始假设 → 设置先验概率 → 收集证据 → 更新后验概率 → 比较阈值 → 推荐行动
-```
-
-### 核心概念
-
-| 概念 | 说明 | 示例 |
-|------|------|------|
-| **先验** | 初始置信度 | 35%（有案例参考） |
-| **证据** | 支持或反对的信息 | Notion 成功案例（B级） |
-| **更新** | 证据影响 | +15% |
-| **后验** | 更新后置信度 | 50% |
-| **决策** | 基于阈值的行动 | 推荐小实验 |
-
-### 使用示例
-
-```python
-from scripts.bayesian_decision import BayesianDecision
-
-# 初始化
-bd = BayesianDecision()
-
-# 设置假设
-bd.set_hypothesis("邀请裂变能带来有效增长")
-bd.set_prior(0.35, rationale="有Notion、Dropbox案例参考")
-
-# 添加证据
-bd.add_evidence("Notion案例", "B", "support")
-bd.add_evidence("SaaS行业报告", "B", "support")
-
-# 更新并获取决策
-bd.update()
-print(f"后验置信度: {bd.get_posterior():.0%}")  # 52%
-print(f"决策建议: {bd.get_decision_text()['action']}")  # 推荐小规模实验
 ```
 
 ### 行动阈值
@@ -507,7 +509,7 @@ print(f"决策建议: {bd.get_decision_text()['action']}")  # 推荐小规模实
 | 30-50% | **收集证据** | 低置信度，信息不足 |
 | < 30% | **停止** | 极低置信度，不推荐 |
 
-### 证据等级与更新幅度
+### 证据等级
 
 | 等级 | 定义 | 更新幅度 |
 |------|------|---------|
@@ -517,64 +519,11 @@ print(f"决策建议: {bd.get_decision_text()['action']}")  # 推荐小规模实
 | D | LLM建议、类比 | ±5% |
 | E | 博客、营销文案 | 0% |
 
-### 敏感性分析
-
-每个贝叶斯决策自动生成敏感性分析：
-
-```markdown
-🔍 结论有多稳固？
-- 反转条件: 如果病毒系数 < 0.3，结论反转为不推荐
-- 关键假设: 用户有足够的邀请动机
-- 风险点: 奖励机制成本未验证
-```
-
----
-
-## 🎯 博弈论战略框架
-
-### 什么是博弈论决策？
-
-分析竞争、定价、谈判等战略互动：
-
-```
-识别博弈类型 → 构建收益矩阵 → 分析均衡 → 历史校准 → 承诺检验 → 战略建议
-```
-
-### 适用场景
-
-| 场景 | 博弈框架 | 核心问题 |
-|------|----------|----------|
-| **竞争反应** | 囚徒困境 | 对手会怎么反应？ |
-| **定价策略** | 信号博弈 | 如何定价不被跟进？ |
-| **平台策略** | 双边市场 | 如何启动双边平台？ |
-| **谈判分配** | 讨价还价 | 如何分配利益？ |
-
-### 使用示例
-
-```python
-# 博弈论分析流程
-from scripts.gametheory_analysis import GameTheoryAnalysis
-
-ga = GameTheoryAnalysis()
-ga.set_players(["我方", "竞争对手"])
-ga.set_strategies({
-    "我方": ["降价", "不降价"],
-    "竞争对手": ["跟进", "不跟进"]
-})
-ga.build_payoff_matrix(...)  # 构建收益矩阵
-ga.find_nash_equilibrium()   # 找到纳什均衡
-ga.calibrate_with_history()  # 历史行为校准
-```
-
-当前项目会在 `diagnose / decision-memo / qbr` 中按场景触发 Game Theory：当你提供竞争对手、平台结构或定价/跟进风险时，会额外输出竞争/平台姿态和博弈建议，而不是默认对所有问题都做复杂博弈分析。
-
 ---
 
 ## 📊 Kelly 资源分配框架
 
 ### 什么是 Kelly 准则？
-
-当前项目已经把 Kelly 接入 `diagnose / weekly / decision-memo / qbr` 的预算建议层：当你提供预算上下文时，会自动给出风险预算比例、建议投入额、加仓条件和停止条件，而不是只把 Kelly 当成独立理论展示。
 
 计算最优投入比例，回答"应该投入多少资源"：
 
@@ -601,359 +550,15 @@ kelly_result:
 
 ---
 
-## 🏗️ 完整框架体系
-
-### 核心决策框架
-
-| 框架 | 用途 | 文档 |
-|------|------|------|
-| **贝叶斯决策** | 概率推理、证据更新 | [bayesian-decision.md](./references/bayesian-decision.md) |
-| **博弈论战略** | 竞争分析、均衡预测 | [gametheory-framework.md](./references/gametheory-framework.md) |
-| **Kelly 分配** | 资源投入优化 | [kelly-allocation.md](./references/kelly-allocation.md) |
-| **商业模式** | 商业设计与诊断 | [business-model.md](./references/business-model.md) |
-
-### 索引治理
-
-知识索引现在已经包含 `growth_process / journey_stage / stage_fit / resource_profile / failure_refs` 等字段，不再只是导航列表；失败模式也已经有独立的 `failures-index.json`，并开始参与策略排序和风险惩罚。维护规范见 [index-schema.md](./references/index-schema.md)。
-
----
-
-## 🏗️ 架构概览
-
-```
-用户输入
-    │
-    ▼
-┌─────────────────┐
-│ Lead Agent      │ ← 编排协调、问题分类
-└────────┬────────┘
-         │
-    ┌────┴────┐
-    ▼         ▼
-┌───────┐ ┌───────┐
-│ 知识  │ │ 决策  │
-│ Agent │ │ Agent │
-│ 群    │ │ 群    │
-└───┬───┘ └───┬───┘
-    │         │
-    └────┬────┘
-         ▼
-┌─────────────────┐
-│ Narrative Agent │ ← 输出生成
-└─────────────────┘
-```
-
-**知识 Agent 群**：Case · Weapon · Theory · Competitor
-
-**决策 Agent 群**：Growth · Monetization · ROI · Execution · Skeptic
-
----
-
-## 📚 知识库索引
-
-如果你已经确认要深挖案例或玩法，再从这里进入知识层。第一次访问仓库，建议先看上面的快速开始和使用场景。
-
-- [案例库总览](./knowledge/cases/README.md)
-- [玩法武器库总览](./knowledge/weapons/index.md)
-- [失败模式与反模式](./knowledge/failures/README.md)
-- [方法指南总览](./knowledge/guides/README.md)
-- [中国案例目录](./knowledge/cases/china/README.md)
-- [海外案例目录](./knowledge/cases/overseas/README.md)
-- [垂直行业案例目录](./knowledge/cases/vertical/README.md)
-
-### 案例索引（直达文件）
-
-<!-- AUTO-CASE-INDEX:START -->
-<details>
-<summary>中国案例（43）</summary>
-
-- [B站-社区氛围增长](<./knowledge/cases/china/bilibili.md>) · C级证据 · 社交、社区、Z世代
-- [DeepSeek（深度求索）- AI开源突围战](<./knowledge/cases/china/deepseek.md>) · B级证据 · 开源模型、低成本训练、viral增长
-- [Kimi（月之暗面）- AI助手爆发式增长](<./knowledge/cases/china/kimi-moonshot-ai.md>) · B级证据 · AI助手、免费获客、内容营销
-- [MiniMax（海螺AI/稀宇科技）- AI产品爆发式增长](<./knowledge/cases/china/minimax-ai.md>) · C级证据 · AI陪伴、视频生成、免费获客
-- [Soul-匿名社交增长](<./knowledge/cases/china/soul.md>) · C级证据 · 社交、灵魂匹配、匿名
-- [云集-社交电商裂变](<./knowledge/cases/china/yunji.md>) · C级证据 · 电商、B2B、跨境
-- [京东-用户精细化运营](<./knowledge/cases/china/jd-member-ops.md>) · B级证据 · 电商、会员体系、用户运营
-- [京东家具双11投放案例：ROI达到252](<./knowledge/cases/china/jd-furniture-roi252.md>) · C级证据
-- [京东金融-金条白条增长](<./knowledge/cases/china/jd-finance.md>) · C级证据 · 金融、白条、金条
-- [唯品会-特卖模式增长](<./knowledge/cases/china/vipshop.md>) · C级证据 · 电商、特卖、库存
-- [夸克AI（阿里巴巴）- 超级入口的AI突围](<./knowledge/cases/china/quark-ai.md>) · C级证据 · AI助手、超级入口、阿里生态
-- [小红书-社区种草转化](<./knowledge/cases/china/xiaohongshu.md>) · C级证据 · 电商、种草、社区
-- [少儿英语产品用户洞察案例](<./knowledge/cases/china/child-english-insight.md>) · C级证据 · 教育、用户洞察、增长方法
-- [得物-潮流社区增长](<./knowledge/cases/china/dewu.md>) · B级证据 · 电商、潮牌、社区
-- [微众银行-互联网银行增长](<./knowledge/cases/china/webank.md>) · C级证据 · 金融、互联网银行、微信生态
-- [微信支付-红包裂变](<./knowledge/cases/china/wechat-pay.md>) · B级证据 · 支付、社交、红包
-- [微信红包-社交裂变增长](<./knowledge/cases/china/wechat-redpacket.md>) · C级证据 · 支付、社交裂变、红包
-- [快手极速版-看视频赚现金](<./knowledge/cases/china/kuaishou-jisu-ban.md>) · C级证据 · 短视频、游戏化、现金激励
-- [快手白拿-现金膨胀裂变增长](<./knowledge/cases/china/kuaishou-baina.md>) · C级证据 · 现金激励、邀请裂变、金币暴涨
-- [抖音-算法推荐增长](<./knowledge/cases/china/douyin-algorithm.md>) · C级证据 · 社交、算法推荐、短视频
-- [抖音支付-电商金融](<./knowledge/cases/china/douyin-pay.md>) · C级证据 · 支付、电商、抖音生态
-- [抖音极速版-看视频赚金币](<./knowledge/cases/china/douyin-jisu-ban.md>) · C级证据 · 短视频、游戏化、金币激励
-- [抖音电商-直播带货爆发](<./knowledge/cases/china/douyin-ecommerce.md>) · C级证据 · 电商、短视频、兴趣电商
-- [拼多多-拼团裂变增长](<./knowledge/cases/china/pinduoduo-group-buy.md>) · C级证据 · 电商、社交裂变、拼团
-- [携程-旅游平台增长](<./knowledge/cases/china/ctrip.md>) · C级证据 · 旅游、OTA、平台
-- [支付宝-支付增长](<./knowledge/cases/china/alipay.md>) · B级证据 · 支付、金融、场景
-- [智谱AI（Z.ai/GLM）——中国大模型独角兽的差异化成长之路](<./knowledge/cases/china/zhipu-ai.md>) · C级证据 · 大模型、基础模型、MaaS平台
-- [桌面Widget增长案例](<./knowledge/cases/china/widget-growth.md>) · C级证据 · Widget、桌面美化、社交货币
-- [淘宝直播-内容电商转型](<./knowledge/cases/china/taobao-live.md>) · C级证据 · 电商、直播、内容电商
-- [滴滴-出行平台增长](<./knowledge/cases/china/didi.md>) · B级证据 · 出行、平台、双边市场
-- [白拿送礼-社交裂变增长](<./knowledge/cases/china/white-get-gift.md>) · C级证据 · 社交裂变、免费获客、送礼
-- [知乎-知识分享增长](<./knowledge/cases/china/zhihu.md>) · B级证据 · 社交、知识、问答
-- [秘塔AI搜索 - AI搜索赛道的差异化突围](<./knowledge/cases/china/mita-ai-search.md>) · C级证据 · AI搜索、无广告、深度研究
-- [美团-本地生活平台增长](<./knowledge/cases/china/meituan.md>) · C级证据 · 本地生活、平台、外卖
-- [腾讯元宝（Tencent Yuanbao）- AI to C 的生态攻坚战](<./knowledge/cases/china/tencent-yuanbao.md>) · C级证据 · AI助手、腾讯生态、微信嵌入
-- [芭芭农场-游戏化增长](<./knowledge/cases/china/baba-farm.md>) · C级证据 · 游戏化、养成、社交裂变
-- [蚂蚁森林-用户粘性增长](<./knowledge/cases/china/ant-forest.md>) · B级证据 · 金融、游戏化、公益
-- [豆包（字节跳动）- 互联网巨头的AI助手增长](<./knowledge/cases/china/doubao-bytedance.md>) · B级证据 · AI助手、免费获客、字节生态
-- [贝壳-居住平台增长](<./knowledge/cases/china/beike.md>) · B级证据 · 居住、平台、经纪人
-- [趣头条-看新闻赚金币](<./knowledge/cases/china/qutoutiao.md>) · C级证据 · 资讯、游戏化、金币激励
-- [银发人群增长-视频奖励与任务体系](<./knowledge/cases/china/silver-hair-growth.md>) · C级证据 · 银发经济、看视频赚钱、任务体系
-- [陌陌-陌生社交增长](<./knowledge/cases/china/momo.md>) · B级证据 · 社交、直播、陌生人社交
-- [饿了么-外卖平台增长](<./knowledge/cases/china/ele.md>) · B级证据 · 本地生活、外卖、平台
-
-</details>
-
-<details>
-<summary>海外案例（28）</summary>
-
-- [Airbnb-信任机制增长](<./knowledge/cases/overseas/airbnb.md>) · B级证据 · 住宿、平台、双边市场
-- [Airbnb-房源增长策略](<./knowledge/cases/overseas/airbnb-host.md>) · C级证据 · 住宿、房东、平台
-- [Allbirds-口碑增长](<./knowledge/cases/overseas/allbirds.md>) · B级证据 · 鞋、DTC、可持续
-- [Anthropic/Claude — AI助手产品增长案例](<./knowledge/cases/overseas/claude-anthropic.md>) · B级证据 · AI、大语言模型、企业级AI
-- [Calendly-工具产品增长](<./knowledge/cases/overseas/calendly.md>) · B级证据 · 工具、日程、预约
-- [Character.AI-社区裂变增长](<./knowledge/cases/overseas/character-ai.md>) · B级证据 · AI、对话机器人、社区
-- [Cursor - AI编程工具爆发式增长](<./knowledge/cases/overseas/cursor-ai-editor.md>) · B级证据 · AI编程、SaaS、工具
-- [Dollar Shave Club-订阅电商](<./knowledge/cases/overseas/dollar-shave-club.md>) · C级证据 · 订阅、DTC、剃须刀
-- [DoorDash-外卖平台增长](<./knowledge/cases/overseas/doordash.md>) · B级证据 · 外卖、平台、本地生活
-- [Dropbox-推荐裂变增长](<./knowledge/cases/overseas/dropbox.md>) · B级证据 · SaaS、存储、邀请裂变
-- [ElevenLabs — AI语音合成产品增长案例](<./knowledge/cases/overseas/elevenlabs-ai.md>) · B级证据 · AI语音、生成式AI、企业级AI
-- [GitHub Copilot — AI编程工具市场开创者与增长](<./knowledge/cases/overseas/github-copilot.md>) · B级证据 · AI编程、SaaS、B2D
-- [Glossier-社交电商](<./knowledge/cases/overseas/glossier.md>) · B级证据 · 美妆、DTC、社区
-- [HubSpot-入站营销增长](<./knowledge/cases/overseas/hubspot.md>) · C级证据 · SaaS、营销自动化、入站营销
-- [Midjourney-社区驱动增长](<./knowledge/cases/overseas/midjourney.md>) · C级证据 · AI、图像生成、Discord社区
-- [Notion-社区驱动增长](<./knowledge/cases/overseas/notion.md>) · B级证据 · SaaS、协作、社区
-- [OpenAI/ChatGPT-生成式AI产品增长](<./knowledge/cases/overseas/openai-chatgpt.md>) · B级证据 · AI、大语言模型、消费应用
-- [Perplexity-答案引擎增长](<./knowledge/cases/overseas/perplexity.md>) · B级证据 · AI、搜索引擎、答案引擎
-- [Pika AI-社区+产品驱动增长](<./knowledge/cases/overseas/pika-ai.md>) · C级证据 · AI、视频生成、Discord社区
-- [Runway AI-内容生态驱动增长](<./knowledge/cases/overseas/runway-ai.md>) · C级证据 · AI、视频生成、影视合作
-- [Slack-产品驱动增长](<./knowledge/cases/overseas/slack.md>) · C级证据 · SaaS、协作、工具
-- [Stripe-开发者生态增长](<./knowledge/cases/overseas/stripe.md>) · B级证据 · 支付、开发者、API
-- [Suno — AI音乐生成产品增长案例](<./knowledge/cases/overseas/suno-music-ai.md>) · B级证据 · AI音乐、生成式AI、消费级AI
-- [Uber-双边市场增长](<./knowledge/cases/overseas/uber.md>) · B级证据 · 出行、平台、双边市场
-- [Warby Parker-眼镜直销](<./knowledge/cases/overseas/warby-parker.md>) · B级证据 · 眼镜、DTC、Home Try-On
-- [Windsurf - AI编程工具差异化增长](<./knowledge/cases/overseas/windsurf-ai-editor.md>) · C级证据 · AI编程、SaaS、工具
-- [Zoom-病毒式增长](<./knowledge/cases/overseas/zoom.md>) · B级证据 · SaaS、视频会议、病毒传播
-- [海外银发奖励平台-Swagbucks/InboxDollars](<./knowledge/cases/overseas/silver-hair-reward-platforms.md>) · C级证据 · 任务墙、积分奖励、银发用户
-
-</details>
-
-<details>
-<summary>垂直行业案例（10）</summary>
-
-- [Coursera-在线教育增长](<./knowledge/cases/vertical/coursera.md>) · C级证据 · 教育、在线、MOOC
-- [Duolingo-游戏化学习增长](<./knowledge/cases/vertical/duolingo.md>) · B级证据 · 教育、游戏化、学习
-- [SHAREit（茄子快传）-工具出海](<./knowledge/cases/vertical/shareit.md>) · C级证据 · 工具、出海、预装
-- [SHEIN-快时尚出海](<./knowledge/cases/vertical/shein.md>) · B级证据 · 快时尚、出海、供应链
-- [TikTok-海外增长](<./knowledge/cases/vertical/tiktok.md>) · C级证据 · 短视频、出海、算法推荐
-- [VIPKID-少儿英语增长](<./knowledge/cases/vertical/vipkid.md>) · B级证据 · 教育、英语、在线
-- [字节跳动-海外产品矩阵](<./knowledge/cases/vertical/bytedance-overseas.md>) · B级证据 · 互联网、出海、产品矩阵
-- [猿辅导-题库产品增长](<./knowledge/cases/vertical/yuanfudao.md>) · B级证据 · 教育、在线、英语
-- [腾讯游戏-出海增长](<./knowledge/cases/vertical/tencent-games.md>) · C级证据 · 游戏、出海、投资
-- [跨境电商独立站-品牌出海](<./knowledge/cases/vertical/dtc-brand.md>) · C级证据 · 跨境、DTC、独立站
-
-</details>
-
-<!-- AUTO-CASE-INDEX:END -->
-
-### 玩法索引（直达文件）
-
-<!-- AUTO-WEAPON-INDEX:START -->
-<details>
-<summary>冷启动增长（10）</summary>
-
-- [手动拉种子用户](<./knowledge/weapons/01-cold-start/weapons/001-手动拉种子用户.md>) · Low effort · Medium impact · C级证据
-- [冷邮件/私信](<./knowledge/weapons/01-cold-start/weapons/002-冷邮件-私信.md>) · Low effort · Medium impact · C级证据
-- [社区深度参与](<./knowledge/weapons/01-cold-start/weapons/003-社区深度参与.md>) · Low effort · Medium impact · C级证据
-- [手动服务前100用户](<./knowledge/weapons/01-cold-start/weapons/004-手动服务前100用户.md>) · Low effort · Medium impact · C级证据
-- [创始人个人IP](<./knowledge/weapons/01-cold-start/weapons/005-创始人个人IP.md>) · Medium effort · High impact · C级证据
-- [Waitlist候补名单](<./knowledge/weapons/01-cold-start/weapons/006-Waitlist候补名单.md>) · Low effort · Medium impact · B级证据
-- [Beta邀请制](<./knowledge/weapons/01-cold-start/weapons/007-Beta邀请制.md>) · Low effort · High impact · B级证据
-- [Landing Page注册](<./knowledge/weapons/01-cold-start/weapons/008-Landing Page注册.md>) · Medium effort · High impact · C级证据
-- [Product Hunt发布](<./knowledge/weapons/01-cold-start/weapons/009-Product Hunt发布.md>) · Medium effort · High impact · C级证据
-- [种子用户群](<./knowledge/weapons/01-cold-start/weapons/010-种子用户群.md>) · Low effort · Medium impact · C级证据
-
-</details>
-
-<details>
-<summary>病毒裂变（15）</summary>
-
-- [邀请奖励机制](<./knowledge/weapons/02-viral-referral/weapons/011-邀请奖励机制.md>) · Medium effort · High impact · B级证据
-- [双边奖励](<./knowledge/weapons/02-viral-referral/weapons/012-双边奖励.md>) · Medium effort · High impact · A级证据
-- [分享解锁功能](<./knowledge/weapons/02-viral-referral/weapons/013-分享解锁功能.md>) · Low effort · Medium impact · C级证据
-- [分享解锁内容](<./knowledge/weapons/02-viral-referral/weapons/014-分享解锁内容.md>) · High effort · High impact · A级证据
-- [裂变海报生成](<./knowledge/weapons/02-viral-referral/weapons/015-裂变海报生成.md>) · High effort · High impact · B级证据
-- [排行榜分享](<./knowledge/weapons/02-viral-referral/weapons/016-排行榜分享.md>) · Medium effort · Medium impact · C级证据
-- [拼团机制](<./knowledge/weapons/02-viral-referral/weapons/017-拼团机制.md>) · Medium effort · High impact · A级证据
-- [砍价玩法](<./knowledge/weapons/02-viral-referral/weapons/018-砍价玩法.md>) · High effort · High impact · B级证据
-- [社交挑战赛](<./knowledge/weapons/02-viral-referral/weapons/019-社交挑战赛.md>) · Low effort · Medium impact · C级证据
-- [模板分享裂变](<./knowledge/weapons/02-viral-referral/weapons/020-模板分享裂变.md>) · High effort · High impact · B级证据
-- [AI生成内容分享](<./knowledge/weapons/02-viral-referral/weapons/021-AI生成内容分享.md>) · Low effort · Medium impact · B级证据
-- [分享后去水印](<./knowledge/weapons/02-viral-referral/weapons/022-分享后去水印.md>) · Medium effort · High impact · B级证据
-- [推荐码体系](<./knowledge/weapons/02-viral-referral/weapons/023-推荐码体系.md>) · Low effort · Medium impact · C级证据
-- [邀请排行榜](<./knowledge/weapons/02-viral-referral/weapons/024-邀请排行榜.md>) · Medium effort · Medium impact · C级证据
-- [好友助力解锁](<./knowledge/weapons/02-viral-referral/weapons/025-好友助力解锁.md>) · Medium effort · High impact · B级证据
-
-</details>
-
-<details>
-<summary>内容增长（15）</summary>
-
-- [SEO关键词矩阵](<./knowledge/weapons/03-content-growth/weapons/026-SEO关键词矩阵.md>) · Medium effort · High impact · B级证据
-- [程序化SEO页面](<./knowledge/weapons/03-content-growth/weapons/027-程序化SEO页面.md>) · Medium effort · High impact · B级证据
-- [长尾关键词文章](<./knowledge/weapons/03-content-growth/weapons/028-长尾关键词文章.md>) · Medium effort · Medium impact · C级证据
-- [教程型内容](<./knowledge/weapons/03-content-growth/weapons/029-教程型内容.md>) · High effort · High impact · C级证据
-- [行业报告](<./knowledge/weapons/03-content-growth/weapons/030-行业报告.md>) · Medium effort · Medium impact · C级证据
-- [免费工具](<./knowledge/weapons/03-content-growth/weapons/031-免费工具.md>) · Low effort · Medium impact · C级证据
-- [YouTube教程](<./knowledge/weapons/03-content-growth/weapons/032-YouTube教程.md>) · High effort · High impact · B级证据
-- [TikTok矩阵](<./knowledge/weapons/03-content-growth/weapons/033-TikTok矩阵.md>) · Medium effort · High impact · C级证据
-- [Newsletter](<./knowledge/weapons/03-content-growth/weapons/034-Newsletter.md>) · Low effort · Medium impact · C级证据
-- [播客](<./knowledge/weapons/03-content-growth/weapons/035-播客.md>) · High effort · High impact · B级证据
-- [客座博客](<./knowledge/weapons/03-content-growth/weapons/036-客座博客.md>) · Low effort · Medium impact · C级证据
-- [免费电子书](<./knowledge/weapons/03-content-growth/weapons/037-免费电子书.md>) · Medium effort · Medium impact · C级证据
-- [案例研究](<./knowledge/weapons/03-content-growth/weapons/038-案例研究.md>) · Medium effort · High impact · B级证据
-- [模板资源库](<./knowledge/weapons/03-content-growth/weapons/039-模板资源库.md>) · Low effort · Medium impact · C级证据
-- [内容再分发](<./knowledge/weapons/03-content-growth/weapons/040-内容再分发.md>) · Low effort · Medium impact · C级证据
-
-</details>
-
-<details>
-<summary>社区增长（10）</summary>
-
-- [Discord社区](<./knowledge/weapons/04-community/weapons/041-Discord社区.md>) · High effort · High impact · C级证据
-- [Slack社区](<./knowledge/weapons/04-community/weapons/042-Slack社区.md>) · Medium effort · High impact · B级证据
-- [用户大使计划](<./knowledge/weapons/04-community/weapons/043-用户大使计划.md>) · Medium effort · Medium impact · C级证据
-- [用户共创](<./knowledge/weapons/04-community/weapons/044-用户共创.md>) · Medium effort · High impact · B级证据
-- [线下Meetup](<./knowledge/weapons/04-community/weapons/045-线下Meetup.md>) · Medium effort · Medium impact · C级证据
-- [用户访谈公开化](<./knowledge/weapons/04-community/weapons/046-用户访谈公开化.md>) · Low effort · Medium impact · C级证据
-- [用户故事栏目](<./knowledge/weapons/04-community/weapons/047-用户故事栏目.md>) · Medium effort · Medium impact · C级证据
-- [社区挑战赛](<./knowledge/weapons/04-community/weapons/048-社区挑战赛.md>) · Medium effort · High impact · B级证据
-- [超级用户计划](<./knowledge/weapons/04-community/weapons/049-超级用户计划.md>) · Low effort · Medium impact · C级证据
-- [用户UGC活动](<./knowledge/weapons/04-community/weapons/050-用户UGC活动.md>) · High effort · Medium impact · C级证据
-
-</details>
-
-<details>
-<summary>产品驱动增长（15）</summary>
-
-- [Freemium模式](<./knowledge/weapons/05-plg/weapons/051-Freemium模式.md>) · Medium effort · High impact · A级证据
-- [免费试用](<./knowledge/weapons/05-plg/weapons/052-免费试用.md>) · Low effort · Medium impact · B级证据
-- [无需登录体验](<./knowledge/weapons/05-plg/weapons/053-无需登录体验.md>) · Medium effort · High impact · B级证据
-- [快速Onboarding](<./knowledge/weapons/05-plg/weapons/054-快速Onboarding.md>) · Medium effort · High impact · B级证据
-- [产品内引导](<./knowledge/weapons/05-plg/weapons/055-产品内引导.md>) · Low effort · Medium impact · B级证据
-- [模板库](<./knowledge/weapons/05-plg/weapons/056-模板库.md>) · High effort · High impact · B级证据
-- [空状态设计](<./knowledge/weapons/05-plg/weapons/057-空状态设计.md>) · Low effort · Medium impact · C级证据
-- [产品内分享](<./knowledge/weapons/05-plg/weapons/058-产品内分享.md>) · Medium effort · Medium impact · C级证据
-- [产品水印](<./knowledge/weapons/05-plg/weapons/059-产品水印.md>) · High effort · High impact · B级证据
-- [团队协作](<./knowledge/weapons/05-plg/weapons/060-团队协作.md>) · High effort · High impact · B级证据
-- [使用量限制触发](<./knowledge/weapons/05-plg/weapons/061-使用量限制触发.md>) · Medium effort · Medium impact · C级证据
-- [成果导出传播](<./knowledge/weapons/05-plg/weapons/062-成果导出传播.md>) · Low effort · High impact · A级证据
-- [使用报告](<./knowledge/weapons/05-plg/weapons/063-使用报告.md>) · Medium effort · High impact · B级证据
-- [内置社区入口](<./knowledge/weapons/05-plg/weapons/064-内置社区入口.md>) · Low effort · Medium impact · C级证据
-- [产品内推荐](<./knowledge/weapons/05-plg/weapons/065-产品内推荐.md>) · Medium effort · Medium impact · C级证据
-
-</details>
-
-<details>
-<summary>留存增长（10）</summary>
-
-- [邮件生命周期](<./knowledge/weapons/06-retention/weapons/066-邮件生命周期.md>) · Low effort · Medium impact · C级证据
-- [推送通知](<./knowledge/weapons/06-retention/weapons/067-推送通知.md>) · Low effort · Medium impact · C级证据
-- [连续使用奖励](<./knowledge/weapons/06-retention/weapons/068-连续使用奖励.md>) · Medium effort · High impact · B级证据
-- [里程碑提示](<./knowledge/weapons/06-retention/weapons/069-里程碑提示.md>) · Low effort · Medium impact · B级证据
-- [数据报告邮件](<./knowledge/weapons/06-retention/weapons/070-数据报告邮件.md>) · Medium effort · Medium impact · B级证据
-- [周报/月报](<./knowledge/weapons/06-retention/weapons/071-周报-月报.md>) · Medium effort · Medium impact · B级证据
-- [新功能提醒](<./knowledge/weapons/06-retention/weapons/072-新功能提醒.md>) · Low effort · Medium impact · C级证据
-- [用户成就系统](<./knowledge/weapons/06-retention/weapons/073-用户成就系统.md>) · Low effort · Medium impact · C级证据
-- [习惯培养](<./knowledge/weapons/06-retention/weapons/074-习惯培养.md>) · Low effort · Low impact · C级证据
-- [流失召回](<./knowledge/weapons/06-retention/weapons/075-流失召回.md>) · High effort · High impact · A级证据
-
-</details>
-
-<details>
-<summary>变现增长（10）</summary>
-
-- [分层定价](<./knowledge/weapons/07-monetization/weapons/076-分层定价.md>) · Medium effort · Medium impact · B级证据
-- [使用量计费](<./knowledge/weapons/07-monetization/weapons/077-使用量计费.md>) · Medium effort · High impact · B级证据
-- [年付折扣](<./knowledge/weapons/07-monetization/weapons/078-年付折扣.md>) · Medium effort · High impact · B级证据
-- [限时优惠](<./knowledge/weapons/07-monetization/weapons/079-限时优惠.md>) · Medium effort · High impact · B级证据
-- [功能升级提示](<./knowledge/weapons/07-monetization/weapons/080-功能升级提示.md>) · High effort · High impact · B级证据
-- [捆绑套餐](<./knowledge/weapons/07-monetization/weapons/081-捆绑套餐.md>) · Medium effort · High impact · B级证据
-- [企业版升级](<./knowledge/weapons/07-monetization/weapons/082-企业版升级.md>) · Low effort · Medium impact · C级证据
-- [增值插件市场](<./knowledge/weapons/07-monetization/weapons/083-增值插件市场.md>) · Low effort · Medium impact · C级证据
-- [付费模板市场](<./knowledge/weapons/07-monetization/weapons/084-付费模板市场.md>) · Medium effort · High impact · B级证据
-- [Upsell邮件](<./knowledge/weapons/07-monetization/weapons/085-Upsell邮件.md>) · Medium effort · High impact · A级证据
-
-</details>
-
-<details>
-<summary>付费广告（10）</summary>
-
-- [Google Ads](<./knowledge/weapons/08-paid-ads/weapons/086-Google Ads.md>) · Medium effort · Medium impact · B级证据
-- [Facebook Ads](<./knowledge/weapons/08-paid-ads/weapons/087-Facebook Ads.md>) · Medium effort · Medium impact · B级证据
-- [TikTok Ads](<./knowledge/weapons/08-paid-ads/weapons/088-TikTok Ads.md>) · High effort · High impact · B级证据
-- [YouTube Ads](<./knowledge/weapons/08-paid-ads/weapons/089-YouTube Ads.md>) · High effort · High impact · B级证据
-- [再营销广告](<./knowledge/weapons/08-paid-ads/weapons/090-再营销广告.md>) · Low effort · Medium impact · B级证据
-- [Lookalike人群](<./knowledge/weapons/08-paid-ads/weapons/091-Lookalike人群.md>) · Low effort · Medium impact · C级证据
-- [App Store Ads](<./knowledge/weapons/08-paid-ads/weapons/092-App Store Ads.md>) · Low effort · Medium impact · C级证据
-- [KOL投放](<./knowledge/weapons/08-paid-ads/weapons/093-KOL投放.md>) · Medium effort · Medium impact · B级证据
-- [联盟营销](<./knowledge/weapons/08-paid-ads/weapons/094-联盟营销.md>) · Medium effort · Medium impact · B级证据
-- [Influencer合作](<./knowledge/weapons/08-paid-ads/weapons/095-Influencer合作.md>) · Medium effort · Medium impact · B级证据
-
-</details>
-
-<details>
-<summary>品牌增长（8）</summary>
-
-- [品牌故事](<./knowledge/weapons/09-brand/weapons/096-品牌故事.md>) · Medium effort · High impact · C级证据
-- [创始人IP](<./knowledge/weapons/09-brand/weapons/097-创始人IP.md>) · Low effort · High impact · B级证据
-- [PR媒体](<./knowledge/weapons/09-brand/weapons/098-PR媒体.md>) · Medium effort · Medium impact · C级证据
-- [行业大会](<./knowledge/weapons/09-brand/weapons/099-行业大会.md>) · High effort · Medium impact · C级证据
-- [品牌视觉统一](<./knowledge/weapons/09-brand/weapons/100-品牌视觉统一.md>) · Medium effort · Medium impact · B级证据
-- [标志性活动](<./knowledge/weapons/09-brand/weapons/101-标志性活动.md>) · High effort · Medium impact · C级证据
-- [价值观营销](<./knowledge/weapons/09-brand/weapons/102-价值观营销.md>) · High effort · Medium impact · C级证据
-- [社会议题](<./knowledge/weapons/09-brand/weapons/103-社会议题.md>) · Low effort · Medium impact · C级证据
-
-</details>
-
-<details>
-<summary>B2B销售（8）</summary>
-
-- [冷启动外呼](<./knowledge/weapons/10-b2b-sales/weapons/104-冷启动外呼.md>) · Medium effort · High impact · C级证据
-- [LinkedIn外联](<./knowledge/weapons/10-b2b-sales/weapons/105-LinkedIn外联.md>) · Low effort · Medium impact · C级证据
-- [Webinar](<./knowledge/weapons/10-b2b-sales/weapons/106-Webinar.md>) · Medium effort · Medium impact · C级证据
-- [Demo演示](<./knowledge/weapons/10-b2b-sales/weapons/107-Demo演示.md>) · Medium effort · High impact · C级证据
-- [白皮书下载](<./knowledge/weapons/10-b2b-sales/weapons/108-白皮书下载.md>) · Medium effort · Medium impact · C级证据
-- [销售自动化](<./knowledge/weapons/10-b2b-sales/weapons/109-销售自动化.md>) · Low effort · High impact · B级证据
-- [客户成功](<./knowledge/weapons/10-b2b-sales/weapons/110-客户成功.md>) · High effort · High impact · B级证据
-- [转介绍计划](<./knowledge/weapons/10-b2b-sales/weapons/111-转介绍计划.md>) · Low effort · High impact · B级证据
-
-</details>
-
-<!-- AUTO-WEAPON-INDEX:END -->
-
----
-
 ## 📖 文档
 
 | 文档 | 说明 |
 |------|------|
 | [SKILL.md](./SKILL.md) | 完整技能定义 |
-| [用户指南](./docs/user-guide.md) | 详细使用教程 |
-| [开发者指南](./docs/developer-guide.md) | 扩展与定制 |
-| [最佳实践](./docs/best-practices.md) | 使用技巧 |
 | [增长操作框架](./references/growth-operating-framework.md) | 阶段、北极星、旅程、策略环 |
-| [方法指南总览](./knowledge/guides/README.md) | 阶段判断、旅程、实验、归因 |
 | [贝叶斯决策](./references/bayesian-decision.md) | 概率推理框架 |
+| [博弈论框架](./references/gametheory-framework.md) | 竞争分析、均衡预测 |
+| [Kelly分配](./references/kelly-allocation.md) | 资源投入优化 |
 
 ---
 
@@ -965,20 +570,13 @@ python3 scripts/run_tests.py
 
 # 单独跑 CLI 集成测试
 python3 -m pytest tests/test_cli_integration.py
-
-# 单独验证 Agent / 索引
-python3 scripts/validate-agents.py
-python3 scripts/validate-indexes.py
 ```
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| 脚本化主测试 | 82/82 | ✅ |
+| 脚本化主测试 | 84/84 | ✅ |
 | CLI 集成测试 | diagnose / assess / match / validate / learn | ✅ |
 | Golden 场景回归 | 错阶段 / 错约束 / 错方向 | ✅ |
-| Agent / 索引验证 | 结构和知识完整性 | ✅ |
-| 去品牌化检查 | 公共 Markdown 无品牌字样 | ✅ |
-```
 
 ---
 
@@ -1003,6 +601,6 @@ MIT License - 自由使用、修改、分发
 
 **Built with ❤️ by Growth Master Team**
 
-[⬆ 回到顶部](#-oh-my-growth)
+[⬆ Back to Top](#-oh-my-growth)
 
 </div>
