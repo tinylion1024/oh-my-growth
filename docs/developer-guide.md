@@ -371,7 +371,7 @@ jobs:
 在请求中添加 `--debug` 参数：
 
 ```
-/growth-master-skill assess --debug
+/oh-my-growth assess --debug
 ```
 
 ### 单独测试Agent

@@ -358,7 +358,7 @@ Skeptic Agent指出的风险往往是真实会发生的。
 ### 1. A/B测试设计
 
 ```
-/growth-master-skill design --test
+/oh-my-growth design --test
 
 请帮我设计一个A/B测试：
 - 测试目标：验证邀请裂变效果
@@ -371,7 +371,7 @@ Skeptic Agent指出的风险往往是真实会发生的。
 ### 2. 多方案对比
 
 ```
-/growth-master-skill assess --compare
+/oh-my-growth assess --compare
 
 方案A：邀请裂变，预算5万
 方案B：内容营销，预算5万
@@ -383,7 +383,7 @@ Skeptic Agent指出的风险往往是真实会发生的。
 ### 3. 长期策略规划
 
 ```
-/growth-master-skill design --roadmap
+/oh-my-growth design --roadmap
 
 请帮我规划未来12个月的增长路线图：
 - Q1：冷启动

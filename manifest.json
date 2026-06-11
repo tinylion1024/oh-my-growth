@@ -1,7 +1,7 @@
 {
-  "name": "growth-master-skill",
-  "version": "3.0.0",
-  "description": "增长策略外脑 - 面向增长行业人的知识驱动决策 skill",
+  "name": "oh-my-growth",
+  "version": "4.0.0",
+  "description": "增长策略外脑 - Claude Code 专用增长决策插件",
   "author": "Growth Master Team",
   "license": "MIT",
   "maturity": "production",

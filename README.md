@@ -54,7 +54,7 @@ Then outputs actionable recommendations:
 ### Option 1: One-Click Install (Recommended)
 
 ```bash
-cd growth-master-skill
+cd oh-my-growth
 ./scripts/install.sh
 ```
 
@@ -62,10 +62,10 @@ cd growth-master-skill
 
 ```bash
 # Clone repository
-git clone https://github.com/tinylion1024/growth-master-skill.git
+git clone https://github.com/tinylion1024/oh-my-growth.git
 
 # Install to Claude Code skills directory
-cp -R growth-master-skill ~/.claude/skills/oh-my-growth
+cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 ```
 
 ### Verify Installation
@@ -372,7 +372,7 @@ MIT License - Free to use, modify, and distribute
 ### 方式一：一键安装（推荐）
 
 ```bash
-cd growth-master-skill
+cd oh-my-growth
 ./scripts/install.sh
 ```
 
@@ -380,10 +380,10 @@ cd growth-master-skill
 
 ```bash
 # 克隆仓库
-git clone https://github.com/tinylion1024/growth-master-skill.git
+git clone https://github.com/tinylion1024/oh-my-growth.git
 
 # 安装到 Claude Code skills 目录
-cp -R growth-master-skill ~/.claude/skills/oh-my-growth
+cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 ```
 
 ### 验证安装

@@ -1,13 +1,13 @@
 # 快速启动模板
 
-> 复制以下模板，填充您的信息，然后使用 `/growth-master-skill <模式>` 触发
+> 复制以下模板，填充您的信息，然后使用 `/oh-my-growth <模式>` 触发
 
 ---
 
 ## 📋 通用完整模板
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】[电商/SaaS/社交/内容/金融/教育/AI工具/其他]
 【产品名称】[您的产品名称]
@@ -30,7 +30,7 @@
 ### SaaS 获客评估
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】SaaS [协作工具/营销工具/开发工具/其他]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -49,7 +49,7 @@
 ### SaaS 留存优化
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】SaaS [协作工具/营销工具/开发工具/其他]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -69,7 +69,7 @@
 ### 电商留存复购
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】电商 [综合/垂直/跨境/社交电商]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -87,7 +87,7 @@
 ### 电商 获客增长
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】电商
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -106,7 +106,7 @@
 ### 内容平台增长
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】内容平台 [短视频/长视频/图文/社区]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -125,7 +125,7 @@
 ### 社交产品增长
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】社交 [IM/社区/陌生人社交/兴趣社交]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -143,7 +143,7 @@
 ### AI 产品增长
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】AI产品 [对话/生成/分析/其他]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -162,7 +162,7 @@
 ### 双边市场增长
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】双边市场 [外卖/出行/住宿/服务/其他]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -183,7 +183,7 @@
 ### 邀请裂变评估
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】[您的产品类型]
 【当前用户】[数量]
@@ -199,7 +199,7 @@
 ### 内容营销策略
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】[您的产品类型]
 【内容能力】[是否有内容生产团队？预算多少？]
@@ -214,7 +214,7 @@
 ### PLG 策略
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】SaaS [工具类型]
 【产品价值】[用户使用您的产品获得什么价值？]
@@ -233,7 +233,7 @@
 ### 学习增长知识
 
 ```
-/growth-master-skill learn
+/oh-my-growth learn
 
 【学习目标】[我想系统学习什么？]
 【当前水平】[入门/中级/高级]
@@ -246,7 +246,7 @@
 ### 匹配成功案例
 
 ```
-/growth-master-skill match
+/oh-my-growth match
 
 【产品类型】[您的产品类型]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -261,7 +261,7 @@
 ## 🔍 审计模板
 
 ```
-/growth-master-skill audit
+/oh-my-growth audit
 
 【方案概述】[您的增长方案概述]
 【预期效果】[预期的增长效果]
@@ -277,7 +277,7 @@
 
 1. **选择模板**：根据您的场景选择合适的模板
 2. **填充信息**：如实填写您的实际情况
-3. **触发技能**：使用 `/growth-master-skill <模式>` 触发
+3. **触发技能**：使用 `/oh-my-growth <模式>` 触发
 4. **跟进反馈**：根据输出调整策略
 
 ### 模式说明

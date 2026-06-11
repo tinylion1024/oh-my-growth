@@ -27,7 +27,7 @@ tests/e2e/
 
 ```bash
 # 从项目根目录运行
-cd /path/to/growth-master-skill
+cd /path/to/oh-my-growth
 python scripts/e2e_test_runner.py
 ```
 

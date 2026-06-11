@@ -295,7 +295,7 @@ def handle_agent_failure(agent_name, error, context):
 
 ```markdown
 # 用户输入
-/growth-master-skill 我们是一个SaaS工具，有5000用户，想通过邀请裂变增长
+/oh-my-growth 我们是一个SaaS工具，有5000用户，想通过邀请裂变增长
 
 # Orchestrator Agent 自动执行
 1. 解析：SaaS + 1-10阶段 + acquisition问题

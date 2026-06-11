@@ -15,7 +15,7 @@ cp -R growth-master ~/.claude/skills/
 ### 基本使用
 
 ```
-/growth-master-skill <模式> [问题描述]
+/oh-my-growth <模式> [问题描述]
 
 模式：
   assess   - 评估增长机会
@@ -44,7 +44,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 我们是一个SaaS协作工具，有5000注册用户，月活800。
 想通过邀请裂变增长，预算有限。
@@ -71,7 +71,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 我们是电商平台，日活10万，首购后流失率60%。
 请设计留存增长策略。
@@ -96,7 +96,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/growth-master-skill learn
+/oh-my-growth learn
 
 我想系统学习SaaS增长，目前是入门水平。
 ```
@@ -120,7 +120,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/growth-master-skill audit
+/oh-my-growth audit
 
 我们计划投入50万做裂变活动，预期增长2万用户。
 方案：邀请奖励50元，双方各得。
@@ -145,7 +145,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/growth-master-skill match
+/oh-my-growth match
 
 我们是AI教育产品，想通过游戏化提升学习完成率。
 ```
@@ -155,7 +155,7 @@ cp -R growth-master ~/.claude/skills/
 ### SaaS获客模板
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【产品类型】SaaS [协作/营销/开发工具]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -170,7 +170,7 @@ cp -R growth-master ~/.claude/skills/
 ### 电商留存模板
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【产品类型】电商
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -283,14 +283,14 @@ Growth Master 使用多Agent协作进行分析：
 
 A: 使用 Fast Scan 模式可以获得更简洁的输出：
 ```
-/growth-master-skill assess --mode fast
+/oh-my-growth assess --mode fast
 ```
 
 ### Q: 案例不够相关怎么办？
 
 A: 提供更多上下文信息，或指定行业/阶段：
 ```
-/growth-master-skill match
+/oh-my-growth match
 
 【行业】在线教育
 【阶段】1-10
@@ -305,7 +305,7 @@ A: 使用 [快速启动模板](../templates/quick-start.md) 提供完整信息�
 
 A: 可以，在请求中指定：
 ```
-/growth-master-skill assess --agents Growth,ROI,Skeptic
+/oh-my-growth assess --agents Growth,ROI,Skeptic
 ```
 
 ## 进阶使用
@@ -313,7 +313,7 @@ A: 可以，在请求中指定：
 ### 自定义Agent权重
 
 ```
-/growth-master-skill assess
+/oh-my-growth assess
 
 【问题】...
 【权重】
@@ -325,7 +325,7 @@ A: 可以，在请求中指定：
 ### 指定案例参考
 
 ```
-/growth-master-skill design
+/oh-my-growth design
 
 【问题】...
 【参考案例】请参考Dropbox和Slack的增长模式
@@ -334,7 +334,7 @@ A: 可以，在请求中指定：
 ### 输出格式
 
 ```
-/growth-master-skill assess --format brd
+/oh-my-growth assess --format brd
 --format 可选: fast, brd, strategy
 ```
 
@@ -343,7 +343,7 @@ A: 可以，在请求中指定：
 如果您对输出有反馈，请使用输出末尾的反馈表单，或：
 
 ```markdown
-/growth-master-skill feedback
+/oh-my-growth feedback
 
 【决策ID】xxx
 【评分】4/5
