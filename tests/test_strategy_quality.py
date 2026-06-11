@@ -235,6 +235,73 @@ def test_local_services_decision_memo_exposes_operating_rule():
     assert "单城" in memo
 
 
+def test_b2b_sales_led_business_model_diagnosis_is_explicit():
+    brain = StrategyBrain()
+    analysis = brain.analyze(
+        "B2B 销售驱动型 SaaS 应该先扩销售还是先修线索质量",
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "acquisition",
+            "metric": "高意向线索数",
+            "goal": "提升成单效率",
+            "constraints": "不能先扩销售团队",
+            "company_profile": {"business_model": "b2b sales-led saas"},
+        },
+        mode="diagnose",
+    )
+
+    assert analysis["business_model_diagnosis"] is not None
+    assert analysis["business_model_diagnosis"]["label"] == "B2B 销售驱动"
+    executive = brain.to_executive_markdown(analysis)
+    assert "业务形态判断" in executive
+    assert "线索质量" in executive
+
+
+def test_ai_cold_start_business_model_diagnosis_is_explicit():
+    brain = StrategyBrain()
+    analysis = brain.analyze(
+        "AI 产品冷启动阶段应该先做内容获客还是产品内分享",
+        {
+            "industry": "ai",
+            "stage": "0-1",
+            "problem_type": "acquisition",
+            "metric": "高意向试用数",
+            "goal": "拿到首批稳定试用用户",
+            "constraints": "团队很小，不能同时做内容矩阵和复杂分享机制",
+            "company_profile": {"business_model": "ai copilot"},
+        },
+        mode="diagnose",
+    )
+
+    assert analysis["business_model_diagnosis"] is not None
+    assert analysis["business_model_diagnosis"]["label"] == "AI 冷启动"
+    fast_scan = brain.to_fast_scan_markdown(analysis)
+    assert "业务形态判断" in fast_scan
+    assert "首次价值达成" in fast_scan
+
+
+def test_qbr_surfaces_business_model_diagnosis():
+    brain = StrategyBrain()
+    analysis = brain.analyze(
+        "本地生活平台冷启动应该先铺多城还是先打透单城",
+        {
+            "industry": "local-services",
+            "stage": "0-1",
+            "problem_type": "acquisition",
+            "metric": "有效履约订单数",
+            "goal": "在单城跑通供需和履约闭环",
+            "constraints": "不能多城同时烧钱补贴",
+            "company_profile": {"business_model": "local services marketplace"},
+        },
+        mode="diagnose",
+    )
+
+    qbr = brain.to_qbr_markdown(analysis)
+    assert "业务形态判断" in qbr
+    assert "本地生活" in qbr
+
+
 def test_referral_problem_includes_failure_modes():
     analysis = StrategyBrain().analyze(
         "我们要不要做邀请裂变",

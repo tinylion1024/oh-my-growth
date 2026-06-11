@@ -55,7 +55,7 @@
 - 数据与归因要求
 - 项目记忆提示（公司画像 / 历史实验 / 重复失败模式）
 - Kelly / Game Theory 场景判断（预算 / 竞争 / 平台）
-- 复杂业务形态判断（B2B sales-led / marketplace / local-services / AI cold-start）
+- 显式业务形态判断（B2B sales-led / marketplace / local-services / AI cold-start）
 
 如果你是增长负责人，这些内容已经足够支撑一次周会判断、一次策略讨论，或者一版初始决策稿。
 
@@ -64,7 +64,7 @@
 - **不是空想建议**：每次输出都会联动案例、玩法、理论和证据等级，核心矛盾、实验、行动和复盘触发器也会引用这些证据；明确约束会直接进入排序惩罚
 - **不是只会给招**：先做阶段判断、北极星判断和旅程断点判断
 - **不是不可验证**：内置两周实验、成功信号、停止信号
-- **不是黑盒**：当前有 `69/69` 脚本化检查通过
+- **不是黑盒**：当前有 `74/74` 脚本化检查通过
 - **不是品牌套壳**：方法层已经抽象成通用增长框架，能独立服务项目本身
 
 ---
@@ -189,7 +189,7 @@ cp -R growth-master-skill ~/.claude/skills/
 ```bash
 # 运行主测试集
 python3 scripts/run_tests.py
-# ✅ 69/69 checks passed
+# ✅ 74/74 checks passed
 ```
 
 ### 第一次使用
@@ -208,13 +208,16 @@ python scripts/cli.py brd "是否应该做邀请裂变" \
   --industry saas --stage 1-10 --problem referral
 
 # 搜索相关案例和玩法
-python scripts/cli.py search "裂变" --limit 5
+python scripts/cli.py search "裂变" --limit 5 \
+  --context-json '{"company_profile":{"business_model":"saas"}}'
 
 # 匹配相关案例
-python scripts/cli.py match "教育产品如何做裂变" --problem referral
+python scripts/cli.py match "教育产品如何做裂变" --problem referral \
+  --context-json '{"company_profile":{"business_model":"content community"}}'
 
 # 围绕一个主题生成学习路径
-python scripts/cli.py learn "如何系统学习裂变增长" --problem referral
+python scripts/cli.py learn "如何系统学习裂变增长" --problem referral \
+  --profile-file examples/company-profile.json
 
 # 场景化入口
 python scripts/cli.py retention "如何提升月活跃用户留存率" --industry content
@@ -268,6 +271,7 @@ python scripts/cli.py diagnose "是否应该做邀请裂变" \
 - 可切换为负责人摘要 / 报告版 / JSON 版
 - 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
 - 支持 `--profile-file` / `--history-file` 注入公司画像和历史实验台账
+- `search / match / learn` 现在也支持结构化上下文，并会显式解释为什么这些案例/理论/玩法更像你
 - 预算已知时会自动生成 Kelly 风险预算建议、加仓条件和停止条件
 - 竞争 / 平台 / 定价场景下会补充 Game Theory 姿态判断
 
@@ -947,8 +951,8 @@ python3 scripts/validate-indexes.py
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| 脚本化主测试 | 69/69 | ✅ |
-| CLI 集成测试 | diagnose / assess / match / validate | ✅ |
+| 脚本化主测试 | 74/74 | ✅ |
+| CLI 集成测试 | diagnose / assess / match / validate / learn | ✅ |
 | Golden 场景回归 | 错阶段 / 错约束 / 错方向 | ✅ |
 | Agent / 索引验证 | 结构和知识完整性 | ✅ |
 | 去品牌化检查 | 公共 Markdown 无品牌字样 | ✅ |

@@ -149,6 +149,7 @@ class StrategyBrain:
             "journey_focus": self._build_journey_focus(context),
             "marketplace_diagnosis": self._build_marketplace_diagnosis(query, context, top_option, results),
             "local_services_diagnosis": self._build_local_services_diagnosis(query, context, top_option, results),
+            "business_model_diagnosis": self._build_business_model_diagnosis(query, context, top_option, results),
             "measurement_notes": self._build_measurement_notes(context, top_option, north_star, growth_process),
             "evidence_chain": evidence_chain,
             "memory_summary": memory_summary,
@@ -258,11 +259,16 @@ class StrategyBrain:
                 f"- **北极星指标**：{analysis['north_star']['metric']}",
                 f"- **约束线**：{analysis['north_star']['guardrail']}",
                 f"- **旅程卡点**：{analysis['journey_focus']['stage']}，{analysis['journey_focus']['focus']}",
-                "",
-                "## 判断依据",
-                "",
             ]
         )
+        if analysis.get("business_model_diagnosis"):
+            lines.extend(
+                [
+                    f"- **业务形态判断**：{analysis['business_model_diagnosis']['label']}，{analysis['business_model_diagnosis']['focus']}",
+                    f"- **运行规则**：{analysis['business_model_diagnosis']['rule']}",
+                ]
+            )
+        lines.extend(["", "## 判断依据", ""])
         for item in analysis["evidence_chain"]:
             lines.append(
                 f"- **{item['type_label']}**：{item['name']} · {item['why']} · 证据={item['evidence_tier']}"
@@ -420,6 +426,11 @@ class StrategyBrain:
             "",
             "**这周拍板**：",
         ]
+        if analysis.get("business_model_diagnosis"):
+            lines[10:10] = [
+                f"**业务形态判断**：{analysis['business_model_diagnosis']['label']}，{analysis['business_model_diagnosis']['focus']}",
+                "",
+            ]
         for item in analysis["do_now"][:3]:
             lines.append(f"- {item}")
         lines.extend(["", "**先别做**："])
@@ -463,6 +474,11 @@ class StrategyBrain:
             "",
             "**这周要做**：",
         ]
+        if analysis.get("business_model_diagnosis"):
+            lines[8:8] = [
+                f"**业务形态提醒**：{analysis['business_model_diagnosis']['focus']}",
+                "",
+            ]
         for item in analysis["do_now"][:3]:
             lines.append(f"- {item}")
         lines.extend(["", "**这周不要做**："])
@@ -560,18 +576,11 @@ class StrategyBrain:
             "",
             "**做这个决定的依据**：",
         ]
-        if analysis.get("marketplace_diagnosis"):
+        if analysis.get("business_model_diagnosis"):
             lines[5:5] = [
-                "**平台侧判断**：",
-                f"- 当前侧重点：{analysis['marketplace_diagnosis']['side_focus']}",
-                f"- 运行规则：{analysis['marketplace_diagnosis']['rule']}",
-                "",
-            ]
-        elif analysis.get("local_services_diagnosis"):
-            lines[5:5] = [
-                "**本地生活判断**：",
-                f"- 当前侧重点：{analysis['local_services_diagnosis']['focus']}",
-                f"- 运行规则：{analysis['local_services_diagnosis']['rule']}",
+                f"**{analysis['business_model_diagnosis']['label']}判断**：",
+                f"- 当前侧重点：{analysis['business_model_diagnosis']['focus']}",
+                f"- 运行规则：{analysis['business_model_diagnosis']['rule']}",
                 "",
             ]
         for item in analysis["evidence_chain"]:
@@ -624,6 +633,11 @@ class StrategyBrain:
             "",
             "**季度优先事项**：",
         ]
+        if analysis.get("business_model_diagnosis"):
+            lines[7:7] = [
+                f"**业务形态判断**：{analysis['business_model_diagnosis']['label']} / {analysis['business_model_diagnosis']['focus']}",
+                "",
+            ]
         for item in analysis["do_now"][:3]:
             lines.append(f"- {item}")
         lines.extend(["", "**季度风险**："])
@@ -663,6 +677,11 @@ class StrategyBrain:
             "",
             "**理由**：",
         ]
+        if analysis.get("business_model_diagnosis"):
+            lines[4:4] = [
+                f"**业务形态判断**：{analysis['business_model_diagnosis']['focus']}",
+                "",
+            ]
         for reason in analysis["why_now"][:3]:
             lines.append(f"- {reason}")
         lines.extend(["", "**风险**："])
@@ -702,6 +721,11 @@ class StrategyBrain:
             f"- **主抓手**：{top_name}",
             "- **为什么现在做**：",
         ]
+        if analysis.get("business_model_diagnosis"):
+            lines[13:13] = [
+                f"- **业务形态判断**：{analysis['business_model_diagnosis']['label']}，{analysis['business_model_diagnosis']['focus']}",
+                f"- **业务形态规则**：{analysis['business_model_diagnosis']['rule']}",
+            ]
         for reason in analysis["why_now"]:
             lines.append(f"  - {reason}")
         lines.extend(["", "## 4. 风险与反对意见", ""])
@@ -729,6 +753,7 @@ class StrategyBrain:
     def build_learning_path(self, query: str, context: Dict[str, str]) -> Dict[str, List[Dict[str, str]]]:
         """Build a lightweight learning path around the retrieval results."""
         results = self.retriever.retrieve(query, context, case_limit=3, weapon_limit=4, theory_limit=3)
+        analysis = self.analyze(query, context, mode="learn")
         guide_map = {
             "acquisition": [
                 {"name": "阶段判断", "file": "knowledge/guides/stage-diagnosis.md"},
@@ -752,11 +777,58 @@ class StrategyBrain:
             ],
         }
         guides = guide_map.get(context.get("problem_type", ""), guide_map["acquisition"])
+        business_model_diag = analysis.get("business_model_diagnosis")
+
+        def case_reason(item: Dict[str, Any]) -> str:
+            meta = item.get("metadata", {})
+            return (
+                f"阶段匹配={meta.get('stage_fit', 0):.2f}，"
+                f"旅程匹配={meta.get('journey_fit', 0):.2f}，"
+                f"公司类型={meta.get('company_type', 'general')}"
+            )
+
+        def theory_reason(item: Dict[str, Any]) -> str:
+            meta = item.get("metadata", {})
+            return (
+                f"主业务过程={meta.get('growth_process', '增长经营')}，"
+                f"旅程={meta.get('journey_stage', '待补充')}"
+            )
+
+        def weapon_reason(item: Dict[str, Any]) -> str:
+            meta = item.get("metadata", {})
+            return (
+                f"类别={meta.get('category_name', meta.get('category', ''))}，"
+                f"阶段匹配={meta.get('stage_fit', 0):.2f}，"
+                f"旅程匹配={meta.get('journey_fit', 0):.2f}"
+            )
+
         return {
             "guides": guides,
-            "theories": [{"name": item["name"], "file": item["metadata"].get("file", "")} for item in results["theories"]],
-            "cases": [{"name": item["name"], "id": item["id"]} for item in results["cases"]],
-            "weapons": [{"name": item["name"], "category": item["metadata"].get("category_name", "")} for item in results["weapons"]],
+            "business_model_diagnosis": business_model_diag,
+            "theories": [
+                {
+                    "name": item["name"],
+                    "file": item["metadata"].get("file", ""),
+                    "reason": theory_reason(item),
+                }
+                for item in results["theories"]
+            ],
+            "cases": [
+                {
+                    "name": item["name"],
+                    "id": item["id"],
+                    "reason": case_reason(item),
+                }
+                for item in results["cases"]
+            ],
+            "weapons": [
+                {
+                    "name": item["name"],
+                    "category": item["metadata"].get("category_name", ""),
+                    "reason": weapon_reason(item),
+                }
+                for item in results["weapons"]
+            ],
         }
 
     def to_learning_markdown(self, query: str, context: Dict[str, str]) -> str:
@@ -769,17 +841,22 @@ class StrategyBrain:
             "",
             "**建议先读的方法指南**：",
         ]
+        if path.get("business_model_diagnosis"):
+            lines[4:4] = [
+                f"**业务形态判断**：{path['business_model_diagnosis']['label']}，{path['business_model_diagnosis']['focus']}",
+                "",
+            ]
         for guide in path["guides"]:
             lines.append(f"- {guide['name']}（{guide['file']}）")
         lines.extend(["", "**相关理论**："])
         for theory in path["theories"]:
-            lines.append(f"- {theory['name']}（{theory['file']}）")
+            lines.append(f"- {theory['name']}（{theory['file']}）: {theory['reason']}")
         lines.extend(["", "**先看这些案例**："])
         for case in path["cases"]:
-            lines.append(f"- {case['name']}")
+            lines.append(f"- {case['name']}：{case['reason']}")
         lines.extend(["", "**建议对照的玩法**："])
         for weapon in path["weapons"]:
-            lines.append(f"- {weapon['name']}（{weapon['category']}）")
+            lines.append(f"- {weapon['name']}（{weapon['category']}）: {weapon['reason']}")
         return "\n".join(lines)
 
     def _build_stage_diagnosis(self, context: Dict[str, str]) -> Dict[str, str]:
@@ -1015,6 +1092,58 @@ class StrategyBrain:
             ),
             "top_weapon": top_option.name if top_option else "",
         }
+
+    def _build_business_model_diagnosis(
+        self,
+        query: str,
+        context: Dict[str, Any],
+        top_option: Optional[StrategyOption],
+        results: Dict[str, Any],
+    ) -> Optional[Dict[str, str]]:
+        kind = self._business_model_kind(context)
+        top_case = self._top_case_reference(results)
+        top_theory = self._top_theory_reference(results)
+        evidence = (f"案例={top_case['name']}" if top_case else "案例待补充") + (
+            f"；理论={top_theory['name']}" if top_theory else ""
+        )
+
+        if kind == "marketplace" and context.get("problem_type") == "acquisition":
+            diagnosis = self._build_marketplace_diagnosis(query, context, top_option, results)
+            if diagnosis:
+                return {
+                    "label": "平台侧",
+                    "focus": diagnosis["side_focus"],
+                    "rule": diagnosis["rule"],
+                    "evidence": diagnosis["evidence"],
+                }
+
+        if kind == "local-services" and context.get("problem_type") == "acquisition":
+            diagnosis = self._build_local_services_diagnosis(query, context, top_option, results)
+            if diagnosis:
+                return {
+                    "label": "本地生活",
+                    "focus": diagnosis["focus"],
+                    "rule": diagnosis["rule"],
+                    "evidence": diagnosis["evidence"],
+                }
+
+        if kind == "b2b-sales-led" and context.get("problem_type") in {"acquisition", "monetization"}:
+            return {
+                "label": "B2B 销售驱动",
+                "focus": "先修 ICP、线索质量和 demo-to-close 漏斗，再决定是否扩销售或放大渠道。",
+                "rule": "不要先用扩人或扩渠道掩盖漏斗问题；先提高高意向线索质量和成交效率。",
+                "evidence": evidence,
+            }
+
+        if kind == "ai" and context.get("problem_type") == "acquisition":
+            return {
+                "label": "AI 冷启动",
+                "focus": "先让产品价值可被外部内容解释，并缩短首次价值达成，再考虑复杂分享机制或大投放。",
+                "rule": "先验证内容分发与激活闭环，再决定是否加大传播或预算放量。",
+                "evidence": evidence,
+            }
+
+        return None
 
     def _parse_budget_amount(self, budget_text: str) -> float:
         if not budget_text:

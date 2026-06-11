@@ -349,6 +349,24 @@ def add_common_strategy_arguments(parser) -> None:
     )
 
 
+def add_common_retrieval_arguments(parser) -> None:
+    """Attach shared retrieval/context arguments to retrieval-oriented commands."""
+    parser.add_argument('--industry', default='', help='行业类型')
+    parser.add_argument('--stage', default='', help='业务阶段')
+    parser.add_argument('--journey', default='', help='用户旅程断点')
+    parser.add_argument('--problem', default='', help='问题类型')
+    parser.add_argument('--goal', default='', help='目标描述')
+    parser.add_argument('--metric', default='', help='目标指标')
+    parser.add_argument('--budget', default='', help='预算约束')
+    parser.add_argument('--team', default='', help='团队约束')
+    parser.add_argument('--constraints', default='', help='关键约束')
+    parser.add_argument('--history', default='', help='历史尝试')
+    parser.add_argument('--context-json', default='', help='补充结构化上下文 JSON 字符串')
+    parser.add_argument('--context-file', default='', help='补充结构化上下文 JSON 文件')
+    parser.add_argument('--profile-file', default='', help='公司画像 JSON 文件')
+    parser.add_argument('--history-file', default='', help='历史实验台账 JSON 文件')
+
+
 def cmd_assess(args):
     """评估增长机会"""
     context = build_context(args)
@@ -479,6 +497,7 @@ def cmd_search(args):
 def cmd_match(args):
     """优先匹配最相关案例。"""
     retriever = KnowledgeRetriever()
+    brain = StrategyBrain()
     context = build_context(args)
     results = retriever.retrieve(
         args.query,
@@ -487,15 +506,25 @@ def cmd_match(args):
         weapon_limit=max(1, min(args.limit, 3)),
         theory_limit=max(1, args.limit // 2),
     )
+    analysis = brain.analyze(args.query, context, mode="match")
 
     print("=" * 60)
     print("Growth Master - 案例匹配模式")
     print("=" * 60)
     print(f"\n问题: {args.query}")
+    if analysis.get("business_model_diagnosis"):
+        print("\n【业务形态判断】")
+        print(f"  {analysis['business_model_diagnosis']['label']}: {analysis['business_model_diagnosis']['focus']}")
 
     print("\n【匹配案例】")
     for case in results["cases"]:
         print(f"  • {case['name']} (相似度: {case['score']:.2f}, 证据等级: {case['metadata']['evidence_tier']})")
+        print(
+            "    原因: "
+            f"阶段匹配={case['metadata'].get('stage_fit', 0):.2f}, "
+            f"旅程匹配={case['metadata'].get('journey_fit', 0):.2f}, "
+            f"公司类型={case['metadata'].get('company_type', 'general')}"
+        )
         if case["highlights"]:
             print(f"    可借鉴: {case['highlights'][0][:50]}")
 
@@ -503,11 +532,21 @@ def cmd_match(args):
         print("\n【可搭配玩法】")
         for weapon in results["weapons"][:3]:
             print(f"  • {weapon['name']} ({weapon['metadata'].get('category_name') or weapon['metadata']['category']})")
+            print(
+                "    原因: "
+                f"阶段匹配={weapon['metadata'].get('stage_fit', 0):.2f}, "
+                f"旅程匹配={weapon['metadata'].get('journey_fit', 0):.2f}"
+            )
 
     if results["theories"]:
         print("\n【相关理论】")
         for theory in results["theories"][:2]:
             print(f"  • {theory['name']}")
+            print(
+                "    原因: "
+                f"主业务过程={theory['metadata'].get('growth_process', '增长经营')}, "
+                f"旅程={theory['metadata'].get('journey_stage', '待补充')}"
+            )
 
     print("\n" + "=" * 60)
     return 0
@@ -622,9 +661,7 @@ def main():
     # search 命令
     search_parser = subparsers.add_parser('search', help='搜索知识库')
     search_parser.add_argument('query', help='搜索查询')
-    search_parser.add_argument('--industry', default='', help='行业类型')
-    search_parser.add_argument('--stage', default='', help='业务阶段')
-    search_parser.add_argument('--problem', default='', help='问题类型')
+    add_common_retrieval_arguments(search_parser)
     search_parser.add_argument('--limit', type=int, default=5, help='返回结果数量')
     search_parser.add_argument('--json', action='store_true', help='JSON 格式输出')
     search_parser.set_defaults(func=cmd_search)
@@ -632,24 +669,15 @@ def main():
     # match 命令
     match_parser = subparsers.add_parser('match', help='匹配相似案例')
     match_parser.add_argument('query', help='问题描述')
-    match_parser.add_argument('--industry', default='', help='行业类型')
-    match_parser.add_argument('--stage', default='', help='业务阶段')
-    match_parser.add_argument('--problem', default='', help='问题类型')
+    add_common_retrieval_arguments(match_parser)
     match_parser.add_argument('--limit', type=int, default=5, help='返回案例数量')
     match_parser.set_defaults(func=cmd_match)
 
     # learn 命令
     learn_parser = subparsers.add_parser('learn', help='生成围绕某个问题的学习路径')
     learn_parser.add_argument('query', help='问题描述')
-    learn_parser.add_argument('--industry', default='', help='行业类型')
-    learn_parser.add_argument('--stage', default='', help='业务阶段')
-    learn_parser.add_argument('--journey', default='', help='用户旅程断点')
-    learn_parser.add_argument('--problem', default='', help='问题类型')
+    add_common_retrieval_arguments(learn_parser)
     learn_parser.add_argument('--json', action='store_true', help='JSON 格式输出')
-    learn_parser.add_argument('--context-json', default='', help='补充结构化上下文 JSON 字符串')
-    learn_parser.add_argument('--context-file', default='', help='补充结构化上下文 JSON 文件')
-    learn_parser.add_argument('--profile-file', default='', help='公司画像 JSON 文件')
-    learn_parser.add_argument('--history-file', default='', help='历史实验台账 JSON 文件')
     learn_parser.set_defaults(func=cmd_learn)
 
     # scenario shortcut commands

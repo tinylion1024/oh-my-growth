@@ -128,6 +128,26 @@ def test_learning_path_command_returns_guides():
     assert "建议对照的玩法" in result.stdout
 
 
+def test_learning_path_surfaces_business_model_reasoning():
+    result = run_cli(
+        "learn",
+        "AI 产品冷启动阶段应该先做内容获客还是产品内分享",
+        "--industry",
+        "ai",
+        "--stage",
+        "0-1",
+        "--problem",
+        "acquisition",
+        "--context-json",
+        '{"company_profile":{"business_model":"ai copilot"}}',
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "业务形态判断" in result.stdout
+    assert "AI 冷启动" in result.stdout
+    assert "阶段匹配" in result.stdout
+
+
 def test_weekly_view_uses_profile_and_history_files():
     result = run_cli(
         "diagnose",
@@ -250,6 +270,25 @@ def test_match_command_returns_case_matches():
     assert "案例匹配模式" in result.stdout
     assert "匹配案例" in result.stdout
     assert "Dropbox" in result.stdout or "裂变" in result.stdout
+
+
+def test_match_command_explains_case_selection_reason():
+    result = run_cli(
+        "match",
+        "B2B 销售驱动型 SaaS 应该先扩销售还是先修线索质量",
+        "--industry",
+        "saas",
+        "--stage",
+        "1-10",
+        "--problem",
+        "acquisition",
+        "--context-json",
+        '{"company_profile":{"business_model":"b2b sales-led saas"}}',
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "【业务形态判断】" in result.stdout
+    assert "原因: 阶段匹配" in result.stdout
 
 
 def test_cold_start_shortcut_sets_external_brain_context():
