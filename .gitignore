@@ -61,3 +61,6 @@ htmlcov/
 /OPTIMIZATION-PLAN.md
 /ITERATION-*.md
 /WORKLOG*.md
+
+# OMC state
+.omc/

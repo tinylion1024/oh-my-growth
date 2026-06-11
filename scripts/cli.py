@@ -17,6 +17,11 @@ from knowledge_retriever import KnowledgeRetriever
 from assess_clarity import assess_clarity
 from strategy_brain import StrategyBrain
 
+PRIMARY_COMMANDS = ["assess", "design", "fast-scan", "brd", "diagnose", "match", "learn"]
+AUXILIARY_COMMANDS = ["search", "validate"]
+SCENARIO_COMMANDS = ["cold-start", "retention", "monetization", "referral"]
+VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "decision-memo", "qbr"]
+
 
 def _load_json_object(path: str) -> Dict[str, Any]:
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -294,30 +299,46 @@ def render_strategy_brain(title: str, analysis: Dict) -> None:
     print("=" * 60)
 
 
-def render_strategy_output(title: str, analysis: Dict, view: str, clarity_score: float = 0.0, clarity_result: Dict = None) -> None:
+def render_strategy_output(
+    title: str,
+    analysis: Dict,
+    view: str,
+    clarity_score: float = 0.0,
+    clarity_result: Dict = None,
+    mode: str = "diagnose",
+) -> None:
     """Dispatch between operator/executive/report/json views."""
+    brain = StrategyBrain()
     if view == "json":
-        print(StrategyBrain().to_json(analysis))
+        print(brain.to_json(analysis))
         return
     if view == "executive":
-        print(StrategyBrain().to_executive_markdown(analysis))
+        print(brain.to_executive_markdown(analysis))
         return
     if view == "weekly":
-        print(StrategyBrain().to_weekly_markdown(analysis))
+        print(brain.to_weekly_markdown(analysis))
         return
     if view == "experiment-card":
-        print(StrategyBrain().to_experiment_card_markdown(analysis))
+        print(brain.to_experiment_card_markdown(analysis))
         return
     if view == "decision-memo":
-        print(StrategyBrain().to_decision_memo_markdown(analysis))
+        print(brain.to_decision_memo_markdown(analysis))
         return
     if view == "qbr":
-        print(StrategyBrain().to_qbr_markdown(analysis))
+        print(brain.to_qbr_markdown(analysis))
         return
     if view == "report":
         clarity_level = clarity_result.level if clarity_result else "workable"
         can_proceed = clarity_result.can_proceed if clarity_result else True
-        print(StrategyBrain().to_report_markdown(analysis, clarity_score, clarity_level, can_proceed))
+        print(brain.to_report_markdown(analysis, clarity_score, clarity_level, can_proceed))
+        return
+    if mode == "assess":
+        clarity_level = clarity_result.level if clarity_result else "workable"
+        can_proceed = clarity_result.can_proceed if clarity_result else True
+        print(brain.to_assess_markdown(analysis, clarity_score, clarity_level, can_proceed))
+        return
+    if mode == "design":
+        print(brain.to_design_markdown(analysis))
         return
     render_strategy_brain(title, analysis)
 
@@ -344,7 +365,7 @@ def add_common_strategy_arguments(parser) -> None:
     parser.add_argument(
         '--view',
         default='operator',
-        choices=['operator', 'executive', 'report', 'json', 'weekly', 'experiment-card', 'decision-memo', 'qbr'],
+        choices=VIEW_CHOICES,
         help='输出视图：执行版/负责人摘要/报告版/JSON',
     )
 
@@ -384,7 +405,14 @@ def cmd_assess(args):
         return 0
 
     analysis = StrategyBrain().analyze(args.query, context, mode="assess")
-    render_strategy_output("Growth Master - 策略外脑评估", analysis, args.view, clarity_score, clarity_result)
+    render_strategy_output(
+        "Growth Master - 策略外脑评估",
+        analysis,
+        args.view,
+        clarity_score,
+        clarity_result,
+        mode="assess",
+    )
     return 0
 
 
@@ -392,7 +420,7 @@ def cmd_design(args):
     """设计增长策略"""
     context = build_context(args)
     analysis = StrategyBrain().analyze(args.query, context, mode="design")
-    render_strategy_output("Growth Master - 策略设计外脑", analysis, args.view)
+    render_strategy_output("Growth Master - 策略设计外脑", analysis, args.view, mode="design")
     return 0
 
 
@@ -438,6 +466,7 @@ def cmd_diagnose(args):
         args.view,
         clarity_result.total_score,
         clarity_result,
+        mode="diagnose",
     )
     return 0
 
@@ -483,14 +512,32 @@ def cmd_search(args):
         print(f"\n案例 ({len(results['cases'])} 个):")
         for case in results['cases']:
             print(f"  • {case['name']} (分数: {case['score']:.2f})")
+            print(
+                "    "
+                f"阶段匹配={case['metadata'].get('stage_fit', 0):.2f} / "
+                f"旅程匹配={case['metadata'].get('journey_fit', 0):.2f} / "
+                f"资源匹配={case['metadata'].get('resource_fit', 0):.2f}"
+            )
 
         print(f"\n玩法 ({len(results['weapons'])} 个):")
         for weapon in results['weapons']:
             print(f"  • {weapon['name']} (分数: {weapon['score']:.2f})")
+            print(
+                "    "
+                f"阶段匹配={weapon['metadata'].get('stage_fit', 0):.2f} / "
+                f"旅程匹配={weapon['metadata'].get('journey_fit', 0):.2f} / "
+                f"资源画像匹配={weapon['metadata'].get('resource_profile_fit', weapon['metadata'].get('resource_fit', 0)):.2f}"
+            )
 
         print(f"\n理论 ({len(results['theories'])} 个):")
         for theory in results['theories']:
             print(f"  • {theory['name']}")
+            print(
+                "    "
+                f"主业务过程={theory['metadata'].get('growth_process', '增长经营')} / "
+                f"旅程={theory['metadata'].get('journey_stage', '待补充')} / "
+                f"资源匹配={theory['metadata'].get('resource_fit', 0):.2f}"
+            )
     return 0
 
 
@@ -523,6 +570,7 @@ def cmd_match(args):
             "    原因: "
             f"阶段匹配={case['metadata'].get('stage_fit', 0):.2f}, "
             f"旅程匹配={case['metadata'].get('journey_fit', 0):.2f}, "
+            f"资源匹配={case['metadata'].get('resource_fit', 0):.2f}, "
             f"公司类型={case['metadata'].get('company_type', 'general')}"
         )
         if case["highlights"]:
@@ -535,7 +583,8 @@ def cmd_match(args):
             print(
                 "    原因: "
                 f"阶段匹配={weapon['metadata'].get('stage_fit', 0):.2f}, "
-                f"旅程匹配={weapon['metadata'].get('journey_fit', 0):.2f}"
+                f"旅程匹配={weapon['metadata'].get('journey_fit', 0):.2f}, "
+                f"资源画像匹配={weapon['metadata'].get('resource_profile_fit', weapon['metadata'].get('resource_fit', 0)):.2f}"
             )
 
     if results["theories"]:
@@ -545,7 +594,8 @@ def cmd_match(args):
             print(
                 "    原因: "
                 f"主业务过程={theory['metadata'].get('growth_process', '增长经营')}, "
-                f"旅程={theory['metadata'].get('journey_stage', '待补充')}"
+                f"旅程={theory['metadata'].get('journey_stage', '待补充')}, "
+                f"资源匹配={theory['metadata'].get('resource_fit', 0):.2f}"
             )
 
     print("\n" + "=" * 60)
@@ -569,7 +619,14 @@ def cmd_scenario(args):
     context = build_context(args)
     clarity_result = assess_clarity(build_clarity_input(args.query, context))
     analysis = StrategyBrain().analyze(args.query, context, mode=args.command)
-    render_strategy_output(defaults["title"], analysis, args.view, clarity_result.total_score, clarity_result)
+    render_strategy_output(
+        defaults["title"],
+        analysis,
+        args.view,
+        clarity_result.total_score,
+        clarity_result,
+        mode="diagnose",
+    )
     return 0
 
 
@@ -594,7 +651,7 @@ def cmd_validate(args):
     return 0 if result.valid else 1
 
 
-def main():
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Growth Master CLI - 智能增长顾问命令行工具",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -696,6 +753,12 @@ def main():
     validate_parser = subparsers.add_parser('validate', help='验证报告')
     validate_parser.add_argument('file', help='报告文件路径')
     validate_parser.set_defaults(func=cmd_validate)
+
+    return parser
+
+
+def main():
+    parser = build_parser()
 
     args = parser.parse_args()
 

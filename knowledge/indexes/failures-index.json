@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "1.0.0",
-    "last_updated": "2026-06-11",
-    "total_failures": 3
+    "last_updated": "2026-06-12",
+    "total_failures": 4
   },
   "failures": [
     {
@@ -24,6 +24,29 @@
         "一次只验证一个主渠道",
         "固定同一套转化路径和归因口径",
         "用高意向新增而不是总注册做主指标"
+      ]
+    },
+    {
+      "id": "monetization-failure-modes",
+      "name": "monetization-failure-modes",
+      "file": "failures/monetization-failure-modes.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "problem_types": [
+        "retention",
+        "activation",
+        "monetization"
+      ],
+      "summary": "在产品粘性不足或竞争对手存在低价替代品时强行提价，会导致核心用户群流失。",
+      "warning_signals": [
+        "提价后收入短期上升，但月活跃用户（MAU）明显下降",
+        "核心用户在社群或公开平台出现负面舆论",
+        "续费率显著低于预期"
+      ],
+      "suggestions": [
+        "先对小部分非核心用户进行定价测试",
+        "确保提价伴随着明显的产品价值提升",
+        "提供老用户“祖父条款”（保留原价一段时间）"
       ]
     },
     {

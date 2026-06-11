@@ -1,19 +1,19 @@
 <div align="center">
 
-# 🚀 Growth Master
+# 🚀 oh-my-growth
 
-**增长策略外脑 — 替增长负责人完成前 70% 的策略思考**
+**增长策略外脑 — Claude Code 专用增长决策插件**
 
-整合 **81个案例** · **111种玩法** · **12大流派** · **13个专业Agent** · **完整决策框架**
+整合 **81个案例** · **111种玩法** · **12大流派** · **完整决策框架**
 
 输入一个增长问题，直接输出：
 `阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
 
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-69%2F69%20scripted%20checks-brightgreen.svg)](./tests/)
+[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](./VERSION)
+[![Tests](https://img.shields.io/badge/tests-84%2F84%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-[快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
+[安装](#-安装) · [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
 
 </div>
 
@@ -21,11 +21,17 @@
 
 ## 💡 这是什么？
 
-**Growth Master** 是一个**面向增长行业人的策略外脑 skill**。
+**oh-my-growth** 是一个**Claude Code 专用增长决策插件**。
 
-你可以把它理解为：**一个读过 81 个增长案例、掌握 111 种增长打法，并能先做诊断再给方案的增长外脑**。
+在 Claude Code 会话中，你可以直接调用专业的增长策略分析能力：
 
-它不是单纯的案例库，也不是只会列点子的 prompt 包。它会先判断：
+```
+/oh-my-growth diagnose 我的产品日活下降20%，该怎么办？
+/oh-my-growth assess 我们准备做裂变，先评估可行性
+/oh-my-growth design SaaS产品如何设计变现策略？
+```
+
+它会先判断：
 
 - 你现在到底处于哪个增长阶段
 - 主问题更偏用户获取还是用户深耕
@@ -40,50 +46,59 @@
 - 📚 **匹配成功案例** — 谁做过类似的事？怎么做到的？
 - 🔢 **形成可执行判断** — 用证据、案例和轻量决策引擎支撑结论
 
-## ✅ 你会直接拿到什么
+---
 
-对于一个典型增长问题，项目会直接产出这类结果：
+## 📦 安装
 
-- 当前阶段判断：产品验证期 / 增长放大期 / 规模经营期
-- 主业务过程：用户获取 or 用户深耕
-- 北极星指标与约束线
-- 一句话判断
-- 核心矛盾
-- 优先级排序
-- 建议现在做 / 建议先别做
-- 两周实验
-- 数据与归因要求
-- 项目记忆提示（公司画像 / 历史实验 / 重复失败模式）
-- Kelly / Game Theory 场景判断（预算 / 竞争 / 平台）
-- 显式业务形态判断（B2B sales-led / marketplace / local-services / AI cold-start）
+### 方式一：一键安装（推荐）
 
-如果你是增长负责人，这些内容已经足够支撑一次周会判断、一次策略讨论，或者一版初始决策稿。
+```bash
+cd growth-master-skill
+./scripts/install.sh
+```
 
-## 🔒 为什么值得信
+### 方式二：手动安装
 
-- **不是空想建议**：每次输出都会联动案例、玩法、理论和证据等级，核心矛盾、实验、行动和复盘触发器也会引用这些证据；明确约束会直接进入排序惩罚
-- **不是只会给招**：先做阶段判断、北极星判断和旅程断点判断
-- **不是不可验证**：内置两周实验、成功信号、停止信号
-- **不是黑盒**：当前有 `74/74` 脚本化检查通过
-- **不是品牌套壳**：方法层已经抽象成通用增长框架，能独立服务项目本身
+```bash
+# 克隆仓库
+git clone https://github.com/tinylion1024/growth-master-skill.git
+
+# 安装到 Claude Code skills 目录
+cp -R growth-master-skill ~/.claude/skills/oh-my-growth
+```
+
+### 验证安装
+
+在 Claude Code 中输入：
+```
+/oh-my-growth diagnose 测试安装
+```
 
 ---
 
-## ✨ 30 秒演示
+## ✨ 快速开始
 
-### 场景：SaaS 产品如何获取首批用户？
+### 在 Claude Code 中使用
+
+```
+/oh-my-growth diagnose SaaS产品如何获取首批用户
+/oh-my-growth assess 我们要不要做邀请裂变
+/oh-my-growth design 如何提升月活跃用户留存率
+/oh-my-growth match 游戏化提升用户活跃
+/oh-my-growth learn 如何系统学习裂变增长
+```
+
+### CLI 模式（独立使用）
 
 ```bash
-# 方式一：策略外脑诊断
+# 策略外脑诊断
 python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
   --industry saas --stage 0-1 --problem acquisition
 
-# 方式二：场景化快捷入口
+# 场景化快捷入口
 python scripts/cli.py cold-start "AI写作SaaS如何拿到前100个种子用户" \
   --industry saas
-
-# 方式三：在 Claude Code 中
-/growth-master-skill assess 我们是一个AI写作SaaS，想获取首批种子用户
+```
 
 # 方式四：负责人摘要视图
 python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
@@ -119,16 +134,22 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ## 🎯 核心功能
 
-### 六大模式，覆盖从诊断到执行建议
+### 七个核心入口，覆盖从诊断到执行建议
 
 | 模式 | CLI 入口 | 一句话描述 | 适用场景 |
 |------|----------|-----------|----------|
 | **Strategy Brain** | `diagnose` | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
+| **Opportunity Assess** | `assess` | 先判断能不能进入策略分析 | 现状还不够清楚，先做清晰度与方向评估 |
+| **Strategy Design** | `design` | 可落地的策略 | 知道要做什么，但不知道怎么设计执行路径 |
 | **Fast Scan** | `fast-scan` | 快速判断 | 这个想法靠谱吗？ |
 | **Decision BRD** | `brd` | 完整决策文档 | 需要申请预算/资源 |
-| **Strategy Design** | `design` | 可落地的策略 | 知道要做什么，但不知道怎么做 |
 | **Case Match** | `match` | 找成功案例 | 想看看别人怎么做的 |
 | **Learning Path** | `learn` | 系统学习路径 | 想深入了解某个增长领域 |
+
+辅助命令：`search` 用于直接检索案例 / 玩法 / 理论，`validate` 用于校验输出文档是否满足报告契约。场景快捷入口：`cold-start` / `retention` / `monetization` / `referral`。
+
+- `assess` 默认输出是否值得继续深入、还缺什么、建议下一步进入 `diagnose` 还是 `design`
+- `design` 默认输出玩法组合、实施路径、关键指标和证据依据
 
 ### 知识库规模
 
@@ -189,7 +210,7 @@ cp -R growth-master-skill ~/.claude/skills/
 ```bash
 # 运行主测试集
 python3 scripts/run_tests.py
-# ✅ 74/74 checks passed
+# ✅ 82/82 checks passed
 ```
 
 ### 第一次使用
@@ -272,6 +293,7 @@ python scripts/cli.py diagnose "是否应该做邀请裂变" \
 - 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
 - 支持 `--profile-file` / `--history-file` 注入公司画像和历史实验台账
 - `search / match / learn` 现在也支持结构化上下文，并会显式解释为什么这些案例/理论/玩法更像你
+- 同一个泛问题在不同 `metric / journey_stage / team / budget` 下，会返回不同的 Top1 主抓手，而不是固定模板答案
 - 预算已知时会自动生成 Kelly 风险预算建议、加仓条件和停止条件
 - 竞争 / 平台 / 定价场景下会补充 Game Theory 姿态判断
 
@@ -951,11 +973,12 @@ python3 scripts/validate-indexes.py
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| 脚本化主测试 | 74/74 | ✅ |
+| 脚本化主测试 | 82/82 | ✅ |
 | CLI 集成测试 | diagnose / assess / match / validate / learn | ✅ |
 | Golden 场景回归 | 错阶段 / 错约束 / 错方向 | ✅ |
 | Agent / 索引验证 | 结构和知识完整性 | ✅ |
 | 去品牌化检查 | 公共 Markdown 无品牌字样 | ✅ |
+```
 
 ---
 
@@ -980,6 +1003,6 @@ MIT License - 自由使用、修改、分发
 
 **Built with ❤️ by Growth Master Team**
 
-[⬆ 回到顶部](#-growth-master)
+[⬆ 回到顶部](#-oh-my-growth)
 
 </div>

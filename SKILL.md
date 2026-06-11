@@ -1,18 +1,31 @@
 ---
-name: growth-master-skill
-description: 增长策略外脑 - 面向增长行业人的知识驱动决策 skill。整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、建议做/不做与实验计划。
+name: oh-my-growth
+description: 增长策略外脑 - Claude Code 专用增长决策插件。整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、建议做/不做与实验计划。
+trigger: /oh-my-growth
 metadata:
   author: Growth Master Team
   maturity: production
-  version: 3.0.0
+  version: 4.0.0
   license: MIT
+  category: business-strategy
 ---
 
-# Growth Master - 增长策略外脑
+# oh-my-growth - 增长策略外脑
+
+**Claude Code 专用增长决策插件** — 在 Claude Code 会话中直接调用专业的增长策略分析能力。
 
 将增长知识库与多Agent决策引擎融合，帮助增长负责人完成前 70% 的策略思考。
 
-**核心价值**：从“查阅知识”升级为“先诊断、再判断、后给实验”的增长外脑
+**核心价值**：从”查阅知识”升级为”先诊断、再判断、后给实验”的增长外脑
+
+## 快速开始
+
+```
+/oh-my-growth diagnose 我的产品日活下降20%，该怎么办？
+/oh-my-growth assess 我们准备做裂变，先评估可行性
+/oh-my-growth design SaaS产品如何设计变现策略？
+/oh-my-growth match 游戏化留存案例
+```
 
 ## Use This Skill For
 
@@ -35,16 +48,19 @@ metadata:
 - 医疗、心理危机等专业领域建议
 - 无需诊断或行动报告的头脑风暴
 
-## 六大模式
+## 七个核心入口
 
-| 模式 | 适用场景 | Agent组合 | 输出模板 |
-|------|----------|-----------|----------|
-| Strategy Brain | 诊断、排序、实验建议 | Lead + Growth + ROI + Skeptic + Case + Weapon | [策略外脑模板](references/output-schema.md#strategy-brain-模板) |
-| Fast Scan | 快速判断、证据不足 | Lead + ROI + Skeptic | [快速扫描模板](references/output-schema.md#fast-scan) |
-| Decision BRD | 正式决策、需预算审批 | 全Agent协作 | [决策文档模板](references/output-schema.md#decision-brd) |
-| Strategy Design | 具体策略设计 | Lead + Growth + Weapon + Theory | [策略设计模板](references/output-schema.md#strategy-design) |
-| Case Match | 寻找参考案例 | Lead + Case + Theory | [案例匹配模板](references/output-schema.md#case-match) |
-| Learning Path | 系统学习增长知识 | Lead + Theory + Narrative | [学习路径模板](references/output-schema.md#learning-path) |
+| 模式 | CLI 入口 | 一句话描述 | 适用场景 | Agent组合 | 输出模板 |
+|------|----------|-----------|----------|-----------|----------|
+| Strategy Brain | `diagnose` | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 | Lead + Growth + ROI + Skeptic + Case + Weapon | [策略外脑模板](references/output-schema.md#strategy-brain-模板) |
+| Opportunity Assess | `assess` | 先判断能不能进入策略分析 | 现状还不够清楚，先做清晰度与方向评估 | Lead + Skeptic + ROI | [机会评估模板](references/output-schema.md#opportunity-assess-模板) |
+| Strategy Design | `design` | 可落地的策略 | 知道要做什么，但不知道怎么设计执行路径 | Lead + Growth + Weapon + Theory | [策略设计模板](references/output-schema.md#strategy-design) |
+| Fast Scan | `fast-scan` | 快速判断 | 这个想法靠谱吗？ | Lead + ROI + Skeptic | [快速扫描模板](references/output-schema.md#fast-scan) |
+| Decision BRD | `brd` | 完整决策文档 | 需要申请预算/资源 | 全Agent协作 | [决策文档模板](references/output-schema.md#decision-brd) |
+| Case Match | `match` | 找成功案例 | 想看看别人怎么做的 | Lead + Case + Theory | [案例匹配模板](references/output-schema.md#case-match) |
+| Learning Path | `learn` | 系统学习路径 | 想深入了解某个增长领域 | Lead + Theory + Narrative | [学习路径模板](references/output-schema.md#learning-path) |
+
+辅助命令：`search` 用于直接检索知识库，`validate` 用于校验输出文档；场景快捷入口包括 `cold-start` / `retention` / `monetization` / `referral`。
 
 ## 核心工作流
 

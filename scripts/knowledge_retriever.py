@@ -9,6 +9,19 @@ from typing import Dict, List, Optional, Set
 
 BASE_DIR = Path(__file__).parent.parent
 
+# 阶段名称映射：CLI 输入 -> 索引内部格式
+STAGE_ALIASES = {
+    "10+": "10-100",
+    "10-100": "10-100",
+    "0-1": "0-1",
+    "1-10": "1-10",
+}
+
+
+def normalize_stage(stage: str) -> str:
+    """Normalize stage input to internal format."""
+    return STAGE_ALIASES.get(stage, stage)
+
 
 @dataclass
 class SearchResult:
@@ -391,6 +404,113 @@ class KnowledgeRetriever:
 
         return max(0.1, effort_fit)
 
+    def _resource_profile_fit(self, resource_profile: str, context: Dict) -> float:
+        profile_text = self._normalize_text(resource_profile)
+        if not profile_text:
+            return 0.5
+
+        budget_text = self._normalize_text(context.get("budget", ""))
+        team_text = self._normalize_text(context.get("team", ""))
+        business_model_kind = self._context_business_model_kind(context)
+        constrained_budget = any(token in budget_text for token in ["小", "有限", "10万", "5万", "5000", "无预算", "低预算"])
+        constrained_team = any(token in team_text for token in ["1", "2", "单人", "兼职", "最小", "小团队"])
+        multi_role_team = sum(1 for token in ["产品", "工程", "运营", "销售", "数据", "市场"] if token in team_text) >= 3
+        product_engineering_fit = "产品" in team_text and "工程" in team_text and any(
+            token in profile_text for token in ["产品", "工程", "实验节奏", "价值快速达成"]
+        )
+        content_growth_fit = any(token in team_text for token in ["内容", "增长", "市场"]) and any(
+            token in profile_text for token in ["内容", "分发", "产能", "传播"]
+        )
+        sales_fit = "销售" in team_text and "销售" in profile_text
+        ops_fit = "运营" in team_text and any(token in profile_text for token in ["运营", "长期维护", "核心用户"])
+
+        fit = 0.5
+        if constrained_budget and any(token in profile_text for token in ["低预算", "创始人驱动", "小团队"]):
+            fit += 0.35
+        if constrained_budget and any(token in profile_text for token in ["预算密集", "中长期投入"]):
+            fit -= 0.3
+        if constrained_team and any(token in profile_text for token in ["创始人驱动", "小团队"]):
+            fit += 0.3
+        if constrained_team and any(token in profile_text for token in ["跨团队协同", "长期维护"]):
+            fit -= 0.18
+        if constrained_team and "工程驱动" in profile_text and not product_engineering_fit:
+            fit -= 0.18
+        if multi_role_team and "跨团队协同" in profile_text:
+            fit += 0.2
+        if product_engineering_fit:
+            fit += 0.25
+        if content_growth_fit:
+            fit += 0.25
+        if sales_fit:
+            fit += 0.25
+        if ops_fit:
+            fit += 0.2
+        if business_model_kind == "b2b-sales-led" and "销售" in profile_text:
+            fit += 0.22
+        if business_model_kind in {"marketplace", "local-services"} and any(
+            token in profile_text for token in ["供给", "需求", "撮合", "单城", "履约", "线下"]
+        ):
+            fit += 0.22
+        if business_model_kind == "ai" and any(token in profile_text for token in ["产品", "工程", "价值快速达成"]):
+            fit += 0.12
+
+        return max(0.1, min(1.0, fit))
+
+    def _metric_category_focus(self, context: Dict) -> Set[str]:
+        text = self._normalize_text(" ".join([str(context.get("metric", "")), str(context.get("goal", ""))]))
+        focus: Set[str] = set()
+        if any(token in text for token in ["高意向线索", "线索", "demo", "成单", "成交"]):
+            focus.add("b2b-sales")
+        if any(token in text for token in ["首次价值", "激活", "试用", "onboarding"]):
+            focus.add("plg")
+        if any(token in text for token in ["曝光", "内容", "seo", "自然流量", "品牌搜索"]):
+            focus.add("content-growth")
+        if any(token in text for token in ["分享", "邀请", "传播", "k 因子"]):
+            focus.add("viral-referral")
+        if any(token in text for token in ["留存", "复购", "回访", "活跃"]):
+            focus.add("retention")
+        if any(token in text for token in ["付费", "收入", "升级", "订阅", "arpu", "arppu"]):
+            focus.add("monetization")
+        if any(token in text for token in ["履约", "到店", "订单", "撮合"]):
+            focus.update({"cold-start", "community"})
+        return focus
+
+    def _metric_theory_focus(self, context: Dict) -> Set[str]:
+        category_focus = self._metric_category_focus(context)
+        mapping = {
+            "b2b-sales": {"business-models", "plg"},
+            "plg": {"plg", "growth-hacking"},
+            "content-growth": {"content-growth"},
+            "viral-referral": {"viral-growth", "network-effects"},
+            "retention": {"flywheel", "community-growth", "gamification"},
+            "monetization": {"business-models", "plg"},
+            "cold-start": {"network-effects", "growth-hacking"},
+            "community": {"community-growth", "flywheel"},
+        }
+        theories: Set[str] = set()
+        for category in category_focus:
+            theories.update(mapping.get(category, set()))
+        return theories
+
+    def _guardrail_penalty(self, guardrail_risk: str, context: Dict) -> float:
+        risk_text = self._normalize_text(guardrail_risk)
+        constraint_text = self._normalize_text(" ".join([str(context.get("constraints", "")), str(context.get("history", ""))]))
+        if not risk_text or not constraint_text:
+            return 0.0
+
+        penalty = 0.0
+        if any(token in constraint_text for token in ["不能依赖付费投放", "低预算", "预算有限", "cac"]):
+            if any(token in risk_text for token in ["cac", "投放", "预算"]):
+                penalty += 0.12
+        if any(token in constraint_text for token in ["不能伤害核心留存", "假活跃", "留存"]):
+            if any(token in risk_text for token in ["留存", "假活跃"]):
+                penalty += 0.12
+        if any(token in constraint_text for token in ["不能用高补贴", "补贴", "低质量用户"]):
+            if any(token in risk_text for token in ["低质量用户", "激励滥用"]):
+                penalty += 0.1
+
+        return min(0.24, penalty)
+
     def _guardrail_risk(self, category: str, problem: str) -> str:
         risk_map = {
             "viral-referral": "可能带来低质量用户和激励滥用",
@@ -450,6 +570,10 @@ class KnowledgeRetriever:
         growth_process = context.get("growth_process", "") or self._problem_to_process(problem)
         marketplace_side_focus = self._context_marketplace_side_focus(query, context)
         business_model_kind = self._context_business_model_kind(context)
+        metric_focus = self._metric_category_focus(context)
+
+        # Normalize stage input
+        stage = normalize_stage(context.get('stage', ''))
 
         results = []
 
@@ -481,17 +605,18 @@ class KnowledgeRetriever:
             if case.get("growth_process") == growth_process:
                 score += 0.08
 
-            # 阶段匹配加分
-            stage = context.get('stage', '')
+            # 阶段匹配加分（使用已规范化的 stage）
             case_stages = case.get('stage_fit', []) or case.get('tags', {}).get('stage', [])
             if stage in case_stages:
-                score += 0.1
+                score += 0.15  # 提高阶段匹配权重
 
             stage_fit = self._case_stage_fit(case, stage)
-            score += stage_fit * 0.1
+            score += stage_fit * 0.15  # 提高阶段权重
 
             journey_fit = self._case_journey_fit(case, journey_stage, problem)
             score += journey_fit * 0.08
+            resource_fit = self._resource_profile_fit(case.get("resource_profile", ""), context)
+            score += resource_fit * 0.06
 
             company_type = case.get("company_type", "")
             marketplace_side = case.get("marketplace_side", "")
@@ -512,6 +637,13 @@ class KnowledgeRetriever:
                     score += 0.08
                 elif marketplace_side_focus in {"supply", "demand"} and marketplace_side in {"supply", "demand"}:
                     score -= 0.06
+            case_text = self._normalize_text(" ".join(case.get("replicable_points", [])))
+            if "b2b-sales" in metric_focus and any(token in case_text for token in ["线索", "demo", "成交"]):
+                score += 0.08
+            if "content-growth" in metric_focus and any(token in case_text for token in ["内容", "seo", "搜索"]):
+                score += 0.06
+            if "retention" in metric_focus and any(token in case_text for token in ["留存", "复购", "活跃"]):
+                score += 0.06
 
             if score > 0:
                 results.append(SearchResult(
@@ -527,6 +659,7 @@ class KnowledgeRetriever:
                         'growth_process': case.get('growth_process', growth_process),
                         'journey_stage': case.get('journey_stage', journey_stage),
                         'stage_fit': round(stage_fit, 2),
+                        'resource_fit': round(resource_fit, 2),
                         'journey_fit': round(journey_fit, 2),
                         'company_type': company_type,
                         'marketplace_side': marketplace_side,
@@ -551,10 +684,11 @@ class KnowledgeRetriever:
 
         query_tokens = self._build_query_tokens(query, context)
         problem = context.get('problem_type', '').lower()
-        stage = context.get("stage", "")
+        stage = normalize_stage(context.get("stage", ""))
         journey_stage = context.get("journey_stage", "") or self._problem_to_journey(problem)
         growth_process = context.get("growth_process", "") or self._problem_to_process(problem)
         business_model_kind = self._context_business_model_kind(context)
+        metric_focus = self._metric_category_focus(context)
 
         results = []
 
@@ -578,6 +712,8 @@ class KnowledgeRetriever:
 
             if category_id in self._context_preferred_categories(context, problem):
                 score += 0.35
+            if category_id in metric_focus:
+                score += 0.16
 
             if context.get("industry", "").lower() == "saas" and category_id == "plg":
                 score += 0.12
@@ -601,6 +737,8 @@ class KnowledgeRetriever:
 
             resource_fit = self._resource_fit(weapon.get('effort', 'Medium'), context)
             score += resource_fit * 0.1
+            profile_fit = self._resource_profile_fit(weapon.get("resource_profile", ""), context)
+            score += profile_fit * 0.08
 
             if weapon.get("growth_process") == growth_process:
                 score += 0.08
@@ -619,6 +757,11 @@ class KnowledgeRetriever:
                     score += 0.08
                 elif side_focus in {"supply", "demand"} and marketplace_side in {"supply", "demand"}:
                     score -= 0.05
+            guardrail_penalty = self._guardrail_penalty(
+                weapon.get('guardrail_risk', self._guardrail_risk(category_id, problem)),
+                context,
+            )
+            score -= guardrail_penalty
 
             if score > 0:
                 results.append(SearchResult(
@@ -638,9 +781,11 @@ class KnowledgeRetriever:
                         'journey_stage': weapon.get('journey_stage', journey_stage),
                         'stage_fit': round(stage_fit, 2),
                         'resource_fit': round(resource_fit, 2),
+                        'resource_profile_fit': round(profile_fit, 2),
                         'journey_fit': round(journey_fit, 2),
                         'marketplace_side': marketplace_side,
                         'guardrail_risk': weapon.get('guardrail_risk', self._guardrail_risk(category_id, problem)),
+                        'guardrail_penalty': round(guardrail_penalty, 2),
                         'resource_profile': weapon.get('resource_profile', ''),
                         'failure_refs': weapon.get('failure_refs', []),
                     }
@@ -667,6 +812,7 @@ class KnowledgeRetriever:
         stage = context.get("stage", "")
         marketplace_side_focus = self._context_marketplace_side_focus(query, context)
         business_model_kind = self._context_business_model_kind(context)
+        metric_theory_focus = self._metric_theory_focus(context)
 
         results = []
 
@@ -684,6 +830,8 @@ class KnowledgeRetriever:
             score = self._compute_similarity(query_tokens, doc_tokens)
             if theory.get("id", "") in self._context_preferred_theories(context, problem):
                 score += 0.25
+            if theory.get("id", "") in metric_theory_focus:
+                score += 0.12
             if theory.get("growth_process") == growth_process:
                 score += 0.08
 
@@ -702,6 +850,8 @@ class KnowledgeRetriever:
             indexed_stage_fit = theory.get("stage_fit", [])
             stage_fit = 1.0 if stage and stage in indexed_stage_fit else 0.4
             score += stage_fit * 0.06
+            resource_fit = self._resource_profile_fit(theory.get("resource_profile", ""), context)
+            score += resource_fit * 0.08
 
             if business_model_kind == "local-services":
                 if theory.get("id", "") in {"network-effects", "flywheel"}:
@@ -732,6 +882,7 @@ class KnowledgeRetriever:
                         'growth_process': theory.get('growth_process', growth_process),
                         'journey_stage': theory.get('journey_stage', journey_stage),
                         'stage_fit': round(stage_fit, 2),
+                        'resource_fit': round(resource_fit, 2),
                         'journey_fit': round(journey_fit, 2),
                         'company_type': theory.get('company_type', ''),
                         'marketplace_side': theory.get('marketplace_side', ''),

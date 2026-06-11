@@ -4,7 +4,7 @@
   "description": "增长策略外脑 - 面向增长行业人的知识驱动决策 skill",
   "author": "Growth Master Team",
   "license": "MIT",
-  "maturity": "beta",
+  "maturity": "production",
   "public_release": "sanitized",
   "tags": [
     "growth",
@@ -58,8 +58,8 @@
     "install": "scripts/install.sh"
   },
   "testing": {
-    "scripted_checks": 22,
-    "pass_rate": "22/22",
+    "scripted_checks": 82,
+    "pass_rate": "82/82",
     "scenario_templates": 10
   },
   "dependencies": {

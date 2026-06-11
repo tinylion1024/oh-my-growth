@@ -33,9 +33,26 @@ def test_assess_example_is_actionable():
     assert result.returncode == 0, result.stderr
     assert "清晰度评分:" in result.stdout
     assert "状态: 信息不足" not in result.stdout
-    assert "【一句话判断】" in result.stdout
-    assert "【优先级排序】" in result.stdout
-    assert "【两周实验】" in result.stdout
+    assert "## Opportunity Assess" in result.stdout
+    assert "**建议下一步**：" in result.stdout
+    assert "当前最像的主抓手" in result.stdout
+
+
+def test_design_command_returns_strategy_design_layout():
+    result = run_cli(
+        "design",
+        "如何提升月活跃用户留存率",
+        "--industry",
+        "content",
+        "--problem",
+        "retention",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Strategy Design" in result.stdout
+    assert "**推荐玩法组合**：" in result.stdout
+    assert "## 实施路径" in result.stdout
+    assert "## 关键指标" in result.stdout
 
 
 def test_diagnose_outputs_strategy_brain_sections():
@@ -186,6 +203,7 @@ def test_experiment_card_view_is_available():
     assert "## Experiment Card" in result.stdout
     assert "成功信号" in result.stdout
     assert "历史提醒" in result.stdout
+    assert "复发保护措施" in result.stdout
 
 
 def test_decision_memo_view_is_available():
@@ -205,6 +223,7 @@ def test_decision_memo_view_is_available():
     assert result.returncode == 0, result.stderr
     assert "## Decision Memo" in result.stdout
     assert "组织历史约束" in result.stdout
+    assert "复发保护" in result.stdout
 
 
 def test_qbr_view_includes_budget_guidance():

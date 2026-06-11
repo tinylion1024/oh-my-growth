@@ -217,6 +217,7 @@ def test_weapon_results_include_indexed_failure_refs_and_profiles():
     assert top_weapon["metadata"]["growth_process"] in {"用户获取", "用户深耕"}
     assert top_weapon["metadata"]["failure_refs"], "Expected failure refs from index"
     assert top_weapon["metadata"]["resource_profile"], "Expected resource profile from index"
+    assert "resource_profile_fit" in top_weapon["metadata"]
 
 
 def test_theory_results_include_enriched_schema_fields():
@@ -234,6 +235,52 @@ def test_theory_results_include_enriched_schema_fields():
     assert top_theory["metadata"]["growth_process"] in {"用户获取", "用户深耕", "增长经营"}
     assert top_theory["metadata"]["journey_stage"]
     assert isinstance(top_theory["metadata"]["failure_refs"], list)
+    assert "resource_fit" in top_theory["metadata"]
+
+
+def test_small_team_context_prefers_low_budget_resource_profiles():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "如何提升注册转化",
+        {
+            "industry": "saas",
+            "problem_type": "acquisition",
+            "stage": "0-1",
+            "budget": "5000元",
+            "team": "1人",
+            "constraints": "不能依赖付费投放",
+        },
+        case_limit=2,
+        weapon_limit=5,
+        theory_limit=2,
+    )
+
+    assert results["weapons"], "Expected weapon recommendations"
+    top_weapon = results["weapons"][0]
+    assert top_weapon["metadata"]["category"] == "cold-start"
+    assert top_weapon["metadata"]["resource_profile_fit"] >= 0.9
+
+
+def test_paid_ads_retrieval_carries_guardrail_penalty_when_constraints_conflict():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "如何快速放大投放获客",
+        {
+            "industry": "saas",
+            "problem_type": "acquisition",
+            "stage": "10-100",
+            "budget": "5000元",
+            "team": "1人",
+            "constraints": "不能依赖付费投放，预算有限",
+        },
+        case_limit=2,
+        weapon_limit=10,
+        theory_limit=2,
+    )
+
+    paid_ads = [item for item in results["weapons"] if item["metadata"]["category"] == "paid-ads"]
+    assert paid_ads, "Expected paid-ads options to remain retrievable for contrast"
+    assert paid_ads[0]["metadata"]["guardrail_penalty"] > 0
 
 
 def test_failure_results_are_retrievable_for_referral_context():

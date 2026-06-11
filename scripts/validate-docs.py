@@ -4,20 +4,34 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 from typing import List
 
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR / "scripts"))
+
+from cli import AUXILIARY_COMMANDS, PRIMARY_COMMANDS, SCENARIO_COMMANDS, VIEW_CHOICES  # noqa: E402
+
 MARKDOWN_ROOTS = [
     ROOT_DIR / "README.md",
     ROOT_DIR / "SKILL.md",
     ROOT_DIR / "references",
     ROOT_DIR / "knowledge" / "failures",
     ROOT_DIR / "tests" / "README.md",
+    ROOT_DIR / "tests" / "e2e" / "README.md",
+    ROOT_DIR / "tests" / "e2e" / "test-scenarios.md",
 ]
 IGNORED_PREFIXES = ("http://", "https://", "mailto:", "#", "plugin://")
-REQUIRED_COMMANDS = ["diagnose", "fast-scan", "brd", "design", "match", "learn"]
+PRIMARY_DOC_FILES = [
+    ROOT_DIR / "README.md",
+    ROOT_DIR / "SKILL.md",
+    ROOT_DIR / "tests" / "README.md",
+    ROOT_DIR / "tests" / "e2e" / "README.md",
+    ROOT_DIR / "tests" / "e2e" / "test-scenarios.md",
+]
+LEGACY_UNSUPPORTED_MODES = {"audit"}
 
 
 def iter_markdown_files() -> List[Path]:
@@ -69,11 +83,31 @@ def check_local_links(path: Path, content: str, issues: List[str]) -> None:
 def check_mode_consistency(issues: List[str]) -> None:
     readme = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
     skill = (ROOT_DIR / "SKILL.md").read_text(encoding="utf-8")
-    for command in REQUIRED_COMMANDS:
+    for command in PRIMARY_COMMANDS:
         if f"`{command}`" not in readme:
             issues.append(f"README.md: missing command reference `{command}`")
-    if "## 六大模式" not in skill:
-        issues.append("SKILL.md: expected '## 六大模式'")
+    for command in AUXILIARY_COMMANDS:
+        if f"`{command}`" not in readme and command != "validate":
+            issues.append(f"README.md: missing auxiliary command reference `{command}`")
+    for view in ["weekly", "experiment-card", "decision-memo", "qbr"]:
+        if f"`{view}`" not in readme:
+            issues.append(f"README.md: missing view reference `{view}`")
+    if "## 七个核心入口" not in skill:
+        issues.append("SKILL.md: expected '## 七个核心入口'")
+    if "### 七个核心入口" not in readme:
+        issues.append("README.md: expected '### 七个核心入口'")
+
+    allowed_modes = set(PRIMARY_COMMANDS + AUXILIARY_COMMANDS + SCENARIO_COMMANDS + VIEW_CHOICES)
+    for path in PRIMARY_DOC_FILES:
+        content = path.read_text(encoding="utf-8")
+        for legacy_mode in LEGACY_UNSUPPORTED_MODES:
+            if re.search(rf"`{re.escape(legacy_mode)}`|\b{re.escape(legacy_mode)}\b", content):
+                issues.append(f"{path.relative_to(ROOT_DIR)}: references unsupported legacy mode `{legacy_mode}`")
+        for token in re.findall(r"`([a-z][a-z-]+)`", content):
+            if token in {"json", "report", "operator", "executive"}:
+                continue
+            if token not in allowed_modes and token not in {"python", "growth"}:
+                issues.append(f"{path.relative_to(ROOT_DIR)}: command/view `{token}` is not backed by the CLI contract")
 
 
 def main() -> int:

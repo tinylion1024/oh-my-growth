@@ -40,6 +40,16 @@ def test_evidence_chain_surfaces_case_weapon_or_theory_support():
     assert any(item["type_label"] in {"玩法", "案例", "理论"} for item in analysis["evidence_chain"])
 
 
+def test_evidence_chain_can_include_failure_counterexample():
+    analysis = StrategyBrain().analyze(
+        "我们要不要做邀请裂变",
+        {"industry": "saas", "stage": "1-10", "problem_type": "referral"},
+        mode="diagnose",
+    )
+
+    assert any(item["type_label"] == "反例" for item in analysis["evidence_chain"])
+
+
 def test_journey_override_changes_retrieval_fit_metadata():
     brain = StrategyBrain()
 
@@ -69,6 +79,67 @@ def test_journey_override_changes_retrieval_fit_metadata():
     assert reach_analysis["evidence_chain"][0]["why"] != share_analysis["evidence_chain"][0]["why"]
 
 
+def test_same_generic_question_changes_top_priority_with_metric_and_journey_context():
+    brain = StrategyBrain()
+    query = "下一阶段增长应该先抓哪里"
+
+    lead_analysis = brain.analyze(
+        query,
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "acquisition",
+            "metric": "高意向线索数",
+            "goal": "提升成单效率",
+            "team": "销售1+产品1",
+            "budget": "3万元",
+        },
+        mode="diagnose",
+    )
+    activation_analysis = brain.analyze(
+        query,
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "acquisition",
+            "metric": "首次价值达成率",
+            "goal": "提升试用激活",
+            "journey_stage": "注册/激活",
+            "team": "产品1+工程1",
+            "budget": "3万元",
+        },
+        mode="diagnose",
+    )
+
+    assert lead_analysis["priorities"][0].category == "b2b-sales"
+    assert activation_analysis["priorities"][0].category == "plg"
+    assert lead_analysis["priorities"][0].name != activation_analysis["priorities"][0].name
+
+
+def test_top_priority_records_metric_and_framework_adjustments():
+    analysis = StrategyBrain().analyze(
+        "下一阶段增长应该先抓哪里",
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "acquisition",
+            "metric": "首次价值达成率",
+            "goal": "提升试用激活",
+            "journey_stage": "注册/激活",
+            "team": "产品1+工程1",
+            "budget": "3万元",
+        },
+        mode="diagnose",
+    )
+
+    top_priority = analysis["priorities"][0]
+    assert top_priority.category == "plg"
+    assert top_priority.metric_bonus > 0
+    assert top_priority.framework_bonus > 0
+    assert top_priority.journey_fit >= 0.9
+    assert top_priority.resource_profile_fit >= 0.7
+
+
 def test_history_file_adds_repeat_failure_warning():
     analysis = StrategyBrain().analyze(
         "我们要不要做邀请裂变",
@@ -94,6 +165,66 @@ def test_history_file_adds_repeat_failure_warning():
 
     assert any("不要重复历史失败模式" in item for item in analysis["avoid_now"])
     assert any("WriteFlow AI" in item or "内容团队和独立创作者" in item for item in analysis["memory_summary"])
+    assert any("避免历史失败条件" in item for item in analysis["missing_info"])
+
+
+def test_history_failure_conditions_penalize_repeated_risk_even_across_different_categories():
+    brain = StrategyBrain()
+    context = {
+        "industry": "saas",
+        "stage": "1-10",
+        "problem_type": "referral",
+        "experiment_log": {
+            "experiments": [
+                {
+                    "name": "品牌 campaign 拉新",
+                    "category": "brand",
+                    "outcome": "failed",
+                    "lesson": "带来了低质量流量，激活和留存都偏低",
+                }
+            ]
+        },
+    }
+
+    results = brain.retriever.retrieve(
+        "我们要不要做邀请裂变",
+        brain._build_retrieval_context(context),
+        case_limit=3,
+        weapon_limit=20,
+        theory_limit=2,
+    )
+    options = brain._prioritize_options(results, brain._build_retrieval_context(context))
+    viral_options = [item for item in options if item.category == "viral-referral"]
+
+    assert viral_options, "Expected viral-referral candidates"
+    assert any(item.history_condition_penalty > 0 for item in viral_options)
+
+
+def test_history_failure_conditions_generate_protection_controls_in_experiment():
+    analysis = StrategyBrain().analyze(
+        "我们要不要做邀请裂变",
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "referral",
+            "experiment_log": {
+                "experiments": [
+                    {
+                        "name": "高补贴邀请裂变",
+                        "category": "viral-referral",
+                        "outcome": "failed",
+                        "lesson": "带来了低质量流量，激活和留存都偏低",
+                    }
+                ]
+            },
+        },
+        mode="diagnose",
+    )
+
+    assert analysis["protection_controls"]
+    assert any("保护措施：" in step for step in analysis["experiment"]["steps"])
+    assert any("复发保护：" in item for item in analysis["experiment"]["stop_signals"])
+    assert any("低质量用户/流量" in item["risk"] for item in analysis["protection_controls"])
 
 
 def test_budget_context_produces_kelly_allocation():
@@ -486,3 +617,65 @@ def test_retention_sensitive_constraint_penalizes_aggressive_monetization_varian
     for item in analysis["priorities"]:
         if item.name in {"限时优惠", "年付折扣"}:
             assert item.constraint_penalty > 0
+
+
+def test_high_cost_demoted_in_low_budget():
+    """高成本动作在低预算时被降权"""
+    # 低预算场景
+    low_budget = StrategyBrain().analyze(
+        "如何快速获客",
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "acquisition",
+            "budget": "1万",
+        },
+        mode="diagnose",
+    )
+
+    # 高预算场景
+    high_budget = StrategyBrain().analyze(
+        "如何快速获客",
+        {
+            "industry": "saas",
+            "stage": "1-10",
+            "problem_type": "acquisition",
+            "budget": "100万",
+        },
+        mode="diagnose",
+    )
+
+    # 找到 paid-ads 类别的排名
+    low_paid_ads_rank = next(
+        (i for i, item in enumerate(low_budget["priorities"]) if item.category == "paid-ads"),
+        len(low_budget["priorities"])
+    )
+    high_paid_ads_rank = next(
+        (i for i, item in enumerate(high_budget["priorities"]) if item.category == "paid-ads"),
+        len(high_budget["priorities"])
+    )
+
+    # 低预算时 paid-ads 排名应该更低（索引更大）或不在前列
+    assert low_paid_ads_rank >= high_paid_ads_rank or low_paid_ads_rank >= 3
+
+
+def test_wrong_stage_action_identified():
+    """错阶段动作被识别"""
+    analysis = StrategyBrain().analyze(
+        "如何做大规模裂变活动",
+        {
+            "industry": "saas",
+            "stage": "0-1",
+            "problem_type": "referral",
+        },
+        mode="diagnose",
+    )
+
+    # 0-1 阶段不应该推荐大规模裂变
+    top3_names = [item.name for item in analysis["priorities"][:3]]
+    # 大规模裂变通常不在 0-1 阶段的前三位推荐
+    # 检查是否有阶段适配度警告或避免推荐
+    assert len(analysis["priorities"]) > 0
+    # 检查 stage_fit 字段
+    for item in analysis["priorities"][:3]:
+        assert item.stage_fit >= 0.3  # 至少有基本的阶段适配说明

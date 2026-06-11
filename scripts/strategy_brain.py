@@ -106,6 +106,8 @@ class StrategyOption:
     key_risk: str
     stage_fit: float = 0.0
     resource_fit: float = 0.0
+    journey_fit: float = 0.0
+    resource_profile_fit: float = 0.0
     journey_stage: str = ""
     marketplace_side: str = ""
     guardrail_risk: str = ""
@@ -116,6 +118,11 @@ class StrategyOption:
     support_bonus: float = 0.0
     risk_penalty: float = 0.0
     constraint_penalty: float = 0.0
+    framework_bonus: float = 0.0
+    metric_bonus: float = 0.0
+    history_adjustment: float = 0.0
+    history_condition_penalty: float = 0.0
+    explicit_guardrail_penalty: float = 0.0
 
 
 class StrategyBrain:
@@ -125,58 +132,61 @@ class StrategyBrain:
         self.retriever = retriever or KnowledgeRetriever()
 
     def analyze(self, query: str, context: Dict[str, str], mode: str = "assess") -> Dict:
-        results = self.retriever.retrieve(query, context, case_limit=5, weapon_limit=6, theory_limit=3)
-        options = self._prioritize_options(results, context)
+        working_context = self._build_retrieval_context(context)
+        results = self.retriever.retrieve(query, working_context, case_limit=5, weapon_limit=6, theory_limit=3)
+        options = self._prioritize_options(results, working_context)
         top_option = options[0] if options else None
-        decision_text, confidence_label, posterior = self._build_confidence(query, context, results, top_option)
+        decision_text, confidence_label, posterior = self._build_confidence(query, working_context, results, top_option)
         decision_process = self._build_decision_process(options)
-        actions = self._build_actions(query, context, top_option, results)
-        growth_process = self._build_growth_process(context)
-        north_star = self._build_north_star(context)
-        evidence_chain = self._build_evidence_chain(results, top_option, context)
-        memory_summary = self._build_memory_summary(context)
-        kelly_allocation = self._build_kelly_allocation(context, top_option, posterior)
-        game_theory = self._build_game_theory_analysis(query, context, top_option)
-        failure_modes = self._build_failure_modes(context, top_option, results)
+        actions = self._build_actions(query, working_context, top_option, results)
+        growth_process = self._build_growth_process(working_context)
+        north_star = self._build_north_star(working_context)
+        evidence_chain = self._build_evidence_chain(results, top_option, working_context)
+        memory_summary = self._build_memory_summary(working_context)
+        kelly_allocation = self._build_kelly_allocation(working_context, top_option, posterior)
+        game_theory = self._build_game_theory_analysis(query, working_context, top_option)
+        failure_modes = self._build_failure_modes(working_context, top_option, results)
+        protection_controls = self._history_protection_controls(working_context, top_option)
         return {
             "query": query,
             "mode": mode,
-            "context_summary": self._build_context_summary(context),
-            "problem_label": PROBLEM_LABELS.get(context.get("problem_type", ""), "增长"),
-            "stage_diagnosis": self._build_stage_diagnosis(context),
+            "context_summary": self._build_context_summary(working_context),
+            "problem_label": PROBLEM_LABELS.get(working_context.get("problem_type", ""), "增长"),
+            "stage_diagnosis": self._build_stage_diagnosis(working_context),
             "growth_process": growth_process,
             "north_star": north_star,
-            "journey_focus": self._build_journey_focus(context),
-            "marketplace_diagnosis": self._build_marketplace_diagnosis(query, context, top_option, results),
-            "local_services_diagnosis": self._build_local_services_diagnosis(query, context, top_option, results),
-            "business_model_diagnosis": self._build_business_model_diagnosis(query, context, top_option, results),
-            "measurement_notes": self._build_measurement_notes(context, top_option, north_star, growth_process),
+            "journey_focus": self._build_journey_focus(working_context),
+            "marketplace_diagnosis": self._build_marketplace_diagnosis(query, working_context, top_option, results),
+            "local_services_diagnosis": self._build_local_services_diagnosis(query, working_context, top_option, results),
+            "business_model_diagnosis": self._build_business_model_diagnosis(query, working_context, top_option, results),
+            "measurement_notes": self._build_measurement_notes(working_context, top_option, north_star, growth_process),
             "evidence_chain": evidence_chain,
             "memory_summary": memory_summary,
             "kelly_allocation": kelly_allocation,
             "game_theory": game_theory,
             "failure_modes": failure_modes,
-            "decision_line": self._build_decision_line(query, context, top_option, decision_text, confidence_label),
-            "core_tension": self._build_core_tension(query, context, top_option, evidence_chain, results),
-            "why_now": self._build_why_now(context, top_option, results, evidence_chain),
+            "protection_controls": protection_controls,
+            "decision_line": self._build_decision_line(query, working_context, top_option, decision_text, confidence_label),
+            "core_tension": self._build_core_tension(query, working_context, top_option, evidence_chain, results),
+            "why_now": self._build_why_now(working_context, top_option, results, evidence_chain),
             "priorities": options[:3],
-            "do_now": self._build_do_now(top_option, context),
-            "avoid_now": self._build_avoid_now(top_option, context),
-            "experiment": self._build_experiment(query, context, top_option, results),
+            "do_now": self._build_do_now(top_option, working_context),
+            "avoid_now": self._build_avoid_now(top_option, working_context),
+            "experiment": self._build_experiment(query, working_context, top_option, results, protection_controls),
             "decision_process": decision_process,
-            "resource_allocation": self._build_resource_allocation(context, top_option, results),
+            "resource_allocation": self._build_resource_allocation(working_context, top_option, results),
             "actions": actions,
-            "projection": self._build_projection(context, top_option, results),
-            "review_trigger": self._build_review_trigger(context, top_option, results),
-            "caveats": self._build_caveats(top_option, context),
-            "missing_info": self._build_missing_info(context),
+            "projection": self._build_projection(working_context, top_option, results),
+            "review_trigger": self._build_review_trigger(working_context, top_option, results, protection_controls),
+            "caveats": self._build_caveats(top_option, working_context),
+            "missing_info": self._build_missing_info(working_context),
             "reference_cases": results["cases"][:3],
             "reference_theories": results["theories"][:2],
             "reference_failures": results.get("failures", [])[:2],
             "decision_text": decision_text,
             "confidence_label": confidence_label,
             "confidence_score": posterior,
-            "current_state": self._build_current_state(context, results),
+            "current_state": self._build_current_state(working_context, results),
         }
 
     def to_json(self, analysis: Dict) -> str:
@@ -454,6 +464,125 @@ class StrategyBrain:
             )
         return "\n".join(lines)
 
+    def to_assess_markdown(
+        self,
+        analysis: Dict,
+        clarity_score: float,
+        clarity_level: str,
+        can_proceed: bool,
+    ) -> str:
+        """Opportunity assessment before entering a deeper strategy mode."""
+        next_command = "diagnose"
+        if can_proceed and clarity_score >= 75 and analysis["priorities"]:
+            next_command = "design"
+
+        top_names = " / ".join(option.name for option in analysis["priorities"][:3]) if analysis["priorities"] else "待补充"
+        lines = [
+            "## Opportunity Assess",
+            "",
+            f"**当前判断**：{'可以进入下一步策略分析' if can_proceed else '先补关键信息，再进入策略分析'}",
+            f"**清晰度评分**：{clarity_score:.0f}/100（{clarity_level}）",
+            f"**问题归类**：{analysis['stage_diagnosis']['current_stage']} / {analysis['growth_process']['name']} / {analysis['journey_focus']['stage']}",
+            f"**当前最像的主抓手**：{top_names}",
+            "",
+            "**为什么值得继续看**：",
+        ]
+        for reason in analysis["why_now"][:3]:
+            lines.append(f"- {reason}")
+        lines.extend(["", "**已经具备的依据**："])
+        for item in analysis["evidence_chain"][:3]:
+            lines.append(f"- {item['type_label']}：{item['name']}，{item['why']}")
+        lines.extend(["", "**还缺什么**："])
+        for item in analysis["missing_info"][:4]:
+            lines.append(f"- {item}")
+        lines.extend(
+            [
+                "",
+                "**建议下一步**：",
+                f"- 先运行：`python scripts/cli.py {next_command} \"{analysis['query']}\" ...`",
+                f"- 先盯住：{analysis['north_star']['metric']}（约束线：{analysis['north_star']['guardrail']}）",
+            ]
+        )
+        return "\n".join(lines)
+
+    def to_design_markdown(self, analysis: Dict) -> str:
+        """Strategy-design output focused on implementation shape instead of diagnosis breadth."""
+        top_option = analysis["priorities"][0] if analysis["priorities"] else None
+        p0 = analysis["priorities"][:1]
+        p1 = analysis["priorities"][1:3]
+        top_case = self._top_case_reference(
+            {
+                "cases": analysis.get("reference_cases", []),
+                "theories": analysis.get("reference_theories", []),
+            }
+        )
+        top_theory = self._top_theory_reference(
+            {
+                "cases": analysis.get("reference_cases", []),
+                "theories": analysis.get("reference_theories", []),
+            }
+        )
+        lines = [
+            "## Strategy Design",
+            "",
+            f"**设计主题**：{analysis['query']}",
+            f"**主策略方向**：{analysis['decision_line']}",
+            "",
+            "**推荐玩法组合**：",
+            "",
+            "### P0 - 核心玩法",
+        ]
+        for option in p0:
+            lines.append(
+                f"- {option.name}（{option.category_name}）: 阶段匹配={option.stage_fit:.2f}，"
+                f"旅程匹配={option.journey_fit:.2f}，资源画像匹配={option.resource_profile_fit:.2f}"
+            )
+        lines.extend(["", "### P1 - 辅助玩法"])
+        for index, option in enumerate(p1):
+            why_not = analysis["decision_process"]["why_not"][index]["reason"] if index < len(analysis["decision_process"]["why_not"]) else option.key_risk
+            lines.append(
+                f"- {option.name}（{option.category_name}）: 为什么不是 P0 = {why_not}"
+            )
+        lines.extend(
+            [
+                "",
+                "### 组合协同",
+                f"- 当前先围绕「{top_option.name if top_option else '主抓手'}」做主验证，其他玩法只承担放大或辅助，不单独开新战线。",
+                "",
+                "## 设计原则",
+            ]
+        )
+        for reason in analysis["why_now"][:3]:
+            lines.append(f"- {reason}")
+        lines.extend(["", "## 实施路径"])
+        for action in analysis["actions"]:
+            lines.append(
+                f"- {action['name']}：负责人={action['owner']}，期限={action['deadline']}，验收={action['acceptance']}"
+            )
+        lines.extend(
+            [
+                "",
+                "## 关键指标",
+                f"- 北极星：{analysis['north_star']['metric']}",
+                f"- 旅程卡点：{analysis['journey_focus']['stage']} / {analysis['journey_focus']['focus']}",
+                f"- 约束线：{analysis['north_star']['guardrail']}",
+                "",
+                "## 数据与归因要求",
+            ]
+        )
+        for item in analysis["measurement_notes"]:
+            lines.append(f"- {item}")
+        lines.extend(["", "## 证据依据"])
+        for item in analysis["evidence_chain"][:4]:
+            lines.append(f"- {item['type_label']}：{item['name']}，{item['why']}")
+        if top_case or top_theory:
+            lines.extend(["", "## 理论 / 案例支撑"])
+            if top_case:
+                lines.append(f"- 案例：{top_case['name']}")
+            if top_theory:
+                lines.append(f"- 理论：{top_theory['name']}")
+        return "\n".join(lines)
+
     def to_weekly_markdown(self, analysis: Dict) -> str:
         """Weekly operating brief for growth owners."""
         action = analysis["actions"][0] if analysis["actions"] else {
@@ -487,6 +616,10 @@ class StrategyBrain:
         lines.extend(["", "**复盘检查点**："])
         lines.append(f"- 验收标准：{action['acceptance']}")
         lines.append(f"- 回看信号：{analysis['review_trigger']['signal']}")
+        if analysis.get("protection_controls"):
+            lines.append("- 复发保护：")
+            for item in analysis["protection_controls"][:2]:
+                lines.append(f"- 防止{item['risk']}：{item['guardrail']}")
         if analysis.get("kelly_allocation"):
             lines.extend(
                 [
@@ -543,6 +676,10 @@ class StrategyBrain:
         lines.extend(["", "**停止信号**："])
         for signal in analysis["experiment"]["stop_signals"]:
             lines.append(f"- {signal}")
+        if analysis.get("protection_controls"):
+            lines.extend(["", "**复发保护措施**："])
+            for item in analysis["protection_controls"][:2]:
+                lines.append(f"- 风险={item['risk']}：{item['control']}")
         if analysis.get("kelly_allocation"):
             lines.extend(
                 [
@@ -613,6 +750,10 @@ class StrategyBrain:
             lines.extend(["", "**失败陷阱**："])
             for item in analysis["failure_modes"][:2]:
                 lines.append(f"- {item['title']}：{item['summary']}")
+        if analysis.get("protection_controls"):
+            lines.extend(["", "**复发保护**："])
+            for item in analysis["protection_controls"][:2]:
+                lines.append(f"- 风险={item['risk']}；保护线={item['guardrail']}；停止条件={item['stop']}")
         if analysis["memory_summary"]:
             lines.extend(["", "**组织历史约束**："])
             for item in analysis["memory_summary"][:3]:
@@ -752,8 +893,9 @@ class StrategyBrain:
 
     def build_learning_path(self, query: str, context: Dict[str, str]) -> Dict[str, List[Dict[str, str]]]:
         """Build a lightweight learning path around the retrieval results."""
-        results = self.retriever.retrieve(query, context, case_limit=3, weapon_limit=4, theory_limit=3)
-        analysis = self.analyze(query, context, mode="learn")
+        working_context = self._build_retrieval_context(context)
+        results = self.retriever.retrieve(query, working_context, case_limit=3, weapon_limit=4, theory_limit=3)
+        analysis = self.analyze(query, working_context, mode="learn")
         guide_map = {
             "acquisition": [
                 {"name": "阶段判断", "file": "knowledge/guides/stage-diagnosis.md"},
@@ -784,6 +926,7 @@ class StrategyBrain:
             return (
                 f"阶段匹配={meta.get('stage_fit', 0):.2f}，"
                 f"旅程匹配={meta.get('journey_fit', 0):.2f}，"
+                f"资源匹配={meta.get('resource_fit', 0):.2f}，"
                 f"公司类型={meta.get('company_type', 'general')}"
             )
 
@@ -791,7 +934,8 @@ class StrategyBrain:
             meta = item.get("metadata", {})
             return (
                 f"主业务过程={meta.get('growth_process', '增长经营')}，"
-                f"旅程={meta.get('journey_stage', '待补充')}"
+                f"旅程={meta.get('journey_stage', '待补充')}，"
+                f"资源匹配={meta.get('resource_fit', 0):.2f}"
             )
 
         def weapon_reason(item: Dict[str, Any]) -> str:
@@ -799,7 +943,8 @@ class StrategyBrain:
             return (
                 f"类别={meta.get('category_name', meta.get('category', ''))}，"
                 f"阶段匹配={meta.get('stage_fit', 0):.2f}，"
-                f"旅程匹配={meta.get('journey_fit', 0):.2f}"
+                f"旅程匹配={meta.get('journey_fit', 0):.2f}，"
+                f"资源画像匹配={meta.get('resource_profile_fit', meta.get('resource_fit', 0)):.2f}"
             )
 
         return {
@@ -899,6 +1044,16 @@ class StrategyBrain:
             "guardrail": guardrail_map.get(problem, "不能破坏长期用户价值"),
             "reason": f"当前优先围绕 {metric} 配置资源，避免同时追太多指标。",
         }
+
+    def _build_retrieval_context(self, context: Dict[str, Any]) -> Dict[str, Any]:
+        working_context = dict(context)
+        if not working_context.get("growth_process"):
+            working_context["growth_process"] = self._build_growth_process(working_context)["name"]
+        if not working_context.get("journey_stage"):
+            working_context["journey_stage"] = self._build_journey_focus(working_context)["stage"]
+        if not working_context.get("metric"):
+            working_context["metric"] = self._primary_metric(working_context)
+        return working_context
 
     def _build_journey_focus(self, context: Dict[str, str]) -> Dict[str, str]:
         if context.get("journey_stage"):
@@ -1432,12 +1587,302 @@ class StrategyBrain:
             if not same_track:
                 continue
             if outcome in {"failed", "stop", "stopped", "negative"}:
-                adjustments -= 0.8
+                adjustments -= 1.0
                 notes.append(f"历史上同方向做过但未跑通：{lesson or exp_name or exp_category}")
             elif outcome in {"success", "succeeded", "positive", "validated"}:
-                adjustments += 0.3
+                adjustments += 0.45
                 notes.append(f"历史上同方向已有正向信号：{lesson or exp_name or exp_category}")
         return adjustments, "；".join(notes[:2])
+
+    def _history_repeat_risk_prompts(self, context: Dict[str, Any]) -> List[str]:
+        prompts: List[str] = []
+        readable = self._failure_tag_labels()
+        for item in self._get_experiment_log(context):
+            outcome = str(item.get("outcome", item.get("status", ""))).lower()
+            if outcome not in {"failed", "stop", "stopped", "negative"}:
+                continue
+            failure_text = " ".join(
+                [
+                    str(item.get("name", "")),
+                    str(item.get("lesson", "")),
+                    str(item.get("avoid_repeat", "")),
+                ]
+            )
+            tags = self._failure_condition_tags(failure_text)
+            if not tags:
+                continue
+            prompts.append("这次准备如何避免历史失败条件：" + "、".join(readable[tag] for tag in tags[:3]))
+        return prompts[:2]
+
+    def _history_protection_controls(
+        self,
+        context: Dict[str, Any],
+        top_option: Optional[StrategyOption],
+    ) -> List[Dict[str, str]]:
+        controls: List[Dict[str, str]] = []
+        readable = self._failure_tag_labels()
+        control_map = {
+            "low_quality_users": {
+                "control": "只统计高意向样本，拆开流量量与高意向转化率，不用总新增替代真实质量。",
+                "guardrail": "高意向转化率 / 激活率不能继续下滑",
+                "stop": "新增上涨但高意向转化或激活继续恶化时立即停",
+            },
+            "activation_drop": {
+                "control": "把首次价值达成率设成首个过程指标，先验证核心动作，不同时改多处 onboarding。",
+                "guardrail": "首次价值达成率不能低于当前基线",
+                "stop": "曝光或注册上涨但首次价值达成率不升反降时立即停",
+            },
+            "retention_damage": {
+                "control": "主实验之外单独监控 7 日 / 30 日留存，禁止用短期刺激替代真实回访。",
+                "guardrail": "7 日 / 30 日留存不能恶化",
+                "stop": "短期指标改善但留存或复访连续恶化时立即停",
+            },
+            "cac_loss": {
+                "control": "预算拆成小批次，先验证单渠道单位经济性，再决定是否加仓。",
+                "guardrail": "CAC 不能超出当前可接受区间",
+                "stop": "样本量尚小但 CAC 已明显失控时立即停",
+            },
+            "subsidy_abuse": {
+                "control": "把补贴和激励限定在小样本白名单，不让补贴直接决定传播动机。",
+                "guardrail": "补贴成本和作弊率不能失控",
+                "stop": "需要持续加大补贴才能维持指标时立即停",
+            },
+            "diffuse_execution": {
+                "control": "一次只改一个主机制，实验期间锁定其他变量，保证可归因。",
+                "guardrail": "实验窗口内不允许并行改多个主机制",
+                "stop": "一旦并行改动过多导致无法归因，本轮实验作废",
+            },
+            "lead_quality": {
+                "control": "把线索数和高意向线索/成单率分开看，先验证 ICP 与线索质量。",
+                "guardrail": "高意向线索率和 demo-to-close 不能继续下滑",
+                "stop": "线索数上涨但成交效率继续恶化时立即停",
+            },
+        }
+
+        option_tags = set(self._option_failure_condition_tags(top_option.category, top_option.name, {
+            "guardrail_risk": top_option.guardrail_risk,
+            "resource_profile": top_option.resource_profile,
+        })) if top_option else set()
+        problem_relevant_tags = {
+            "acquisition": {"low_quality_users", "cac_loss", "lead_quality", "activation_drop"},
+            "activation": {"activation_drop", "diffuse_execution"},
+            "retention": {"retention_damage", "diffuse_execution"},
+            "monetization": {"retention_damage", "cac_loss"},
+            "referral": {"low_quality_users", "subsidy_abuse", "activation_drop"},
+        }.get(str(context.get("problem_type", "")), set())
+        for item in self._get_experiment_log(context):
+            outcome = str(item.get("outcome", item.get("status", ""))).lower()
+            if outcome not in {"failed", "stop", "stopped", "negative"}:
+                continue
+            failure_text = " ".join(
+                [str(item.get("name", "")), str(item.get("lesson", "")), str(item.get("avoid_repeat", ""))]
+            )
+            failure_tags = self._failure_condition_tags(failure_text)
+            tags = [tag for tag in failure_tags if not option_tags or tag in option_tags]
+            if not tags:
+                tags = [tag for tag in failure_tags if tag in problem_relevant_tags]
+            for tag in tags[:2]:
+                if tag not in control_map:
+                    continue
+                controls.append(
+                    {
+                        "risk": readable[tag],
+                        "control": control_map[tag]["control"],
+                        "guardrail": control_map[tag]["guardrail"],
+                        "stop": control_map[tag]["stop"],
+                    }
+                )
+
+        deduped: List[Dict[str, str]] = []
+        seen = set()
+        for item in controls:
+            key = item["risk"]
+            if key in seen:
+                continue
+            seen.add(key)
+            deduped.append(item)
+        return deduped[:3]
+
+    def _normalize_text(self, text: Any) -> str:
+        return " ".join(str(text).lower().replace("_", " ").replace("-", " ").split())
+
+    def _failure_condition_tags(self, text: str) -> List[str]:
+        normalized = self._normalize_text(text)
+        mapping = {
+            "low_quality_users": ["低质量用户", "低质量流量", "羊毛", "薅羊毛", "意向低"],
+            "activation_drop": ["激活低", "激活偏低", "首次价值", "转化偏低", "转化低", "试用激活"],
+            "retention_damage": ["留存低", "留存偏低", "伤害留存", "假留存", "假活跃", "回访低"],
+            "cac_loss": ["cac", "获客成本", "成本高", "投放失控", "预算失控"],
+            "subsidy_abuse": ["高补贴", "补贴", "高激励", "激励滥用"],
+            "diffuse_execution": ["无法归因", "同时做太多", "太分散", "多机制同时"],
+            "lead_quality": ["线索质量", "高意向线索", "成交低", "成单低", "demo"],
+        }
+        tags = [tag for tag, keywords in mapping.items() if any(keyword in normalized for keyword in keywords)]
+        return tags
+
+    def _failure_tag_labels(self) -> Dict[str, str]:
+        return {
+            "low_quality_users": "低质量用户/流量",
+            "activation_drop": "激活不成立",
+            "retention_damage": "留存受损或假留存",
+            "cac_loss": "CAC/预算失控",
+            "subsidy_abuse": "高补贴或激励滥用",
+            "diffuse_execution": "动作过多导致无法归因",
+            "lead_quality": "线索质量不足",
+        }
+
+    def _option_failure_condition_tags(
+        self,
+        category: str,
+        weapon_name: str,
+        metadata: Dict[str, Any],
+    ) -> List[str]:
+        source = " ".join(
+            [
+                category,
+                weapon_name,
+                str(metadata.get("guardrail_risk", "")),
+                str(metadata.get("resource_profile", "")),
+            ]
+        )
+        tags = set(self._failure_condition_tags(source))
+        category_defaults = {
+            "viral-referral": {"low_quality_users", "subsidy_abuse"},
+            "paid-ads": {"cac_loss", "low_quality_users"},
+            "plg": {"activation_drop"},
+            "retention": {"retention_damage", "diffuse_execution"},
+            "monetization": {"retention_damage"},
+            "b2b-sales": {"lead_quality"},
+        }
+        tags.update(category_defaults.get(category, set()))
+        return list(tags)
+
+    def _history_failure_condition_adjustment(
+        self,
+        category: str,
+        weapon_name: str,
+        metadata: Dict[str, Any],
+        context: Dict[str, Any],
+    ) -> Tuple[float, str]:
+        option_tags = set(self._option_failure_condition_tags(category, weapon_name, metadata))
+        if not option_tags:
+            return 0.0, ""
+
+        penalty = 0.0
+        notes: List[str] = []
+        for item in self._get_experiment_log(context):
+            outcome = str(item.get("outcome", item.get("status", ""))).lower()
+            if outcome not in {"failed", "stop", "stopped", "negative"}:
+                continue
+            failure_text = " ".join(
+                [
+                    str(item.get("name", "")),
+                    str(item.get("lesson", "")),
+                    str(item.get("avoid_repeat", "")),
+                ]
+            )
+            failure_tags = set(self._failure_condition_tags(failure_text))
+            overlap = option_tags & failure_tags
+            if not overlap:
+                continue
+            penalty += 0.35
+            readable = self._failure_tag_labels()
+            notes.append("历史失败条件重复：" + "、".join(readable[tag] for tag in sorted(overlap)))
+        return min(0.9, penalty), "；".join(notes[:2])
+
+    def _metric_alignment_adjustment(
+        self,
+        category: str,
+        context: Dict[str, Any],
+    ) -> Tuple[float, List[str]]:
+        metric_text = self._normalize_text(" ".join([str(context.get("metric", "")), str(context.get("goal", ""))]))
+        if not metric_text:
+            return 0.0, []
+
+        category_tokens = {
+            "b2b-sales": ["线索", "高意向", "demo", "成交", "成单", "商机"],
+            "plg": ["首次价值", "激活", "试用", "onboarding", "产品使用", "转化"],
+            "content-growth": ["内容", "seo", "搜索", "自然流量", "品牌搜索"],
+            "brand": ["品牌", "心智", "品牌搜索"],
+            "viral-referral": ["分享", "邀请", "传播", "k 因子"],
+            "retention": ["留存", "复购", "回访", "活跃"],
+            "community": ["社区", "核心用户", "供给密度", "履约"],
+            "cold-start": ["首批用户", "种子用户", "订单", "履约", "撮合"],
+            "monetization": ["收入", "付费", "升级", "订阅", "arpu", "arppu"],
+            "paid-ads": ["cac", "投放", "点击", "获客成本"],
+        }
+        bonus = 0.0
+        notes: List[str] = []
+        hits = sum(1 for token in category_tokens.get(category, []) if token in metric_text)
+        if hits:
+            bonus += min(0.55, 0.22 + hits * 0.11)
+            notes.append("当前主指标直接要求这类动作贡献结果")
+        return bonus, notes[:1]
+
+    def _framework_alignment_adjustment(
+        self,
+        metadata: Dict[str, Any],
+        context: Dict[str, Any],
+    ) -> Tuple[float, List[str], List[str]]:
+        stage_fit = float(metadata.get("stage_fit", 0.0))
+        journey_fit = float(metadata.get("journey_fit", 0.0))
+        resource_fit = float(metadata.get("resource_fit", 0.0))
+        resource_profile_fit = float(metadata.get("resource_profile_fit", resource_fit))
+        growth_process = metadata.get("growth_process", "")
+        current_process = context.get("growth_process", "")
+
+        bonus = 0.0
+        support_notes: List[str] = []
+        risk_notes: List[str] = []
+
+        bonus += (stage_fit - 0.55) * 0.95
+        bonus += (journey_fit - 0.55) * 0.8
+        bonus += (resource_fit - 0.5) * 0.35
+        bonus += (resource_profile_fit - 0.5) * 0.55
+        if growth_process and growth_process == current_process:
+            bonus += 0.18
+            support_notes.append("主业务过程与当前问题一致")
+
+        if stage_fit >= 0.8:
+            support_notes.append("阶段匹配度高")
+        elif stage_fit <= 0.35:
+            risk_notes.append("阶段不够匹配")
+        if journey_fit >= 0.8:
+            support_notes.append("旅程节点对得上")
+        elif journey_fit <= 0.35:
+            risk_notes.append("旅程节点不够对齐")
+        if resource_profile_fit >= 0.75:
+            support_notes.append("资源画像更适合当前团队")
+        elif resource_profile_fit <= 0.35:
+            risk_notes.append("资源画像偏重，不适合当前团队")
+
+        return bonus, support_notes[:3], risk_notes[:3]
+
+    def _guardrail_adjustment_for_option(
+        self,
+        category: str,
+        metadata: Dict[str, Any],
+        context: Dict[str, Any],
+    ) -> Tuple[float, List[str]]:
+        guardrail_penalty = float(metadata.get("guardrail_penalty", 0.0))
+        guardrail_risk = str(metadata.get("guardrail_risk", ""))
+        problem = context.get("problem_type", "")
+        notes: List[str] = []
+
+        if guardrail_penalty > 0:
+            notes.append(f"当前约束线与该方向的已知风险冲突：{guardrail_risk}")
+
+        if problem == "acquisition" and category == "paid-ads":
+            guardrail_penalty += 0.08
+            notes.append("获客阶段要优先控制 CAC 和高意向转化质量")
+        if problem == "retention" and category in {"viral-referral", "paid-ads"}:
+            guardrail_penalty += 0.06
+            notes.append("当前重点是留存，不应先用拉新动作掩盖主价值问题")
+        if problem == "monetization" and "留存" in guardrail_risk:
+            guardrail_penalty += 0.08
+            notes.append("当前变现动作必须服从留存 guardrail")
+
+        return guardrail_penalty, notes[:2]
 
     def _build_context_summary(self, context: Dict[str, str]) -> str:
         parts = []
@@ -1473,6 +1918,10 @@ class StrategyBrain:
             bd.add_evidence(theory["name"], theory["metadata"]["evidence_tier"], "support")
         if top_option:
             bd.add_evidence(top_option.name, top_option.evidence_tier, "support")
+        for failure in results.get("failures", [])[:1]:
+            bd.add_evidence(f"反例：{failure['name']}", "C", "oppose")
+        if top_option and (top_option.constraint_penalty > 0.2 or top_option.explicit_guardrail_penalty > 0.1):
+            bd.add_evidence(f"{top_option.name} 的约束线风险", "D", "oppose")
 
         posterior = bd.update()
         decision_text = bd.get_decision_text()
@@ -1509,9 +1958,9 @@ class StrategyBrain:
                     "type_label": "玩法",
                     "name": top_option.name,
                     "why": (
-                        f"阶段匹配={top_option.stage_fit:.2f}，资源匹配={top_option.resource_fit:.2f}，"
-                        f"索引旅程={top_option.journey_stage or '未明确'}"
-                        + (f"，当前关注旅程={requested_journey}" if requested_journey else "")
+                        f"在「{top_option.journey_stage or '核心旅程'}」节点的匹配度达 {top_option.journey_fit:.2f}，"
+                        f"资源画像匹配度 {top_option.resource_profile_fit:.2f}。目前已识别的支持证据包括「{'；'.join(top_option.evidence_support[:1])}」。"
+                        + (f" 需警惕约束线风险：{top_option.guardrail_risk}。" if top_option.guardrail_risk else "")
                     ),
                     "evidence_tier": top_option.evidence_tier,
                 }
@@ -1521,7 +1970,10 @@ class StrategyBrain:
                 {
                     "type_label": "案例",
                     "name": case["name"],
-                    "why": f"相似度={case['score']:.2f}，阶段匹配={case['metadata'].get('stage_fit', 0):.2f}，旅程匹配={case['metadata'].get('journey_fit', 0):.2f}",
+                    "why": (
+                        f"该案例在「{case['metadata'].get('journey_stage', '相应旅程')}」中展现了可复用的增长路径，相似度为 {case['score']:.2f}。"
+                        + (f" 关键可复制点：{case['highlights'][0]}。" if case.get("highlights") else "")
+                    ),
                     "evidence_tier": case["metadata"].get("evidence_tier", "C"),
                 }
             )
@@ -1530,8 +1982,23 @@ class StrategyBrain:
                 {
                     "type_label": "理论",
                     "name": theory["name"],
-                    "why": f"问题场景相关度={theory['score']:.2f}",
+                    "why": (
+                        f"理论提供了底层机制的支撑（相关度 {theory['score']:.2f}），重点解释了「{theory['metadata'].get('growth_process', '主业务过程')}」的运作逻辑。"
+                        + (f" 核心准则：{theory['highlights'][0]}。" if theory.get("highlights") else "")
+                    ),
                     "evidence_tier": theory["metadata"].get("evidence_tier", "B"),
+                }
+            )
+        for failure in results.get("failures", [])[:1]:
+            chain.append(
+                {
+                    "type_label": "反例",
+                    "name": failure["name"],
+                    "why": (
+                        f"警告：检测到与当前决策相似的失败模式「{failure['metadata'].get('summary', '待补充')}」。"
+                        f"在「{failure['metadata'].get('journey_stage', '对应旅程')}」中存在失效风险。"
+                    ),
+                    "evidence_tier": "C",
                 }
             )
         return chain
@@ -1555,15 +2022,19 @@ class StrategyBrain:
         problem = context.get("problem_type", "")
         stage = context.get("stage", "")
         evidence_parts: List[str] = []
-        if evidence_chain:
-            evidence_parts.append(f"从「{evidence_chain[0]['name']}」看")
-        if results:
-            top_case = self._top_case_reference(results)
-            top_theory = self._top_theory_reference(results)
-            if top_case:
-                evidence_parts.append(f"案例「{top_case['name']}」说明需要先抓住可复制主路径")
-            if top_theory:
-                evidence_parts.append(f"理论「{top_theory['name']}」提醒要先验证机制成立条件")
+
+        top_case = self._top_case_reference(results) if results else None
+        top_theory = self._top_theory_reference(results) if results else None
+
+        if top_case:
+            case_highlights = top_case.get("highlights")
+            case_insight = case_highlights[0] if case_highlights else "先抓住可复制主路径"
+            evidence_parts.append(f"案例「{top_case['name']}」提供的关键洞察是「{case_insight}」")
+        if top_theory:
+            theory_highlights = top_theory.get("highlights")
+            theory_insight = theory_highlights[0] if theory_highlights else "要先验证机制成立条件"
+            evidence_parts.append(f"遵循理论「{top_theory['name']}」的核心原则「{theory_insight}」")
+
         evidence_hint = "；".join(evidence_parts) + "，" if evidence_parts else ""
         if self._business_model_kind(context) == "local-services" and problem == "acquisition":
             density_focus = self._local_services_density_focus(query, context)
@@ -1598,29 +2069,42 @@ class StrategyBrain:
         reasons = []
         if top_option:
             reasons.append(
-                f"主策略「{top_option.name}」兼顾影响和复杂度，当前排序得分 {top_option.score:.2f}，阶段匹配 {top_option.stage_fit:.2f}。"
+                f"首选「{top_option.name}」是因为它在当前资源和阶段约束下具有最高的落地确定性。其画像匹配度达 {top_option.resource_profile_fit:.2f}，"
+                f"且与目标旅程节点「{top_option.journey_stage or '核心路径'}」高度契合。"
             )
             if top_option.evidence_support:
-                reasons.append(f"支持它的直接证据包括：{'；'.join(top_option.evidence_support[:2])}。")
+                reasons.append(f"该判断得到了以下直接证据的支持：{'；'.join(top_option.evidence_support[:2])}。")
+            if top_option.metric_bonus > 0:
+                reasons.append(f"由于该方向与当前主指标「{self._primary_metric(context)}」直接关联，我们显式提升了其优先级。")
             if top_option.risk_signals:
-                reasons.append(f"同时已识别的主要失效条件是：{'；'.join(top_option.risk_signals[:1])}。")
-        if results["cases"]:
-            top_case = results["cases"][0]
-            reasons.append(
-                f"案例「{top_case['name']}」与当前问题相似度 {top_case['score']:.2f}，可提供可复制证据。"
-            )
-        if results["theories"]:
-            top_theory = results["theories"][0]
-            reasons.append(
-                f"理论「{top_theory['name']}」与当前问题相关度 {top_theory['score']:.2f}，可用于解释机制成立条件。"
-            )
+                reasons.append(f"需要警惕的潜在风险或失效信号是：{'；'.join(top_option.risk_signals[:1])}。")
+
+        top_case = self._top_case_reference(results)
+        if top_case:
+            case_reason = f"案例「{top_case['name']}」提供了极其相似的场景证据（相似度 {top_case['score']:.2f}）"
+            if top_case.get("highlights"):
+                case_reason += f"，其成功的关键动作「{top_case['highlights'][0]}」具备直接迁移价值。"
+            reasons.append(case_reason)
+
+        top_theory = self._top_theory_reference(results)
+        if top_theory:
+            theory_reason = f"从增长底层逻辑看，理论「{top_theory['name']}」解释了为什么在当前阶段必须优先关注「{top_theory['metadata'].get('growth_process', '主业务过程')}」"
+            if top_theory.get("highlights"):
+                theory_reason += f"，并给出了「{top_theory['highlights'][0]}」作为执行准则。"
+            reasons.append(theory_reason)
+
         if context.get("stage"):
-            reasons.append(f"当前处于{STAGE_LABELS.get(context['stage'], context['stage'])}，更适合先做可快速验证的动作。")
-        if evidence_chain and top_option and top_option.guardrail_risk:
-            reasons.append(f"同时需控制约束线风险：{top_option.guardrail_risk}。")
+            stage_label = STAGE_LABELS.get(context["stage"], context["stage"])
+            stage_focus = STAGE_FRAMEWORK.get(context["stage"], {}).get("focus", "快速验证")
+            reasons.append(f"考虑到当前处于 {stage_label} 阶段，决策重心应放在「{stage_focus}」上。")
+
         profile = self._get_company_profile(context)
         if profile.get("target_user"):
-            reasons.append(f"当前目标用户是「{profile['target_user']}」，优先级判断需围绕这类用户的高意向动作展开。")
+            reasons.append(f"基于目标用户群「{profile['target_user']}」的行为特征，该策略更有利于在核心触点产生真实价值。")
+
+        if top_option and top_option.explicit_guardrail_penalty > 0:
+            reasons.append(f"注意：虽然该策略被推荐，但由于触及约束线（扣分 {top_option.explicit_guardrail_penalty:.2f}），执行时必须严格遵守保护措施。")
+
         return reasons
 
     def _evidence_adjustments_for_option(
@@ -1761,10 +2245,10 @@ class StrategyBrain:
         impact_score = {"High": 3.0, "Medium": 2.0, "Low": 1.0}
         effort_penalty = {"Low": 0.2, "Medium": 0.7, "High": 1.2}
         category_fit = {
-            "acquisition": {"cold-start": 1.2, "plg": 1.0, "content-growth": 0.8, "paid-ads": 0.5, "b2b-sales": 1.15},
+            "acquisition": {"cold-start": 1.2, "plg": 1.0, "content-growth": 0.8, "paid-ads": 0.5, "b2b-sales": 0.55},
             "activation": {"plg": 1.2, "retention": 0.8, "community": 0.6},
             "retention": {"retention": 1.2, "community": 0.8, "plg": 0.6},
-            "monetization": {"monetization": 1.2, "plg": 0.8, "b2b-sales": 0.7},
+            "monetization": {"monetization": 1.2, "plg": 0.8, "b2b-sales": 0.5},
             "referral": {"viral-referral": 1.2, "plg": 0.7, "community": 0.6},
         }
 
@@ -1784,23 +2268,38 @@ class StrategyBrain:
             if stage == "10-100" and category == "paid-ads":
                 fit_bonus += 0.2
             history_adjustment, history_note = self._history_score_adjustment(category, weapon["name"], context)
+            history_condition_penalty, history_condition_note = self._history_failure_condition_adjustment(
+                category,
+                weapon["name"],
+                metadata,
+                context,
+            )
+            metric_bonus, metric_notes = self._metric_alignment_adjustment(category, context)
             business_model_bonus, business_model_notes = self._business_model_adjustment(category, context)
+            framework_bonus, framework_support_notes, framework_risk_notes = self._framework_alignment_adjustment(
+                metadata, context
+            )
             support_bonus, risk_penalty, support_notes, risk_notes = self._evidence_adjustments_for_option(
                 metadata, results, context
             )
             constraint_penalty, constraint_notes = self._constraint_adjustment_for_option(
                 category, weapon["name"], metadata, context
             )
+            guardrail_penalty, guardrail_notes = self._guardrail_adjustment_for_option(category, metadata, context)
 
             score = (
                 base_score
                 + fit_bonus
                 + impact_bonus
+                + metric_bonus
                 + business_model_bonus
+                + framework_bonus
                 + support_bonus
                 - effort_cost
                 - risk_penalty
                 - constraint_penalty
+                - history_condition_penalty
+                - guardrail_penalty
                 + history_adjustment
             )
             why_now = self._option_why_now(category, metadata["effort"], metadata["impact"], stage)
@@ -1809,14 +2308,24 @@ class StrategyBrain:
                 why_now = f"{why_now} {history_note}"
             if history_adjustment < 0 and history_note:
                 key_risk = f"{key_risk} {history_note}"
+            if history_condition_note:
+                key_risk = f"{key_risk} {history_condition_note}。"
+            if metric_notes:
+                why_now = f"{why_now} {'；'.join(metric_notes)}。"
             if business_model_notes:
                 why_now = f"{why_now} {'；'.join(business_model_notes)}。"
+            if framework_support_notes:
+                why_now = f"{why_now} {'；'.join(framework_support_notes[:2])}。"
             if support_notes:
                 why_now = f"{why_now} {'；'.join(support_notes[:2])}。"
+            if framework_risk_notes:
+                key_risk = f"{key_risk} {'；'.join(framework_risk_notes[:2])}。"
             if risk_notes:
                 key_risk = f"{key_risk} {'；'.join(risk_notes[:2])}。"
             if constraint_notes:
                 key_risk = f"{key_risk} {'；'.join(constraint_notes)}。"
+            if guardrail_notes:
+                key_risk = f"{key_risk} {'；'.join(guardrail_notes)}。"
             options.append(
                 StrategyOption(
                     name=weapon["name"],
@@ -1830,6 +2339,8 @@ class StrategyBrain:
                     key_risk=key_risk,
                     stage_fit=metadata.get("stage_fit", 0.0),
                     resource_fit=metadata.get("resource_fit", 0.0),
+                    journey_fit=metadata.get("journey_fit", 0.0),
+                    resource_profile_fit=metadata.get("resource_profile_fit", metadata.get("resource_fit", 0.0)),
                     journey_stage=metadata.get("journey_stage", ""),
                     marketplace_side=metadata.get("marketplace_side", ""),
                     guardrail_risk=metadata.get("guardrail_risk", ""),
@@ -1840,6 +2351,11 @@ class StrategyBrain:
                     support_bonus=round(support_bonus, 2),
                     risk_penalty=round(risk_penalty, 2),
                     constraint_penalty=round(constraint_penalty, 2),
+                    framework_bonus=round(framework_bonus, 2),
+                    metric_bonus=round(metric_bonus, 2),
+                    history_adjustment=round(history_adjustment, 2),
+                    history_condition_penalty=round(history_condition_penalty, 2),
+                    explicit_guardrail_penalty=round(guardrail_penalty, 2),
                 )
             )
 
@@ -1902,6 +2418,10 @@ class StrategyBrain:
             avoid_repeat = str(item.get("avoid_repeat", item.get("lesson", ""))).strip()
             if outcome in {"failed", "stop", "stopped", "negative"} and avoid_repeat:
                 avoid_list.append(f"不要重复历史失败模式：{avoid_repeat}")
+            elif outcome in {"failed", "stop", "stopped", "negative"}:
+                failure_prompts = self._history_repeat_risk_prompts({"experiment_log": {"experiments": [item]}})
+                if failure_prompts:
+                    avoid_list.append(failure_prompts[0].replace("这次准备如何避免历史失败条件：", "不要重演历史失败条件："))
         if stage == "0-1":
             avoid_list.append("不要先追求规模化自动化，把人肉验证做透更重要。")
         if context.get("problem_type") == "monetization":
@@ -1914,6 +2434,7 @@ class StrategyBrain:
         context: Dict[str, str],
         top_option: Optional[StrategyOption],
         results: Dict[str, Any],
+        protection_controls: List[Dict[str, str]],
     ) -> Dict[str, Union[List[str], str]]:
         metric = self._primary_metric(context)
         if top_option is None:
@@ -1951,6 +2472,8 @@ class StrategyBrain:
             steps.insert(1, f"把案例「{top_case['name']}」中的做法「{case_highlight}」转成当前业务可执行版本。")
         if theory_highlight:
             steps.append(f"实验设计优先遵循「{top_theory['name']}」中的原则：{theory_highlight}。")
+        for control in protection_controls[:2]:
+            steps.append(f"保护措施：针对「{control['risk']}」，{control['control']}")
 
         success_signals = [
             f"{metric} 出现持续改善趋势。",
@@ -1958,6 +2481,8 @@ class StrategyBrain:
         ]
         if top_case:
             success_signals.append(f"关键过程指标开始接近案例「{top_case['name']}」对应的可复制动作。")
+        for control in protection_controls[:2]:
+            success_signals.append(f"保护指标成立：{control['guardrail']}。")
 
         stop_signals = [
             "用户质量明显下滑或核心留存受损。",
@@ -1965,6 +2490,8 @@ class StrategyBrain:
         ]
         if top_theory:
             stop_signals.append(f"如果连「{top_theory['name']}」要求的基础机制都无法成立，应停止继续放大。")
+        for control in protection_controls[:2]:
+            stop_signals.append(f"复发保护：{control['stop']}。")
 
         return {
             "hypothesis": hypothesis,
@@ -1983,6 +2510,8 @@ class StrategyBrain:
             prompts.append("可投入的人力角色和数量")
         if not context.get("history") and not self._get_experiment_log(context):
             prompts.append("过去做过哪些尝试，效果如何")
+        elif self._get_experiment_log(context):
+            prompts.extend(self._history_repeat_risk_prompts(context))
         if not context.get("constraints"):
             prompts.append("当前不能突破的业务/产品/合规约束")
         if not self._get_company_profile(context):
@@ -2024,7 +2553,8 @@ class StrategyBrain:
                 {
                     "name": option.name,
                     "reason": (
-                        f"{risk_hint}；阶段匹配={option.stage_fit:.2f}，资源匹配={option.resource_fit:.2f}；"
+                        f"{risk_hint}；阶段匹配={option.stage_fit:.2f}，旅程匹配={option.journey_fit:.2f}，"
+                        f"资源匹配={option.resource_fit:.2f}，资源画像匹配={option.resource_profile_fit:.2f}；"
                         f"支持证据：{support_hint}"
                     ),
                 }
@@ -2132,6 +2662,7 @@ class StrategyBrain:
         context: Dict[str, str],
         top_option: Optional[StrategyOption],
         results: Dict[str, Any],
+        protection_controls: List[Dict[str, str]],
     ) -> Dict[str, str]:
         metric = self._primary_metric(context)
         top_case = self._top_case_reference(results)
@@ -2147,6 +2678,8 @@ class StrategyBrain:
                 parts.append(f"对照案例「{top_case['name']}」的关键动作是否落地")
             if top_theory:
                 parts.append(f"核查理论「{top_theory['name']}」要求的机制是否成立")
+            for control in protection_controls[:2]:
+                parts.append(f"检查保护措施是否避免「{control['risk']}」")
             evidence = "；".join(parts) + " (observed)"
         return {
             "time": "7-14 天后复盘一次，30 天后决定是否放大",
