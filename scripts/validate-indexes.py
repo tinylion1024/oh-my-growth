@@ -38,6 +38,22 @@ def validate_index(file_path, required_fields, items_key, required_item_fields):
         file_ref = item.get("file")
         if file_ref and not (ROOT_DIR / "knowledge" / file_ref).exists():
             return False, f"Referenced file does not exist: knowledge/{file_ref}"
+        if "failure_refs" in item:
+            if not isinstance(item["failure_refs"], list):
+                return False, f"failure_refs must be a list: {item}"
+            for failure_ref in item["failure_refs"]:
+                if not (ROOT_DIR / failure_ref).exists():
+                    return False, f"Referenced failure doc does not exist: {failure_ref}"
+        if "stage_fit" in item and not isinstance(item["stage_fit"], list):
+            return False, f"stage_fit must be a list: {item}"
+        if "growth_process" in item and not isinstance(item["growth_process"], str):
+            return False, f"growth_process must be a string: {item}"
+        if "journey_stage" in item and not isinstance(item["journey_stage"], str):
+            return False, f"journey_stage must be a string: {item}"
+        if "marketplace_side" in item and not isinstance(item["marketplace_side"], str):
+            return False, f"marketplace_side must be a string: {item}"
+        if "problem_types" in item and not isinstance(item["problem_types"], list):
+            return False, f"problem_types must be a list: {item}"
 
     return True, "Valid"
 
@@ -52,7 +68,7 @@ def main():
             cases_index,
             ['metadata', 'cases'],
             'cases',
-            ['id', 'name', 'file', 'summary', 'tags']
+            ['id', 'name', 'file', 'summary', 'tags', 'growth_process', 'journey_stage', 'stage_fit', 'company_type', 'marketplace_side', 'resource_profile', 'failure_refs']
         )
         if valid:
             print(f"✅ {cases_index}")
@@ -68,7 +84,7 @@ def main():
             weapons_index,
             ['metadata', 'categories', 'weapons'],
             'weapons',
-            ['id', 'name', 'category', 'effort', 'impact', 'evidence_tier']
+            ['id', 'name', 'category', 'effort', 'impact', 'evidence_tier', 'growth_process', 'journey_stage', 'stage_fit', 'marketplace_side', 'resource_profile', 'guardrail_risk', 'failure_refs']
         )
         if valid:
             print(f"✅ {weapons_index}")
@@ -84,7 +100,7 @@ def main():
             theories_index,
             ['metadata', 'theories'],
             'theories',
-            ['id', 'name', 'file', 'core_question', 'core_principles']
+            ['id', 'name', 'file', 'core_question', 'core_principles', 'growth_process', 'journey_stage', 'stage_fit', 'company_type', 'marketplace_side', 'resource_profile', 'failure_refs']
         )
         if valid:
             print(f"✅ {theories_index}")
@@ -92,6 +108,22 @@ def main():
             errors.append(f"{theories_index}: {msg}")
     else:
         errors.append(f"Missing: {theories_index}")
+
+    # Validate failures index
+    failures_index = indexes_dir / 'failures-index.json'
+    if failures_index.exists():
+        valid, msg = validate_index(
+            failures_index,
+            ['metadata', 'failures'],
+            'failures',
+            ['id', 'name', 'file', 'growth_process', 'journey_stage', 'problem_types', 'summary']
+        )
+        if valid:
+            print(f"✅ {failures_index}")
+        else:
+            errors.append(f"{failures_index}: {msg}")
+    else:
+        errors.append(f"Missing: {failures_index}")
 
     if errors:
         print("\n❌ Validation errors:")

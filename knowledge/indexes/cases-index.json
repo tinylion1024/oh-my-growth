@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.2.0",
-    "last_updated": "2026-06-06",
+    "last_updated": "2026-06-09",
     "total_cases": 81,
     "evidence_tier_definition": {
       "A": "元分析、系统综述、官方统计、权威教材",
@@ -52,7 +52,18 @@
         "框架：",
         "2. 成本叙事引爆传播",
         "执行步骤："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "douyin-algorithm",
@@ -88,7 +99,14 @@
         "2. 短视频内容运营方法论",
         "内容运营SOP：",
         "3. 工具赋能降低创作门槛"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "bilibili",
@@ -127,7 +145,16 @@
         "2. 用户等级体系设计",
         "用户成长体系设计：",
         "积分体系设计："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "ctrip",
@@ -168,7 +195,16 @@
         "2. 服务保障体系设计",
         "服务保障体系：",
         "3. 供应链建设方法论"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "marketplace",
+      "resource_profile": "平台型增长，需要供给与需求两侧协同",
+      "failure_refs": [],
+      "marketplace_side": "liquidity"
     },
     {
       "id": "taobao-live",
@@ -207,7 +243,16 @@
         "2. 主播培养路径",
         "3. 内容节奏设计",
         "标准直播流程："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "zhihu",
@@ -246,7 +291,16 @@
         "2. 专业内容破圈策略",
         "破圈执行路径：",
         "内容破圈原则："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "kuaishou-baina",
@@ -285,7 +339,19 @@
         "1. 信息差裂变设计",
         "2. 阶梯奖励临界点设计",
         "3. 隐藏任务稀缺感营造"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "ant-forest",
@@ -326,7 +392,16 @@
         "2. 真实反馈增强成就感",
         "真实反馈设计：",
         "3. 社交+环保的结合"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "widget-growth",
@@ -363,7 +438,16 @@
         "2. 控制型Widget：嵌入核心功能增加打开频率",
         "设计框架：",
         "3. 分享型设计：Widget截图传播种草"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "child-english-insight",
@@ -400,7 +484,16 @@
         "2. 洞察应用流程",
         "洞察应用框架：",
         "3. 洞察能力提升"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "wechat-pay",
@@ -441,7 +534,16 @@
         "2. 线下支付拓展策略",
         "线下支付拓展：",
         "3. 微信生态协同"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "qutoutiao",
@@ -479,7 +581,19 @@
         "收徒体系框架：",
         "2. 金币激励设计",
         "激励体系框架："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "wechat-redpacket",
@@ -519,7 +633,17 @@
         "2. 节日营销与产品结合",
         "节日营销SOP：",
         "3. 支付产品的社交裂变策略"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "beike",
@@ -557,7 +681,16 @@
         "2. ACN经纪人协作网络",
         "ACN设计框架：",
         "3. 技术赋能传统行业"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "marketplace",
+      "resource_profile": "平台型增长，需要供给与需求两侧协同",
+      "failure_refs": [],
+      "marketplace_side": "liquidity"
     },
     {
       "id": "zhipu-ai",
@@ -597,7 +730,16 @@
         "框架：",
         "2. Z计划创投生态模式",
         "执行步骤："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "white-get-gift",
@@ -633,7 +775,19 @@
       },
       "key_metrics": {},
       "summary": "\"白拿送礼\"是一种结合社交裂变与游戏化的电商增长玩法，核心理念是\"免费获得商品\"或\"通过送礼实现双向优惠\"。**背景洞察：**- 2018-2022年中国礼物经济产业市场规模从8000亿元增至12262亿元- 预计2027年中国礼物经济市场规模将达16197亿元- 春节、中秋等传统节日，82%消费者有购买礼物习惯- 消费者希望通过朋友推荐、社交互动完成购物...",
-      "replicable_points": []
+      "replicable_points": [],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "douyin-pay",
@@ -672,7 +826,16 @@
         "2. 电商+支付+金融的闭环",
         "闭环设计：",
         "3. 补贴获客策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "jd-finance",
@@ -711,7 +874,16 @@
         "2. 信用评估方法论",
         "数据驱动信用评估：",
         "3. 场景分期拓展"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "dewu",
@@ -752,7 +924,16 @@
         "2. 社区+电商闭环",
         "社区电商闭环设计：",
         "3. 垂直人群扩展策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "mita-ai-search",
@@ -790,7 +971,16 @@
         "框架：",
         "2. 深度研究能力建设",
         "执行步骤："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "xiaohongshu",
@@ -829,7 +1019,16 @@
         "内容方向规划：",
         "2. 种草转化链路设计",
         "转化路径优化："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "didi",
@@ -870,7 +1069,16 @@
         "2. 平台安全体系构建",
         "安全体系设计：",
         "3. 多元化业务布局"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "local-services",
+      "resource_profile": "需要单城/单区域运营、供给履约协同和线下执行能力",
+      "failure_refs": [],
+      "marketplace_side": "liquidity"
     },
     {
       "id": "douyin-jisu-ban",
@@ -911,7 +1119,19 @@
         "2. 邀请裂变机制",
         "邀请设计：",
         "3. 极速版策略"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "jd-member-ops",
@@ -951,7 +1171,16 @@
         "2. 用户生命周期运营",
         "生命周期管理SOP：",
         "3. 数据驱动的个性化"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "local-services",
+      "resource_profile": "需要单城/单区域运营、供给履约协同和线下执行能力",
+      "failure_refs": [],
+      "marketplace_side": "demand"
     },
     {
       "id": "silver-hair-growth",
@@ -988,7 +1217,19 @@
         "1. 银发激励体系设计框架",
         "2. 师徒制裂变设计框架",
         "3. 银发产品设计检查清单"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "momo",
@@ -1029,7 +1270,16 @@
         "2. 直播转型的策略",
         "社交平台直播转型SOP：",
         "3. 功能矩阵满足多元需求"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "pinduoduo-group-buy",
@@ -1071,7 +1321,19 @@
         "执行步骤：",
         "2. 微信生态裂变路径",
         "触点矩阵："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "vipshop",
@@ -1111,7 +1373,16 @@
         "2. 限时抢购的玩法设计",
         "限时抢购SOP：",
         "3. 供应链与运营协同"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "kuaishou-jisu-ban",
@@ -1151,7 +1422,19 @@
         "现金体系框架：",
         "2. 极速版产品策略",
         "精简版设计："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "alipay",
@@ -1193,7 +1476,16 @@
         "2. 公益+社交的产品设计",
         "公益产品设计：",
         "3. 金融产品矩阵搭建"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "baba-farm",
@@ -1230,7 +1522,20 @@
       },
       "key_metrics": {},
       "summary": "芭芭农场是淘宝APP内的互动游戏模块，于2020年上线。核心玩法是用户通过虚拟种植果树完成任务，获得肥料浇水施肥，最终免费领取真实水果。**背景洞察：**- 中国人对于种菜的田园生活有天然渴望- 从QQ农场偷菜到如今的免费领水果，证明农场养成具有持续吸引力- 利用碎片化时间，既能享受\"种豆得豆、种瓜得瓜\"的游戏乐趣，又能获得免费水果**产品定位：**...",
-      "replicable_points": []
+      "replicable_points": [],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md",
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "soul",
@@ -1263,7 +1568,16 @@
       },
       "key_metrics": {},
       "summary": "",
-      "replicable_points": []
+      "replicable_points": [],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "minimax-ai",
@@ -1307,7 +1621,18 @@
         "2. 游戏化情感陪伴产品设计",
         "执行步骤：",
         "3. 视频生成产品低价渗透"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "doubao-bytedance",
@@ -1349,7 +1674,18 @@
         "框架：",
         "2. APP工厂模式",
         "执行步骤："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "webank",
@@ -1385,7 +1721,16 @@
         "2. 信用评估方法",
         "数据驱动信用评估：",
         "3. 场景金融拓展"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "tencent-yuanbao",
@@ -1424,7 +1769,16 @@
         "2. 生态嵌入的流量转化策略",
         "框架：",
         "3. 饱和式投流的节奏把控"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "ele",
@@ -1464,7 +1818,16 @@
         "2. 商家赋能策略",
         "商家赋能框架：",
         "3. 生态协同模式"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "local-services",
+      "resource_profile": "需要单城/单区域运营、供给履约协同和线下执行能力",
+      "failure_refs": [],
+      "marketplace_side": "supply"
     },
     {
       "id": "kimi-moonshot-ai",
@@ -1507,7 +1870,18 @@
         "框架：",
         "2. 内容营销引爆",
         "执行步骤："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "douyin-ecommerce",
@@ -1544,7 +1918,14 @@
         "2. 直播间运营方法",
         "提升留存率的技巧：",
         "提升转化率的技巧："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "meituan",
@@ -1580,7 +1961,16 @@
         "2. 超级平台交叉销售逻辑",
         "交叉销售设计：",
         "3. 供给端拓展方法论"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "local-services",
+      "resource_profile": "需要单城/单区域运营、供给履约协同和线下执行能力",
+      "failure_refs": [],
+      "marketplace_side": "supply"
     },
     {
       "id": "yunji",
@@ -1619,7 +2009,16 @@
         "2. 店主裂变机制设计",
         "店主激励体系设计：",
         "3. 分销合规边界把控"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "quark-ai",
@@ -1657,7 +2056,16 @@
         "框架：",
         "2. 垂直场景突破",
         "执行步骤："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "jd-furniture-roi252",
@@ -1686,7 +2094,14 @@
         "2. 主推商品选择方法",
         "选品方法论：",
         "3. AIDA转化模型应用"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "cursor-ai-editor",
@@ -1730,7 +2145,18 @@
         "框架：",
         "2. 开发者社区运营",
         "核心平台："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "claude-anthropic",
@@ -1770,7 +2196,17 @@
         "3. 订阅分层覆盖不同价值用户",
         "4. 全云厂商覆盖消除分发壁垒",
         "5. 品牌承诺作为护城河"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "uber",
@@ -1811,7 +2247,16 @@
         "2. 动态定价机制",
         "动态定价设计：",
         "3. 供给端运营方法"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "local-services",
+      "resource_profile": "需要单城/单区域运营、供给履约协同和线下执行能力",
+      "failure_refs": [],
+      "marketplace_side": "supply"
     },
     {
       "id": "midjourney",
@@ -1852,7 +2297,16 @@
         "2. 病毒内容设计",
         "分享机制设计：",
         "3. AI产品增长策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "dropbox",
@@ -1897,7 +2351,19 @@
         "2. 病毒系数监控",
         "病毒系数计算：",
         "病毒系数解读："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "slack",
@@ -1941,7 +2407,18 @@
         "执行步骤：",
         "2. 网络效应构建",
         "让产品不可替代的技巧："
-      ]
+      ],
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "airbnb",
@@ -1982,7 +2459,16 @@
         "2. 供给端增长策略",
         "供给端增长框架：",
         "3. 本地化运营方法"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "marketplace",
+      "resource_profile": "平台型增长，需要供给与需求两侧协同",
+      "failure_refs": [],
+      "marketplace_side": "supply"
     },
     {
       "id": "pika-ai",
@@ -2024,7 +2510,16 @@
         "2. 视频产品的传播设计",
         "分享机制设计：",
         "3. AI产品增长飞轮"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "notion",
@@ -2068,7 +2563,18 @@
         "2. 模板生态建设",
         "模板生态设计：",
         "3. 免费版获客设计"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "warby-parker",
@@ -2108,7 +2614,16 @@
         "2. Home Try-On体验设计",
         "Home Try-On框架：",
         "3. 价格差异化策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "stripe",
@@ -2143,7 +2658,16 @@
         "valuation": "950亿+"
       },
       "summary": "",
-      "replicable_points": []
+      "replicable_points": [],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "marketplace",
+      "resource_profile": "平台型增长，需要供给与需求两侧协同",
+      "failure_refs": [],
+      "marketplace_side": "liquidity"
     },
     {
       "id": "suno-music-ai",
@@ -2181,7 +2705,16 @@
         "2. 免费层触发转化而非留存",
         "3. 从消费级到专业级的渐进式扩展",
         "4. 善用产业资本（战略投资者）"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "silver-hair-reward-platforms",
@@ -2215,7 +2748,16 @@
       "replicable_points": [
         "1. 任务墙设计框架",
         "2. 老年人支付体系设计"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "openai-chatgpt",
@@ -2255,7 +2797,17 @@
         "3. 平台生态扩展边界",
         "4. 战略合作加速增长",
         "5. 分层订阅最大化用户价值"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "allbirds",
@@ -2294,7 +2846,16 @@
         "2. 口碑传播设计",
         "口碑增长框架：",
         "3. DTC模式运营"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "zoom",
@@ -2339,7 +2900,18 @@
         "2. 病毒式传播设计",
         "病毒传播设计：",
         "3. 免费版获客模式"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "calendly",
@@ -2383,7 +2955,18 @@
         "2. 免费版获客设计",
         "免费版策略：",
         "3. 场景扩展方法"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "glossier",
@@ -2425,7 +3008,16 @@
         "2. KOC营销方法",
         "KOC矩阵建设：",
         "3. DTC品牌建设"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "dollar-shave-club",
@@ -2464,7 +3056,16 @@
         "2. 订阅模式设计框架",
         "订阅模式设计：",
         "3. 品牌社区建设方法"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "airbnb-host",
@@ -2497,7 +3098,16 @@
       },
       "key_metrics": {},
       "summary": "",
-      "replicable_points": []
+      "replicable_points": [],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "marketplace",
+      "resource_profile": "平台型增长，需要供给与需求两侧协同",
+      "failure_refs": [],
+      "marketplace_side": "supply"
     },
     {
       "id": "runway-ai",
@@ -2539,7 +3149,16 @@
         "2. 活动运营策略",
         "社区活动设计：",
         "3. 平台生态策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "elevenlabs-ai",
@@ -2577,7 +3196,16 @@
         "2. 从单点工具到平台生态的渐进式扩展",
         "3. 企业销售的分层推进策略",
         "4. 安全与信任作为差异化竞争优势"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "perplexity",
@@ -2621,7 +3249,18 @@
         "2. 社交媒体增长机制",
         "病毒传播设计：",
         "3. Freemium商业模式"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "hubspot",
@@ -2660,7 +3299,16 @@
         "2. 免费工具引流策略",
         "免费工具设计：",
         "3. 教育内容体系搭建"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "windsurf-ai-editor",
@@ -2703,7 +3351,18 @@
         "框架：",
         "2. 企业市场突破",
         "关键步骤："
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "doordash",
@@ -2737,7 +3396,16 @@
         "valuation": "500亿+"
       },
       "summary": "",
-      "replicable_points": []
+      "replicable_points": [],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "local-services",
+      "resource_profile": "需要单城/单区域运营、供给履约协同和线下执行能力",
+      "failure_refs": [],
+      "marketplace_side": "liquidity"
     },
     {
       "id": "github-copilot",
@@ -2780,7 +3448,17 @@
         "2. 自下而上的开发者采用策略",
         "框架：",
         "3. 多层级定价策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "saas",
+      "resource_profile": "偏产品和销售协同，重视高意向线索与留存",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "character-ai",
@@ -2824,7 +3502,18 @@
         "2. 情感陪伴产品定位",
         "情感价值设计：",
         "3. AI产品增长指标"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "ai",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "shein",
@@ -2865,7 +3554,14 @@
         "2. 社交媒体营销策略",
         "社交营销框架：",
         "3. 数据驱动选品"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "tiktok",
@@ -2903,7 +3599,14 @@
         "2. 本地化执行框架",
         "3. 收购整合策略",
         "什么时候适合收购："
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "dtc-brand",
@@ -2942,7 +3645,16 @@
         "2. 流量获取方法论",
         "流量框架：",
         "3. 品牌化转型路径"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "1-10"
+      ],
+      "company_type": "ecommerce",
+      "resource_profile": "流量、转化、复购和供应链联动明显",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "tencent-games",
@@ -2979,7 +3691,14 @@
         "2. 投资布局模式",
         "投资框架：",
         "3. 电竞生态建设"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "vipkid",
@@ -3020,7 +3739,16 @@
         "2. 师资供给体系",
         "外教招募SOP：",
         "3. 口碑推荐设计"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "bytedance-overseas",
@@ -3060,7 +3788,14 @@
         "2. 技术中台建设",
         "技术中台框架：",
         "3. 本地化团队搭建"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "yuanfudao",
@@ -3102,7 +3837,16 @@
         "2. 数据驱动的转化",
         "数据驱动转化框架：",
         "3. 品牌投放策略"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "coursera",
@@ -3143,7 +3887,16 @@
         "2. 证书体系设计",
         "证书产品设计原则：",
         "3. B端市场拓展"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "shareit",
@@ -3182,7 +3935,16 @@
         "2. 预装渠道建设",
         "预装策略：",
         "3. 平台转型方法"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "用户旅程待明确",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [],
+      "marketplace_side": ""
     },
     {
       "id": "duolingo",
@@ -3225,7 +3987,18 @@
         "2. 留存机制设计",
         "防止用户流失的方法：",
         "3. 变现模式设计"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "资料不足，需结合案例原文判断",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     }
   ],
   "index_by_industry": {

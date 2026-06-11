@@ -1,0 +1,136 @@
+[
+  {
+    "id": "saas_acquisition_no_paid_ads",
+    "query": "0-1 SaaS 在预算极低情况下是否该投广告",
+    "context": {
+      "industry": "saas",
+      "stage": "0-1",
+      "problem_type": "acquisition",
+      "constraints": "不能扩招聘，不能依赖付费投放",
+      "budget": "5000元",
+      "team": "1人"
+    },
+    "expected_top_category": "cold-start",
+    "expected_growth_process": "用户获取",
+    "forbidden_priority_categories": ["paid-ads"],
+    "required_text_signals": ["新增高意向用户数", "不要先做重工程的大系统"]
+  },
+  {
+    "id": "b2b_sales_led_prioritizes_pipeline_over_cold_start",
+    "query": "B2B 销售驱动型 SaaS 应该先扩销售还是先修线索质量",
+    "context": {
+      "industry": "saas",
+      "stage": "1-10",
+      "problem_type": "acquisition",
+      "metric": "高意向线索数",
+      "goal": "提升成单效率",
+      "constraints": "不能先扩销售团队",
+      "company_profile": {
+        "business_model": "b2b sales-led saas"
+      }
+    },
+    "expected_top_category": "b2b-sales",
+    "expected_growth_process": "用户获取",
+    "forbidden_priority_categories": ["paid-ads"],
+    "required_text_signals": ["高意向线索数", "不要过早扩销售团队而不修转化漏斗"]
+  },
+  {
+    "id": "marketplace_dual_sided_liquidity_focus",
+    "query": "Marketplace 冷启动时应该先补哪一侧供需",
+    "context": {
+      "industry": "marketplace",
+      "stage": "0-1",
+      "problem_type": "acquisition",
+      "metric": "有效撮合数",
+      "goal": "突破首批供需匹配",
+      "constraints": "不能同时大规模补贴两侧",
+      "company_profile": {
+        "business_model": "marketplace"
+      }
+    },
+    "expected_top_category": "cold-start",
+    "expected_growth_process": "用户获取",
+    "forbidden_priority_categories": ["paid-ads"],
+    "required_text_signals": ["有效撮合数", "不要同时大规模补贴供需两侧"]
+  },
+  {
+    "id": "ai_cold_start_prefers_content_over_complex_share",
+    "query": "AI 产品冷启动阶段应该先做内容获客还是产品内分享",
+    "context": {
+      "industry": "ai",
+      "stage": "0-1",
+      "problem_type": "acquisition",
+      "metric": "高意向试用数",
+      "goal": "拿到首批稳定试用用户",
+      "constraints": "团队很小，不能同时做内容矩阵和复杂分享机制"
+    },
+    "expected_top_category": "content-growth",
+    "expected_growth_process": "用户获取",
+    "forbidden_priority_categories": ["paid-ads"],
+    "required_text_signals": ["高意向试用数", "不要同时做太多内容形态"]
+  },
+  {
+    "id": "local_services_single_city_density_before_expansion",
+    "query": "本地生活平台冷启动应该先铺多城还是先打透单城",
+    "context": {
+      "industry": "local-services",
+      "stage": "0-1",
+      "problem_type": "acquisition",
+      "metric": "有效履约订单数",
+      "goal": "在单城跑通供需和履约闭环",
+      "constraints": "不能多城同时烧钱补贴",
+      "company_profile": {
+        "business_model": "local services marketplace"
+      }
+    },
+    "expected_top_category": "cold-start",
+    "expected_growth_process": "用户获取",
+    "forbidden_priority_categories": ["paid-ads"],
+    "required_text_signals": ["有效履约订单数", "不要多城同时铺开"]
+  },
+  {
+    "id": "retention_not_referral",
+    "query": "留存问题是否应该优先做裂变",
+    "context": {
+      "industry": "content",
+      "stage": "1-10",
+      "problem_type": "retention",
+      "metric": "7日留存",
+      "goal": "提升周留存",
+      "constraints": "不能用高补贴制造假活跃"
+    },
+    "expected_top_category": "retention",
+    "expected_growth_process": "用户深耕",
+    "forbidden_priority_categories": ["viral-referral"],
+    "required_text_signals": ["7日留存", "假活跃"]
+  },
+  {
+    "id": "monetization_preserve_retention",
+    "query": "变现压力很大时是否直接上强付费墙",
+    "context": {
+      "industry": "saas",
+      "stage": "1-10",
+      "problem_type": "monetization",
+      "metric": "付费转化率",
+      "goal": "两个月内提升收入",
+      "constraints": "不能伤害核心留存"
+    },
+    "expected_top_category": "monetization",
+    "expected_growth_process": "用户深耕",
+    "forbidden_priority_categories": ["paid-ads"],
+    "required_text_signals": ["不要先用强打扰付费墙", "伤害留存"]
+  },
+  {
+    "id": "referral_with_failure_awareness",
+    "query": "我们要不要做邀请裂变",
+    "context": {
+      "industry": "saas",
+      "stage": "1-10",
+      "problem_type": "referral"
+    },
+    "expected_top_category": "viral-referral",
+    "expected_growth_process": "用户获取",
+    "forbidden_priority_categories": [],
+    "required_text_signals": ["不要用高补贴换来低质量用户", "分享率"]
+  }
+]

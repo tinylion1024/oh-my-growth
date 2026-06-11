@@ -35,3 +35,219 @@ def test_saas_acquisition_prefers_plg_or_cold_start():
 
     categories = {item["metadata"]["category"] for item in results["weapons"]}
     assert categories & {"plg", "cold-start"}, f"Unexpected categories: {categories}"
+
+
+def test_b2b_sales_led_context_surfaces_b2b_sales_with_journey_fit():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "B2B 销售驱动型 SaaS 应该先扩销售还是先修线索质量",
+        {
+            "industry": "saas",
+            "problem_type": "acquisition",
+            "stage": "1-10",
+            "company_profile": {"business_model": "b2b sales-led saas"},
+        },
+        case_limit=3,
+        weapon_limit=8,
+        theory_limit=2,
+    )
+
+    b2b_weapons = [item for item in results["weapons"] if item["metadata"]["category"] == "b2b-sales"]
+    assert b2b_weapons, "Expected B2B sales-led context to surface b2b-sales weapons"
+    assert b2b_weapons[0]["metadata"]["journey_fit"] >= 0.9
+
+
+def test_marketplace_supply_query_prefers_marketplace_cases_with_side_metadata():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "Marketplace 冷启动先补供给侧还是需求侧",
+        {
+            "industry": "marketplace",
+            "problem_type": "acquisition",
+            "stage": "0-1",
+            "company_profile": {"business_model": "marketplace"},
+            "goal": "突破首批有效撮合",
+            "metric": "有效撮合数",
+        },
+        case_limit=5,
+        weapon_limit=5,
+        theory_limit=3,
+    )
+
+    assert results["cases"], "Expected marketplace cases"
+    assert any(item["metadata"]["company_type"] == "marketplace" for item in results["cases"])
+    assert any(item["metadata"]["marketplace_side"] in {"supply", "liquidity"} for item in results["cases"])
+    assert any(item["metadata"]["marketplace_side"] == "liquidity" for item in results["theories"])
+
+
+def test_marketplace_side_focus_changes_case_ranking_bias():
+    retriever = KnowledgeRetriever()
+    common_context = {
+        "industry": "marketplace",
+        "problem_type": "acquisition",
+        "stage": "0-1",
+        "company_profile": {"business_model": "marketplace"},
+        "metric": "有效撮合数",
+        "goal": "突破首批有效撮合",
+    }
+    supply_results = retriever.retrieve(
+        "Marketplace 冷启动先补供给侧还是需求侧",
+        common_context,
+        case_limit=3,
+        weapon_limit=3,
+        theory_limit=2,
+    )
+    demand_results = retriever.retrieve(
+        "Marketplace 冷启动先补需求侧还是供给侧",
+        common_context,
+        case_limit=3,
+        weapon_limit=3,
+        theory_limit=2,
+    )
+
+    assert supply_results["cases"] and demand_results["cases"]
+    supply_side = supply_results["cases"][0]["metadata"]["marketplace_side"]
+    demand_side = demand_results["cases"][0]["metadata"]["marketplace_side"]
+    assert supply_side in {"supply", "liquidity"}
+    assert demand_side in {"demand", "liquidity"}
+    assert supply_side != demand_side or demand_side == "liquidity"
+
+
+def test_marketplace_side_focus_changes_weapon_ranking_bias():
+    retriever = KnowledgeRetriever()
+    common_context = {
+        "industry": "marketplace",
+        "problem_type": "acquisition",
+        "stage": "0-1",
+        "company_profile": {"business_model": "marketplace"},
+        "metric": "有效撮合数",
+        "goal": "突破首批有效撮合",
+        "constraints": "不能同时大规模补贴两侧",
+    }
+    supply_results = retriever.retrieve(
+        "Marketplace 冷启动先补供给侧还是需求侧",
+        common_context,
+        case_limit=3,
+        weapon_limit=5,
+        theory_limit=2,
+    )
+    demand_results = retriever.retrieve(
+        "Marketplace 冷启动先补需求侧还是供给侧",
+        common_context,
+        case_limit=3,
+        weapon_limit=5,
+        theory_limit=2,
+    )
+
+    assert supply_results["weapons"] and demand_results["weapons"]
+    assert supply_results["weapons"][0]["metadata"]["marketplace_side"] in {"supply", "liquidity"}
+    assert demand_results["weapons"][0]["metadata"]["marketplace_side"] in {"demand", "liquidity"}
+
+
+def test_local_services_context_prefers_local_service_cases():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "本地生活平台冷启动应该先铺多城还是先打透单城",
+        {
+            "industry": "local-services",
+            "problem_type": "acquisition",
+            "stage": "0-1",
+            "company_profile": {"business_model": "local services marketplace"},
+            "metric": "有效履约订单数",
+            "goal": "在单城跑通供需和履约闭环",
+            "constraints": "不能多城同时烧钱补贴",
+        },
+        case_limit=5,
+        weapon_limit=5,
+        theory_limit=2,
+    )
+
+    assert results["cases"], "Expected local-services cases"
+    assert results["cases"][0]["metadata"]["company_type"] in {"local-services", "marketplace"}
+    assert any(item["metadata"]["company_type"] == "local-services" for item in results["cases"])
+    assert results["weapons"][0]["metadata"]["category"] in {"cold-start", "community"}
+    assert results["weapons"][0]["metadata"]["marketplace_side"] in {"supply", "liquidity", ""}
+
+
+def test_journey_stage_changes_weapon_fit_metadata():
+    retriever = KnowledgeRetriever()
+
+    reach_results = retriever.retrieve(
+        "如何提升注册转化",
+        {
+            "industry": "saas",
+            "problem_type": "acquisition",
+            "stage": "0-1",
+            "journey_stage": "认知/到达",
+        },
+        case_limit=2,
+        weapon_limit=3,
+        theory_limit=1,
+    )
+    share_results = retriever.retrieve(
+        "如何提升注册转化",
+        {
+            "industry": "saas",
+            "problem_type": "acquisition",
+            "stage": "0-1",
+            "journey_stage": "分享",
+        },
+        case_limit=2,
+        weapon_limit=3,
+        theory_limit=1,
+    )
+
+    assert reach_results["weapons"], "Expected reach-oriented weapon recommendations"
+    assert share_results["weapons"], "Expected share-oriented weapon recommendations"
+    assert reach_results["weapons"][0]["metadata"]["journey_fit"] != share_results["weapons"][0]["metadata"]["journey_fit"]
+
+
+def test_weapon_results_include_indexed_failure_refs_and_profiles():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "我们要不要做邀请裂变",
+        {"problem_type": "referral", "stage": "1-10"},
+        case_limit=2,
+        weapon_limit=3,
+        theory_limit=1,
+    )
+
+    assert results["weapons"], "Expected weapon recommendations"
+    top_weapon = results["weapons"][0]
+    assert top_weapon["metadata"]["growth_process"] in {"用户获取", "用户深耕"}
+    assert top_weapon["metadata"]["failure_refs"], "Expected failure refs from index"
+    assert top_weapon["metadata"]["resource_profile"], "Expected resource profile from index"
+
+
+def test_theory_results_include_enriched_schema_fields():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "SaaS 产品如何通过产品自增长",
+        {"industry": "saas", "problem_type": "activation", "stage": "1-10"},
+        case_limit=2,
+        weapon_limit=2,
+        theory_limit=3,
+    )
+
+    assert results["theories"], "Expected theory recommendations"
+    top_theory = results["theories"][0]
+    assert top_theory["metadata"]["growth_process"] in {"用户获取", "用户深耕", "增长经营"}
+    assert top_theory["metadata"]["journey_stage"]
+    assert isinstance(top_theory["metadata"]["failure_refs"], list)
+
+
+def test_failure_results_are_retrievable_for_referral_context():
+    retriever = KnowledgeRetriever()
+    results = retriever.retrieve(
+        "我们要不要做邀请裂变",
+        {"problem_type": "referral", "stage": "1-10", "journey_stage": "分享"},
+        case_limit=2,
+        weapon_limit=2,
+        theory_limit=1,
+        failure_limit=2,
+    )
+
+    assert results["failures"], "Expected failure-mode recommendations"
+    top_failure = results["failures"][0]
+    assert "referral" in top_failure["metadata"]["problem_types"]
+    assert top_failure["metadata"]["journey_stage"] == "分享"

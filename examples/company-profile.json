@@ -1,0 +1,14 @@
+{
+  "company_name": "WriteFlow AI",
+  "product_name": "WriteFlow",
+  "industry": "saas",
+  "stage": "0-1",
+  "business_model": "B2B SaaS 订阅",
+  "target_user": "内容团队和独立创作者",
+  "goal": "拿到首批 100 个付费试用用户",
+  "metric": "新增高意向试用用户数",
+  "budget": "5万元",
+  "team": "产品1+工程2+增长1",
+  "constraints": "研发资源有限，无法同时做多条大功能线",
+  "stakeholder": "创始人和增长负责人"
+}

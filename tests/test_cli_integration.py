@@ -57,6 +57,42 @@ def test_diagnose_outputs_strategy_brain_sections():
     assert "【两周实验】" in result.stdout
 
 
+def test_fast_scan_outputs_compact_judgement():
+    result = run_cli(
+        "fast-scan",
+        "我们要不要做邀请裂变",
+        "--industry",
+        "saas",
+        "--stage",
+        "1-10",
+        "--problem",
+        "referral",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Fast Scan" in result.stdout
+    assert "**建议**：" in result.stdout
+    assert "**下一步**：" in result.stdout
+
+
+def test_brd_outputs_formal_decision_doc():
+    result = run_cli(
+        "brd",
+        "是否应该做邀请裂变",
+        "--industry",
+        "saas",
+        "--stage",
+        "1-10",
+        "--problem",
+        "referral",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "增长决策BRD" in result.stdout
+    assert "## 5. 证据依据" in result.stdout
+    assert "## 6. 下一步行动" in result.stdout
+
+
 def test_diagnose_executive_view_is_compact():
     result = run_cli(
         "diagnose",
@@ -76,6 +112,103 @@ def test_diagnose_executive_view_is_compact():
     assert "北极星" in result.stdout
     assert "这周拍板" in result.stdout
     assert "优先级" in result.stdout
+
+
+def test_learning_path_command_returns_guides():
+    result = run_cli(
+        "learn",
+        "如何系统学习裂变增长",
+        "--problem",
+        "referral",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Learning Path" in result.stdout
+    assert "建议先读的方法指南" in result.stdout
+    assert "建议对照的玩法" in result.stdout
+
+
+def test_weekly_view_uses_profile_and_history_files():
+    result = run_cli(
+        "diagnose",
+        "SaaS产品如何获取首批1000用户",
+        "--problem",
+        "acquisition",
+        "--profile-file",
+        "examples/company-profile.json",
+        "--history-file",
+        "examples/experiment-log.json",
+        "--view",
+        "weekly",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Weekly Brief" in result.stdout
+    assert "历史提醒" in result.stdout
+    assert "WriteFlow AI" in result.stdout
+
+
+def test_experiment_card_view_is_available():
+    result = run_cli(
+        "diagnose",
+        "我们要不要做邀请裂变",
+        "--problem",
+        "referral",
+        "--profile-file",
+        "examples/company-profile.json",
+        "--history-file",
+        "examples/experiment-log.json",
+        "--view",
+        "experiment-card",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Experiment Card" in result.stdout
+    assert "成功信号" in result.stdout
+    assert "历史提醒" in result.stdout
+
+
+def test_decision_memo_view_is_available():
+    result = run_cli(
+        "diagnose",
+        "我们要不要做邀请裂变",
+        "--problem",
+        "referral",
+        "--profile-file",
+        "examples/company-profile.json",
+        "--history-file",
+        "examples/experiment-log.json",
+        "--view",
+        "decision-memo",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Decision Memo" in result.stdout
+    assert "组织历史约束" in result.stdout
+
+
+def test_qbr_view_includes_budget_guidance():
+    result = run_cli(
+        "diagnose",
+        "SaaS产品如何获取首批1000用户",
+        "--problem",
+        "acquisition",
+        "--competitor",
+        "CompetitorX",
+        "--market",
+        "竞争激烈的平台市场",
+        "--profile-file",
+        "examples/company-profile.json",
+        "--history-file",
+        "examples/experiment-log.json",
+        "--view",
+        "qbr",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## QBR Summary" in result.stdout
+    assert "预算分配建议" in result.stdout
+    assert "竞争/平台姿态" in result.stdout
 
 
 def test_diagnose_report_view_can_be_validated():

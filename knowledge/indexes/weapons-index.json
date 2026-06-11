@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.2.0",
-    "last_updated": "2026-06-06",
+    "last_updated": "2026-06-09",
     "total_weapons": 111,
     "evidence_tier_definition": {
       "A": "元分析、系统综述、官方统计、权威教材",
@@ -73,7 +73,18 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "创始人亲自拉人",
-      "file": "weapons/01-cold-start/weapons/001-手动拉种子用户.md"
+      "file": "weapons/01-cold-start/weapons/001-手动拉种子用户.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "supply"
     },
     {
       "id": 2,
@@ -84,7 +95,18 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "精准触达",
-      "file": "weapons/01-cold-start/weapons/002-冷邮件-私信.md"
+      "file": "weapons/01-cold-start/weapons/002-冷邮件-私信.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "supply"
     },
     {
       "id": 3,
@@ -95,7 +117,18 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "Reddit/论坛",
-      "file": "weapons/01-cold-start/weapons/003-社区深度参与.md"
+      "file": "weapons/01-cold-start/weapons/003-社区深度参与.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 4,
@@ -106,7 +139,18 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "高接触服务",
-      "file": "weapons/01-cold-start/weapons/004-手动服务前100用户.md"
+      "file": "weapons/01-cold-start/weapons/004-手动服务前100用户.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "supply"
     },
     {
       "id": 5,
@@ -117,7 +161,18 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "内容输出",
-      "file": "weapons/01-cold-start/weapons/005-创始人个人IP.md"
+      "file": "weapons/01-cold-start/weapons/005-创始人个人IP.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 6,
@@ -128,7 +183,18 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "收集意向",
-      "file": "weapons/01-cold-start/weapons/006-Waitlist候补名单.md"
+      "file": "weapons/01-cold-start/weapons/006-Waitlist候补名单.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "demand"
     },
     {
       "id": 7,
@@ -139,7 +205,18 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "稀缺感",
-      "file": "weapons/01-cold-start/weapons/007-Beta邀请制.md"
+      "file": "weapons/01-cold-start/weapons/007-Beta邀请制.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "demand"
     },
     {
       "id": 8,
@@ -150,7 +227,18 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "验证需求",
-      "file": "weapons/01-cold-start/weapons/008-Landing Page注册.md"
+      "file": "weapons/01-cold-start/weapons/008-Landing Page注册.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "demand"
     },
     {
       "id": 9,
@@ -161,7 +249,18 @@
       "evidence_tier": "C",
       "confidence": 0.78,
       "description": "冷启动曝光",
-      "file": "weapons/01-cold-start/weapons/009-Product Hunt发布.md"
+      "file": "weapons/01-cold-start/weapons/009-Product Hunt发布.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 10,
@@ -172,7 +271,18 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "Discord/微信",
-      "file": "weapons/01-cold-start/weapons/010-种子用户群.md"
+      "file": "weapons/01-cold-start/weapons/010-种子用户群.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1"
+      ],
+      "resource_profile": "低预算、创始人驱动、跨职能小团队",
+      "guardrail_risk": "需要警惕低质量流量替代真实增长",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": "liquidity"
     },
     {
       "id": 11,
@@ -183,7 +293,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "单边奖励",
-      "file": "weapons/02-viral-referral/weapons/011-邀请奖励机制.md"
+      "file": "weapons/02-viral-referral/weapons/011-邀请奖励机制.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": "liquidity"
     },
     {
       "id": 12,
@@ -194,7 +316,19 @@
       "evidence_tier": "A",
       "confidence": 0.9,
       "description": "邀请人+被邀请人",
-      "file": "weapons/02-viral-referral/weapons/012-双边奖励.md"
+      "file": "weapons/02-viral-referral/weapons/012-双边奖励.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": "liquidity"
     },
     {
       "id": 13,
@@ -205,7 +339,19 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "功能裂变",
-      "file": "weapons/02-viral-referral/weapons/013-分享解锁功能.md"
+      "file": "weapons/02-viral-referral/weapons/013-分享解锁功能.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 14,
@@ -216,7 +362,19 @@
       "evidence_tier": "A",
       "confidence": 0.92,
       "description": "内容裂变",
-      "file": "weapons/02-viral-referral/weapons/014-分享解锁内容.md"
+      "file": "weapons/02-viral-referral/weapons/014-分享解锁内容.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 15,
@@ -227,7 +385,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "视觉传播",
-      "file": "weapons/02-viral-referral/weapons/015-裂变海报生成.md"
+      "file": "weapons/02-viral-referral/weapons/015-裂变海报生成.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 16,
@@ -238,7 +408,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "竞争驱动",
-      "file": "weapons/02-viral-referral/weapons/016-排行榜分享.md"
+      "file": "weapons/02-viral-referral/weapons/016-排行榜分享.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 17,
@@ -249,7 +431,19 @@
       "evidence_tier": "A",
       "confidence": 0.92,
       "description": "社交电商",
-      "file": "weapons/02-viral-referral/weapons/017-拼团机制.md"
+      "file": "weapons/02-viral-referral/weapons/017-拼团机制.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 18,
@@ -260,7 +454,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "损失厌恶",
-      "file": "weapons/02-viral-referral/weapons/018-砍价玩法.md"
+      "file": "weapons/02-viral-referral/weapons/018-砍价玩法.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 19,
@@ -271,7 +477,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "活动传播",
-      "file": "weapons/02-viral-referral/weapons/019-社交挑战赛.md"
+      "file": "weapons/02-viral-referral/weapons/019-社交挑战赛.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 20,
@@ -282,7 +500,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "内容传播",
-      "file": "weapons/02-viral-referral/weapons/020-模板分享裂变.md"
+      "file": "weapons/02-viral-referral/weapons/020-模板分享裂变.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 21,
@@ -293,7 +523,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "技术驱动",
-      "file": "weapons/02-viral-referral/weapons/021-AI生成内容分享.md"
+      "file": "weapons/02-viral-referral/weapons/021-AI生成内容分享.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 22,
@@ -304,7 +546,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "降低摩擦",
-      "file": "weapons/02-viral-referral/weapons/022-分享后去水印.md"
+      "file": "weapons/02-viral-referral/weapons/022-分享后去水印.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 23,
@@ -315,7 +569,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "追踪激励",
-      "file": "weapons/02-viral-referral/weapons/023-推荐码体系.md"
+      "file": "weapons/02-viral-referral/weapons/023-推荐码体系.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": "liquidity"
     },
     {
       "id": 24,
@@ -326,7 +592,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "竞争激励",
-      "file": "weapons/02-viral-referral/weapons/024-邀请排行榜.md"
+      "file": "weapons/02-viral-referral/weapons/024-邀请排行榜.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": "liquidity"
     },
     {
       "id": 25,
@@ -337,7 +615,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "社交撬动",
-      "file": "weapons/02-viral-referral/weapons/025-好友助力解锁.md"
+      "file": "weapons/02-viral-referral/weapons/025-好友助力解锁.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "需要产品、增长、风控协同",
+      "guardrail_risk": "需要警惕激励滥用和低质量用户",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 26,
@@ -348,7 +638,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "搜索流量",
-      "file": "weapons/03-content-growth/weapons/026-SEO关键词矩阵.md"
+      "file": "weapons/03-content-growth/weapons/026-SEO关键词矩阵.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 27,
@@ -359,7 +661,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "规模化",
-      "file": "weapons/03-content-growth/weapons/027-程序化SEO页面.md"
+      "file": "weapons/03-content-growth/weapons/027-程序化SEO页面.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 28,
@@ -370,7 +684,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "精准流量",
-      "file": "weapons/03-content-growth/weapons/028-长尾关键词文章.md"
+      "file": "weapons/03-content-growth/weapons/028-长尾关键词文章.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 29,
@@ -381,7 +707,19 @@
       "evidence_tier": "C",
       "confidence": 0.78,
       "description": "价值内容",
-      "file": "weapons/03-content-growth/weapons/029-教程型内容.md"
+      "file": "weapons/03-content-growth/weapons/029-教程型内容.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 30,
@@ -392,7 +730,19 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "权威建立",
-      "file": "weapons/03-content-growth/weapons/030-行业报告.md"
+      "file": "weapons/03-content-growth/weapons/030-行业报告.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 31,
@@ -403,7 +753,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "Tool marketing",
-      "file": "weapons/03-content-growth/weapons/031-免费工具.md"
+      "file": "weapons/03-content-growth/weapons/031-免费工具.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 32,
@@ -414,7 +776,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "视频流量",
-      "file": "weapons/03-content-growth/weapons/032-YouTube教程.md"
+      "file": "weapons/03-content-growth/weapons/032-YouTube教程.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 33,
@@ -425,7 +799,19 @@
       "evidence_tier": "C",
       "confidence": 0.78,
       "description": "短视频",
-      "file": "weapons/03-content-growth/weapons/033-TikTok矩阵.md"
+      "file": "weapons/03-content-growth/weapons/033-TikTok矩阵.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 34,
@@ -436,7 +822,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "邮件资产",
-      "file": "weapons/03-content-growth/weapons/034-Newsletter.md"
+      "file": "weapons/03-content-growth/weapons/034-Newsletter.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 35,
@@ -447,7 +845,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "品牌建设",
-      "file": "weapons/03-content-growth/weapons/035-播客.md"
+      "file": "weapons/03-content-growth/weapons/035-播客.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 36,
@@ -458,7 +868,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "外链+曝光",
-      "file": "weapons/03-content-growth/weapons/036-客座博客.md"
+      "file": "weapons/03-content-growth/weapons/036-客座博客.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 37,
@@ -469,7 +891,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "资源引流",
-      "file": "weapons/03-content-growth/weapons/037-免费电子书.md"
+      "file": "weapons/03-content-growth/weapons/037-免费电子书.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 38,
@@ -480,7 +914,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "成功背书",
-      "file": "weapons/03-content-growth/weapons/038-案例研究.md"
+      "file": "weapons/03-content-growth/weapons/038-案例研究.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 39,
@@ -491,7 +937,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "工具引流",
-      "file": "weapons/03-content-growth/weapons/039-模板资源库.md"
+      "file": "weapons/03-content-growth/weapons/039-模板资源库.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 40,
@@ -502,7 +960,19 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "一鱼多吃",
-      "file": "weapons/03-content-growth/weapons/040-内容再分发.md"
+      "file": "weapons/03-content-growth/weapons/040-内容再分发.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "内容与分发并重，持续产能要求高",
+      "guardrail_risk": "需要警惕曝光上涨但高意向转化不改善",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 41,
@@ -513,7 +983,19 @@
       "evidence_tier": "C",
       "confidence": 0.78,
       "description": "社区平台",
-      "file": "weapons/04-community/weapons/041-Discord社区.md"
+      "file": "weapons/04-community/weapons/041-Discord社区.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 42,
@@ -524,7 +1006,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "实时互动",
-      "file": "weapons/04-community/weapons/042-Slack社区.md"
+      "file": "weapons/04-community/weapons/042-Slack社区.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 43,
@@ -535,7 +1029,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "KOL运营",
-      "file": "weapons/04-community/weapons/043-用户大使计划.md"
+      "file": "weapons/04-community/weapons/043-用户大使计划.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 44,
@@ -546,7 +1052,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "产品共创",
-      "file": "weapons/04-community/weapons/044-用户共创.md"
+      "file": "weapons/04-community/weapons/044-用户共创.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 45,
@@ -557,7 +1075,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "真实连接",
-      "file": "weapons/04-community/weapons/045-线下Meetup.md"
+      "file": "weapons/04-community/weapons/045-线下Meetup.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 46,
@@ -568,7 +1098,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "透明度",
-      "file": "weapons/04-community/weapons/046-用户访谈公开化.md"
+      "file": "weapons/04-community/weapons/046-用户访谈公开化.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 47,
@@ -579,7 +1121,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "UGC内容",
-      "file": "weapons/04-community/weapons/047-用户故事栏目.md"
+      "file": "weapons/04-community/weapons/047-用户故事栏目.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 48,
@@ -590,7 +1144,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "活动驱动",
-      "file": "weapons/04-community/weapons/048-社区挑战赛.md"
+      "file": "weapons/04-community/weapons/048-社区挑战赛.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 49,
@@ -601,7 +1167,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "忠诚度",
-      "file": "weapons/04-community/weapons/049-超级用户计划.md"
+      "file": "weapons/04-community/weapons/049-超级用户计划.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 50,
@@ -612,7 +1190,19 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "内容征集",
-      "file": "weapons/04-community/weapons/050-用户UGC活动.md"
+      "file": "weapons/04-community/weapons/050-用户UGC活动.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "运营密集，需要长期维护",
+      "guardrail_risk": "需要警惕社区活跃替代真实留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 51,
@@ -623,7 +1213,19 @@
       "evidence_tier": "A",
       "confidence": 0.92,
       "description": "免费+付费",
-      "file": "weapons/05-plg/weapons/051-Freemium模式.md"
+      "file": "weapons/05-plg/weapons/051-Freemium模式.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 52,
@@ -634,7 +1236,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "体验转化",
-      "file": "weapons/05-plg/weapons/052-免费试用.md"
+      "file": "weapons/05-plg/weapons/052-免费试用.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 53,
@@ -645,7 +1259,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "降低门槛",
-      "file": "weapons/05-plg/weapons/053-无需登录体验.md"
+      "file": "weapons/05-plg/weapons/053-无需登录体验.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 54,
@@ -656,7 +1282,19 @@
       "evidence_tier": "B",
       "confidence": 0.88,
       "description": "快速激活",
-      "file": "weapons/05-plg/weapons/054-快速Onboarding.md"
+      "file": "weapons/05-plg/weapons/054-快速Onboarding.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 55,
@@ -667,7 +1305,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "Tooltip",
-      "file": "weapons/05-plg/weapons/055-产品内引导.md"
+      "file": "weapons/05-plg/weapons/055-产品内引导.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 56,
@@ -678,7 +1328,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "降低门槛",
-      "file": "weapons/05-plg/weapons/056-模板库.md"
+      "file": "weapons/05-plg/weapons/056-模板库.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 57,
@@ -689,7 +1351,19 @@
       "evidence_tier": "C",
       "confidence": 0.78,
       "description": "引导上手",
-      "file": "weapons/05-plg/weapons/057-空状态设计.md"
+      "file": "weapons/05-plg/weapons/057-空状态设计.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 58,
@@ -700,7 +1374,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "自然传播",
-      "file": "weapons/05-plg/weapons/058-产品内分享.md"
+      "file": "weapons/05-plg/weapons/058-产品内分享.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 59,
@@ -711,7 +1397,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "品牌传播",
-      "file": "weapons/05-plg/weapons/059-产品水印.md"
+      "file": "weapons/05-plg/weapons/059-产品水印.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 60,
@@ -722,7 +1420,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "社交裂变",
-      "file": "weapons/05-plg/weapons/060-团队协作.md"
+      "file": "weapons/05-plg/weapons/060-团队协作.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 61,
@@ -733,7 +1443,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "付费转化",
-      "file": "weapons/05-plg/weapons/061-使用量限制触发.md"
+      "file": "weapons/05-plg/weapons/061-使用量限制触发.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 62,
@@ -744,7 +1466,19 @@
       "evidence_tier": "A",
       "confidence": 0.9,
       "description": "价值展示",
-      "file": "weapons/05-plg/weapons/062-成果导出传播.md"
+      "file": "weapons/05-plg/weapons/062-成果导出传播.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 63,
@@ -755,7 +1489,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "成就感知",
-      "file": "weapons/05-plg/weapons/063-使用报告.md"
+      "file": "weapons/05-plg/weapons/063-使用报告.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 64,
@@ -766,7 +1512,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "社区导流",
-      "file": "weapons/05-plg/weapons/064-内置社区入口.md"
+      "file": "weapons/05-plg/weapons/064-内置社区入口.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 65,
@@ -777,7 +1535,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "交叉推荐",
-      "file": "weapons/05-plg/weapons/065-产品内推荐.md"
+      "file": "weapons/05-plg/weapons/065-产品内推荐.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "resource_profile": "产品与工程驱动，实验节奏要求高",
+      "guardrail_risk": "需要警惕功能堆叠但首次价值达成不改善",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 66,
@@ -788,7 +1558,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "自动触达",
-      "file": "weapons/06-retention/weapons/066-邮件生命周期.md"
+      "file": "weapons/06-retention/weapons/066-邮件生命周期.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 67,
@@ -799,7 +1581,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "即时触达",
-      "file": "weapons/06-retention/weapons/067-推送通知.md"
+      "file": "weapons/06-retention/weapons/067-推送通知.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 68,
@@ -810,7 +1604,19 @@
       "evidence_tier": "B",
       "confidence": 0.88,
       "description": "习惯养成",
-      "file": "weapons/06-retention/weapons/068-连续使用奖励.md"
+      "file": "weapons/06-retention/weapons/068-连续使用奖励.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 69,
@@ -821,7 +1627,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "成就感",
-      "file": "weapons/06-retention/weapons/069-里程碑提示.md"
+      "file": "weapons/06-retention/weapons/069-里程碑提示.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 70,
@@ -832,7 +1650,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "价值感知",
-      "file": "weapons/06-retention/weapons/070-数据报告邮件.md"
+      "file": "weapons/06-retention/weapons/070-数据报告邮件.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 71,
@@ -843,7 +1673,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "定期回顾",
-      "file": "weapons/06-retention/weapons/071-周报-月报.md"
+      "file": "weapons/06-retention/weapons/071-周报-月报.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 72,
@@ -854,7 +1696,19 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "持续价值",
-      "file": "weapons/06-retention/weapons/072-新功能提醒.md"
+      "file": "weapons/06-retention/weapons/072-新功能提醒.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 73,
@@ -865,7 +1719,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "游戏化",
-      "file": "weapons/06-retention/weapons/073-用户成就系统.md"
+      "file": "weapons/06-retention/weapons/073-用户成就系统.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 74,
@@ -876,7 +1742,19 @@
       "evidence_tier": "C",
       "confidence": 0.68,
       "description": "使用引导",
-      "file": "weapons/06-retention/weapons/074-习惯培养.md"
+      "file": "weapons/06-retention/weapons/074-习惯培养.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 75,
@@ -887,7 +1765,19 @@
       "evidence_tier": "A",
       "confidence": 0.9,
       "description": "赢回用户",
-      "file": "weapons/06-retention/weapons/075-流失召回.md"
+      "file": "weapons/06-retention/weapons/075-流失召回.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "产品、运营、数据共同驱动",
+      "guardrail_risk": "需要警惕假留存和多机制同时变更",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 76,
@@ -898,7 +1788,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "Tier Pricing",
-      "file": "weapons/07-monetization/weapons/076-分层定价.md"
+      "file": "weapons/07-monetization/weapons/076-分层定价.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 77,
@@ -909,7 +1811,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "Usage Pricing",
-      "file": "weapons/07-monetization/weapons/077-使用量计费.md"
+      "file": "weapons/07-monetization/weapons/077-使用量计费.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 78,
@@ -920,7 +1834,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "锁定收入",
-      "file": "weapons/07-monetization/weapons/078-年付折扣.md"
+      "file": "weapons/07-monetization/weapons/078-年付折扣.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 79,
@@ -931,7 +1857,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "紧迫感",
-      "file": "weapons/07-monetization/weapons/079-限时优惠.md"
+      "file": "weapons/07-monetization/weapons/079-限时优惠.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 80,
@@ -942,7 +1880,19 @@
       "evidence_tier": "B",
       "confidence": 0.88,
       "description": "教育用户",
-      "file": "weapons/07-monetization/weapons/080-功能升级提示.md"
+      "file": "weapons/07-monetization/weapons/080-功能升级提示.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 81,
@@ -953,7 +1903,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "提升客单价",
-      "file": "weapons/07-monetization/weapons/081-捆绑套餐.md"
+      "file": "weapons/07-monetization/weapons/081-捆绑套餐.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 82,
@@ -964,7 +1926,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "向上销售",
-      "file": "weapons/07-monetization/weapons/082-企业版升级.md"
+      "file": "weapons/07-monetization/weapons/082-企业版升级.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 83,
@@ -975,7 +1949,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "生态收入",
-      "file": "weapons/07-monetization/weapons/083-增值插件市场.md"
+      "file": "weapons/07-monetization/weapons/083-增值插件市场.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 84,
@@ -986,7 +1972,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "内容变现",
-      "file": "weapons/07-monetization/weapons/084-付费模板市场.md"
+      "file": "weapons/07-monetization/weapons/084-付费模板市场.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 85,
@@ -997,7 +1995,19 @@
       "evidence_tier": "A",
       "confidence": 0.92,
       "description": "追加销售",
-      "file": "weapons/07-monetization/weapons/085-Upsell邮件.md"
+      "file": "weapons/07-monetization/weapons/085-Upsell邮件.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "商业化与体验平衡，数据口径要求高",
+      "guardrail_risk": "需要警惕短期收入伤害长期留存",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 86,
@@ -1008,7 +2018,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "搜索广告",
-      "file": "weapons/08-paid-ads/weapons/086-Google Ads.md"
+      "file": "weapons/08-paid-ads/weapons/086-Google Ads.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 87,
@@ -1019,7 +2041,19 @@
       "evidence_tier": "B",
       "confidence": 0.78,
       "description": "社交广告",
-      "file": "weapons/08-paid-ads/weapons/087-Facebook Ads.md"
+      "file": "weapons/08-paid-ads/weapons/087-Facebook Ads.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 88,
@@ -1030,7 +2064,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "短视频广告",
-      "file": "weapons/08-paid-ads/weapons/088-TikTok Ads.md"
+      "file": "weapons/08-paid-ads/weapons/088-TikTok Ads.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 89,
@@ -1041,7 +2087,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "视频广告",
-      "file": "weapons/08-paid-ads/weapons/089-YouTube Ads.md"
+      "file": "weapons/08-paid-ads/weapons/089-YouTube Ads.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 90,
@@ -1052,7 +2110,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "Retargeting",
-      "file": "weapons/08-paid-ads/weapons/090-再营销广告.md"
+      "file": "weapons/08-paid-ads/weapons/090-再营销广告.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 91,
@@ -1063,7 +2133,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "相似扩展",
-      "file": "weapons/08-paid-ads/weapons/091-Lookalike人群.md"
+      "file": "weapons/08-paid-ads/weapons/091-Lookalike人群.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 92,
@@ -1074,7 +2156,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "应用商店",
-      "file": "weapons/08-paid-ads/weapons/092-App Store Ads.md"
+      "file": "weapons/08-paid-ads/weapons/092-App Store Ads.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 93,
@@ -1085,7 +2179,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "网红合作",
-      "file": "weapons/08-paid-ads/weapons/093-KOL投放.md"
+      "file": "weapons/08-paid-ads/weapons/093-KOL投放.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 94,
@@ -1096,7 +2202,19 @@
       "evidence_tier": "B",
       "confidence": 0.78,
       "description": "Affiliate",
-      "file": "weapons/08-paid-ads/weapons/094-联盟营销.md"
+      "file": "weapons/08-paid-ads/weapons/094-联盟营销.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 95,
@@ -1107,7 +2225,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "影响者",
-      "file": "weapons/08-paid-ads/weapons/095-Influencer合作.md"
+      "file": "weapons/08-paid-ads/weapons/095-Influencer合作.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "预算密集，需要稳定归因和投放优化",
+      "guardrail_risk": "需要警惕 CAC 失控和扩量早于转化验证",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 96,
@@ -1118,7 +2248,18 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "叙事",
-      "file": "weapons/09-brand/weapons/096-品牌故事.md"
+      "file": "weapons/09-brand/weapons/096-品牌故事.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 97,
@@ -1129,7 +2270,18 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "个人品牌",
-      "file": "weapons/09-brand/weapons/097-创始人IP.md"
+      "file": "weapons/09-brand/weapons/097-创始人IP.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 98,
@@ -1140,7 +2292,18 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "新闻报道",
-      "file": "weapons/09-brand/weapons/098-PR媒体.md"
+      "file": "weapons/09-brand/weapons/098-PR媒体.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 99,
@@ -1151,7 +2314,18 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "演讲曝光",
-      "file": "weapons/09-brand/weapons/099-行业大会.md"
+      "file": "weapons/09-brand/weapons/099-行业大会.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 100,
@@ -1162,7 +2336,18 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "识别度",
-      "file": "weapons/09-brand/weapons/100-品牌视觉统一.md"
+      "file": "weapons/09-brand/weapons/100-品牌视觉统一.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 101,
@@ -1173,7 +2358,18 @@
       "evidence_tier": "C",
       "confidence": 0.68,
       "description": "品牌符号",
-      "file": "weapons/09-brand/weapons/101-标志性活动.md"
+      "file": "weapons/09-brand/weapons/101-标志性活动.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 102,
@@ -1184,7 +2380,18 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "情感连接",
-      "file": "weapons/09-brand/weapons/102-价值观营销.md"
+      "file": "weapons/09-brand/weapons/102-价值观营销.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 103,
@@ -1195,7 +2402,18 @@
       "evidence_tier": "C",
       "confidence": 0.7,
       "description": "价值观表达",
-      "file": "weapons/09-brand/weapons/103-社会议题.md"
+      "file": "weapons/09-brand/weapons/103-社会议题.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "resource_profile": "中长期投入，需要跨团队协同",
+      "guardrail_risk": "需要警惕品牌曝光无法回到高意向转化",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 104,
@@ -1206,7 +2424,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "电话销售",
-      "file": "weapons/10-b2b-sales/weapons/104-冷启动外呼.md"
+      "file": "weapons/10-b2b-sales/weapons/104-冷启动外呼.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 105,
@@ -1217,7 +2447,19 @@
       "evidence_tier": "C",
       "confidence": 0.68,
       "description": "B2B社交",
-      "file": "weapons/10-b2b-sales/weapons/105-LinkedIn外联.md"
+      "file": "weapons/10-b2b-sales/weapons/105-LinkedIn外联.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 106,
@@ -1228,7 +2470,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "在线研讨会",
-      "file": "weapons/10-b2b-sales/weapons/106-Webinar.md"
+      "file": "weapons/10-b2b-sales/weapons/106-Webinar.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 107,
@@ -1239,7 +2493,19 @@
       "evidence_tier": "C",
       "confidence": 0.75,
       "description": "产品展示",
-      "file": "weapons/10-b2b-sales/weapons/107-Demo演示.md"
+      "file": "weapons/10-b2b-sales/weapons/107-Demo演示.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 108,
@@ -1250,7 +2516,19 @@
       "evidence_tier": "C",
       "confidence": 0.72,
       "description": "留资转化",
-      "file": "weapons/10-b2b-sales/weapons/108-白皮书下载.md"
+      "file": "weapons/10-b2b-sales/weapons/108-白皮书下载.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 109,
@@ -1261,7 +2539,19 @@
       "evidence_tier": "B",
       "confidence": 0.8,
       "description": "流程优化",
-      "file": "weapons/10-b2b-sales/weapons/109-销售自动化.md"
+      "file": "weapons/10-b2b-sales/weapons/109-销售自动化.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 110,
@@ -1272,7 +2562,19 @@
       "evidence_tier": "B",
       "confidence": 0.85,
       "description": "续费增长",
-      "file": "weapons/10-b2b-sales/weapons/110-客户成功.md"
+      "file": "weapons/10-b2b-sales/weapons/110-客户成功.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": 111,
@@ -1283,7 +2585,19 @@
       "evidence_tier": "B",
       "confidence": 0.82,
       "description": "口碑推荐",
-      "file": "weapons/10-b2b-sales/weapons/111-转介绍计划.md"
+      "file": "weapons/10-b2b-sales/weapons/111-转介绍计划.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "resource_profile": "销售驱动，需要线索与转化流程协同",
+      "guardrail_risk": "需要警惕线索数掩盖真实成交质量",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     }
   ],
   "index_by_problem": {

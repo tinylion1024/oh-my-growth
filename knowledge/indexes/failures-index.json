@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-09",
+    "total_failures": 3
+  },
+  "failures": [
+    {
+      "id": "acquisition-anti-patterns",
+      "name": "获客反模式",
+      "file": "failures/acquisition-anti-patterns.md",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "problem_types": [
+        "acquisition"
+      ],
+      "summary": "在主转化链路未验证前同时铺很多渠道，最后只会得到“数据很多，但没有结论”。",
+      "warning_signals": [
+        "每个渠道量都不大",
+        "落地页和转化路径同时在改",
+        "周会只能汇报总新增，无法解释高意向用户来自哪里"
+      ],
+      "suggestions": [
+        "一次只验证一个主渠道",
+        "固定同一套转化路径和归因口径",
+        "用高意向新增而不是总注册做主指标"
+      ]
+    },
+    {
+      "id": "referral-failure-modes",
+      "name": "裂变失败模式",
+      "file": "failures/referral-failure-modes.md",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "problem_types": [
+        "referral"
+      ],
+      "summary": "当分享动机完全来自补贴时，裂变放大的通常不是产品价值，而是套利空间。",
+      "warning_signals": [
+        "分享率高，但邀请转化后的激活和留存很差",
+        "团队不断加码奖励才能维持新增",
+        "作弊、刷量、羊毛党开始出现"
+      ],
+      "suggestions": [
+        "先验证非补贴型分享动机",
+        "奖励设计以低摩擦、可控成本为先",
+        "把激活和留存纳入裂变实验的成功条件"
+      ]
+    },
+    {
+      "id": "retention-failure-modes",
+      "name": "留存失败模式",
+      "file": "failures/retention-failure-modes.md",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "problem_types": [
+        "retention",
+        "activation",
+        "monetization"
+      ],
+      "summary": "如果回访主要靠短期刺激而不是核心价值，留存会看起来提升，但长期习惯不会形成。",
+      "warning_signals": [
+        "Push、积分、抽奖带来短期活跃，但 30 日留存没有改善",
+        "用户被动回来，却没有更多关键动作",
+        "团队开始加码刺激频率"
+      ],
+      "suggestions": [
+        "先定位用户为什么不回来",
+        "主价值动作和回访动作使用同一口径追踪",
+        "激励只能辅助，不能替代核心价值"
+      ]
+    }
+  ]
+}

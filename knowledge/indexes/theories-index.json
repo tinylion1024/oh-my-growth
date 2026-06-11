@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.2.0",
-    "last_updated": "2026-06-06",
+    "last_updated": "2026-06-09",
     "total_theories": 12,
     "evidence_tier_definition": {
       "A": "元分析、系统综述、官方统计、权威教材",
@@ -49,7 +49,20 @@
       "related_cases": [
         "dropbox",
         "airbnb"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "需要稳定实验节奏、基础数据和跨职能协作",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "plg",
@@ -89,7 +102,19 @@
         "slack",
         "notion",
         "dropbox"
-      ]
+      ],
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "company_type": "saas",
+      "resource_profile": "产品、工程、增长密切协作，依赖核心价值快速达成",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "network-effects",
@@ -126,7 +151,19 @@
       "related_cases": [
         "airbnb",
         "uber"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "marketplace",
+      "resource_profile": "平台型资源配置，重视供需两侧协同和临界规模",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": "liquidity"
     },
     {
       "id": "content-growth",
@@ -167,7 +204,19 @@
       "related_cases": [
         "hubspot",
         "xiaohongshu"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "持续内容产能和分发能力要求高",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "community-growth",
@@ -208,7 +257,19 @@
       "related_cases": [
         "notion",
         "xiaohongshu"
-      ]
+      ],
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "需要长期运营、人群分层和核心用户机制",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "brand-growth",
@@ -250,7 +311,18 @@
         "allbirds",
         "glossier",
         "shein"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "品牌预算、中长期投入、跨团队内容与传播协同",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "viral-growth",
@@ -300,7 +372,19 @@
         "dropbox",
         "pinduoduo",
         "wechat-redpacket"
-      ]
+      ],
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "产品、增长、风控协同，要求低摩擦分享体验",
+      "failure_refs": [
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "performance-marketing",
@@ -343,7 +427,19 @@
         94,
         95
       ],
-      "related_cases": []
+      "related_cases": [],
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "预算密集，要求稳定归因、创意与落地页协同",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "gamification",
@@ -382,7 +478,19 @@
       "related_cases": [
         "duolingo",
         "ant-forest"
-      ]
+      ],
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "需要行为设计、数据分析和节奏控制",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "flywheel",
@@ -415,7 +523,19 @@
       "related_cases": [
         "amazon",
         "airbnb"
-      ]
+      ],
+      "growth_process": "增长经营",
+      "journey_stage": "留存",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "需要跨职能系统化协作和长期反馈回路",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "business-models",
@@ -460,7 +580,19 @@
       "related_cases": [
         "slack",
         "notion"
-      ]
+      ],
+      "growth_process": "用户深耕",
+      "journey_stage": "付费",
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "company_type": "general",
+      "resource_profile": "需要收入模型设计、实验能力和留存约束意识",
+      "failure_refs": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     },
     {
       "id": "growthhackers",
@@ -491,7 +623,20 @@
         "实验文化"
       ],
       "related_weapons": [],
-      "related_cases": []
+      "related_cases": [],
+      "growth_process": "增长经营",
+      "journey_stage": "注册/激活",
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "company_type": "general",
+      "resource_profile": "偏增长团队方法论，需要实验文化和快速执行",
+      "failure_refs": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "marketplace_side": ""
     }
   ],
   "index_by_problem": {

@@ -8,7 +8,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Union
+from typing import Any, Dict, List, Union
 
 # 添加脚本目录到路径
 sys.path.insert(0, str(Path(__file__).parent))
@@ -18,31 +18,83 @@ from assess_clarity import assess_clarity
 from strategy_brain import StrategyBrain
 
 
-def load_context_overrides(args) -> Dict[str, str]:
+def _load_json_object(path: str) -> Dict[str, Any]:
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError(f"{path} must contain a JSON object")
+    return payload
+
+
+def _summarize_experiment_log(payload: Dict[str, Any]) -> str:
+    experiments = payload.get("experiments", [])
+    if not isinstance(experiments, list) or not experiments:
+        return ""
+
+    summary_parts = []
+    for item in experiments[:3]:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name", "未命名实验"))
+        outcome = str(item.get("outcome", item.get("status", "结果待定")))
+        lesson = str(item.get("lesson", "")).strip()
+        detail = f"{name}={outcome}"
+        if lesson:
+            detail += f"（{lesson}）"
+        summary_parts.append(detail)
+    return "；".join(summary_parts)
+
+
+def load_context_overrides(args) -> Dict[str, Any]:
     """Load structured context overrides from JSON string or file."""
-    merged: Dict[str, str] = {}
+    merged: Dict[str, Any] = {}
     if getattr(args, "context_json", ""):
         payload = json.loads(args.context_json)
         if not isinstance(payload, dict):
             raise ValueError("--context-json must decode to a JSON object")
-        merged.update({str(key): str(value) for key, value in payload.items() if value is not None})
+        merged.update({str(key): value for key, value in payload.items() if value is not None})
 
     if getattr(args, "context_file", ""):
-        payload = json.loads(Path(args.context_file).read_text(encoding="utf-8"))
-        if not isinstance(payload, dict):
-            raise ValueError("--context-file must contain a JSON object")
-        merged.update({str(key): str(value) for key, value in payload.items() if value is not None})
+        payload = _load_json_object(args.context_file)
+        merged.update({str(key): value for key, value in payload.items() if value is not None})
+
+    if getattr(args, "profile_file", ""):
+        profile = _load_json_object(args.profile_file)
+        merged["company_profile"] = profile
+        field_map = {
+            "industry": "industry",
+            "stage": "stage",
+            "goal": "goal",
+            "metric": "metric",
+            "budget": "budget",
+            "team": "team",
+            "constraints": "constraints",
+            "stakeholder": "stakeholder",
+        }
+        for field, profile_key in field_map.items():
+            if not merged.get(field) and profile.get(profile_key):
+                merged[field] = profile[profile_key]
+
+    if getattr(args, "history_file", ""):
+        history_payload = _load_json_object(args.history_file)
+        merged["experiment_log"] = history_payload
+        if not merged.get("history"):
+            history_summary = _summarize_experiment_log(history_payload)
+            if history_summary:
+                merged["history"] = history_summary
 
     return merged
 
 
-def build_context(args) -> Dict[str, str]:
+def build_context(args) -> Dict[str, Any]:
     """Build a normalized retrieval context from CLI arguments."""
     context = {}
     for source, target in [
         ("industry", "industry"),
         ("stage", "stage"),
+        ("journey", "journey_stage"),
         ("problem", "problem_type"),
+        ("competitor", "competitor"),
+        ("market", "market_structure"),
         ("goal", "goal"),
         ("metric", "metric"),
         ("budget", "budget"),
@@ -180,6 +232,13 @@ def render_strategy_brain(title: str, analysis: Dict) -> None:
     for item in analysis["avoid_now"]:
         print(f"  • {item}")
 
+    if analysis.get("kelly_allocation"):
+        print("\n【预算建议】")
+        print(f"  推荐比例: {analysis['kelly_allocation']['recommended_ratio_text']}")
+        print(f"  推荐投入: {analysis['kelly_allocation']['allocation_text']}")
+        print(f"  加仓条件: {analysis['kelly_allocation']['add_condition']}")
+        print(f"  停止条件: {analysis['kelly_allocation']['stop_condition']}")
+
     print("\n【两周实验】")
     print(f"  假设: {analysis['experiment']['hypothesis']}")
     print("  步骤:")
@@ -201,6 +260,22 @@ def render_strategy_brain(title: str, analysis: Dict) -> None:
         print("\n【理论支撑】")
         for theory in analysis["reference_theories"]:
             print(f"  • {theory['name']}")
+
+    if analysis.get("failure_modes"):
+        print("\n【共性失败陷阱】")
+        for item in analysis["failure_modes"]:
+            print(f"  • {item['title']}: {item['summary']}")
+
+    if analysis.get("memory_summary"):
+        print("\n【项目记忆】")
+        for item in analysis["memory_summary"]:
+            print(f"  • {item}")
+
+    if analysis.get("game_theory"):
+        print("\n【竞争/平台判断】")
+        print(f"  场景: {analysis['game_theory']['game_type_label']}")
+        print(f"  建议姿态: {analysis['game_theory']['posture']}")
+        print(f"  博弈建议: {analysis['game_theory']['recommendation']}")
 
     print("\n【数据与归因要求】")
     for item in analysis["measurement_notes"]:
@@ -227,6 +302,18 @@ def render_strategy_output(title: str, analysis: Dict, view: str, clarity_score:
     if view == "executive":
         print(StrategyBrain().to_executive_markdown(analysis))
         return
+    if view == "weekly":
+        print(StrategyBrain().to_weekly_markdown(analysis))
+        return
+    if view == "experiment-card":
+        print(StrategyBrain().to_experiment_card_markdown(analysis))
+        return
+    if view == "decision-memo":
+        print(StrategyBrain().to_decision_memo_markdown(analysis))
+        return
+    if view == "qbr":
+        print(StrategyBrain().to_qbr_markdown(analysis))
+        return
     if view == "report":
         clarity_level = clarity_result.level if clarity_result else "workable"
         can_proceed = clarity_result.can_proceed if clarity_result else True
@@ -239,7 +326,10 @@ def add_common_strategy_arguments(parser) -> None:
     """Attach shared strategy-brain arguments to a parser."""
     parser.add_argument('--industry', default='', help='行业类型')
     parser.add_argument('--stage', default='', help='业务阶段')
+    parser.add_argument('--journey', default='', help='用户旅程断点')
     parser.add_argument('--problem', default='', help='问题类型')
+    parser.add_argument('--competitor', default='', help='关键竞争对手')
+    parser.add_argument('--market', default='', help='市场结构或竞争场景')
     parser.add_argument('--goal', default='', help='目标描述')
     parser.add_argument('--metric', default='', help='目标指标')
     parser.add_argument('--budget', default='', help='预算约束')
@@ -249,10 +339,12 @@ def add_common_strategy_arguments(parser) -> None:
     parser.add_argument('--history', default='', help='历史尝试')
     parser.add_argument('--context-json', default='', help='补充结构化上下文 JSON 字符串')
     parser.add_argument('--context-file', default='', help='补充结构化上下文 JSON 文件')
+    parser.add_argument('--profile-file', default='', help='公司画像 JSON 文件')
+    parser.add_argument('--history-file', default='', help='历史实验台账 JSON 文件')
     parser.add_argument(
         '--view',
         default='operator',
-        choices=['operator', 'executive', 'report', 'json'],
+        choices=['operator', 'executive', 'report', 'json', 'weekly', 'experiment-card', 'decision-memo', 'qbr'],
         help='输出视图：执行版/负责人摘要/报告版/JSON',
     )
 
@@ -286,6 +378,37 @@ def cmd_design(args):
     return 0
 
 
+def cmd_fast_scan(args):
+    """快速判断某个增长方向是否值得进入实验。"""
+    context = build_context(args)
+    clarity_result = assess_clarity(build_clarity_input(args.query, context))
+    analysis = StrategyBrain().analyze(args.query, context, mode="fast-scan")
+
+    if args.view == "json":
+        print(StrategyBrain().to_json(analysis))
+        return 0
+
+    print(StrategyBrain().to_fast_scan_markdown(analysis))
+    if clarity_result.total_score < 55:
+        print("\n补充建议:")
+        for question in clarity_result.follow_up_questions[:3]:
+            print(f"- {question['question']}")
+    return 0
+
+
+def cmd_brd(args):
+    """输出正式决策文档草稿。"""
+    context = build_context(args)
+    analysis = StrategyBrain().analyze(args.query, context, mode="brd")
+
+    if args.view == "json":
+        print(StrategyBrain().to_json(analysis))
+        return 0
+
+    print(StrategyBrain().to_brd_markdown(analysis))
+    return 0
+
+
 def cmd_diagnose(args):
     """完整的策略外脑诊断。"""
     context = build_context(args)
@@ -298,6 +421,19 @@ def cmd_diagnose(args):
         clarity_result.total_score,
         clarity_result,
     )
+    return 0
+
+
+def cmd_learn(args):
+    """围绕当前问题生成学习路径。"""
+    context = build_context(args)
+    brain = StrategyBrain()
+
+    if args.json:
+        print(json.dumps(brain.build_learning_path(args.query, context), ensure_ascii=False, indent=2))
+        return 0
+
+    print(brain.to_learning_markdown(args.query, context))
     return 0
 
 
@@ -428,6 +564,12 @@ def main():
   # 评估增长机会
   growth assess "SaaS产品如何获取首批用户" --industry saas --stage 0-1
 
+  # 快速判断是否值得做
+  growth fast-scan "我们要不要做邀请裂变" --industry saas --stage 1-10 --problem referral
+
+  # 生成决策 BRD
+  growth brd "是否应该做邀请裂变" --industry saas --stage 1-10 --problem referral
+
   # 设计增长策略
   growth design "如何提升用户留存" --industry education --problem retention
 
@@ -459,6 +601,18 @@ def main():
     add_common_strategy_arguments(design_parser)
     design_parser.set_defaults(func=cmd_design)
 
+    # fast-scan 命令
+    fast_scan_parser = subparsers.add_parser('fast-scan', help='快速判断某个增长方向是否值得进入实验')
+    fast_scan_parser.add_argument('query', help='问题描述')
+    add_common_strategy_arguments(fast_scan_parser)
+    fast_scan_parser.set_defaults(func=cmd_fast_scan)
+
+    # brd 命令
+    brd_parser = subparsers.add_parser('brd', help='生成增长决策 BRD 草稿')
+    brd_parser.add_argument('query', help='问题描述')
+    add_common_strategy_arguments(brd_parser)
+    brd_parser.set_defaults(func=cmd_brd)
+
     # diagnose 命令
     diagnose_parser = subparsers.add_parser('diagnose', help='生成完整的策略外脑诊断')
     diagnose_parser.add_argument('query', help='问题描述')
@@ -483,6 +637,20 @@ def main():
     match_parser.add_argument('--problem', default='', help='问题类型')
     match_parser.add_argument('--limit', type=int, default=5, help='返回案例数量')
     match_parser.set_defaults(func=cmd_match)
+
+    # learn 命令
+    learn_parser = subparsers.add_parser('learn', help='生成围绕某个问题的学习路径')
+    learn_parser.add_argument('query', help='问题描述')
+    learn_parser.add_argument('--industry', default='', help='行业类型')
+    learn_parser.add_argument('--stage', default='', help='业务阶段')
+    learn_parser.add_argument('--journey', default='', help='用户旅程断点')
+    learn_parser.add_argument('--problem', default='', help='问题类型')
+    learn_parser.add_argument('--json', action='store_true', help='JSON 格式输出')
+    learn_parser.add_argument('--context-json', default='', help='补充结构化上下文 JSON 字符串')
+    learn_parser.add_argument('--context-file', default='', help='补充结构化上下文 JSON 文件')
+    learn_parser.add_argument('--profile-file', default='', help='公司画像 JSON 文件')
+    learn_parser.add_argument('--history-file', default='', help='历史实验台账 JSON 文件')
+    learn_parser.set_defaults(func=cmd_learn)
 
     # scenario shortcut commands
     for command_name, help_text in [

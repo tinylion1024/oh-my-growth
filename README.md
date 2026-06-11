@@ -10,7 +10,7 @@
 `阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-23%2F23%20scripted%20checks-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-69%2F69%20scripted%20checks-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
@@ -53,15 +53,18 @@
 - 建议现在做 / 建议先别做
 - 两周实验
 - 数据与归因要求
+- 项目记忆提示（公司画像 / 历史实验 / 重复失败模式）
+- Kelly / Game Theory 场景判断（预算 / 竞争 / 平台）
+- 复杂业务形态判断（B2B sales-led / marketplace / local-services / AI cold-start）
 
 如果你是增长负责人，这些内容已经足够支撑一次周会判断、一次策略讨论，或者一版初始决策稿。
 
 ## 🔒 为什么值得信
 
-- **不是空想建议**：每次输出都会联动案例、玩法、理论和证据等级
+- **不是空想建议**：每次输出都会联动案例、玩法、理论和证据等级，核心矛盾、实验、行动和复盘触发器也会引用这些证据；明确约束会直接进入排序惩罚
 - **不是只会给招**：先做阶段判断、北极星判断和旅程断点判断
 - **不是不可验证**：内置两周实验、成功信号、停止信号
-- **不是黑盒**：当前有 `23/23` 脚本化检查通过
+- **不是黑盒**：当前有 `69/69` 脚本化检查通过
 - **不是品牌套壳**：方法层已经抽象成通用增长框架，能独立服务项目本身
 
 ---
@@ -118,14 +121,14 @@ python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
 
 ### 六大模式，覆盖从诊断到执行建议
 
-| 模式 | 一句话描述 | 适用场景 |
-|------|-----------|----------|
-| **Strategy Brain** | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
-| **Fast Scan** | 快速判断 | 这个想法靠谱吗？ |
-| **Decision BRD** | 完整决策文档 | 需要申请预算/资源 |
-| **Strategy Design** | 可落地的策略 | 知道要做什么，但不知道怎么做 |
-| **Case Match** | 找成功案例 | 想看看别人怎么做的 |
-| **Learning Path** | 系统学习路径 | 想深入了解某个增长领域 |
+| 模式 | CLI 入口 | 一句话描述 | 适用场景 |
+|------|----------|-----------|----------|
+| **Strategy Brain** | `diagnose` | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
+| **Fast Scan** | `fast-scan` | 快速判断 | 这个想法靠谱吗？ |
+| **Decision BRD** | `brd` | 完整决策文档 | 需要申请预算/资源 |
+| **Strategy Design** | `design` | 可落地的策略 | 知道要做什么，但不知道怎么做 |
+| **Case Match** | `match` | 找成功案例 | 想看看别人怎么做的 |
+| **Learning Path** | `learn` | 系统学习路径 | 想深入了解某个增长领域 |
 
 ### 知识库规模
 
@@ -186,7 +189,7 @@ cp -R growth-master-skill ~/.claude/skills/
 ```bash
 # 运行主测试集
 python3 scripts/run_tests.py
-# ✅ 23/23 checks passed
+# ✅ 69/69 checks passed
 ```
 
 ### 第一次使用
@@ -196,11 +199,22 @@ python3 scripts/run_tests.py
 python scripts/cli.py diagnose "电商平台如何提升复购率" \
   --industry ecommerce --problem retention
 
+# 快速判断一个方向值不值得做
+python scripts/cli.py fast-scan "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral
+
+# 生成正式决策 BRD 草稿
+python scripts/cli.py brd "是否应该做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral
+
 # 搜索相关案例和玩法
 python scripts/cli.py search "裂变" --limit 5
 
 # 匹配相关案例
 python scripts/cli.py match "教育产品如何做裂变" --problem referral
+
+# 围绕一个主题生成学习路径
+python scripts/cli.py learn "如何系统学习裂变增长" --problem referral
 
 # 场景化入口
 python scripts/cli.py retention "如何提升月活跃用户留存率" --industry content
@@ -214,6 +228,20 @@ python scripts/cli.py diagnose "如何提升月活跃用户留存率" \
 python scripts/cli.py diagnose "我们要不要做邀请裂变" \
   --industry saas --stage 1-10 --problem referral \
   --context-file examples/referral-context.json --view report
+
+# 加载公司画像和历史实验台账
+python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
+  --problem acquisition \
+  --profile-file examples/company-profile.json \
+  --history-file examples/experiment-log.json \
+  --view weekly
+
+# 生成季度经营摘要（含 Kelly 预算建议）
+python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
+  --problem acquisition \
+  --profile-file examples/company-profile.json \
+  --history-file examples/experiment-log.json \
+  --view qbr
 ```
 
 ---
@@ -239,6 +267,9 @@ python scripts/cli.py diagnose "是否应该做邀请裂变" \
 - 数据与归因要求
 - 可切换为负责人摘要 / 报告版 / JSON 版
 - 支持 `--context-json` / `--context-file` 注入目标、预算、团队与历史动作
+- 支持 `--profile-file` / `--history-file` 注入公司画像和历史实验台账
+- 预算已知时会自动生成 Kelly 风险预算建议、加仓条件和停止条件
+- 竞争 / 平台 / 定价场景下会补充 Game Theory 姿态判断
 
 ---
 
@@ -324,6 +355,78 @@ python scripts/cli.py validate report.md
 **输出**：
 - 满足报告契约的 Markdown 决策稿
 - 可进一步进入校验和迭代
+
+---
+
+### 场景七：给周会和实验管理直接出产物
+
+**问题**：希望直接拿到周会摘要、实验卡和决策 memo
+
+```bash
+python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
+  --problem acquisition \
+  --profile-file examples/company-profile.json \
+  --history-file examples/experiment-log.json \
+  --view weekly
+
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --problem referral \
+  --profile-file examples/company-profile.json \
+  --history-file examples/experiment-log.json \
+  --view experiment-card
+
+python scripts/cli.py diagnose "我们要不要做邀请裂变" \
+  --problem referral \
+  --profile-file examples/company-profile.json \
+  --history-file examples/experiment-log.json \
+  --view decision-memo
+
+python scripts/cli.py diagnose "SaaS产品如何获取首批1000用户" \
+  --problem acquisition \
+  --profile-file examples/company-profile.json \
+  --history-file examples/experiment-log.json \
+  --view qbr
+```
+
+**输出**：
+- `weekly`：周会摘要、负责人、本周不做什么、复盘信号
+- `experiment-card`：假设、步骤、成功/停止信号、历史提醒
+- `decision-memo`：决策请求、依据、备选不优先原因、组织历史约束
+- `qbr`：季度主题、经营判断、优先事项、风险、Kelly 预算分配建议
+- 在竞争 / 平台场景下，这些视图会附带 Game Theory 姿态判断
+
+---
+
+### 场景八：快速判断一个方向值不值得做
+
+**问题**：临时会上有人提议“先做邀请裂变试试”
+
+```bash
+python scripts/cli.py fast-scan "我们要不要做邀请裂变" \
+  --industry saas --stage 1-10 --problem referral
+```
+
+**输出**：
+- 一句话建议
+- 2-3 条核心理由
+- 主要风险
+- 下一步动作
+
+---
+
+### 场景九：围绕某个问题快速补课
+
+**问题**：想系统看懂裂变、案例和相关理论
+
+```bash
+python scripts/cli.py learn "如何系统学习裂变增长" --problem referral
+```
+
+**输出**：
+- 优先阅读的方法指南
+- 相关理论
+- 先看的案例
+- 建议对照的玩法
 
 ---
 
@@ -437,11 +540,15 @@ ga.find_nash_equilibrium()   # 找到纳什均衡
 ga.calibrate_with_history()  # 历史行为校准
 ```
 
+当前项目会在 `diagnose / decision-memo / qbr` 中按场景触发 Game Theory：当你提供竞争对手、平台结构或定价/跟进风险时，会额外输出竞争/平台姿态和博弈建议，而不是默认对所有问题都做复杂博弈分析。
+
 ---
 
 ## 📊 Kelly 资源分配框架
 
 ### 什么是 Kelly 准则？
+
+当前项目已经把 Kelly 接入 `diagnose / weekly / decision-memo / qbr` 的预算建议层：当你提供预算上下文时，会自动给出风险预算比例、建议投入额、加仓条件和停止条件，而不是只把 Kelly 当成独立理论展示。
 
 计算最优投入比例，回答"应该投入多少资源"：
 
@@ -478,6 +585,10 @@ kelly_result:
 | **博弈论战略** | 竞争分析、均衡预测 | [gametheory-framework.md](./references/gametheory-framework.md) |
 | **Kelly 分配** | 资源投入优化 | [kelly-allocation.md](./references/kelly-allocation.md) |
 | **商业模式** | 商业设计与诊断 | [business-model.md](./references/business-model.md) |
+
+### 索引治理
+
+知识索引现在已经包含 `growth_process / journey_stage / stage_fit / resource_profile / failure_refs` 等字段，不再只是导航列表；失败模式也已经有独立的 `failures-index.json`，并开始参与策略排序和风险惩罚。维护规范见 [index-schema.md](./references/index-schema.md)。
 
 ---
 
@@ -518,6 +629,7 @@ kelly_result:
 
 - [案例库总览](./knowledge/cases/README.md)
 - [玩法武器库总览](./knowledge/weapons/index.md)
+- [失败模式与反模式](./knowledge/failures/README.md)
 - [方法指南总览](./knowledge/guides/README.md)
 - [中国案例目录](./knowledge/cases/china/README.md)
 - [海外案例目录](./knowledge/cases/overseas/README.md)
@@ -835,8 +947,9 @@ python3 scripts/validate-indexes.py
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| 脚本化主测试 | 23/23 | ✅ |
+| 脚本化主测试 | 69/69 | ✅ |
 | CLI 集成测试 | diagnose / assess / match / validate | ✅ |
+| Golden 场景回归 | 错阶段 / 错约束 / 错方向 | ✅ |
 | Agent / 索引验证 | 结构和知识完整性 | ✅ |
 | 去品牌化检查 | 公共 Markdown 无品牌字样 | ✅ |
 

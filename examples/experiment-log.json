@@ -1,0 +1,17 @@
+{
+  "experiments": [
+    {
+      "name": "高补贴邀请裂变",
+      "category": "viral-referral",
+      "outcome": "failed",
+      "lesson": "带来了低质量流量，激活和留存都偏低",
+      "avoid_repeat": "不要再用高补贴直接拉低质量用户"
+    },
+    {
+      "name": "种子用户访谈 + 定向外联",
+      "category": "cold-start",
+      "outcome": "success",
+      "lesson": "高意向用户反馈质量高，能快速验证主卖点"
+    }
+  ]
+}

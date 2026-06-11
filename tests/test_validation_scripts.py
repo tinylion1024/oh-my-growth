@@ -29,6 +29,10 @@ def test_update_indexes_and_validate_indexes():
 
     weapons_payload = json.loads((ROOT_DIR / "knowledge/indexes/weapons-index.json").read_text(encoding="utf-8"))
     assert all(weapon.get("file") for weapon in weapons_payload["weapons"])
+    assert all("growth_process" in weapon for weapon in weapons_payload["weapons"])
+    assert all("journey_stage" in weapon for weapon in weapons_payload["weapons"])
+    assert all("marketplace_side" in weapon for weapon in weapons_payload["weapons"])
+    assert all("failure_refs" in weapon for weapon in weapons_payload["weapons"])
     assert {weapon["category"] for weapon in weapons_payload["weapons"]} == {
         "cold-start",
         "viral-referral",
@@ -41,6 +45,25 @@ def test_update_indexes_and_validate_indexes():
         "brand",
         "b2b-sales",
     }
+
+    cases_payload = json.loads((ROOT_DIR / "knowledge/indexes/cases-index.json").read_text(encoding="utf-8"))
+    assert all("growth_process" in case for case in cases_payload["cases"])
+    assert all("journey_stage" in case for case in cases_payload["cases"])
+    assert all("marketplace_side" in case for case in cases_payload["cases"])
+    assert all("failure_refs" in case for case in cases_payload["cases"])
+    assert any(case.get("company_type") == "marketplace" and case.get("marketplace_side") for case in cases_payload["cases"])
+    assert any(case.get("company_type") == "local-services" for case in cases_payload["cases"])
+
+    theories_payload = json.loads((ROOT_DIR / "knowledge/indexes/theories-index.json").read_text(encoding="utf-8"))
+    assert all("growth_process" in theory for theory in theories_payload["theories"])
+    assert all("journey_stage" in theory for theory in theories_payload["theories"])
+    assert all("marketplace_side" in theory for theory in theories_payload["theories"])
+    assert all("failure_refs" in theory for theory in theories_payload["theories"])
+
+    failures_payload = json.loads((ROOT_DIR / "knowledge/indexes/failures-index.json").read_text(encoding="utf-8"))
+    assert failures_payload["metadata"]["total_failures"] >= 3
+    assert all("problem_types" in failure for failure in failures_payload["failures"])
+    assert all("summary" in failure for failure in failures_payload["failures"])
 
     readme_content = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
     assert "[DeepSeek（深度求索）- AI开源突围战](<./knowledge/cases/china/deepseek.md>)" in readme_content
@@ -60,6 +83,12 @@ def test_validate_agents_without_external_yaml_dependency():
     result = run_script("scripts/validate-agents.py")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "All agents validated successfully" in result.stdout
+
+
+def test_validate_docs_checks_structure_and_links():
+    result = run_script("scripts/validate-docs.py")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "Documentation structure and links validated successfully" in result.stdout
 
 
 def test_growth_framework_guides_exist_and_are_sanitized():
@@ -94,3 +123,15 @@ def test_growth_framework_guides_exist_and_are_sanitized():
             contents = path.read_text(encoding="utf-8")
             assert "UGS-P" not in contents, path
             assert "UGS" not in contents, path
+
+
+def test_failure_mode_guides_exist():
+    failures_dir = ROOT_DIR / "knowledge" / "failures"
+    expected = {
+        "README.md",
+        "acquisition-anti-patterns.md",
+        "referral-failure-modes.md",
+        "retention-failure-modes.md",
+    }
+    assert failures_dir.exists()
+    assert expected.issubset({path.name for path in failures_dir.iterdir() if path.is_file()})

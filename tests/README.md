@@ -48,10 +48,13 @@ python3 scripts/run_tests.py --report tests/results/test-report.md
 当前自动化覆盖：
 
 - CLI 核心流程：`assess`、`diagnose`、场景快捷入口、`match`、`validate`
-- 分层输出：`executive` / `report` / `json` 视图
-- 结构化上下文：`--context-json` 输入会进入策略判断
+- 模式入口：`fast-scan`、`brd`、`learn`
+- 分层输出：`executive` / `report` / `json` / `weekly` / `experiment-card` / `decision-memo` / `qbr`
+- 结构化上下文：`--context-json`、`--profile-file`、`--history-file` 会进入策略判断
 - 检索质量：案例、玩法、理论召回
-- 验证脚本：`validate-agents.py`、`update-indexes.py`、`validate-indexes.py`
+- 策略质量：阶段匹配、主业务过程、失败模式、Game Theory / Kelly 触发
+- Golden scenarios：基于 `tests/fixtures/strategy-golden-scenarios.json` 的高风险误判场景回归
+- 验证脚本：`validate-agents.py`、`validate-docs.py`、`update-indexes.py`、`validate-indexes.py`
 - 贝叶斯决策模块：阈值、证据更新、导出、边界保护
 
-当前全量结果：`22/22` 自动化检查通过。
+当前全量结果：`69/69` 自动化检查通过。
