@@ -33,6 +33,13 @@
 /oh-my-growth design SaaS产品如何设计变现策略？
 ```
 
+**缩写支持**：也可使用 `/omg` 代替 `/oh-my-growth`
+
+```
+/omg diagnose 我的产品日活下降20%，该怎么办？
+/omg assess 我们准备做裂变，先评估可行性
+```
+
 它会先判断：
 
 - 你现在到底处于哪个增长阶段

@@ -32,6 +32,13 @@ Use it directly in your Claude Code session:
 /oh-my-growth design How to design monetization strategy for SaaS?
 ```
 
+**Shortcut**: Use `/omg` instead of `/oh-my-growth`
+
+```
+/omg diagnose My DAU dropped 20%, what should I do?
+/omg assess We're planning referral, evaluate feasibility first
+```
+
 It first determines:
 
 - Which growth stage you're in (validation / scaling / optimization)

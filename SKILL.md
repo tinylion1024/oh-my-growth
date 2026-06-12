@@ -2,6 +2,8 @@
 name: oh-my-growth
 description: 增长策略外脑 - Claude Code 专用增长决策插件。整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、建议做/不做与实验计划。
 trigger: /oh-my-growth
+aliases:
+  - /omg
 metadata:
   author: Growth Master Team
   maturity: production
@@ -25,6 +27,13 @@ metadata:
 /oh-my-growth assess 我们准备做裂变，先评估可行性
 /oh-my-growth design SaaS产品如何设计变现策略？
 /oh-my-growth match 游戏化留存案例
+```
+
+**缩写支持**：也可使用 `/omg` 代替 `/oh-my-growth`
+
+```
+/omg diagnose 我的产品日活下降20%，该怎么办？
+/omg assess 我们准备做裂变，先评估可行性
 ```
 
 ## Use This Skill For
