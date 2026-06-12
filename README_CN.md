@@ -89,13 +89,84 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 
 ### 在 Claude Code 中使用
 
+**核心命令：**
+
+```bash
+# 策略诊断 - 诊断增长问题并给出优先级排序
+/omg diagnose SaaS产品如何获取首批用户
+/omg diagnose 我的产品日活下降20%，该怎么办？
+
+# 机会评估 - 评估是否值得深入分析
+/omg assess 我们要不要做邀请裂变
+/omg assess 我们准备做病毒增长，先评估可行性
+
+# 策略设计 - 可落地的策略方案
+/omg design 如何提升月活跃用户留存率
+/omg design SaaS产品变现策略
+
+# 案例匹配 - 找成功案例参考
+/omg match 游戏化提升用户活跃
+/omg match 教育行业裂变增长案例
+
+# 学习路径 - 系统学习路线图
+/omg learn 如何系统学习裂变增长
+/omg learn B2B SaaS留存策略
 ```
-/oh-my-growth diagnose SaaS产品如何获取首批用户
-/oh-my-growth assess 我们要不要做邀请裂变
-/oh-my-growth design 如何提升月活跃用户留存率
-/oh-my-growth match 游戏化提升用户活跃
-/oh-my-growth learn 如何系统学习裂变增长
+
+**快速判断：**
+
+```bash
+# 快速扫描 - 快速可行性判断
+/omg fast-scan TikTok广告适合我们SaaS吗？
+
+# 决策文档 - 完整决策文档（用于申请预算）
+/omg brd 我们要不要投入5万做裂变
 ```
+
+**工具命令：**
+
+```bash
+# 直接搜索知识库
+/omg search 病毒增长
+/omg search PLG onboarding
+
+# 校验输出文档
+/omg validate report.md
+```
+
+**场景快捷入口：**
+
+```bash
+# 冷启动场景
+/omg cold-start AI写作SaaS如何拿到前100个种子用户
+
+# 留存场景
+/omg retention 如何提升30日留存率
+
+# 变现场景
+/omg monetization SaaS产品如何设计定价
+
+# 裂变场景
+/omg referral 我们要不要做邀请裂变
+```
+
+### 命令参考
+
+| 命令 | 描述 | 适用场景 |
+|------|------|----------|
+| `diagnose` | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
+| `assess` | 评估是否值得深入分析 | 现状还不够清楚，先做清晰度评估 |
+| `design` | 可落地的策略方案 | 知道要做什么，但不知道怎么设计执行路径 |
+| `fast-scan` | 快速判断 | 这个想法靠谱吗？ |
+| `brd` | 完整决策文档 | 需要申请预算/资源 |
+| `match` | 找成功案例 | 想看看别人怎么做的 |
+| `learn` | 系统学习路径 | 想深入了解某个增长领域 |
+| `search` | 搜索知识库 | 直接查找案例/玩法/理论 |
+| `validate` | 校验输出文档 | 检查报告完整性 |
+| `cold-start` | 冷启动场景 | 首批用户获取 |
+| `retention` | 留存场景 | 提升用户留存 |
+| `monetization` | 变现场景 | 设计变现策略 |
+| `referral` | 裂变场景 | 规划裂变方案 |
 
 ### CLI 模式（独立使用）
 
@@ -136,21 +207,7 @@ python scripts/cli.py cold-start "AI写作SaaS如何拿到前100个种子用户"
 
 ---
 
-## 🎯 核心功能
-
-### 七个核心入口
-
-| 模式 | CLI 入口 | 一句话描述 | 适用场景 |
-|------|----------|-----------|----------|
-| **Strategy Brain** | `diagnose` | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
-| **Opportunity Assess** | `assess` | 先判断能不能进入策略分析 | 现状还不够清楚，先做清晰度与方向评估 |
-| **Strategy Design** | `design` | 可落地的策略 | 知道要做什么，但不知道怎么设计执行路径 |
-| **Fast Scan** | `fast-scan` | 快速判断 | 这个想法靠谱吗？ |
-| **Decision BRD** | `brd` | 完整决策文档 | 需要申请预算/资源 |
-| **Case Match** | `match` | 找成功案例 | 想看看别人怎么做的 |
-| **Learning Path** | `learn` | 系统学习路径 | 想深入了解某个增长领域 |
-
-### 知识库规模
+## 🎯 知识库规模
 
 | 类型 | 数量 | 说明 |
 |------|------|------|

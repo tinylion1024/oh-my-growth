@@ -88,13 +88,84 @@ In Claude Code, type:
 
 ### Use in Claude Code
 
+**Core Commands:**
+
+```bash
+# Strategy diagnosis - diagnose growth problems with priority ranking
+/omg diagnose How to get first 1000 users for SaaS product
+/omg diagnose My DAU dropped 20%, what should I do?
+
+# Opportunity assessment - evaluate if worth deeper analysis
+/omg assess Should we do referral program
+/omg assess We're planning viral growth, evaluate feasibility first
+
+# Strategy design - actionable strategy with execution path
+/omg design How to improve monthly active user retention
+/omg design SaaS monetization strategy
+
+# Case matching - find success cases
+/omg match Gamification to boost user activity
+/omg match Referral growth cases in education industry
+
+# Learning path - systematic learning roadmap
+/omg learn How to systematically learn referral growth
+/omg learn Retention strategy for B2B SaaS
 ```
-/oh-my-growth diagnose How to get first 1000 users for SaaS product
-/oh-my-growth assess Should we do referral program
-/oh-my-growth design How to improve monthly active user retention
-/oh-my-growth match Gamification to boost user activity
-/oh-my-growth learn How to systematically learn referral growth
+
+**Quick Judgment:**
+
+```bash
+# Fast scan - quick feasibility check
+/omg fast-scan Is TikTok ads worth trying for our SaaS?
+
+# Decision BRD - full decision document for budget approval
+/omg brd Should we invest $50K in referral program
 ```
+
+**Utility Commands:**
+
+```bash
+# Search knowledge base directly
+/omg search viral growth
+/omg search PLG onboarding
+
+# Validate output document
+/omg validate report.md
+```
+
+**Scenario Shortcuts:**
+
+```bash
+# Cold start scenario
+/omg cold-start How to get first 100 seed users for AI writing SaaS
+
+# Retention scenario
+/omg retention How to improve 30-day retention rate
+
+# Monetization scenario
+/omg monetization How to design pricing for SaaS product
+
+# Referral scenario
+/omg referral Should we do invitation referral
+```
+
+### Command Reference
+
+| Command | Description | Use Case |
+|---------|-------------|----------|
+| `diagnose` | Diagnosis + Priority + Experiment | Growth lead needs quick judgment |
+| `assess` | Evaluate if worth deeper analysis | Current state unclear, need clarity first |
+| `design` | Actionable strategy | Know what to do, need execution path |
+| `fast-scan` | Quick judgment | Is this idea worth pursuing? |
+| `brd` | Full decision document | Need budget/resource approval |
+| `match` | Find success cases | Want to see how others did it |
+| `learn` | Systematic learning path | Want to deep dive into a growth area |
+| `search` | Search knowledge base | Direct lookup of cases/plays/theories |
+| `validate` | Validate output document | Check report completeness |
+| `cold-start` | Cold start scenario | First users acquisition |
+| `retention` | Retention scenario | Improve user retention |
+| `monetization` | Monetization scenario | Design monetization strategy |
+| `referral` | Referral scenario | Plan referral program |
 
 ### CLI Mode (Standalone)
 
@@ -135,21 +206,7 @@ python scripts/cli.py cold-start "How to get first 100 seed users for AI writing
 
 ---
 
-## 🎯 Core Features
-
-### Seven Entry Points
-
-| Mode | CLI Entry | Description | Use Case |
-|------|-----------|-------------|----------|
-| **Strategy Brain** | `diagnose` | Diagnosis + Priority + Experiment | Growth lead needs quick judgment |
-| **Opportunity Assess** | `assess` | Evaluate if worth deeper analysis | Current state unclear, need clarity first |
-| **Strategy Design** | `design` | Actionable strategy | Know what to do, need execution path |
-| **Fast Scan** | `fast-scan` | Quick judgment | Is this idea worth pursuing? |
-| **Decision BRD** | `brd` | Full decision document | Need budget/resource approval |
-| **Case Match** | `match` | Find success cases | Want to see how others did it |
-| **Learning Path** | `learn` | Systematic learning path | Want to deep dive into a growth area |
-
-### Knowledge Base Scale
+## 🎯 Knowledge Base Scale
 
 | Type | Count | Description |
 |------|-------|-------------|
