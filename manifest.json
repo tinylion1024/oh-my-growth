@@ -6,9 +6,6 @@
   "license": "MIT",
   "maturity": "production",
   "public_release": "sanitized",
-  "trigger": "/oh-my-growth",
-  "aliases": ["/omg"],
-  "public_release": "sanitized",
   "tags": [
     "growth",
     "decision",

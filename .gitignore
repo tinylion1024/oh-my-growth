@@ -26,8 +26,8 @@ ENV/
 env/
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
 *~
@@ -36,31 +36,12 @@ env/
 .DS_Store
 Thumbs.db
 
-# Testing
+# Test
 .pytest_cache/
 .coverage
 htmlcov/
 
-# Temporary files
-*.tmp
-*.temp
-.cache/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Logs
-*.log
-
-# Environment variables
-.env
-.env.local
-
-# Local planning / completion artifacts
-/COMPLETION-REPORT.md
-/OPTIMIZATION-PLAN.md
-/ITERATION-*.md
-/WORKLOG*.md
-
-# OMC state
+# Project specific
 .omc/
+.omx/
+*.log

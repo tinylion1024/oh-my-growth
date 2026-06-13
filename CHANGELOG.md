@@ -334,3 +334,12 @@ on_detection:
 |---------|------|-------------|
 | 1.1.0 | 2024-01-15 | Evidence grading, Clarity gate, Safety boundaries, Output contract |
 | 1.0.0 | 2024-01-01 | Initial release |
+
+
+## 📝 版本历史
+
+| 版本 | 发布日期 | 主要更新 |
+|------|----------|----------|
+| 4.0.0 | 2025-06-13 | 完善开发者体验，统一版本号 |
+
+
