@@ -4,7 +4,7 @@
 
 # 🚀 oh-my-growth
 
-**Growth Strategy External Brain — Claude Code Plugin**
+**Growth Strategy External Brain — Claude Code & OpenClaw Plugin**
 
 Integrating **81 Cases** · **111 Growth Plays** · **12 Schools** · **Complete Decision Framework**
 
@@ -83,6 +83,26 @@ In Claude Code, type:
 ```
 /oh-my-growth diagnose test installation
 ```
+
+### Install to OpenClaw
+
+oh-my-growth also supports **OpenClaw**:
+
+```bash
+# Clone repository
+git clone https://github.com/tinylion1024/oh-my-growth.git
+
+# Install to OpenClaw skills directory
+cp -R oh-my-growth/openclaw ~/.openclaw/skills/oh-my-growth
+cp -R oh-my-growth/knowledge ~/.openclaw/skills/oh-my-growth/
+cp -R oh-my-growth/references ~/.openclaw/skills/oh-my-growth/
+cp -R oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/
+
+# Install Python dependencies
+pip install -r oh-my-growth/requirements.txt
+```
+
+See [openclaw/INSTALL.md](./openclaw/INSTALL.md) for detailed OpenClaw installation guide.
 
 ---
 

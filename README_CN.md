@@ -4,7 +4,7 @@
 
 # 🚀 oh-my-growth - 增长策略外脑
 
-**Claude Code 专用增长决策插件**
+**Claude Code & OpenClaw 专用增长决策插件**
 
 整合 **81个案例** · **111种玩法** · **12大流派** · **完整决策框架**
 
@@ -25,7 +25,7 @@
 
 ## 💡 这是什么？
 
-**oh-my-growth** 是一个**Claude Code 专用增长决策插件**。
+**oh-my-growth** 是一个**增长决策插件**，支持 Claude Code 和 OpenClaw。
 
 在 Claude Code 会话中，你可以直接调用专业的增长策略分析能力：
 
@@ -84,6 +84,26 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 ```
 /oh-my-growth diagnose 测试安装
 ```
+
+### 安装到 OpenClaw
+
+oh-my-growth 也支持 **OpenClaw**：
+
+```bash
+# 克隆仓库
+git clone https://github.com/tinylion1024/oh-my-growth.git
+
+# 安装到 OpenClaw skills 目录
+cp -R oh-my-growth/openclaw ~/.openclaw/skills/oh-my-growth
+cp -R oh-my-growth/knowledge ~/.openclaw/skills/oh-my-growth/
+cp -R oh-my-growth/references ~/.openclaw/skills/oh-my-growth/
+cp -R oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/
+
+# 安装 Python 依赖
+pip install -r oh-my-growth/requirements.txt
+```
+
+详细安装说明请参考 [openclaw/INSTALL.md](./openclaw/INSTALL.md)。
 
 ---
 
