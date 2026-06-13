@@ -8,7 +8,7 @@ Integrating **81 Cases** · **111 Growth Plays** · **12 Schools** · **Complete
 
 Input a growth question, output: `Stage Diagnosis` · `Core Tension` · `Priority Ranking` · `Do/Don't` · `2-Week Experiment`
 
-[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](./VERSION)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-84%2F84%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 

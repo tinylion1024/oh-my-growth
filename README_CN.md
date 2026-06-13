@@ -9,7 +9,7 @@
 输入一个增长问题，直接输出：
 `阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
 
-[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](./VERSION)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-84%2F84%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 

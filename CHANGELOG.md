@@ -5,6 +5,39 @@ All notable changes to Growth Master will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2025-06-13
+
+### Added
+
+#### 首次正式发布
+
+**核心功能**
+- 7 个核心命令：diagnose, assess, design, fast-scan, brd, match, learn
+- 4 个场景快捷入口：cold-start, retention, monetization, referral
+
+**知识库**
+- 81 个增长案例
+- 111 种增长玩法
+- 12 个理论流派
+- 7 个学习模块
+
+**决策框架**
+- 贝叶斯决策引擎
+- Kelly 资源分配框架
+- 博弈论分析框架
+- 证据分级系统（A/B/C/D/E）
+
+**开发者体验**
+- CONTRIBUTING.md - 完整贡献指南
+- GitHub Issue 模板 - Bug 报告和功能请求
+- GitHub PR 模板 - 标准化 Pull Request 流程
+- 使用示例文档 - 每个命令的详细使用场景
+
+**测试**
+- 82/84 测试通过
+
+---
+
 ## [3.0.0] - 2026-05-31
 
 ### Added
