@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/cover.png" alt="oh-my-growth" width="100%">
+
 # 🚀 oh-my-growth - 增长策略外脑
 
 **Claude Code 专用增长决策插件**

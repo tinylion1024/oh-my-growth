@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/cover.png" alt="oh-my-growth" width="100%">
+
 # 🚀 oh-my-growth
 
 **Growth Strategy External Brain — Claude Code Plugin**
