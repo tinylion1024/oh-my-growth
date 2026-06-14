@@ -4,7 +4,7 @@
 
 # 🚀 oh-my-growth - 增长策略外脑
 
-**Claude Code & OpenClaw 专用增长决策插件**
+**Claude Code, OpenClaw & Hermes Agent 专用增长决策插件**
 
 整合 **81个案例** · **111种玩法** · **12大流派** · **完整决策框架**
 
@@ -104,6 +104,27 @@ pip install -r oh-my-growth/requirements.txt
 ```
 
 详细安装说明请参考 [openclaw/INSTALL.md](./openclaw/INSTALL.md)。
+
+### 安装到 Hermes Agent
+
+oh-my-growth 也支持 **Hermes Agent**：
+
+```bash
+# 克隆仓库
+git clone https://github.com/tinylion1024/oh-my-growth.git
+
+# 安装到 Hermes skills 目录
+mkdir -p ~/.hermes/skills/oh-my-growth
+cp -R oh-my-growth/hermes/SKILL.md ~/.hermes/skills/oh-my-growth/
+cp -R oh-my-growth/knowledge ~/.hermes/skills/oh-my-growth/
+cp -R oh-my-growth/references ~/.hermes/skills/oh-my-growth/
+cp -R oh-my-growth/scripts ~/.hermes/skills/oh-my-growth/
+
+# 安装 Python 依赖
+pip install -r oh-my-growth/requirements.txt
+```
+
+详细安装说明请参考 [hermes/INSTALL.md](./hermes/INSTALL.md)。
 
 ---
 

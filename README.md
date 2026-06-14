@@ -4,7 +4,7 @@
 
 # 🚀 oh-my-growth
 
-**Growth Strategy External Brain — Claude Code & OpenClaw Plugin**
+**Growth Strategy External Brain — Claude Code, OpenClaw & Hermes Agent Plugin**
 
 Integrating **81 Cases** · **111 Growth Plays** · **12 Schools** · **Complete Decision Framework**
 
@@ -103,6 +103,27 @@ pip install -r oh-my-growth/requirements.txt
 ```
 
 See [openclaw/INSTALL.md](./openclaw/INSTALL.md) for detailed OpenClaw installation guide.
+
+### Install to Hermes Agent
+
+oh-my-growth also supports **Hermes Agent**:
+
+```bash
+# Clone repository
+git clone https://github.com/tinylion1024/oh-my-growth.git
+
+# Install to Hermes skills directory
+mkdir -p ~/.hermes/skills/oh-my-growth
+cp -R oh-my-growth/hermes/SKILL.md ~/.hermes/skills/oh-my-growth/
+cp -R oh-my-growth/knowledge ~/.hermes/skills/oh-my-growth/
+cp -R oh-my-growth/references ~/.hermes/skills/oh-my-growth/
+cp -R oh-my-growth/scripts ~/.hermes/skills/oh-my-growth/
+
+# Install Python dependencies
+pip install -r oh-my-growth/requirements.txt
+```
+
+See [hermes/INSTALL.md](./hermes/INSTALL.md) for detailed Hermes Agent installation guide.
 
 ---
 
