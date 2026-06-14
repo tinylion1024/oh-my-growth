@@ -1,6 +1,6 @@
 ---
 name: oh-my-growth
-description: "增长策略外脑 - 整合 81 案例、111 玩法、12 流派的增长决策插件。输入增长问题，输出诊断、优先级判断、实验计划。"
+description: "增长策略外脑 - 整合 81 案例、111 玩法、12 流派的增长决策插件"
 version: 1.0.0
 author: Growth Master Team
 license: MIT
@@ -9,6 +9,20 @@ metadata:
   hermes:
     tags: [Growth, Strategy, Decision, SaaS, Acquisition, Retention, Monetization, Referral, Bayesian, Knowledge-Base]
     related_skills: [business-analysis, data-analysis]
+    triggers:
+      - /omg-diagnose
+      - /omg-assess
+      - /omg-design
+      - /omg-match
+      - /omg-learn
+      - /omg-fast-scan
+      - /omg-brd
+      - /omg-cold-start
+      - /omg-retention
+      - /omg-monetization
+      - /omg-referral
+      - /omg-search
+      - /omg-validate
 ---
 
 # oh-my-growth - 增长策略外脑
@@ -22,11 +36,36 @@ metadata:
 ## 快速开始
 
 ```
-/oh-my-growth diagnose 我的产品日活下降20%，该怎么办？
-/oh-my-growth assess 我们准备做裂变，先评估可行性
-/oh-my-growth design SaaS产品如何设计变现策略？
-/oh-my-growth match 游戏化留存案例
+/omg-diagnose 我的产品日活下降20%，该怎么办？
+/omg-assess 我们准备做裂变，先评估可行性
+/omg-design SaaS产品如何设计变现策略？
+/omg-match 游戏化留存案例
 ```
+
+---
+
+## 所有命令
+
+| 命令 | 描述 | 使用场景 |
+|------|------|----------|
+| `/omg-diagnose` | 策略诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
+| `/omg-assess` | 机会可行性评估 | 现状还不够清楚，先做清晰度评估 |
+| `/omg-design` | 可落地的策略设计 | 知道要做什么，需要执行路径 |
+| `/omg-fast-scan` | 快速判断 | 这个想法靠谱吗？ |
+| `/omg-brd` | 完整决策文档 | 需要申请预算/资源 |
+| `/omg-match` | 匹配成功案例 | 想看看别人怎么做的 |
+| `/omg-learn` | 系统学习路径 | 想深入了解某个增长领域 |
+| `/omg-search` | 搜索知识库 | 直接检索案例/玩法/理论 |
+| `/omg-validate` | 验证输出文档 | 检查报告完整性 |
+
+### 场景快捷入口
+
+| 命令 | 描述 |
+|------|------|
+| `/omg-cold-start` | 冷启动场景 - 获取前 100 个用户 |
+| `/omg-retention` | 留存场景 - 提升用户留存率 |
+| `/omg-monetization` | 变现场景 - 设计变现策略 |
+| `/omg-referral` | 裂变场景 - 评估裂变可行性 |
 
 ---
 

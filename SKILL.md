@@ -1,9 +1,20 @@
 ---
 name: oh-my-growth
-description: 增长策略外脑 - Claude Code 专用增长决策插件。整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、建议做/不做与实验计划。
-trigger: /oh-my-growth
-aliases:
-  - /omg
+description: 增长策略外脑 - 整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、实验计划
+triggers:
+  - /omg-diagnose
+  - /omg-assess
+  - /omg-design
+  - /omg-match
+  - /omg-learn
+  - /omg-fast-scan
+  - /omg-brd
+  - /omg-cold-start
+  - /omg-retention
+  - /omg-monetization
+  - /omg-referral
+  - /omg-search
+  - /omg-validate
 metadata:
   author: Growth Master Team
   maturity: production
@@ -23,53 +34,34 @@ metadata:
 ## 快速开始
 
 ```
-/oh-my-growth diagnose 我的产品日活下降20%，该怎么办？
-/oh-my-growth assess 我们准备做裂变，先评估可行性
-/oh-my-growth design SaaS产品如何设计变现策略？
-/oh-my-growth match 游戏化留存案例
+/omg-diagnose 我的产品日活下降20%，该怎么办？
+/omg-assess 我们准备做裂变，先评估可行性
+/omg-design SaaS产品如何设计变现策略？
+/omg-match 游戏化留存案例
 ```
 
-**缩写支持**：也可使用 `/omg` 代替 `/oh-my-growth`
+## 所有命令
 
-```
-/omg diagnose 我的产品日活下降20%，该怎么办？
-/omg assess 我们准备做裂变，先评估可行性
-```
+| 命令 | 描述 | 使用场景 |
+|------|------|----------|
+| `/omg-diagnose` | 策略诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 |
+| `/omg-assess` | 机会可行性评估 | 现状还不够清楚，先做清晰度评估 |
+| `/omg-design` | 可落地的策略设计 | 知道要做什么，需要执行路径 |
+| `/omg-fast-scan` | 快速判断 | 这个想法靠谱吗？ |
+| `/omg-brd` | 完整决策文档 | 需要申请预算/资源 |
+| `/omg-match` | 匹配成功案例 | 想看看别人怎么做的 |
+| `/omg-learn` | 系统学习路径 | 想深入了解某个增长领域 |
+| `/omg-search` | 搜索知识库 | 直接检索案例/玩法/理论 |
+| `/omg-validate` | 验证输出文档 | 检查报告完整性 |
 
-## Use This Skill For
+### 场景快捷入口
 
-- 先判断主矛盾、阶段约束和优先级，而不是直接给招
-- 输出策略判断，明确建议做什么、先别做什么、为什么现在做
-- 结合公司画像和历史实验台账，避免重复踩同样的坑
-- 设计增长策略，获得可落地的玩法组合和最小实验计划
-- 在预算已知时给出 Kelly 风险预算建议、加仓条件和停止条件
-- 在竞争/平台场景下补充 Game Theory 姿态判断
-- 对 B2B sales-led / marketplace / local-services / AI cold-start 输出显式业务形态判断
-- 学习增长知识，获取案例、理论、方法论的系统性指引
-- 审计现有方案，识别风险和改进空间
-- 匹配成功案例，找到可借鉴的参考
-
-## Do Not Route Here
-
-- 纯理论讨论，没有具体业务场景
-- 最终投资建议（提供框架，不提供决策）
-- 法律合规结论（提供风险清单，不提供合规判断）
-- 医疗、心理危机等专业领域建议
-- 无需诊断或行动报告的头脑风暴
-
-## 七个核心入口
-
-| 模式 | CLI 入口 | 一句话描述 | 适用场景 | Agent组合 | 输出模板 |
-|------|----------|-----------|----------|-----------|----------|
-| Strategy Brain | `diagnose` | 诊断 + 优先级 + 实验建议 | 增长负责人需要快速形成判断 | Lead + Growth + ROI + Skeptic + Case + Weapon | [策略外脑模板](references/output-schema.md#strategy-brain-模板) |
-| Opportunity Assess | `assess` | 先判断能不能进入策略分析 | 现状还不够清楚，先做清晰度与方向评估 | Lead + Skeptic + ROI | [机会评估模板](references/output-schema.md#opportunity-assess-模板) |
-| Strategy Design | `design` | 可落地的策略 | 知道要做什么，但不知道怎么设计执行路径 | Lead + Growth + Weapon + Theory | [策略设计模板](references/output-schema.md#strategy-design) |
-| Fast Scan | `fast-scan` | 快速判断 | 这个想法靠谱吗？ | Lead + ROI + Skeptic | [快速扫描模板](references/output-schema.md#fast-scan) |
-| Decision BRD | `brd` | 完整决策文档 | 需要申请预算/资源 | 全Agent协作 | [决策文档模板](references/output-schema.md#decision-brd) |
-| Case Match | `match` | 找成功案例 | 想看看别人怎么做的 | Lead + Case + Theory | [案例匹配模板](references/output-schema.md#case-match) |
-| Learning Path | `learn` | 系统学习路径 | 想深入了解某个增长领域 | Lead + Theory + Narrative | [学习路径模板](references/output-schema.md#learning-path) |
-
-辅助命令：`search` 用于直接检索知识库，`validate` 用于校验输出文档；场景快捷入口包括 `cold-start` / `retention` / `monetization` / `referral`。
+| 命令 | 描述 |
+|------|------|
+| `/omg-cold-start` | 冷启动场景 - 获取前 100 个用户 |
+| `/omg-retention` | 留存场景 - 提升用户留存率 |
+| `/omg-monetization` | 变现场景 - 设计变现策略 |
+| `/omg-referral` | 裂变场景 - 评估裂变可行性 |
 
 ## 核心工作流
 
