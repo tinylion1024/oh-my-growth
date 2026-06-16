@@ -11,8 +11,8 @@
 输入一个增长问题，直接输出：
 `阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-84%2F84%20passed-brightgreen.svg)](./tests/)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
+[![Tests](https://img.shields.io/badge/tests-90%2F90%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [安装](#-安装) · [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
@@ -25,21 +25,21 @@
 
 ## 💡 这是什么？
 
-**oh-my-growth** 是一个**增长决策插件**，支持 Claude Code 和 OpenClaw。
+**oh-my-growth** 是一个**增长决策插件**，支持 Claude Code、OpenClaw 和 Hermes Agent。
 
 在 Claude Code 会话中，你可以直接调用专业的增长策略分析能力：
 
 ```
-/oh-my-growth diagnose 我的产品日活下降20%，该怎么办？
-/oh-my-growth assess 我们准备做裂变，先评估可行性
-/oh-my-growth design SaaS产品如何设计变现策略？
+/omg-diagnose 我的产品日活下降20%，该怎么办？
+/omg-assess 我们准备做裂变，先评估可行性
+/omg-design SaaS产品如何设计变现策略？
 ```
 
 **缩写支持**：也可使用 `/omg` 代替 `/oh-my-growth`
 
 ```
-/omg diagnose 我的产品日活下降20%，该怎么办？
-/omg assess 我们准备做裂变，先评估可行性
+/omg-diagnose 我的产品日活下降20%，该怎么办？
+/omg-assess 我们准备做裂变，先评估可行性
 ```
 
 它会先判断：
@@ -82,7 +82,7 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 
 在 Claude Code 中输入：
 ```
-/oh-my-growth diagnose 测试安装
+/omg-diagnose 测试安装
 ```
 
 ### 安装到 OpenClaw
@@ -210,6 +210,11 @@ pip install -r oh-my-growth/requirements.txt
 | `/omg-retention` | 留存场景 | 提升用户留存 |
 | `/omg-monetization` | 变现场景 | 设计变现策略 |
 | `/omg-referral` | 裂变场景 | 规划裂变方案 |
+
+### 输出视图
+
+独立 CLI 可通过 `--view` 使用 `operator`、`executive`、`report`、`json`、
+`weekly`、`experiment-card`、`decision-memo` 和 `qbr` 视图。
 
 ### CLI 模式（独立使用）
 
@@ -399,7 +404,7 @@ python3 scripts/validate-indexes.py
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| 脚本化主测试 | 84/84 | ✅ |
+| 脚本化主测试 | 90/90 | ✅ |
 | CLI 集成测试 | diagnose / assess / match / validate / learn | ✅ |
 | Golden 场景回归 | 错阶段 / 错约束 / 错方向 | ✅ |
 | Agent / 索引验证 | 结构和知识完整性 | ✅ |

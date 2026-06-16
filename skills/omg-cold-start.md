@@ -3,14 +3,14 @@ name: omg-cold-start
 description: 冷启动 - 获取首批用户策略
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-cold-start
 
-`/oh-my-growth cold-start` 的快捷命令。
+`/omg-cold-start` 的快捷命令。
 
 ## 用法
 

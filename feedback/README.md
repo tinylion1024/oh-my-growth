@@ -217,22 +217,16 @@ feedback/
 
 ### 反馈聚合脚本
 
-`scripts/aggregate-feedback.sh`：
+`scripts/aggregate-feedback.sh`（或 `scripts/aggregate_feedback.py`）：
 
 ```bash
 #!/bin/bash
 # 每周运行，聚合反馈并生成报告
 
 WEEK=$(date +%Y-W%V)
-FEEDBACK_DIR="feedback/logs"
 OUTPUT_FILE="feedback/analysis/weekly-report-$WEEK.md"
 
-# 统计
-TOTAL=$(find $FEEDBACK_DIR -name "*.json" | wc -l)
-AVG_RATING=$(jq -s 'add | .[].rating.stars' $FEEDBACK_DIR/**/*.json | awk '{sum+=$1} END {print sum/NR}')
+python3 -B scripts/aggregate_feedback.py --feedback-dir feedback --output-dir feedback/analysis --week "$WEEK"
 
-echo "# 周报：$WEEK" > $OUTPUT_FILE
-echo "" >> $OUTPUT_FILE
-echo "- 总反馈数：$TOTAL" >> $OUTPUT_FILE
-echo "- 平均评分：$AVG_RATING" >> $OUTPUT_FILE
+echo "输出：$OUTPUT_FILE"
 ```

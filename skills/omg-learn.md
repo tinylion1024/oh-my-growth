@@ -3,14 +3,14 @@ name: omg-learn
 description: 学习路径 - 系统学习增长知识
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-learn
 
-`/oh-my-growth learn` 的快捷命令。
+`/omg-learn` 的快捷命令。
 
 ## 用法
 

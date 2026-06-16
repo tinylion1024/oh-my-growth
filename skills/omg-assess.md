@@ -3,14 +3,14 @@ name: omg-assess
 description: 机会评估 - 评估是否值得深入分析
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-assess
 
-`/oh-my-growth assess` 的快捷命令。
+`/omg-assess` 的快捷命令。
 
 ## 用法
 

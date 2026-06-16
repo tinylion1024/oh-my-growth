@@ -187,42 +187,11 @@ _此决策由 Growth Master 生成_
 
 ## 自动化追踪提醒
 
-```yaml
-# .github/workflows/decision-tracking.yml
+可直接运行 [`scripts/decision_tracking.py`](../scripts/decision_tracking.py)
+生成 `decisions/summary/pending-tracking.md`，方便后续人工或自动提醒接续处理：
 
-name: Decision Tracking Reminder
-
-on:
-  schedule:
-    # 每周一上午9点检查
-    - cron: '0 9 * * 1'
-
-jobs:
-  check-tracking:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Check pending tracking
-        id: check
-        run: |
-          # 查找需要追踪的决策（创建后30/60/90天）
-          pending=$(find decisions -name "*.md" -type f \
-            -newermt "30 days ago" ! -newermt "31 days ago" \
-            -o -newermt "60 days ago" ! -newermt "61 days ago" \
-            -o -newermt "90 days ago" ! -newermt "91 days ago")
-          
-          echo "pending=$pending" >> $GITHUB_OUTPUT
-      
-      - name: Create tracking issue
-        if: steps.check.outputs.pending != ''
-        run: |
-          for file in ${{ steps.check.outputs.pending }}; do
-            # 创建GitHub Issue提醒
-            gh issue create \
-              --title "决策追踪提醒: $(basename $file .md)" \
-              --body "请追踪决策 $file 的实际效果"
-          done
+```bash
+python3 -B scripts/decision_tracking.py --threshold-days 30
 ```
 
 ## 准确度报告

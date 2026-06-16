@@ -15,17 +15,16 @@ cp -R growth-master ~/.claude/skills/
 ### 基本使用
 
 ```
-/oh-my-growth <模式> [问题描述]
-
-模式：
-  assess   - 评估增长机会
-  design   - 设计增长策略
-  learn    - 学习增长知识
-  audit    - 审计现有方案
-  match    - 匹配成功案例
+/omg-diagnose [问题描述]
+/omg-assess [问题描述]
+/omg-design [问题描述]
+/omg-match [问题描述]
+/omg-learn [问题描述]
 ```
 
-## 五大模式详解
+完整命令与场景入口请参见项目 [README](../README_CN.md#命令参考)。
+
+## 核心模式详解
 
 ### 1. Assess（评估模式）
 
@@ -44,7 +43,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/oh-my-growth assess
+/omg-assess
 
 我们是一个SaaS协作工具，有5000注册用户，月活800。
 想通过邀请裂变增长，预算有限。
@@ -71,7 +70,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/oh-my-growth design
+/omg-design
 
 我们是电商平台，日活10万，首购后流失率60%。
 请设计留存增长策略。
@@ -96,16 +95,16 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/oh-my-growth learn
+/omg-learn
 
 我想系统学习SaaS增长，目前是入门水平。
 ```
 
 ---
 
-### 4. Audit（审计模式）
+### 4. 方案复核（使用 Assess）
 
-**用途**：审计现有方案，识别风险和改进空间
+**用途**：评估现有方案，识别风险和改进空间
 
 **适用场景**：
 - 已有方案，需要第三方视角
@@ -120,7 +119,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/oh-my-growth audit
+/omg-assess
 
 我们计划投入50万做裂变活动，预期增长2万用户。
 方案：邀请奖励50元，双方各得。
@@ -145,7 +144,7 @@ cp -R growth-master ~/.claude/skills/
 
 **示例**：
 ```
-/oh-my-growth match
+/omg-match
 
 我们是AI教育产品，想通过游戏化提升学习完成率。
 ```
@@ -155,7 +154,7 @@ cp -R growth-master ~/.claude/skills/
 ### SaaS获客模板
 
 ```
-/oh-my-growth assess
+/omg-assess
 
 【产品类型】SaaS [协作/营销/开发工具]
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -170,7 +169,7 @@ cp -R growth-master ~/.claude/skills/
 ### 电商留存模板
 
 ```
-/oh-my-growth design
+/omg-design
 
 【产品类型】电商
 【当前阶段】[0-1 / 1-10 / 10-100]
@@ -283,14 +282,14 @@ Growth Master 使用多Agent协作进行分析：
 
 A: 使用 Fast Scan 模式可以获得更简洁的输出：
 ```
-/oh-my-growth assess --mode fast
+/omg-assess --mode fast
 ```
 
 ### Q: 案例不够相关怎么办？
 
 A: 提供更多上下文信息，或指定行业/阶段：
 ```
-/oh-my-growth match
+/omg-match
 
 【行业】在线教育
 【阶段】1-10
@@ -305,7 +304,7 @@ A: 使用 [快速启动模板](../templates/quick-start.md) 提供完整信息�
 
 A: 可以，在请求中指定：
 ```
-/oh-my-growth assess --agents Growth,ROI,Skeptic
+/omg-assess --agents Growth,ROI,Skeptic
 ```
 
 ## 进阶使用
@@ -313,7 +312,7 @@ A: 可以，在请求中指定：
 ### 自定义Agent权重
 
 ```
-/oh-my-growth assess
+/omg-assess
 
 【问题】...
 【权重】
@@ -325,7 +324,7 @@ A: 可以，在请求中指定：
 ### 指定案例参考
 
 ```
-/oh-my-growth design
+/omg-design
 
 【问题】...
 【参考案例】请参考Dropbox和Slack的增长模式
@@ -334,17 +333,15 @@ A: 可以，在请求中指定：
 ### 输出格式
 
 ```
-/oh-my-growth assess --format brd
+/omg-assess --format brd
 --format 可选: fast, brd, strategy
 ```
 
 ## 反馈与改进
 
-如果您对输出有反馈，请使用输出末尾的反馈表单，或：
+如果您对输出有反馈，请按照 [`feedback/README.md`](../feedback/README.md) 的格式记录：
 
 ```markdown
-/oh-my-growth feedback
-
 【决策ID】xxx
 【评分】4/5
 【有帮助的部分】...
@@ -357,7 +354,6 @@ A: 可以，在请求中指定：
 更多文档：
 - [开发者指南](./developer-guide.md)
 - [最佳实践](./best-practices.md)
-- [API参考](./api-reference.md)
 - [安全边界](../references/safety-boundaries.md)
 - [输出契约](../references/report-contract.md)
 - [现状清晰度](../references/current-state-clarity.md)

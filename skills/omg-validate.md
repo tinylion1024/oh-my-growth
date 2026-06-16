@@ -3,14 +3,14 @@ name: omg-validate
 description: 文档验证 - 校验输出文档完整性
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-validate
 
-`/oh-my-growth validate` 的快捷命令。
+`/omg-validate` 的快捷命令。
 
 ## 用法
 

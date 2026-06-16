@@ -3,14 +3,14 @@ name: omg-design
 description: 策略设计 - 输出可落地的增长策略
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-design
 
-`/oh-my-growth design` 的快捷命令。
+`/omg-design` 的快捷命令。
 
 ## 用法
 

@@ -3,14 +3,14 @@ name: omg-diagnose
 description: 策略诊断 - 诊断增长问题，输出优先级和实验建议
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-diagnose
 
-`/oh-my-growth diagnose` 的快捷命令。
+`/omg-diagnose` 的快捷命令。
 
 ## 用法
 

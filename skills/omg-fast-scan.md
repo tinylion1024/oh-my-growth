@@ -3,14 +3,14 @@ name: omg-fast-scan
 description: 快速扫描 - 快速判断可行性
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-fast-scan
 
-`/oh-my-growth fast-scan` 的快捷命令。
+`/omg-fast-scan` 的快捷命令。
 
 ## 用法
 

@@ -66,7 +66,7 @@
 | design | 2 | ✅ |
 | design + match | 3 | ✅ |
 | assess | 1 | ✅ |
-| audit | 1 | ✅ |
+| assess | 1 | ✅ |
 
 ### 行业覆盖
 

@@ -3,14 +3,14 @@ name: omg-referral
 description: 裂变策略 - 设计裂变增长
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-referral
 
-`/oh-my-growth referral` 的快捷命令。
+`/omg-referral` 的快捷命令。
 
 ## 用法
 

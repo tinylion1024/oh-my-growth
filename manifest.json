@@ -1,7 +1,7 @@
 {
   "name": "oh-my-growth",
-  "version": "1.0.0",
-  "description": "增长策略外脑 - Claude Code 专用增长决策插件",
+  "version": "1.0.1",
+  "description": "增长策略外脑 - 支持 Claude Code、OpenClaw 和 Hermes Agent",
   "author": "Growth Master Team",
   "license": "MIT",
   "maturity": "production",
@@ -58,8 +58,8 @@
     "install": "scripts/install.sh"
   },
   "testing": {
-    "scripted_checks": 82,
-    "pass_rate": "82/82",
+    "scripted_checks": 90,
+    "pass_rate": "90/90",
     "scenario_templates": 10
   },
   "dependencies": {

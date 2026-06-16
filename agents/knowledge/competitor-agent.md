@@ -229,7 +229,7 @@ def identify_competitors(user_input):
 ## 使用方式
 
 ```
-/oh-my-growth design --competitor
+/omg-design --competitor
 
 我们是一个SaaS协作工具，想了解竞品的增长策略，
 并找到差异化机会。

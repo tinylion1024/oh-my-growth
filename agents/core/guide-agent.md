@@ -278,7 +278,7 @@ def infer_from_description(text):
 
 您也可以直接使用快速模板：
 
-/oh-my-growth assess
+/omg-assess
 
 【产品类型】[您的产品类型]
 【当前阶段】[0-1 / 1-10 / 10-100]

@@ -98,7 +98,7 @@ SCENARIOS = [
         "id": 7,
         "name": "B2B线索转化",
         "problem": "如何优化线索到成单路径？",
-        "mode": "audit",
+        "mode": "assess",
         "context": {
             "product": "企业协作软件",
             "stage": "增长期",
@@ -135,7 +135,7 @@ SCENARIOS = [
         "id": 10,
         "name": "游戏长期留存",
         "problem": "如何解决7日留存暴跌问题？",
-        "mode": "audit + design",
+        "mode": "assess + design",
         "context": {
             "product": "中度手游",
             "stage": "增长期",

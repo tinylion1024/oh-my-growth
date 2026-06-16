@@ -3,14 +3,14 @@ name: omg-retention
 description: 留存策略 - 提升用户留存
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-retention
 
-`/oh-my-growth retention` 的快捷命令。
+`/omg-retention` 的快捷命令。
 
 ## 用法
 

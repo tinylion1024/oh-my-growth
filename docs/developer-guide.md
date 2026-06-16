@@ -308,19 +308,15 @@ python scripts/verify_report.py --input output.md --output result.json
 ### 查看反馈
 
 ```bash
-# 查看最近反馈
-cat feedback/logs/$(date +%Y-%m)/$(date +%Y-%m-%d).json
-
-# 查看周报
-cat feedback/analysis/weekly-report.md
+# 查看反馈记录示例
+cat feedback/logs/example-feedback.json
 ```
 
 ### 分析反馈
 
-```bash
-# 运行反馈聚合脚本
-./scripts/aggregate-feedback.sh
-```
+可直接运行 [`scripts/aggregate_feedback.py`](../scripts/aggregate_feedback.py) 或
+[`scripts/aggregate-feedback.sh`](../scripts/aggregate-feedback.sh) 汇总日志并生成周报；
+默认输出到 `feedback/analysis/`。
 
 ## 决策追踪
 
@@ -371,7 +367,7 @@ jobs:
 在请求中添加 `--debug` 参数：
 
 ```
-/oh-my-growth assess --debug
+/omg-assess --debug
 ```
 
 ### 单独测试Agent

@@ -1,6 +1,7 @@
 ---
 name: oh-my-growth
 description: "增长策略外脑 - 整合 81 案例、111 玩法、12 流派的增长决策插件"
+version: 1.0.1
 metadata:
   openclaw:
     emoji: "🧠"
@@ -207,7 +208,7 @@ knowledge/
 ### 场景 1：DAU 下降
 
 ```
-/oh-my-growth diagnose 我们的产品 DAU 最近下降了 20%，该怎么办？
+/omg-diagnose 我们的产品 DAU 最近下降了 20%，该怎么办？
 ```
 
 输出：
@@ -219,7 +220,7 @@ knowledge/
 ### 场景 2：评估裂变可行性
 
 ```
-/oh-my-growth assess 我们准备做裂变活动，先评估一下可行性
+/omg-assess 我们准备做裂变活动，先评估一下可行性
 ```
 
 输出：
@@ -231,7 +232,7 @@ knowledge/
 ### 场景 3：设计留存策略
 
 ```
-/oh-my-growth design 如何提升 B2B SaaS 产品的 30 天留存率？
+/omg-design 如何提升 B2B SaaS 产品的 30 天留存率？
 ```
 
 输出：
@@ -245,10 +246,10 @@ knowledge/
 ## 场景快捷入口
 
 ```
-/oh-my-growth cold-start 如何获得 AI 写作 SaaS 的前 100 个付费用户？
-/oh-my-growth retention 如何提升电商 APP 的 30 天留存率？
-/oh-my-growth monetization 如何为内容社区设计变现策略？
-/oh-my-growth referral 我们的教育 APP 适合做裂变吗？
+/omg-cold-start 如何获得 AI 写作 SaaS 的前 100 个付费用户？
+/omg-retention 如何提升电商 APP 的 30 天留存率？
+/omg-monetization 如何为内容社区设计变现策略？
+/omg-referral 我们的教育 APP 适合做裂变吗？
 ```
 
 ---

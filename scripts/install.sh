@@ -115,14 +115,14 @@ name: omg-${cmd}
 description: oh-my-growth ${cmd} 快捷命令
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-${cmd}
 
-\`/oh-my-growth ${cmd}\` 的快捷命令。
+\`/omg-${cmd}\` 快捷命令。
 
 ## 用法
 

@@ -28,7 +28,7 @@ body:
       description: 您希望如何实现这个功能？
       placeholder: |
         可以这样实现：
-        - 添加新命令 `/omg xxx`
+        - 添加新命令 `/omg-new-command`
         - 修改现有命令 `diagnose` 的输出
         - 增加新的 Agent...
 
@@ -62,7 +62,7 @@ body:
       description: 如果已实现，您希望如何使用？
       placeholder: |
         ```
-        /omg new-command 这里是参数...
+        /omg-new-command 这里是参数...
 
         # 预期输出：
         ┌─────────────────────────────────────────────────────────┐

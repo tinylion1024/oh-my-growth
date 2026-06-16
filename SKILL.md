@@ -18,14 +18,14 @@ triggers:
 metadata:
   author: Growth Master Team
   maturity: production
-  version: 1.0.0
+  version: 1.0.1
   license: MIT
   category: business-strategy
 ---
 
 # oh-my-growth - 增长策略外脑
 
-**Claude Code 专用增长决策插件** — 在 Claude Code 会话中直接调用专业的增长策略分析能力。
+**多平台增长决策插件** — 支持 Claude Code、OpenClaw 和 Hermes Agent；主 Skill 可在 Claude Code 会话中直接调用。
 
 将增长知识库与多Agent决策引擎融合，帮助增长负责人完成前 70% 的策略思考。
 

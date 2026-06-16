@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import json
+import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -26,6 +28,15 @@ def test_update_indexes_and_validate_indexes():
     update_result = run_script("scripts/update-indexes.py")
     assert update_result.returncode == 0, update_result.stderr
     assert "Indexes updated:" in update_result.stdout
+
+    generated_paths = [
+        ROOT_DIR / "README.md",
+        *sorted((ROOT_DIR / "knowledge" / "indexes").glob("*-index.json")),
+    ]
+    first_generation = {path: path.read_bytes() for path in generated_paths}
+    second_update_result = run_script("scripts/update-indexes.py")
+    assert second_update_result.returncode == 0, second_update_result.stderr
+    assert first_generation == {path: path.read_bytes() for path in generated_paths}
 
     weapons_payload = json.loads((ROOT_DIR / "knowledge/indexes/weapons-index.json").read_text(encoding="utf-8"))
     assert all(weapon.get("file") for weapon in weapons_payload["weapons"])
@@ -89,6 +100,87 @@ def test_validate_docs_checks_structure_and_links():
     result = run_script("scripts/validate-docs.py")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "Documentation structure and links validated successfully" in result.stdout
+
+
+def test_release_metadata_is_consistent():
+    version = (ROOT_DIR / "VERSION").read_text(encoding="utf-8").strip()
+    assert version == "1.0.1"
+
+    manifest = json.loads((ROOT_DIR / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["version"] == version
+
+    versioned_files = [
+        ROOT_DIR / "pyproject.toml",
+        ROOT_DIR / "SKILL.md",
+        ROOT_DIR / "openclaw" / "SKILL.md",
+        ROOT_DIR / "hermes" / "SKILL.md",
+        *sorted((ROOT_DIR / "skills").glob("*.md")),
+    ]
+    for path in versioned_files:
+        content = path.read_text(encoding="utf-8")
+        assert re.search(rf"version\s*[:=]\s*[\"']?{re.escape(version)}[\"']?", content), path
+
+    install_script = (ROOT_DIR / "scripts" / "install.sh").read_text(encoding="utf-8")
+    assert f"version: {version}" in install_script
+
+    for path in [ROOT_DIR / "README.md", ROOT_DIR / "README_CN.md"]:
+        content = path.read_text(encoding="utf-8")
+        assert f"version-{version}-blue" in content, path
+
+
+def test_release_check_gate_passes():
+    result = run_script("scripts/validate-release.py")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "Release metadata validated successfully" in result.stdout
+
+    shell_result = subprocess.run(
+        ["bash", "scripts/release-check.sh"],
+        cwd=ROOT_DIR,
+        env={**os.environ, "RELEASE_CHECK_SKIP_TESTS": "1"},
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert shell_result.returncode == 0, shell_result.stdout + shell_result.stderr
+    assert "Release check passed" in shell_result.stdout
+
+
+def test_knowledge_indexes_share_schema_version():
+    index_paths = sorted((ROOT_DIR / "knowledge" / "indexes").glob("*.json"))
+    schema_versions = {
+        json.loads(path.read_text(encoding="utf-8"))["metadata"]["version"]
+        for path in index_paths
+    }
+    assert schema_versions == {"1.2.0"}
+
+
+def test_public_command_docs_do_not_use_legacy_invocations():
+    public_files = [
+        ROOT_DIR / "README.md",
+        ROOT_DIR / "README_CN.md",
+        ROOT_DIR / "CONTRIBUTING.md",
+        ROOT_DIR / "docs" / "USAGE_EXAMPLES.md",
+        ROOT_DIR / "docs" / "best-practices.md",
+        ROOT_DIR / "docs" / "developer-guide.md",
+        ROOT_DIR / "docs" / "user-guide.md",
+        ROOT_DIR / "templates" / "quick-start.md",
+        ROOT_DIR / "openclaw" / "INSTALL.md",
+        ROOT_DIR / "openclaw" / "SKILL.md",
+        ROOT_DIR / "hermes" / "INSTALL.md",
+        ROOT_DIR / "hermes" / "SKILL.md",
+        ROOT_DIR / "scripts" / "install.sh",
+        ROOT_DIR / "scripts" / "e2e_test_runner.py",
+        ROOT_DIR / "references" / "workflow.md",
+        ROOT_DIR / "references" / "agent-contract.md",
+        ROOT_DIR / "tests" / "e2e" / "E2E-TEST-SUMMARY.md",
+        *sorted((ROOT_DIR / "tests" / "e2e" / "reports").glob("*.md")),
+        *sorted((ROOT_DIR / "skills").glob("*.md")),
+    ]
+    legacy_pattern = re.compile(r"/(?:oh-my-growth|omg)[ \t]+(?:[a-z-]+|<模式>)")
+    for path in public_files:
+        content = path.read_text(encoding="utf-8")
+        assert not legacy_pattern.search(content), path
+        assert not re.search(r"(?i)\baudit\b", content), path
 
 
 def test_growth_framework_guides_exist_and_are_sanitized():

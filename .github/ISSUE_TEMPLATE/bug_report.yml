@@ -14,7 +14,7 @@ body:
     attributes:
       label: Bug 描述
       description: 清晰简洁地描述 Bug
-      placeholder: "例如：运行 /omg diagnose 时返回了错误的阶段判断"
+      placeholder: "例如：运行 /omg-diagnose 时返回了错误的阶段判断"
     validations:
       required: true
 
@@ -24,7 +24,7 @@ body:
       label: 复现步骤
       description: 详细描述如何复现这个 Bug
       placeholder: |
-        1. 在 Claude Code 中运行 `/omg diagnose ...`
+        1. 在 Claude Code 中运行 `/omg-diagnose ...`
         2. 输入参数 `...`
         3. 观察输出
       value: |
@@ -57,7 +57,7 @@ body:
     attributes:
       label: 使用的命令
       description: 您运行的完整命令
-      placeholder: "/omg diagnose My DAU dropped 20%, what should I do?"
+      placeholder: "/omg-diagnose My DAU dropped 20%, what should I do?"
     validations:
       required: true
 
@@ -76,7 +76,7 @@ body:
     attributes:
       label: 插件版本
       description: 查看 VERSION 文件或 manifest.json
-      placeholder: "4.0.0"
+      placeholder: "1.0.1"
     validations:
       required: true
 

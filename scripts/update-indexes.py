@@ -615,7 +615,7 @@ def sync_failures_index():
 
     payload = {
         "metadata": {
-            "version": "1.0.0",
+            "version": "1.2.0",
             "last_updated": str(date.today()),
             "total_failures": len(entries),
         },

@@ -41,7 +41,7 @@ ln -s $(pwd)/oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/scripts
 在 OpenClaw 中运行：
 
 ```
-/oh-my-growth diagnose test installation
+/omg-diagnose test installation
 ```
 
 如果输出诊断结果，说明安装成功！
@@ -54,35 +54,35 @@ ln -s $(pwd)/oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/scripts
 
 ```bash
 # 策略诊断
-/oh-my-growth diagnose 如何获得前 1000 个用户
+/omg-diagnose 如何获得前 1000 个用户
 
 # 机会评估
-/oh-my-growth assess 我们准备做裂变，先评估可行性
+/omg-assess 我们准备做裂变，先评估可行性
 
 # 策略设计
-/oh-my-growth design SaaS 产品如何设计变现策略
+/omg-design SaaS 产品如何设计变现策略
 
 # 案例匹配
-/oh-my-growth match 游戏化留存案例
+/omg-match 游戏化留存案例
 
 # 学习路径
-/oh-my-growth learn 如何系统学习裂变增长
+/omg-learn 如何系统学习裂变增长
 ```
 
 ### 场景快捷入口
 
 ```bash
 # 冷启动
-/oh-my-growth cold-start 如何获得 AI 写作 SaaS 的前 100 个付费用户
+/omg-cold-start 如何获得 AI 写作 SaaS 的前 100 个付费用户
 
 # 留存
-/oh-my-growth retention 如何提升电商 APP 的 30 天留存率
+/omg-retention 如何提升电商 APP 的 30 天留存率
 
 # 变现
-/oh-my-growth monetization 如何为内容社区设计变现策略
+/omg-monetization 如何为内容社区设计变现策略
 
 # 裂变
-/oh-my-growth referral 我们的教育 APP 适合做裂变吗
+/omg-referral 我们的教育 APP 适合做裂变吗
 ```
 
 ---

@@ -12,7 +12,7 @@
       "problem_type": "acquisition|activation|retention|...",
       "business_stage": "0-1|1-10|10-100",
       "industry": "ecommerce|saas|...",
-      "intent": "assess|design|learn|audit|match"
+      "intent": "assess|design|learn|assess|match"
     }
   },
   "knowledge_context": {

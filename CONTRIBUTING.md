@@ -61,7 +61,7 @@ cp -R . ~/.claude/skills/oh-my-growth
 在 Claude Code 中运行：
 
 ```
-/omg diagnose test installation
+/omg-diagnose test installation
 ```
 
 如果输出诊断结果，说明安装成功！

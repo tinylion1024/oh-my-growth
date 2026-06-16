@@ -28,7 +28,7 @@
 #### 场景 1：DAU 下降
 
 ```
-/omg diagnose 我们的产品 DAU 最近下降了 20%，该怎么办？
+/omg-diagnose 我们的产品 DAU 最近下降了 20%，该怎么办？
 ```
 
 **典型输出**：
@@ -72,7 +72,7 @@
 #### 场景 2：SaaS 产品冷启动
 
 ```
-/omg diagnose 我们是 B2B SaaS 产品，刚上线，如何获得前 100 个付费客户？
+/omg-diagnose 我们是 B2B SaaS 产品，刚上线，如何获得前 100 个付费客户？
 ```
 
 **典型输出**：
@@ -121,7 +121,7 @@
 #### 场景 1：评估裂变可行性
 
 ```
-/omg assess 我们准备做裂变活动，先评估一下可行性
+/omg-assess 我们准备做裂变活动，先评估一下可行性
 ```
 
 **典型输出**：
@@ -142,16 +142,16 @@
 │                                                         │
 │  📌 建议下一步                                          │
 │  1. 先回答上述问题                                       │
-│  2. 运行 `/omg diagnose` 完成诊断                        │
+│  2. 运行 `/omg-diagnose` 完成诊断                        │
 │  或                                                      │
-│  3. 运行 `/omg diagnose 我们是 xx 产品，DAU xx，想...`  │
+│  3. 运行 `/omg-diagnose 我们是 xx 产品，DAU xx，想...`  │
 └─────────────────────────────────────────────────────────┘
 ```
 
 #### 场景 2：评估信息充分
 
 ```
-/omg assess 我们是教育类 APP，DAU 50万，次日留存 45%，
+/omg-assess 我们是教育类 APP，DAU 50万，次日留存 45%，
 用户自发分享率 3%，想通过邀请奖励提升获客
 ```
 
@@ -181,7 +181,7 @@
 │  • 需要设计防刷机制                                      │
 │                                                         │
 │  📌 建议下一步                                          │
-│  运行 `/omg design 设计裂变增长策略` 获取具体方案        │
+│  运行 `/omg-design 设计裂变增长策略` 获取具体方案        │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -194,7 +194,7 @@
 #### 场景：设计留存策略
 
 ```
-/omg design 如何提升 B2B SaaS 产品的 30 天留存率？
+/omg-design 如何提升 B2B SaaS 产品的 30 天留存率？
 ```
 
 **典型输出**：
@@ -270,7 +270,7 @@
 #### 场景：评估新渠道
 
 ```
-/omg fast-scan TikTok 广告适合我们的 B2B SaaS 产品吗？
+/omg-fast-scan TikTok 广告适合我们的 B2B SaaS 产品吗？
 ```
 
 **典型输出**：
@@ -312,7 +312,7 @@
 #### 场景：申请裂变项目预算
 
 ```
-/omg brd 我们计划投入 $50K 做裂变增长，需要一份决策文档
+/omg-brd 我们计划投入 $50K 做裂变增长，需要一份决策文档
 ```
 
 **典型输出**：
@@ -425,7 +425,7 @@
 #### 场景：寻找留存案例
 
 ```
-/omg match 游戏化留存案例
+/omg-match 游戏化留存案例
 ```
 
 **典型输出**：
@@ -489,7 +489,7 @@
 #### 场景：学习裂变增长
 
 ```
-/omg learn 如何系统学习裂变增长
+/omg-learn 如何系统学习裂变增长
 ```
 
 **典型输出**：
@@ -548,8 +548,8 @@
 │  • [小红书社区裂变](../knowledge/cases/xiaohongshu-community.md)
 │                                                         │
 │  📌 学习检验                                            │
-│  运行 `/omg assess` 评估你的裂变设计                     │
-│  运行 `/omg diagnose` 检验你的策略判断                   │
+│  运行 `/omg-assess` 评估你的裂变设计                     │
+│  运行 `/omg-diagnose` 检验你的策略判断                   │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -560,7 +560,7 @@
 ### cold-start - 冷启动场景
 
 ```
-/omg cold-start 如何获得 AI 写作 SaaS 的前 100 个付费用户？
+/omg-cold-start 如何获得 AI 写作 SaaS 的前 100 个付费用户？
 ```
 
 自动识别为：产品验证期 + 用户获取问题
@@ -568,7 +568,7 @@
 ### retention - 留存场景
 
 ```
-/omg retention 如何提升电商 APP 的 30 天留存率？
+/omg-retention 如何提升电商 APP 的 30 天留存率？
 ```
 
 自动识别为：增长放大期/规模经营期 + 用户深耕问题
@@ -576,7 +576,7 @@
 ### monetization - 变现场景
 
 ```
-/omg monetization 如何为内容社区设计变现策略？
+/omg-monetization 如何为内容社区设计变现策略？
 ```
 
 自动识别为：需要平衡变现与留存
@@ -584,7 +584,7 @@
 ### referral - 裂变场景
 
 ```
-/omg referral 我们的教育 APP 适合做裂变吗？
+/omg-referral 我们的教育 APP 适合做裂变吗？
 ```
 
 自动识别为：评估裂变可行性 + 设计裂变策略
@@ -596,15 +596,15 @@
 ### search - 搜索知识库
 
 ```
-/omg search PLG onboarding
-/omg search 病毒系数
-/omg search retention strategy
+/omg-search PLG onboarding
+/omg-search 病毒系数
+/omg-search retention strategy
 ```
 
 ### validate - 验证输出文档
 
 ```
-/omg validate report.md
+/omg-validate report.md
 ```
 
 验证报告是否包含必需的 10 个部分。
@@ -617,12 +617,12 @@
 
 ❌ 不好：
 ```
-/omg diagnose 怎么做增长？
+/omg-diagnose 怎么做增长？
 ```
 
 ✅ 好：
 ```
-/omg diagnose 我们是 B2B SaaS 产品，刚上线 3 个月，
+/omg-diagnose 我们是 B2B SaaS 产品，刚上线 3 个月，
 DAU 500，付费用户 20 个，获客成本 $50，
 想降低获客成本
 ```
@@ -632,11 +632,11 @@ DAU 500，付费用户 20 个，获客成本 $50，
 当问题描述不够清晰时，先用 `assess` 评估信息是否充分：
 
 ```
-/omg assess 我们想做大促活动
+/omg-assess 我们想做大促活动
 ↓
 系统会告诉你缺少什么信息
 ↓
-补充信息后再运行 /omg diagnose
+补充信息后再运行 /omg-diagnose
 ```
 
 ### 3. 使用场景快捷入口
@@ -644,23 +644,23 @@ DAU 500，付费用户 20 个，获客成本 $50，
 对于常见场景，直接使用快捷命令：
 
 ```
-/omg cold-start ...  # 冷启动问题
-/omg retention ...   # 留存问题
-/omg monetization ... # 变现问题
-/omg referral ...    # 裂变问题
+/omg-cold-start ...  # 冷启动问题
+/omg-retention ...   # 留存问题
+/omg-monetization ... # 变现问题
+/omg-referral ...    # 裂变问题
 ```
 
 ### 4. 迭代式提问
 
 ```
 # 第一轮：快速判断
-/omg fast-scan TikTok 广告适合我们吗？
+/omg-fast-scan TikTok 广告适合我们吗？
 
 # 第二轮：深入分析
-/omg diagnose 如果要做 TikTok，应该怎么做？
+/omg-diagnose 如果要做 TikTok，应该怎么做？
 
 # 第三轮：具体方案
-/omg design 设计 TikTok 广告投放策略
+/omg-design 设计 TikTok 广告投放策略
 ```
 
 ---

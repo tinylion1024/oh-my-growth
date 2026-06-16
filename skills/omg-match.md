@@ -3,14 +3,14 @@ name: omg-match
 description: 案例匹配 - 匹配成功案例
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-match
 
-`/oh-my-growth match` 的快捷命令。
+`/omg-match` 的快捷命令。
 
 ## 用法
 

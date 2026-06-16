@@ -3,14 +3,14 @@ name: omg-search
 description: 知识搜索 - 搜索知识库
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-search
 
-`/oh-my-growth search` 的快捷命令。
+`/omg-search` 的快捷命令。
 
 ## 用法
 

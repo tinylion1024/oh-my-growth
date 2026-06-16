@@ -389,7 +389,7 @@ ls knowledge/indexes/failures-index.json
 ### 完成定义
 ```bash
 python scripts/run_tests.py
-# 82/82 checks passed
+# 90/90 checks passed
 ```
 
 ---

@@ -3,14 +3,14 @@ name: omg-brd
 description: 决策文档 - 完整的决策BRD文档
 metadata:
   author: Growth Master Team
-  version: 4.0.0
+  version: 1.0.1
   category: growth-strategy
   parent: oh-my-growth
 ---
 
 # omg-brd
 
-`/oh-my-growth brd` 的快捷命令。
+`/omg-brd` 的快捷命令。
 
 ## 用法
 
