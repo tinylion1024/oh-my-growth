@@ -1,0 +1,30 @@
+{
+  "feedback_id": "fb-fixture-referral-001",
+  "timestamp": "2026-06-18T13:00:00Z",
+  "session_id": "fixture-session-referral",
+  "input_summary": {
+    "mode": "Strategy Design",
+    "problem_type": "referral",
+    "industry": "education",
+    "stage": "1-10"
+  },
+  "rating": {
+    "stars": 3,
+    "usefulness": "一般"
+  },
+  "qualitative": {
+    "most_helpful": "指出不能只靠高激励",
+    "missing_info": "需要更多风控样例",
+    "will_act": false,
+    "suggestions": "增加防刷检查清单"
+  },
+  "case_feedback": {
+    "relevant": false,
+    "want_more": true
+  },
+  "output_metadata": {
+    "agents_used": ["Lead", "Skeptic"],
+    "confidence": "Low",
+    "output_length": 1700
+  }
+}

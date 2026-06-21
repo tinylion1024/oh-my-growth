@@ -1,0 +1,30 @@
+{
+  "feedback_id": "fb-fixture-retention-001",
+  "timestamp": "2026-06-18T11:00:00Z",
+  "session_id": "fixture-session-retention",
+  "input_summary": {
+    "mode": "Weekly",
+    "problem_type": "retention",
+    "industry": "consumer",
+    "stage": "1-10"
+  },
+  "rating": {
+    "stars": 4,
+    "usefulness": "有帮助"
+  },
+  "qualitative": {
+    "most_helpful": "明确了本周不做什么",
+    "missing_info": "需要更多留存分群指标",
+    "will_act": true,
+    "suggestions": "补充 cohort 复盘问题"
+  },
+  "case_feedback": {
+    "relevant": true,
+    "want_more": true
+  },
+  "output_metadata": {
+    "agents_used": ["Lead", "ROI"],
+    "confidence": "Medium",
+    "output_length": 1800
+  }
+}

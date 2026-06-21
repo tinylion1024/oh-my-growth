@@ -24,6 +24,8 @@ cp -R oh-my-growth/hermes/SKILL.md ~/.hermes/skills/oh-my-growth/
 cp -R oh-my-growth/knowledge ~/.hermes/skills/oh-my-growth/
 cp -R oh-my-growth/references ~/.hermes/skills/oh-my-growth/
 cp -R oh-my-growth/scripts ~/.hermes/skills/oh-my-growth/
+cp oh-my-growth/requirements.txt ~/.hermes/skills/oh-my-growth/
+cp oh-my-growth/manifest.json ~/.hermes/skills/oh-my-growth/
 
 # 3. 安装 Python 依赖
 pip install -r oh-my-growth/requirements.txt
@@ -41,6 +43,8 @@ ln -s $(pwd)/oh-my-growth/hermes/SKILL.md ~/.hermes/skills/oh-my-growth/SKILL.md
 ln -s $(pwd)/oh-my-growth/knowledge ~/.hermes/skills/oh-my-growth/knowledge
 ln -s $(pwd)/oh-my-growth/references ~/.hermes/skills/oh-my-growth/references
 ln -s $(pwd)/oh-my-growth/scripts ~/.hermes/skills/oh-my-growth/scripts
+ln -s $(pwd)/oh-my-growth/requirements.txt ~/.hermes/skills/oh-my-growth/requirements.txt
+ln -s $(pwd)/oh-my-growth/manifest.json ~/.hermes/skills/oh-my-growth/manifest.json
 ```
 
 ---

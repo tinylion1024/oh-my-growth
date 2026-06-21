@@ -23,7 +23,7 @@
 | VERSION / manifest / pyproject / Skill 版本一致 | ✅ |
 | Claude Code / OpenClaw / Hermes 命令文档一致 | ✅ |
 | 单一发布检查入口 | ✅ `scripts/release-check.sh` |
-| 全量自动化检查 | ✅ 90/90 |
+| 全量自动化检查 | ✅ 96/96 |
 
 ## 当前资产
 
@@ -34,7 +34,7 @@
 | 增长案例 | 81 |
 | 增长玩法 | 111 |
 | 理论流派 | 12 |
-| 自动化检查 | 88 |
+| 自动化检查 | 96 |
 
 ## 发布结论
 

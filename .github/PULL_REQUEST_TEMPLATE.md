@@ -36,7 +36,7 @@ Closes #
 python3 scripts/run_tests.py
 
 # 输出：
-# 90/90 tests passed ✅
+# 96/96 tests passed ✅
 ```
 
 ---

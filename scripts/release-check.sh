@@ -13,5 +13,6 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/validate-docs.py
 PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/validate-weapons.py
 PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/validate-indexes.py
 PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/validate-release.py
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/smoke_install.py --platform all
 
 echo "✅ Release check passed"

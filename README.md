@@ -11,7 +11,7 @@ Integrating **81 Cases** · **111 Growth Plays** · **12 Schools** · **Complete
 Input a growth question, output: `Stage Diagnosis` · `Core Tension` · `Priority Ranking` · `Do/Don't` · `2-Week Experiment`
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-90%2F90%20passed-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-96%2F96%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [Install](#-install) · [Quick Start](#-quick-start) · [Core Frameworks](#-core-frameworks) · [Documentation](#-documentation)
@@ -683,10 +683,16 @@ python3 scripts/validate-indexes.py
 
 | Test Type | Coverage | Status |
 |-----------|----------|--------|
-| Scripted Main Tests | 90/90 | ✅ |
+| Scripted Main Tests | 96/96 | ✅ |
 | CLI Integration Tests | diagnose / assess / match / validate / learn | ✅ |
 | Golden Scenario Regression | Wrong stage / Wrong constraint / Wrong direction | ✅ |
 | Agent/Index Validation | Structure and knowledge integrity | ✅ |
+
+---
+
+## 🚀 Productization Status
+
+See [`docs/optimization-status.md`](./docs/optimization-status.md) for current high-ROI optimization status and active backlog.
 
 ---
 

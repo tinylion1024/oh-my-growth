@@ -8,16 +8,16 @@
 
 | 分类 | 数量 | 说明 |
 |------|------|------|
-| [中国案例](./china/) | 38 | 电商、社交、金融、AI等 |
-| [海外案例](./overseas/) | 27 | AI产品、SaaS、品牌等 |
+| [中国案例](./china/) | 43 | 电商、社交、金融、AI等 |
+| [海外案例](./overseas/) | 28 | AI产品、SaaS、品牌等 |
 | [垂直行业](./vertical/) | 10 | 教育、出海等 |
-| **总计** | **75** | |
+| **总计** | **81** | |
 
 ---
 
 ## 行业快速导航
 
-### 中国案例（38个）
+### 中国案例（43个）
 
 | 行业 | 案例数 | 代表案例 |
 |------|--------|----------|
@@ -25,17 +25,17 @@
 | [社交社区](./china/#社交) | 6 | B站、知乎、微信红包、抖音算法 |
 | [金融科技](./china/#金融科技) | 6 | 支付宝、蚂蚁森林、微信支付 |
 | [本地生活](./china/#本地生活) | 5 | 美团、滴滴、饿了么、携程、贝壳 |
-| [AI产品](./china/#ai产品) | 8 | 秘塔AI搜索、腾讯元宝、夸克AI |
-| [内容娱乐](./china/#内容娱乐) | 3 | 抖音极速版、快手极速版、趣头条 |
+| [AI产品](./china/#ai产品) | 12 | 秘塔AI搜索、腾讯元宝、夸克AI、DeepSeek、Kimi |
+| [内容娱乐](./china/#内容娱乐) | 5 | 抖音极速版、快手极速版、趣头条 |
 
-### 海外案例（27个）
+### 海外案例（28个）
 
 | 行业 | 案例数 | 代表案例 |
 |------|--------|----------|
-| [AI产品](./overseas/#ai产品) | 12 | ChatGPT、Midjourney、Perplexity、Notion AI |
+| [AI产品](./overseas/#ai产品) | 14 | ChatGPT、Midjourney、Perplexity、Notion AI、Cursor |
 | [SaaS工具](./overseas/#saas工具) | 7 | Zoom、Slack、HubSpot、Dropbox |
 | [消费品牌](./overseas/#消费品牌) | 4 | Glossier、Allbirds、Warby Parker |
-| [出行交通](./overseas/#出行交通) | 4 | Airbnb、Uber、DoorDash |
+| [出行交通](./overseas/#出行交通) | 3 | Airbnb、Uber、DoorDash |
 
 ### 垂直行业（10个）
 

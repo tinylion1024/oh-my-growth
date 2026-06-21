@@ -1,0 +1,30 @@
+{
+  "feedback_id": "fb-fixture-monetization-001",
+  "timestamp": "2026-06-18T12:00:00Z",
+  "session_id": "fixture-session-monetization",
+  "input_summary": {
+    "mode": "Decision BRD",
+    "problem_type": "monetization",
+    "industry": "content",
+    "stage": "10-100"
+  },
+  "rating": {
+    "stars": 4,
+    "usefulness": "有一定帮助"
+  },
+  "qualitative": {
+    "most_helpful": "预算和风险说明清楚",
+    "missing_info": "希望更短",
+    "will_act": false,
+    "suggestions": "BRD 增加一页版摘要"
+  },
+  "case_feedback": {
+    "relevant": true,
+    "want_more": false
+  },
+  "output_metadata": {
+    "agents_used": ["Lead", "Monetization", "ROI"],
+    "confidence": "Medium",
+    "output_length": 2600
+  }
+}

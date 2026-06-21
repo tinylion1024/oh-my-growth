@@ -12,7 +12,7 @@
 `阶段判断` · `核心矛盾` · `优先级排序` · `建议做/别做` · `两周实验`
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-90%2F90%20passed-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-96%2F96%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 [安装](#-安装) · [快速开始](#-快速开始) · [核心框架](#-核心框架) · [文档](#-文档)
@@ -404,10 +404,16 @@ python3 scripts/validate-indexes.py
 
 | 测试类型 | 覆盖 | 状态 |
 |----------|------|------|
-| 脚本化主测试 | 90/90 | ✅ |
+| 脚本化主测试 | 96/96 | ✅ |
 | CLI 集成测试 | diagnose / assess / match / validate / learn | ✅ |
 | Golden 场景回归 | 错阶段 / 错约束 / 错方向 | ✅ |
 | Agent / 索引验证 | 结构和知识完整性 | ✅ |
+
+---
+
+## 🚀 产品化优化状态
+
+当前高 ROI 优化状态和活跃 backlog 见 [`docs/optimization-status.md`](./docs/optimization-status.md)。
 
 ---
 

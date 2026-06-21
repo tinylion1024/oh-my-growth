@@ -1,0 +1,30 @@
+{
+  "feedback_id": "fb-fixture-acquisition-001",
+  "timestamp": "2026-06-18T10:00:00Z",
+  "session_id": "fixture-session-acquisition",
+  "input_summary": {
+    "mode": "Fast Scan",
+    "problem_type": "acquisition",
+    "industry": "saas",
+    "stage": "0-1"
+  },
+  "rating": {
+    "stars": 5,
+    "usefulness": "非常有帮助"
+  },
+  "qualitative": {
+    "most_helpful": "直接给出了当前阶段不该铺渠道的判断",
+    "missing_info": "希望补充安装后如何回灌结果",
+    "will_act": true,
+    "suggestions": "增加真实反馈周报模板"
+  },
+  "case_feedback": {
+    "relevant": true,
+    "want_more": false
+  },
+  "output_metadata": {
+    "agents_used": ["Lead", "Growth", "Skeptic"],
+    "confidence": "High",
+    "output_length": 1400
+  }
+}

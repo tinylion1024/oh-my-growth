@@ -15,6 +15,8 @@ cp -R oh-my-growth/openclaw ~/.openclaw/skills/oh-my-growth
 cp -R oh-my-growth/knowledge ~/.openclaw/skills/oh-my-growth/
 cp -R oh-my-growth/references ~/.openclaw/skills/oh-my-growth/
 cp -R oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/
+cp oh-my-growth/requirements.txt ~/.openclaw/skills/oh-my-growth/
+cp oh-my-growth/manifest.json ~/.openclaw/skills/oh-my-growth/
 
 # 4. 安装 Python 依赖
 cd ~/.openclaw/skills/oh-my-growth
@@ -32,6 +34,8 @@ ln -s $(pwd)/oh-my-growth/openclaw ~/.openclaw/skills/oh-my-growth
 ln -s $(pwd)/oh-my-growth/knowledge ~/.openclaw/skills/oh-my-growth/knowledge
 ln -s $(pwd)/oh-my-growth/references ~/.openclaw/skills/oh-my-growth/references
 ln -s $(pwd)/oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/scripts
+ln -s $(pwd)/oh-my-growth/requirements.txt ~/.openclaw/skills/oh-my-growth/requirements.txt
+ln -s $(pwd)/oh-my-growth/manifest.json ~/.openclaw/skills/oh-my-growth/manifest.json
 ```
 
 ---
@@ -101,7 +105,8 @@ ln -s $(pwd)/oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/scripts
 │   └── indexes/         # JSON 索引
 ├── references/           # 框架文档
 ├── scripts/              # Python 计算脚本
-└── requirements.txt      # Python 依赖
+├── requirements.txt      # Python 依赖
+└── manifest.json          # 插件元数据
 ```
 
 ---
@@ -151,6 +156,8 @@ cp -R oh-my-growth/openclaw ~/.openclaw/skills/oh-my-growth
 cp -R oh-my-growth/knowledge ~/.openclaw/skills/oh-my-growth/
 cp -R oh-my-growth/references ~/.openclaw/skills/oh-my-growth/
 cp -R oh-my-growth/scripts ~/.openclaw/skills/oh-my-growth/
+cp oh-my-growth/requirements.txt ~/.openclaw/skills/oh-my-growth/
+cp oh-my-growth/manifest.json ~/.openclaw/skills/oh-my-growth/
 ```
 
 两个平台可以共享同一份知识库和脚本。

@@ -6,7 +6,7 @@
 |------|------|
 | 公司/产品 | Character.AI |
 | 行业 | AI/对话生成 |
-| 标签 | AI, 对话机器人, 社区, UGC, 免费获客 |
+| 标签 | AI, 社区, UGC, 海外, 成熟 |
 | 阶段 | 成熟期（被Google收购） |
 | 成立时间 | 2021年 |
 | 创始人 | Noam Shazeer、Daniel de Freitas（前Google LaMDA团队） |

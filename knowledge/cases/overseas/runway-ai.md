@@ -6,7 +6,7 @@
 |------|------|
 | 公司/产品 | Runway AI |
 | 行业 | AI/视频生成 |
-| 标签 | AI, 视频生成, 影视合作, 内容生态, 产品驱动 |
+| 标签 | AI视频, 内容生态, 订阅, 海外, 成熟 |
 | 阶段 | 成熟期 |
 | 成立时间 | 2018年 |
 | 创始人 | Cristóbal Valenzuela（CEO）、Anastasis Germanidis（CTO）、Alejandro Matamala（CDO） |

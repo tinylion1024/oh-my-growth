@@ -17,7 +17,7 @@ All notable changes to oh-my-growth are documented here. The project follows
 
 - Standardized public commands such as `/omg-diagnose`, `/omg-assess`, and `/omg-design`.
 - Documented all standalone CLI output views.
-- Updated the automated test baseline to 88 checks.
+- Updated the automated test baseline to 96 checks, including install smoke tests for Claude Code, Hermes Agent, and OpenClaw.
 
 ## [1.0.0] - 2026-06-13
 

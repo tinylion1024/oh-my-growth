@@ -111,6 +111,56 @@ def test_aggregate_feedback_generates_summary_reports():
         assert "缩短输出并突出结论" in patterns
 
 
+def test_aggregate_feedback_ignores_example_feedback_file():
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        feedback_dir = tmp_path / "feedback"
+        logs_dir = feedback_dir / "logs" / "real"
+        analysis_dir = feedback_dir / "analysis"
+        logs_dir.mkdir(parents=True)
+
+        real_entry = {
+            "feedback_id": "fb-real-001",
+            "timestamp": "2026-06-18T10:30:00Z",
+            "session_id": "real-session",
+            "input_summary": {"mode": "Weekly", "problem_type": "retention"},
+            "rating": {"stars": 4, "usefulness": "有帮助"},
+            "qualitative": {"most_helpful": "有帮助", "missing_info": "更多指标", "will_act": True, "suggestions": "继续"},
+            "case_feedback": {"relevant": True, "want_more": False},
+            "output_metadata": {"agents_used": ["Lead"], "confidence": "High", "output_length": 1200},
+        }
+        example_entry = {
+            "feedback_id": "fb-example-ignore-me",
+            "timestamp": "2026-06-18T10:31:00Z",
+            "session_id": "example-session",
+            "input_summary": {"mode": "Fast Scan", "problem_type": "acquisition"},
+            "rating": {"stars": 5, "usefulness": "示例"},
+            "qualitative": {"most_helpful": "示例", "missing_info": "示例", "will_act": True, "suggestions": "示例"},
+            "case_feedback": {"relevant": True, "want_more": False},
+            "output_metadata": {"agents_used": ["Lead"], "confidence": "High", "output_length": 1000},
+        }
+        (logs_dir / "01-real.json").write_text(json.dumps(real_entry, ensure_ascii=False, indent=2), encoding="utf-8")
+        (logs_dir.parent / "example-feedback.json").write_text(json.dumps(example_entry, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        result = run_script(
+            "scripts/aggregate_feedback.py",
+            "--feedback-dir",
+            str(feedback_dir),
+            "--output-dir",
+            str(analysis_dir),
+            "--week",
+            "2026-W25",
+        )
+
+        assert result.returncode == 0, result.stdout + result.stderr
+        weekly_report = (analysis_dir / "weekly-report-2026-W25.md").read_text(encoding="utf-8")
+        patterns_report = (analysis_dir / "patterns.md").read_text(encoding="utf-8")
+        assert "Total feedback: 1" in weekly_report
+        assert "Fast Scan" not in weekly_report
+        assert "example-ignore-me" not in weekly_report
+        assert "示例" not in patterns_report
+
+
 def test_decision_tracking_reports_pending_items():
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)

@@ -6,7 +6,7 @@
 |------|------|
 | 公司/产品 | Perplexity AI |
 | 行业 | AI/搜索 |
-| 标签 | AI, 搜索引擎, 答案引擎, 产品驱动, 免费获客 |
+| 标签 | AI搜索, 产品驱动, 订阅, 海外, 增长 |
 | 阶段 | 增长期 |
 | 成立时间 | 2022年8月 |
 | 创始人 | Aravind Srinivas, Denis Yarats, Johnny Ho, Andy Konwinski |

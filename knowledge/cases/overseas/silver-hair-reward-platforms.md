@@ -6,7 +6,7 @@
 |------|------|
 | 公司/产品 | Swagbucks、InboxDollars、Microworkers、FeaturePoints |
 | 行业 | 奖励/任务平台 |
-| 标签 | 任务墙, 积分奖励, 银发用户, 问卷调查, APP试玩, 现金奖励 |
+| 标签 | 任务平台, 积分奖励, 平台, 海外, 成熟 |
 | 阶段 | 成熟期 |
 | 代表平台用户 | Swagbucks 1亿+用户 |
 

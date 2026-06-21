@@ -17,11 +17,15 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 
 def load_entries(feedback_dir: Path) -> List[Dict[str, Any]]:
     logs_dir = feedback_dir / "logs"
+    scan_dirs = [logs_dir / "real"] if (logs_dir / "real").exists() else [logs_dir]
     entries: List[Dict[str, Any]] = []
-    for path in sorted(logs_dir.rglob("*.json")):
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        if isinstance(payload, dict):
-            entries.append(payload)
+    for scan_dir in scan_dirs:
+        for path in sorted(scan_dir.rglob("*.json")):
+            if path.name == "example-feedback.json":
+                continue
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict):
+                entries.append(payload)
     return entries
 
 
