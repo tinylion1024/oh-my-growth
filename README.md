@@ -6,7 +6,7 @@
 
 **Growth Strategy External Brain — Claude Code, OpenClaw & Hermes Agent Plugin**
 
-Integrating **81 Cases** · **111 Growth Plays** · **12 Schools** · **Complete Decision Framework**
+Integrating **194 Cases** · **111 Growth Plays** · **12 Schools** · **Complete Decision Framework**
 
 Input a growth question, output: `Stage Diagnosis` · `Core Tension` · `Priority Ranking` · `Do/Don't` · `2-Week Experiment`
 
@@ -258,7 +258,7 @@ python scripts/cli.py cold-start "How to get first 100 seed users for AI writing
 
 | Type | Count | Description |
 |------|-------|-------------|
-| 📚 Cases | **81** | Pinduoduo, TikTok, Notion, Airbnb... |
+| 📚 Cases | **194** | Pinduoduo, TikTok, Notion, Airbnb, GPT-4o, Claude 3.5... |
 | 🛠️ Plays | **111** | Referral, PLG, Content Growth, Retention... |
 | 📖 Theories | **12 Schools** | Growth Hacking, Network Effects, PLG... |
 
