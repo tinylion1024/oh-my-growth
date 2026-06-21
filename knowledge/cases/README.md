@@ -1,6 +1,6 @@
 # 案例库
 
-> 111个经典增长案例 | 行业分类 | 标签索引
+> 194个经典增长案例 | 行业分类 | 标签索引
 
 ---
 
@@ -8,16 +8,16 @@
 
 | 分类 | 数量 | 说明 |
 |------|------|------|
-| [中国案例](./china/) | 73 | 电商、社交、金融、AI、游戏、医疗等 |
-| [海外案例](./overseas/) | 28 | AI产品、SaaS、品牌等 |
+| [中国案例](./china/) | 118 | 电商、社交、金融、AI产品、游戏、医疗等 |
+| [海外案例](./overseas/) | 66 | AI产品、SaaS、品牌、新模式等 |
 | [垂直行业](./vertical/) | 10 | 教育、出海等 |
-| **总计** | **111** | |
+| **总计** | **194** | |
 
 ---
 
 ## 行业快速导航
 
-### 中国案例（73个）
+### 中国案例（118个）
 
 | 行业 | 案例数 | 代表案例 |
 |------|--------|----------|
@@ -25,19 +25,21 @@
 | [社交社区](./china/#社交) | 6 | B站、知乎、微信红包、抖音算法 |
 | [金融科技](./china/fintech/) | 16 | 支付宝、蚂蚁森林、微信支付、微众银行、网商银行、陆金所 |
 | [本地生活](./china/#本地生活) | 5 | 美团、滴滴、饿了么、携程、贝壳 |
-| [AI产品](./china/#ai产品) | 12 | 秘塔AI搜索、腾讯元宝、夸克AI、DeepSeek、Kimi |
+| [AI产品](./china/ai-products-2025/) | 37 | 秘塔AI搜索、腾讯元宝、夸克AI、DeepSeek、Kimi、通义千问、文心一言 |
 | [内容娱乐](./china/#内容娱乐) | 5 | 抖音极速版、快手极速版、趣头条 |
 | [游戏娱乐](./china/gaming/) | 10 | 原神、王者荣耀、和平精英、蛋仔派对、黑神话悟空 |
 | [医疗健康](./china/healthcare/) | 10 | 平安好医生、京东健康、阿里健康、微医、药明康德 |
+| [新模式2025](./china/new-models-2025/) | 25 | TEMU出海、TikTok Shop、蔚来换电、小红书买手、理想汽车、小鹏汽车 |
 
-### 海外案例（28个）
+### 海外案例（66个）
 
 | 行业 | 案例数 | 代表案例 |
 |------|--------|----------|
-| [AI产品](./overseas/#ai产品) | 14 | ChatGPT、Midjourney、Perplexity、Notion AI、Cursor |
+| [AI产品](./overseas/ai-products-2025/) | 29 | ChatGPT、Midjourney、Perplexity、Claude 3.5、GPT-4o、Gemini 2、Cursor |
 | [SaaS工具](./overseas/#saas工具) | 7 | Zoom、Slack、HubSpot、Dropbox |
 | [消费品牌](./overseas/#消费品牌) | 4 | Glossier、Allbirds、Warby Parker |
 | [出行交通](./overseas/#出行交通) | 3 | Airbnb、Uber、DoorDash |
+| [新模式2025](./overseas/new-models-2025/) | 15 | Figma设计、Canva设计、Webflow无代码、Notion协作、Linear项目 |
 
 ### 垂直行业（10个）
 
@@ -60,7 +62,7 @@
 | [游戏化](./china/) | 5 | 蚂蚁森林、抖音极速版、趣头条 |
 | [内容营销](./china/) | 5 | 小红书、淘宝直播 |
 | [会员体系](./china/) | 3 | 京东会员、阿里88VIP |
-| [AI产品](./overseas/) | 12 | ChatGPT、Midjourney、Cursor |
+| [AI产品](./overseas/) | 26 | ChatGPT、Midjourney、Claude 3.5、GPT-4o |
 | [PLG产品驱动](./overseas/) | 7 | Notion、Dropbox、Zoom |
 | [DTC品牌](./overseas/) | 4 | Glossier、Allbirds |
 | [双边市场](./overseas/) | 4 | Airbnb、Uber |
@@ -88,4 +90,4 @@
 
 ---
 
-**最后更新**：2026年6月（Worker-3新增30个案例：金融科技10个、游戏娱乐10个、医疗健康10个）
+**最后更新**：2026年6月22日（案例库扩展至194个：新增110个2025-2026新兴案例）
