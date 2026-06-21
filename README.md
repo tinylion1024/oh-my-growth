@@ -266,105 +266,109 @@ python scripts/cli.py cold-start "How to get first 100 seed users for AI writing
 
 <!-- AUTO-CASE-INDEX:START -->
 <details>
-<summary>中国案例（43）</summary>
+<summary>China Cases (118)</summary>
 
-- [B站-社区氛围增长](<./knowledge/cases/china/bilibili.md>) · C级证据 · 社交、社区、Z世代
-- [DeepSeek（深度求索）- AI开源突围战](<./knowledge/cases/china/deepseek.md>) · B级证据 · 开源模型、低成本训练、viral增长
-- [Kimi（月之暗面）- AI助手爆发式增长](<./knowledge/cases/china/kimi-moonshot-ai.md>) · B级证据 · AI助手、免费获客、内容营销
-- [MiniMax（海螺AI/稀宇科技）- AI产品爆发式增长](<./knowledge/cases/china/minimax-ai.md>) · C级证据 · AI陪伴、视频生成、免费获客
-- [Soul-匿名社交增长](<./knowledge/cases/china/soul.md>) · C级证据 · 社交、灵魂匹配、匿名
-- [云集-社交电商裂变](<./knowledge/cases/china/yunji.md>) · C级证据 · 电商、B2B、跨境
-- [京东-用户精细化运营](<./knowledge/cases/china/jd-member-ops.md>) · B级证据 · 电商、会员体系、用户运营
-- [京东家具双11投放案例：ROI达到252](<./knowledge/cases/china/jd-furniture-roi252.md>) · C级证据
-- [京东金融-金条白条增长](<./knowledge/cases/china/jd-finance.md>) · C级证据 · 金融、白条、金条
-- [唯品会-特卖模式增长](<./knowledge/cases/china/vipshop.md>) · C级证据 · 电商、特卖、库存
-- [夸克AI（阿里巴巴）- 超级入口的AI突围](<./knowledge/cases/china/quark-ai.md>) · C级证据 · AI助手、超级入口、阿里生态
-- [小红书-社区种草转化](<./knowledge/cases/china/xiaohongshu.md>) · C级证据 · 电商、种草、社区
-- [少儿英语产品用户洞察案例](<./knowledge/cases/china/child-english-insight.md>) · C级证据 · 教育、用户洞察、增长方法
-- [得物-潮流社区增长](<./knowledge/cases/china/dewu.md>) · B级证据 · 电商、潮牌、社区
-- [微众银行-互联网银行增长](<./knowledge/cases/china/webank.md>) · C级证据 · 金融、互联网银行、微信生态
-- [微信支付-红包裂变](<./knowledge/cases/china/wechat-pay.md>) · B级证据 · 支付、社交、红包
-- [微信红包-社交裂变增长](<./knowledge/cases/china/wechat-redpacket.md>) · C级证据 · 支付、社交裂变、红包
-- [快手极速版-看视频赚现金](<./knowledge/cases/china/kuaishou-jisu-ban.md>) · C级证据 · 短视频、游戏化、现金激励
-- [快手白拿-现金膨胀裂变增长](<./knowledge/cases/china/kuaishou-baina.md>) · C级证据 · 现金激励、邀请裂变、金币暴涨
-- [抖音-算法推荐增长](<./knowledge/cases/china/douyin-algorithm.md>) · C级证据 · 社交、算法推荐、短视频
-- [抖音支付-电商金融](<./knowledge/cases/china/douyin-pay.md>) · C级证据 · 支付、电商、抖音生态
-- [抖音极速版-看视频赚金币](<./knowledge/cases/china/douyin-jisu-ban.md>) · C级证据 · 短视频、游戏化、金币激励
-- [抖音电商-直播带货爆发](<./knowledge/cases/china/douyin-ecommerce.md>) · C级证据 · 电商、短视频、兴趣电商
-- [拼多多-拼团裂变增长](<./knowledge/cases/china/pinduoduo-group-buy.md>) · C级证据 · 电商、社交裂变、拼团
-- [携程-旅游平台增长](<./knowledge/cases/china/ctrip.md>) · C级证据 · 旅游、OTA、平台
-- [支付宝-支付增长](<./knowledge/cases/china/alipay.md>) · B级证据 · 支付、金融、场景
-- [智谱AI（Z.ai/GLM）——中国大模型独角兽的差异化成长之路](<./knowledge/cases/china/zhipu-ai.md>) · C级证据 · 大模型、基础模型、MaaS平台
-- [桌面Widget增长案例](<./knowledge/cases/china/widget-growth.md>) · C级证据 · Widget、桌面美化、社交货币
-- [淘宝直播-内容电商转型](<./knowledge/cases/china/taobao-live.md>) · C级证据 · 电商、直播、内容电商
-- [滴滴-出行平台增长](<./knowledge/cases/china/didi.md>) · B级证据 · 出行、平台、双边市场
-- [白拿送礼-社交裂变增长](<./knowledge/cases/china/white-get-gift.md>) · C级证据 · 社交裂变、免费获客、送礼
-- [知乎-知识分享增长](<./knowledge/cases/china/zhihu.md>) · B级证据 · 社交、知识、问答
-- [秘塔AI搜索 - AI搜索赛道的差异化突围](<./knowledge/cases/china/mita-ai-search.md>) · C级证据 · AI搜索、无广告、深度研究
-- [美团-本地生活平台增长](<./knowledge/cases/china/meituan.md>) · C级证据 · 本地生活、平台、外卖
-- [腾讯元宝（Tencent Yuanbao）- AI to C 的生态攻坚战](<./knowledge/cases/china/tencent-yuanbao.md>) · C级证据 · AI助手、腾讯生态、微信嵌入
-- [芭芭农场-游戏化增长](<./knowledge/cases/china/baba-farm.md>) · C级证据 · 游戏化、养成、社交裂变
-- [蚂蚁森林-用户粘性增长](<./knowledge/cases/china/ant-forest.md>) · B级证据 · 金融、游戏化、公益
-- [豆包（字节跳动）- 互联网巨头的AI助手增长](<./knowledge/cases/china/doubao-bytedance.md>) · B级证据 · AI助手、免费获客、字节生态
-- [贝壳-居住平台增长](<./knowledge/cases/china/beike.md>) · B级证据 · 居住、平台、经纪人
-- [趣头条-看新闻赚金币](<./knowledge/cases/china/qutoutiao.md>) · C级证据 · 资讯、游戏化、金币激励
-- [银发人群增长-视频奖励与任务体系](<./knowledge/cases/china/silver-hair-growth.md>) · C级证据 · 银发经济、看视频赚钱、任务体系
-- [陌陌-陌生社交增长](<./knowledge/cases/china/momo.md>) · B级证据 · 社交、直播、陌生人社交
-- [饿了么-外卖平台增长](<./knowledge/cases/china/ele.md>) · B级证据 · 本地生活、外卖、平台
+**AI Products 2025 (25)**
+- [Manus AI - AI Agent Platform](<./knowledge/cases/china/ai-products-2025/manus-ai.md>) · AI Agent · Productivity
+- [Monica AI - All-in-one AI Assistant](<./knowledge/cases/china/ai-products-2025/monica-ai.md>) · AI Assistant · Browser Extension
+- [Tongyi Qianwen (Alibaba) - Enterprise AI](<./knowledge/cases/china/ai-products-2025/tongyi-qianwen.md>) · LLM · Enterprise AI
+- [Wenxin Yiyan (Baidu) - Chinese AI Assistant](<./knowledge/cases/china/ai-products-2025/wenxin-yiyan.md>) · AI Assistant · Search
+- [Kimi (Moonshot) - Long-context AI](<./knowledge/cases/china/ai-products-2025/moonshot-kimi.md>) · AI Assistant · Long Context
+- [DeepSeek - Open Source AI Model](<./knowledge/cases/china/deepseek.md>) · B-tier Evidence · Open Source · Low Cost Training
+- [Baichuan AI - Chinese LLM](<./knowledge/cases/china/ai-products-2025/baichuan-ai.md>) · LLM · Chinese AI
+- [Zhipu AI (GLM) - Chinese LLM Unicorn](<./knowledge/cases/china/zhipu-ai.md>) · LLM · Enterprise AI
+- [MiniMax - AI Product Growth](<./knowledge/cases/china/minimax-ai.md>) · AI · Video Generation
+- [Doubao (ByteDance) - AI Assistant](<./knowledge/cases/china/doubao-bytedance.md>) · B-tier Evidence · AI Assistant · ByteDance Ecosystem
 
-</details>
+**New Business Models 2025 (25)**
+- [TEMU Overseas - Cross-border E-commerce](<./knowledge/cases/china/new-models-2025/temu-overseas.md>) · E-commerce · Cross-border
+- [TikTok Shop - Social Commerce](<./knowledge/cases/china/new-models-2025/tiktok-shop.md>) · E-commerce · Short Video
+- [NIO Battery Swap - EV Innovation](<./knowledge/cases/china/new-models-2025/nio-battery-swap.md>) · EV · Battery Swap
+- [Li Auto - Extended-range EV](<./knowledge/cases/china/new-models-2025/lixiang-auto.md>) · EV · Extended Range
+- [XPeng Motors - Smart EV](<./knowledge/cases/china/new-models-2025/xiaopeng-auto.md>) · EV · Autonomous Driving
 
-<details>
-<summary>海外案例（28）</summary>
+**Fintech (16)**
+- [WeBank - Internet Bank](<./knowledge/cases/china/fintech/webank.md>) · Internet Bank · WeChat Ecosystem
+- [MyBank - SME Banking](<./knowledge/cases/china/fintech/mybank.md>) · Internet Bank · SME
+- [Lufax - Wealth Management](<./knowledge/cases/china/fintech/lufax.md>) · Wealth Management · P2P Transformation
+- [JD Digits - Fintech Platform](<./knowledge/cases/china/fintech/jd-digits.md>) · Fintech · Digital Finance
+- [Alipay - Payment Platform](<./knowledge/cases/china/alipay.md>) · B-tier Evidence · Payment · Finance
 
-- [Airbnb-信任机制增长](<./knowledge/cases/overseas/airbnb.md>) · B级证据 · 住宿、平台、双边市场
-- [Airbnb-房源增长策略](<./knowledge/cases/overseas/airbnb-host.md>) · C级证据 · 住宿、房东、平台
-- [Allbirds-口碑增长](<./knowledge/cases/overseas/allbirds.md>) · B级证据 · 鞋、DTC、可持续
-- [Anthropic/Claude — AI助手产品增长案例](<./knowledge/cases/overseas/claude-anthropic.md>) · B级证据 · AI、大语言模型、企业级AI
-- [Calendly-工具产品增长](<./knowledge/cases/overseas/calendly.md>) · B级证据 · 工具、日程、预约
-- [Character.AI-社区裂变增长](<./knowledge/cases/overseas/character-ai.md>) · B级证据 · AI、对话机器人、社区
-- [Cursor - AI编程工具爆发式增长](<./knowledge/cases/overseas/cursor-ai-editor.md>) · B级证据 · AI编程、SaaS、工具
-- [Dollar Shave Club-订阅电商](<./knowledge/cases/overseas/dollar-shave-club.md>) · C级证据 · 订阅、DTC、剃须刀
-- [DoorDash-外卖平台增长](<./knowledge/cases/overseas/doordash.md>) · B级证据 · 外卖、平台、本地生活
-- [Dropbox-推荐裂变增长](<./knowledge/cases/overseas/dropbox.md>) · B级证据 · SaaS、存储、邀请裂变
-- [ElevenLabs — AI语音合成产品增长案例](<./knowledge/cases/overseas/elevenlabs-ai.md>) · B级证据 · AI语音、生成式AI、企业级AI
-- [GitHub Copilot — AI编程工具市场开创者与增长](<./knowledge/cases/overseas/github-copilot.md>) · B级证据 · AI编程、SaaS、B2D
-- [Glossier-社交电商](<./knowledge/cases/overseas/glossier.md>) · B级证据 · 美妆、DTC、社区
-- [HubSpot-入站营销增长](<./knowledge/cases/overseas/hubspot.md>) · C级证据 · SaaS、营销自动化、入站营销
-- [Midjourney-社区驱动增长](<./knowledge/cases/overseas/midjourney.md>) · C级证据 · AI、图像生成、Discord社区
-- [Notion-社区驱动增长](<./knowledge/cases/overseas/notion.md>) · B级证据 · SaaS、协作、社区
-- [OpenAI/ChatGPT-生成式AI产品增长](<./knowledge/cases/overseas/openai-chatgpt.md>) · B级证据 · AI、大语言模型、消费应用
-- [Perplexity-答案引擎增长](<./knowledge/cases/overseas/perplexity.md>) · B级证据 · AI、搜索引擎、答案引擎
-- [Pika AI-社区+产品驱动增长](<./knowledge/cases/overseas/pika-ai.md>) · C级证据 · AI、视频生成、Discord社区
-- [Runway AI-内容生态驱动增长](<./knowledge/cases/overseas/runway-ai.md>) · C级证据 · AI、视频生成、影视合作
-- [Slack-产品驱动增长](<./knowledge/cases/overseas/slack.md>) · C级证据 · SaaS、协作、工具
-- [Stripe-开发者生态增长](<./knowledge/cases/overseas/stripe.md>) · B级证据 · 支付、开发者、API
-- [Suno — AI音乐生成产品增长案例](<./knowledge/cases/overseas/suno-music-ai.md>) · B级证据 · AI音乐、生成式AI、消费级AI
-- [Uber-双边市场增长](<./knowledge/cases/overseas/uber.md>) · B级证据 · 出行、平台、双边市场
-- [Warby Parker-眼镜直销](<./knowledge/cases/overseas/warby-parker.md>) · B级证据 · 眼镜、DTC、Home Try-On
-- [Windsurf - AI编程工具差异化增长](<./knowledge/cases/overseas/windsurf-ai-editor.md>) · C级证据 · AI编程、SaaS、工具
-- [Zoom-病毒式增长](<./knowledge/cases/overseas/zoom.md>) · B级证据 · SaaS、视频会议、病毒传播
-- [海外银发奖励平台-Swagbucks/InboxDollars](<./knowledge/cases/overseas/silver-hair-reward-platforms.md>) · C级证据 · 任务墙、积分奖励、银发用户
+**Gaming & Entertainment (10)**
+- [Genshin Impact - Open World Game](<./knowledge/cases/china/gaming/genshin-impact.md>) · Open World · Cross-platform
+- [Honor of Kings - MOBA Game](<./knowledge/cases/china/gaming/honor-of-kings.md>) · MOBA · Mobile Game
+- [Peace Elite - Battle Royale](<./knowledge/cases/china/gaming/peace-elite.md>) · Battle Royale · Mobile Game
+- [Black Myth: Wukong - AAA Game](<./knowledge/cases/china/gaming/black-myth-wukong.md>) · AAA · Action RPG
+
+**Healthcare (10)**
+- [Ping An Doctor - Internet Healthcare](<./knowledge/cases/china/healthcare/pingan-doctor.md>) · Internet Healthcare · Telemedicine
+- [JD Health - Pharmaceutical E-commerce](<./knowledge/cases/china/healthcare/jd-health.md>) · Pharmaceutical E-commerce
+- [Ali Health - Pharmaceutical Platform](<./knowledge/cases/china/healthcare/ali-health.md>) · Pharmaceutical Platform
+
+**E-commerce & Retail (9)**
+- [Pinduoduo - Group Buy Growth](<./knowledge/cases/china/pinduoduo-group-buy.md>) · E-commerce · Social Referral
+- [Douyin E-commerce - Live Streaming](<./knowledge/cases/china/douyin-ecommerce.md>) · E-commerce · Live Streaming
+- [Xiaohongshu - Community Seeding](<./knowledge/cases/china/xiaohongshu.md>) · E-commerce · Community
+
+**Social & Community (6)**
+- [Bilibili - Community Growth](<./knowledge/cases/china/bilibili.md>) · C-tier Evidence · Social · Community · Gen Z
+- [Zhihu - Knowledge Sharing](<./knowledge/cases/china/zhihu.md>) · B-tier Evidence · Social · Knowledge · Q&A
+
+**Local Life (5)**
+- [Meituan - Local Life Platform](<./knowledge/cases/china/meituan.md>) · C-tier Evidence · Local Life · Platform
+- [Didi - Ride-hailing Platform](<./knowledge/cases/china/didi.md>) · B-tier Evidence · Transportation · Platform
 
 </details>
 
 <details>
-<summary>垂直行业案例（10）</summary>
+<summary>Overseas Cases (66)</summary>
 
-- [Coursera-在线教育增长](<./knowledge/cases/vertical/coursera.md>) · C级证据 · 教育、在线、MOOC
-- [Duolingo-游戏化学习增长](<./knowledge/cases/vertical/duolingo.md>) · B级证据 · 教育、游戏化、学习
-- [SHAREit（茄子快传）-工具出海](<./knowledge/cases/vertical/shareit.md>) · C级证据 · 工具、出海、预装
-- [SHEIN-快时尚出海](<./knowledge/cases/vertical/shein.md>) · B级证据 · 快时尚、出海、供应链
-- [TikTok-海外增长](<./knowledge/cases/vertical/tiktok.md>) · C级证据 · 短视频、出海、算法推荐
-- [VIPKID-少儿英语增长](<./knowledge/cases/vertical/vipkid.md>) · B级证据 · 教育、英语、在线
-- [字节跳动-海外产品矩阵](<./knowledge/cases/vertical/bytedance-overseas.md>) · B级证据 · 互联网、出海、产品矩阵
-- [猿辅导-题库产品增长](<./knowledge/cases/vertical/yuanfudao.md>) · B级证据 · 教育、在线、英语
-- [腾讯游戏-出海增长](<./knowledge/cases/vertical/tencent-games.md>) · C级证据 · 游戏、出海、投资
-- [跨境电商独立站-品牌出海](<./knowledge/cases/vertical/dtc-brand.md>) · C级证据 · 跨境、DTC、独立站
+**AI Products 2025 (29)**
+- [Claude 3.5 (Anthropic) - AI Assistant](<./knowledge/cases/overseas/ai-products-2025/claude-3-5.md>) · AI Assistant · Enterprise AI
+- [GPT-4o (OpenAI) - Multimodal AI](<./knowledge/cases/overseas/ai-products-2025/gpt-4o.md>) · Multimodal AI · Voice
+- [Gemini 2 (Google) - Multimodal AI](<./knowledge/cases/overseas/ai-products-2025/gemini-2.md>) · Multimodal AI · Search
+- [Llama 3 (Meta) - Open Source LLM](<./knowledge/cases/overseas/ai-products-2025/llama-3.md>) · Open Source · LLM
+- [ChatGPT (OpenAI) - Generative AI Product](<./knowledge/cases/overseas/openai-chatgpt.md>) · B-tier Evidence · AI · LLM · Consumer App
+- [Midjourney - Community-driven Growth](<./knowledge/cases/overseas/midjourney.md>) · C-tier Evidence · AI · Image Generation · Discord
+- [Perplexity - Answer Engine Growth](<./knowledge/cases/overseas/perplexity.md>) · B-tier Evidence · AI · Search Engine
+- [Character.AI - Community Viral Growth](<./knowledge/cases/overseas/character-ai.md>) · B-tier Evidence · AI · Chatbot · Community
+- [Cursor - AI Coding Tool Explosive Growth](<./knowledge/cases/overseas/cursor-ai-editor.md>) · B-tier Evidence · AI Coding · SaaS · Tool
+
+**New Business Models 2025 (15)**
+- [Figma Design - Design Collaboration](<./knowledge/cases/overseas/new-models-2025/figma-design.md>) · Design Tool · Collaboration
+- [Canva Design - Design Democratization](<./knowledge/cases/overseas/new-models-2025/canva-design.md>) · Design Tool · Freemium
+- [Webflow No-code - Website Builder](<./knowledge/cases/overseas/new-models-2025/webflow-nocode.md>) · No-code · Website Builder
+- [Notion - Community-driven Growth](<./knowledge/cases/overseas/notion.md>) · B-tier Evidence · SaaS · Collaboration · Community
+
+**SaaS Tools (7)**
+- [Zoom - Viral Growth](<./knowledge/cases/overseas/zoom.md>) · B-tier Evidence · SaaS · Video Conference · Viral
+- [Slack - Product-led Growth](<./knowledge/cases/overseas/slack.md>) · C-tier Evidence · SaaS · Collaboration · Tool
+- [Dropbox - Referral Viral Growth](<./knowledge/cases/overseas/dropbox.md>) · B-tier Evidence · SaaS · Storage · Referral
+
+**Consumer Brands (4)**
+- [Glossier - Social E-commerce](<./knowledge/cases/overseas/glossier.md>) · B-tier Evidence · Beauty · DTC · Community
+- [Allbirds - Word-of-mouth Growth](<./knowledge/cases/overseas/allbirds.md>) · B-tier Evidence · Shoes · DTC · Sustainable
+
+**Transportation (3)**
+- [Airbnb - Trust Mechanism Growth](<./knowledge/cases/overseas/airbnb.md>) · B-tier Evidence · Accommodation · Platform · Two-sided Market
+- [Uber - Two-sided Market Growth](<./knowledge/cases/overseas/uber.md>) · B-tier Evidence · Transportation · Platform · Two-sided Market
 
 </details>
 
+<details>
+<summary>Vertical Industry Cases (10)</summary>
+
+- [Coursera - Online Education Growth](<./knowledge/cases/vertical/coursera.md>) · C-tier Evidence · Education · Online · MOOC
+- [Duolingo - Gamified Learning Growth](<./knowledge/cases/vertical/duolingo.md>) · B-tier Evidence · Education · Gamification · Learning
+- [SHAREit - Tool Overseas Expansion](<./knowledge/cases/vertical/shareit.md>) · C-tier Evidence · Tool · Overseas · Pre-install
+- [SHEIN - Fast Fashion Overseas](<./knowledge/cases/vertical/shein.md>) · B-tier Evidence · Fast Fashion · Overseas · Supply Chain
+- [TikTok - Overseas Growth](<./knowledge/cases/vertical/tiktok.md>) · C-tier Evidence · Short Video · Overseas · Algorithm
+
+</details>
 <!-- AUTO-CASE-INDEX:END -->
+
+
+---
 
 ### Play Index
 
