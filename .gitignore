@@ -41,7 +41,55 @@ Thumbs.db
 .coverage
 htmlcov/
 
-# Project specific
+# OMC State & Sessions
 .omc/
 .omx/
 *.log
+
+# Content Marketing (不推送到 GitHub)
+.content/
+
+# User Data & Profiles
+.oh-my-growth/
+
+# Backup Files
+*_full.md
+*.bak
+*.backup
+
+# Temporary Files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Local Configuration
+.env
+.env.local
+*.local
+
+# Generated Reports (本地生成)
+*.report.md
+*.analysis.md
+
+# Scripts Output
+scripts/output/
+scripts/results/
+
+# Knowledge Base Cache
+knowledge/.cache/
+knowledge/.index/
+
+# Test Results
+tests/results/
+tests/output/
+
+# Documentation Drafts
+docs/drafts/
+docs/.draft/
+
+# Sensitive Data
+secrets/
+.secrets/
+*.secret
+credentials.json
