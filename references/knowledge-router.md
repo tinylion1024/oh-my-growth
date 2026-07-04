@@ -25,8 +25,9 @@
 1. 解析用户输入 → 提取关键词和特征
 2. 做阶段/业务过程/北极星/旅程判断
 3. 多维度匹配 → 计算相似度
-4. 排序筛选 → Top N结果
-5. 提取关键信息 → 输出
+4. 匹配方法论包 → 找到适合当前问题的跨打法执行框架
+5. 排序筛选 → Top N结果
+6. 提取关键信息 → 输出
 ```
 
 ## 案例检索
@@ -191,6 +192,32 @@ def match_theories(features):
     return [load_theory(t) for t in relevant_theories]
 ```
 
+## 方法论包检索
+
+方法论包用于吸收外部营销增长 skill 的核心能力，但用 oh-my-growth 的结构重写。它不是一个具体玩法，也不是案例；它回答“这一类增长工作应该如何组织、诊断、实验和停止”。
+
+当前方法论包：
+
+- `seo-aeo-growth-system`：SEO/AEO 获客系统
+- `geo-llm-discovery-system`：GEO/LLM 发现系统
+- `conversion-rate-optimization-system`：CRO 转化率优化系统
+- `paid-acquisition-creative-system`：付费获客与创意测试系统
+- `gtm-positioning-system`：GTM 与定位系统
+- `lifecycle-email-retention-system`：生命周期邮件与留存系统
+- `referral-revops-growth-system`：推荐裂变与 RevOps 系统
+
+匹配维度：
+
+```text
+method_pack_score =
+  问题类型匹配
+  + weapon category 匹配
+  + 阶段匹配
+  + 旅程匹配
+  + 资源画像匹配
+  + 查询文本相似度
+```
+
 ## 检索结果整合
 
 ### Knowledge Context 结构
@@ -228,6 +255,25 @@ def match_theories(features):
       "name": "PLG",
       "core_principle": "产品即营销",
       "application": "如何应用"
+    }
+  ]
+  ,
+  "method_packs": [
+    {
+      "id": "seo-aeo-growth-system",
+      "name": "SEO/AEO 获客系统",
+      "source_skills": ["coreyhaines31/seo-audit", "sanity-io/seo-aeo-best-practices"],
+      "decision_rules": ["先修搜索意图和页面结构，再扩大内容产能"],
+      "related_weapons": ["content-growth"],
+      "related_failures": ["knowledge/failures/acquisition-anti-patterns.md"]
+    },
+    {
+      "id": "geo-llm-discovery-system",
+      "name": "GEO/LLM 发现系统",
+      "source_skills": ["coreyhaines31/ai-seo", "coreyhaines31/schema-markup"],
+      "decision_rules": ["先统一品牌事实、实体和结构化结论，再扩大内容规模"],
+      "related_weapons": ["content-growth", "brand"],
+      "related_failures": ["knowledge/failures/acquisition-anti-patterns.md"]
     }
   ]
 }

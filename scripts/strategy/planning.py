@@ -7,13 +7,17 @@ This module contains methods for resource allocation, Kelly sizing, game theory,
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Union
 
-from gametheory_analysis import GameTheoryAnalysis, GameType
-from kelly_sizing import KellySizing
+try:
+    from ..gametheory_analysis import GameTheoryAnalysis, GameType
+    from ..kelly_sizing import KellySizing
+except ImportError:  # pragma: no cover - direct script compatibility.
+    from gametheory_analysis import GameTheoryAnalysis, GameType
+    from kelly_sizing import KellySizing
 
-from strategy.constants import STAGE_LABELS
+from .constants import STAGE_LABELS
 
 if TYPE_CHECKING:
-    from strategy_brain import StrategyOption
+    from ..strategy_brain import StrategyOption
 
 
 class PlanningBuilder:

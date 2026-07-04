@@ -4,29 +4,52 @@
 This module provides backward compatibility by re-exporting from the gametheory package.
 """
 
-# Re-export everything from the gametheory package
-from gametheory import (
-    GameType,
-    TimingType,
-    InformationType,
-    EquilibriumType,
-    ConfidenceLevel,
-    CommitmentCredibility,
-    Player,
-    Strategy,
-    PayoffCell,
-    EquilibriumResult,
-    HistoricalCalibration,
-    CommitmentCheck,
-    SignalCheck,
-    GameReport,
-    find_nash_equilibrium,
-    find_dominated_strategies,
-    calibrate_with_history,
-    check_commitment_credibility,
-    check_signal_quality,
-    GameTheoryAnalysis,
-)
+try:
+    from .gametheory import (
+        GameType,
+        TimingType,
+        InformationType,
+        EquilibriumType,
+        ConfidenceLevel,
+        CommitmentCredibility,
+        Player,
+        Strategy,
+        PayoffCell,
+        EquilibriumResult,
+        HistoricalCalibration,
+        CommitmentCheck,
+        SignalCheck,
+        GameReport,
+        find_nash_equilibrium,
+        find_dominated_strategies,
+        calibrate_with_history,
+        check_commitment_credibility,
+        check_signal_quality,
+        GameTheoryAnalysis,
+    )
+except ImportError:  # pragma: no cover - direct script compatibility.
+    from gametheory import (
+        GameType,
+        TimingType,
+        InformationType,
+        EquilibriumType,
+        ConfidenceLevel,
+        CommitmentCredibility,
+        Player,
+        Strategy,
+        PayoffCell,
+        EquilibriumResult,
+        HistoricalCalibration,
+        CommitmentCheck,
+        SignalCheck,
+        GameReport,
+        find_nash_equilibrium,
+        find_dominated_strategies,
+        calibrate_with_history,
+        check_commitment_credibility,
+        check_signal_quality,
+        GameTheoryAnalysis,
+    )
 
 
 def main():

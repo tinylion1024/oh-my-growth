@@ -6,7 +6,7 @@ This module contains methods for finding Nash equilibria and dominated strategie
 from typing import List, Dict, Tuple, Optional
 from itertools import product
 
-from gametheory.types import (
+from .types import (
     Player,
     Strategy,
     PayoffCell,

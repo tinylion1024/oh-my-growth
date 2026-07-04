@@ -1,22 +1,22 @@
 """Knowledge Retriever Module.
 
 This package provides knowledge retrieval capabilities for cases,
-weapons, theories, and failure modes.
+weapons, theories, failure modes, and method packs.
 
 Main components:
 - types: SearchResult dataclass and constants
 - context: Context helper methods
-- search: Search methods for cases, weapons, theories, failures
+- search: Search methods for cases, weapons, theories, failures, method packs
 - core: KnowledgeRetriever main class
 """
 
-from retriever.types import (
+from .types import (
     BASE_DIR,
     STAGE_ALIASES,
     normalize_stage,
     SearchResult,
 )
-from retriever.context import (
+from .context import (
     normalize_text,
     tokenize,
     compute_similarity,
@@ -42,13 +42,14 @@ from retriever.context import (
     case_stage_fit,
     case_journey_fit,
 )
-from retriever.search import (
+from .search import (
     search_cases,
     search_weapons,
     search_theories,
     search_failures,
+    search_method_packs,
 )
-from retriever.core import KnowledgeRetriever
+from .core import KnowledgeRetriever
 
 __all__ = [
     # Constants
@@ -85,6 +86,7 @@ __all__ = [
     "search_weapons",
     "search_theories",
     "search_failures",
+    "search_method_packs",
     # Dataclasses
     "SearchResult",
     # Main class

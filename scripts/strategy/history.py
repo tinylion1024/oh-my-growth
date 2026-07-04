@@ -6,8 +6,8 @@ failure condition analysis, and protection control generation.
 
 from typing import Any, Dict, List, Optional, Tuple
 
-from strategy.constants import STAGE_LABELS
-from strategy.utils import normalize_text
+from .constants import STAGE_LABELS
+from .utils import normalize_text
 
 
 class StrategyHistory:

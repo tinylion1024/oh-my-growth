@@ -6,7 +6,7 @@ This module contains methods for diagnosing business context, stage, and journey
 
 from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
-from strategy.constants import (
+from .constants import (
     PROBLEM_LABELS,
     PROBLEM_TO_JOURNEY,
     PROBLEM_TO_PROCESS,
@@ -15,7 +15,7 @@ from strategy.constants import (
 )
 
 if TYPE_CHECKING:
-    from strategy_brain import StrategyOption
+    from ..strategy_brain import StrategyOption
 
 
 class DiagnosisBuilder:

@@ -6,11 +6,13 @@
 
 **5-Minute Growth Diagnosis — From Problem to Experiment Plan**
 
+Built for growth operators, SEO discovery, AEO answer engines, and GEO/LLM retrieval.
+
 **Input:** Your growth question  
 **Output:** Stage Diagnosis · Priority Ranking · Do/Don't · 2-Week Experiment
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-96%2F96%20passed-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-98%2F98%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 **[Install in 30s](#-install)** · **[Try Now](#-quick-start)** · **[中文文档](./README_CN.md)**
@@ -138,6 +140,37 @@ In Claude Code:
 /omg-referral        # Plan referral program
 ```
 
+### Command Reference
+
+Core commands:
+
+- `/omg-assess` - opportunity assessment
+- `/omg-diagnose` - full growth diagnosis
+- `/omg-design` - strategy design
+- `/omg-fast-scan` - fast feasibility check
+- `/omg-brd` - decision BRD draft
+- `/omg-match` - similar case matching
+- `/omg-learn` - learning path generation
+
+Utility commands:
+
+- `/omg-search` - search cases, plays, and theories
+- `/omg-validate` - validate report quality
+
+Scenario commands:
+
+- `/omg-cold-start` - early acquisition
+- `/omg-retention` - retention diagnosis
+- `/omg-monetization` - monetization design
+- `/omg-referral` - referral planning
+
+View references:
+
+- `weekly`
+- `experiment-card`
+- `decision-memo`
+- `qbr`
+
 ---
 
 ## 🎯 Why oh-my-growth?
@@ -146,7 +179,7 @@ In Claude Code:
 
 | Feature | oh-my-growth | ChatGPT/Claude Native | GrowthHackers |
 |---------|--------------|----------------------|---------------|
-| Structured Knowledge | ✅ 194 cases, 111 plays | ❌ No structured knowledge | ✅ Community cases |
+| Structured Knowledge | ✅ 81 cases, 111 plays, 7 method packs | ❌ No structured knowledge | ✅ Community cases |
 | Decision Engine | ✅ Bayesian + Kelly + Game Theory | ❌ No decision framework | ❌ No decision framework |
 | Instant Diagnosis | ✅ 5-minute output | ⚠️ Requires iteration | ❌ Manual research |
 | Executable Output | ✅ 2-week experiment plan | ⚠️ Generic advice | ❌ Case aggregation only |
@@ -154,9 +187,10 @@ In Claude Code:
 
 ### Knowledge Base Scale
 
-- **194 Cases** — Notion, Airbnb, TikTok, GPT-4o, Claude 3.5, Pinduoduo...
+- **81 Cases** — Notion, Airbnb, TikTok, GPT-4o, Claude 3.5, Pinduoduo...
 - **111 Growth Plays** — Referral, PLG, Content Growth, Retention...
 - **12 Theory Schools** — Growth Hacking, Network Effects, PLG...
+- **7 Growth Method Packs** — SEO/AEO, GEO/LLM, CRO, paid acquisition, GTM, lifecycle, referral...
 - **7 Learning Modules** — Cold start, Retention, Monetization...
 
 [**→ Browse Full Case Index**](./knowledge/cases/) · [**→ Browse Full Play Index**](./knowledge/weapons/)
@@ -219,9 +253,10 @@ In Claude Code:
 ### Knowledge Router
 
 Automatically routes your question to the right knowledge base:
-- Case database (194 cases)
+- Case database (81 cases)
 - Play database (111 plays)
 - Theory database (12 schools)
+- Method pack database (7 operating systems)
 
 ### Output Validation
 
@@ -238,11 +273,27 @@ Checks if your report covers:
 
 ## 📚 Documentation
 
-- **[Full Command Reference](./docs/COMMANDS.md)** — All 13 commands explained
-- **[Case Study Library](./knowledge/cases/)** — 194 growth cases
-- **[Growth Playbook](./knowledge/weapons/)** — 111 proven plays
-- **[Theory Frameworks](./knowledge/schools/)** — 12 growth theories
-- **[API Documentation](./docs/API.md)** — For developers
+- **[Full Command Reference](./docs/COMMANDS.md)** — all CLI commands, views, and output modes
+- **[GEO / LLM Discovery Use Case](./docs/use-cases/geo-llm-discovery.md)** — AI-search visibility workflow
+- **[SEO / AEO Growth Diagnosis](./docs/use-cases/seo-growth-diagnosis.md)** — organic acquisition workflow
+- **[Case Study Library](./knowledge/cases/)** — growth cases and indexed examples
+- **[Growth Playbook](./knowledge/weapons/)** — proven plays and tactics
+- **[Theory Frameworks](./knowledge/schools/)** — growth theories and schools
+- **[API Documentation](./docs/API.md)** — CLI contract, retrieval surfaces, and output views
+
+## ❓ FAQ
+
+### What is oh-my-growth?
+
+oh-my-growth is a growth strategy external brain. It combines a structured knowledge base, multi-agent decision logic, and reusable experiment planning for acquisition, retention, monetization, and referral work.
+
+### Who is it for?
+
+It is designed for growth operators, founders, PMs, and AI assistants that need grounded growth answers, not generic advice.
+
+### Why does this help SEO and GEO?
+
+The repository exposes searchable keywords, explicit command references, canonical docs, and an AI-readable `llms.txt` entry point so agents and LLMs can understand what the project does. For Google-style search, GEO/AEO work still depends on crawlable, useful, well-structured SEO content.
 
 ---
 

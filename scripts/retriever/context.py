@@ -83,7 +83,7 @@ def expand_query(query: str, context: Dict) -> List[str]:
     category_keywords = {
         "cold-start": ["冷启动", "种子用户", "早期用户", "首批用户"],
         "viral-referral": ["裂变", "邀请", "推荐", "病毒", "分享"],
-        "content-growth": ["内容", "seo", "教程", "newsletter", "案例研究"],
+        "content-growth": ["内容", "seo", "geo", "aeo", "llm", "生成式搜索", "答案引擎", "教程", "newsletter", "案例研究"],
         "community": ["社区", "用户社群", "超级用户", "共创"],
         "plg": ["产品驱动增长", "plg", "freemium", "onboarding", "模板"],
         "retention": ["留存", "活跃", "召回", "复购", "习惯"],
@@ -97,7 +97,7 @@ def expand_query(query: str, context: Dict) -> List[str]:
         "growth-hacking": ["增长黑客", "实验", "aarrr", "ice"],
         "plg": ["产品驱动增长", "plg", "自传播", "自助体验"],
         "network-effects": ["网络效应", "双边市场", "临界质量"],
-        "content-growth": ["内容增长", "内容营销", "seo", "入站"],
+        "content-growth": ["内容增长", "内容营销", "seo", "geo", "aeo", "llm", "入站", "生成式搜索"],
         "community-growth": ["社区增长", "超级用户", "共创"],
         "brand-growth": ["品牌增长", "品牌资产", "价值观"],
         "viral-growth": ["病毒增长", "裂变", "推荐", "分享"],
@@ -388,7 +388,7 @@ def metric_category_focus(context: Dict) -> Set[str]:
         focus.add("b2b-sales")
     if any(token in text for token in ["首次价值", "激活", "试用", "onboarding"]):
         focus.add("plg")
-    if any(token in text for token in ["曝光", "内容", "seo", "自然流量", "品牌搜索"]):
+    if any(token in text for token in ["曝光", "内容", "seo", "geo", "aeo", "llm", "自然流量", "品牌搜索", "生成式搜索", "答案引擎"]):
         focus.add("content-growth")
     if any(token in text for token in ["分享", "邀请", "传播", "k 因子"]):
         focus.add("viral-referral")

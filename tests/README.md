@@ -58,4 +58,4 @@ python3 scripts/run_tests.py --report tests/results/test-report.md
 - 贝叶斯决策模块：阈值、证据更新、导出、边界保护
 - 插件产品化：三平台安装烟雾、平台触发契约、反馈/决策样本池、输出质量 fixture
 
-当前全量结果：`96/96` 自动化检查通过。
+当前全量结果：`98/98` 自动化检查通过。

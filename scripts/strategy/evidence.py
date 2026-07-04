@@ -6,12 +6,15 @@ This module contains methods for building evidence chains, confidence, and decis
 
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 
-from bayesian_decision import BayesianDecision
+try:
+    from ..bayesian_decision import BayesianDecision
+except ImportError:  # pragma: no cover - direct script compatibility.
+    from bayesian_decision import BayesianDecision
 
-from strategy.constants import PROBLEM_LABELS, STAGE_LABELS
+from .constants import PROBLEM_LABELS, STAGE_FRAMEWORK, STAGE_LABELS
 
 if TYPE_CHECKING:
-    from strategy_brain import StrategyOption
+    from ..strategy_brain import StrategyOption
 
 
 class EvidenceBuilder:
@@ -62,6 +65,21 @@ class EvidenceBuilder:
                         + (f" 需警惕约束线风险：{top_option.guardrail_risk}。" if top_option.guardrail_risk else "")
                     ),
                     "evidence_tier": top_option.evidence_tier,
+                }
+            )
+        for pack in results.get("method_packs", [])[:1]:
+            metadata = pack.get("metadata", {})
+            highlights = pack.get("highlights", [])
+            chain.append(
+                {
+                    "type_label": "操作系统",
+                    "name": pack["name"],
+                    "why": (
+                        f"该方法包覆盖「{metadata.get('journey_stage', '核心旅程')}」节点，"
+                        f"阶段匹配度 {metadata.get('stage_fit', 0):.2f}，资源匹配度 {metadata.get('resource_fit', 0):.2f}。"
+                        + (f" 关键规则：{highlights[0]}" if highlights else "")
+                    ),
+                    "evidence_tier": metadata.get("evidence_tier", "C"),
                 }
             )
         for case in results["cases"][:2]:
@@ -288,7 +306,3 @@ class EvidenceBuilder:
             reasons.append(f"注意：虽然该策略被推荐，但由于触及约束线（扣分 {top_option.explicit_guardrail_penalty:.2f}），执行时必须严格遵守保护措施。")
 
         return reasons
-
-
-# Import STAGE_FRAMEWORK locally to avoid circular import
-from strategy.constants import STAGE_FRAMEWORK

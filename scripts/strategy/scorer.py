@@ -6,8 +6,8 @@ penalties for strategy options.
 
 from typing import Any, Dict, List, Optional, Tuple
 
-from strategy.constants import PROBLEM_TO_METRICS, STAGE_LABELS
-from strategy.utils import normalize_text
+from .constants import PROBLEM_TO_METRICS, STAGE_LABELS
+from .utils import normalize_text
 
 
 class StrategyScorer:
@@ -183,6 +183,26 @@ class StrategyScorer:
 
         return support_bonus, risk_penalty, support_notes[:3], risk_notes[:3]
 
+    def _method_pack_adjustment_for_option(
+        self,
+        category: str,
+        results: Dict[str, Any],
+    ) -> Tuple[float, List[str]]:
+        """Boost options that are part of the top operating-system method packs."""
+        bonus = 0.0
+        notes: List[str] = []
+        for index, pack in enumerate(results.get("method_packs", [])[:2]):
+            metadata = pack.get("metadata", {})
+            categories = set(metadata.get("categories", []))
+            related_weapons = set(metadata.get("related_weapons", []))
+            if category not in categories and category not in related_weapons:
+                continue
+            bonus += 0.38 if index == 0 else 0.18
+            highlights = pack.get("highlights", [])
+            rule = highlights[0] if highlights else metadata.get("resource_profile", "")
+            notes.append(f"增长操作系统「{pack['name']}」要求优先按「{rule}」组织实验")
+        return bonus, notes[:2]
+
     def _business_model_adjustment(
         self,
         category: str,
@@ -290,7 +310,10 @@ class StrategyScorer:
 
     def _prioritize_options(self, results: Dict[str, Any], context: Dict[str, str]) -> List[Any]:
         """Prioritize and score strategy options from results."""
-        from strategy_brain import StrategyOption
+        try:
+            from ..strategy_brain import StrategyOption
+        except ImportError:  # pragma: no cover - direct script compatibility.
+            from strategy_brain import StrategyOption
 
         options: List[StrategyOption] = []
         problem = context.get("problem_type", "")
@@ -338,6 +361,7 @@ class StrategyScorer:
             support_bonus, risk_penalty, support_notes, risk_notes = self._evidence_adjustments_for_option(
                 metadata, results, context
             )
+            method_pack_bonus, method_pack_notes = self._method_pack_adjustment_for_option(category, results)
             constraint_penalty, constraint_notes = self._constraint_adjustment_for_option(
                 category, weapon["name"], metadata, context
             )
@@ -351,6 +375,7 @@ class StrategyScorer:
                 + business_model_bonus
                 + framework_bonus
                 + support_bonus
+                + method_pack_bonus
                 - effort_cost
                 - risk_penalty
                 - constraint_penalty
@@ -374,6 +399,8 @@ class StrategyScorer:
                 why_now = f"{why_now} {'；'.join(framework_support_notes[:2])}。"
             if support_notes:
                 why_now = f"{why_now} {'；'.join(support_notes[:2])}。"
+            if method_pack_notes:
+                why_now = f"{why_now} {'；'.join(method_pack_notes)}。"
             if framework_risk_notes:
                 key_risk = f"{key_risk} {'；'.join(framework_risk_notes[:2])}。"
             if risk_notes:
@@ -412,6 +439,7 @@ class StrategyScorer:
                     history_adjustment=round(history_adjustment, 2),
                     history_condition_penalty=round(history_condition_penalty, 2),
                     explicit_guardrail_penalty=round(guardrail_penalty, 2),
+                    method_pack_bonus=round(method_pack_bonus, 2),
                 )
             )
 

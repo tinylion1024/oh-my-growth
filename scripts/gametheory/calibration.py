@@ -6,7 +6,7 @@ checking commitment credibility, and analyzing signal quality.
 
 from typing import List, Dict, Tuple, Any
 
-from gametheory.types import (
+from .types import (
     Player,
     HistoricalCalibration,
     CommitmentCheck,
@@ -321,7 +321,7 @@ def determine_confidence_level(
         factors += 1
 
     # Factor 3: Payoff matrix quality
-    from gametheory.types import PayoffCell
+    from .types import PayoffCell
     observed_count = sum(
         1 for cell in payoff_matrix.values()
         if isinstance(cell, PayoffCell) and any(t == "observed" for t in cell.payoff_type.values())

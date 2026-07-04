@@ -10,12 +10,17 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Union
 
-# 添加脚本目录到路径
+# 添加脚本目录到路径，兼容 `python scripts/cli.py` 的源码运行方式。
 sys.path.insert(0, str(Path(__file__).parent))
 
-from knowledge_retriever import KnowledgeRetriever
-from assess_clarity import assess_clarity
-from strategy_brain import StrategyBrain
+try:
+    from .knowledge_retriever import KnowledgeRetriever
+    from .assess_clarity import assess_clarity
+    from .strategy_brain import StrategyBrain
+except ImportError:  # pragma: no cover - exercised by direct script execution.
+    from knowledge_retriever import KnowledgeRetriever
+    from assess_clarity import assess_clarity
+    from strategy_brain import StrategyBrain
 
 PRIMARY_COMMANDS = ["assess", "design", "fast-scan", "brd", "diagnose", "match", "learn"]
 AUXILIARY_COMMANDS = ["search", "validate"]
@@ -265,6 +270,11 @@ def render_strategy_brain(title: str, analysis: Dict) -> None:
         print("\n【理论支撑】")
         for theory in analysis["reference_theories"]:
             print(f"  • {theory['name']}")
+
+    if analysis.get("reference_method_packs"):
+        print("\n【推荐增长操作系统】")
+        for pack in analysis["reference_method_packs"]:
+            print(f"  • {pack['name']} ({pack['metadata'].get('file', '')})")
 
     if analysis.get("failure_modes"):
         print("\n【共性失败陷阱】")

@@ -10,7 +10,7 @@ Main components:
 - core: KellySizing main class
 """
 
-from kelly.types import (
+from .types import (
     DecisionReadinessStatus,
     KellySuitability,
     BinaryKellyResult,
@@ -21,16 +21,16 @@ from kelly.types import (
     ActionPackage,
     KellyAllocationReport,
 )
-from kelly.calculation import (
+from .calculation import (
     binary_kelly,
     scenario_kelly,
     fractional_kelly,
 )
-from kelly.readiness import (
+from .readiness import (
     decision_readiness,
     assess_kelly_suitability,
 )
-from kelly.core import KellySizing
+from .core import KellySizing
 
 __all__ = [
     # Enums

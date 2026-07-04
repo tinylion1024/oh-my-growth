@@ -4,24 +4,42 @@
 This module provides backward compatibility by re-exporting from the kelly package.
 """
 
-# Re-export everything from the kelly package
-from kelly import (
-    DecisionReadinessStatus,
-    KellySuitability,
-    BinaryKellyResult,
-    Scenario,
-    ScenarioKellyResult,
-    FractionalKellyResult,
-    DecisionReadinessResult,
-    ActionPackage,
-    KellyAllocationReport,
-    binary_kelly,
-    scenario_kelly,
-    fractional_kelly,
-    decision_readiness,
-    assess_kelly_suitability,
-    KellySizing,
-)
+try:
+    from .kelly import (
+        DecisionReadinessStatus,
+        KellySuitability,
+        BinaryKellyResult,
+        Scenario,
+        ScenarioKellyResult,
+        FractionalKellyResult,
+        DecisionReadinessResult,
+        ActionPackage,
+        KellyAllocationReport,
+        binary_kelly,
+        scenario_kelly,
+        fractional_kelly,
+        decision_readiness,
+        assess_kelly_suitability,
+        KellySizing,
+    )
+except ImportError:  # pragma: no cover - direct script compatibility.
+    from kelly import (
+        DecisionReadinessStatus,
+        KellySuitability,
+        BinaryKellyResult,
+        Scenario,
+        ScenarioKellyResult,
+        FractionalKellyResult,
+        DecisionReadinessResult,
+        ActionPackage,
+        KellyAllocationReport,
+        binary_kelly,
+        scenario_kelly,
+        fractional_kelly,
+        decision_readiness,
+        assess_kelly_suitability,
+        KellySizing,
+    )
 
 
 def main():

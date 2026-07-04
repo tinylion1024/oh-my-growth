@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent.parent
 INDEX_DIR = ROOT_DIR / "knowledge" / "indexes"
 WEAPON_SOURCE_DIR = ROOT_DIR / "knowledge" / "weapons"
+METHOD_PACK_SOURCE_DIR = ROOT_DIR / "knowledge" / "method-packs"
 README_PATH = ROOT_DIR / "README.md"
 KNOWLEDGE_ROOT = ROOT_DIR / "knowledge"
 
@@ -376,6 +377,16 @@ def write_json(path: Path, payload):
         handle.write("\n")
 
 
+def parse_front_matter_value(raw_value: str):
+    value = raw_value.strip()
+    if value.startswith("[") and value.endswith("]"):
+        inner = value[1:-1].strip()
+        if not inner:
+            return []
+        return [item.strip().strip('"').strip("'") for item in inner.split(",")]
+    return value.strip('"').strip("'")
+
+
 def parse_front_matter(path: Path):
     content = path.read_text(encoding="utf-8")
     match = re.match(r"^---\n(.*?)\n---\n", content, re.DOTALL)
@@ -383,11 +394,35 @@ def parse_front_matter(path: Path):
         return {}
 
     data = {}
-    for line in match.group(1).splitlines():
+    lines = match.group(1).splitlines()
+    index = 0
+    while index < len(lines):
+        line = lines[index]
         if ":" not in line:
+            index += 1
             continue
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip()
+        key = key.strip()
+        value = value.strip()
+        if value:
+            data[key] = parse_front_matter_value(value)
+            index += 1
+            continue
+
+        items = []
+        index += 1
+        while index < len(lines):
+            item_line = lines[index]
+            stripped = item_line.strip()
+            if not stripped:
+                index += 1
+                continue
+            if not item_line.startswith(" ") and ":" in item_line:
+                break
+            if stripped.startswith("- "):
+                items.append(stripped[2:].strip().strip('"').strip("'"))
+            index += 1
+        data[key] = items
     return data
 
 
@@ -473,6 +508,11 @@ def render_weapon_index(weapons_payload):
 
 def sync_readme_indexes(cases_payload, weapons_payload):
     content = README_PATH.read_text(encoding="utf-8")
+    if not all(
+        marker in content
+        for marker in [CASE_INDEX_START, CASE_INDEX_END, WEAPON_INDEX_START, WEAPON_INDEX_END]
+    ):
+        return False
     content = replace_section(
         content,
         CASE_INDEX_START,
@@ -486,6 +526,7 @@ def sync_readme_indexes(cases_payload, weapons_payload):
         render_weapon_index(weapons_payload),
     )
     README_PATH.write_text(content, encoding="utf-8")
+    return True
 
 
 def sync_cases_index():
@@ -625,20 +666,82 @@ def sync_failures_index():
     return payload
 
 
+def sync_method_packs_index():
+    path = INDEX_DIR / "method-packs-index.json"
+    entries = []
+    list_fields = [
+        "domains",
+        "problem_types",
+        "categories",
+        "stage_fit",
+        "source_skills",
+        "canonical_questions",
+        "decision_rules",
+        "experiment_shapes",
+        "guardrails",
+        "related_weapons",
+        "related_failures",
+    ]
+    required_fields = [
+        "id",
+        "name",
+        "summary",
+        "growth_process",
+        "journey_stage",
+        "resource_profile",
+        "evidence_tier",
+    ]
+
+    for doc_path in sorted(METHOD_PACK_SOURCE_DIR.glob("*.md")):
+        if doc_path.name == "README.md":
+            continue
+        front_matter = parse_front_matter(doc_path)
+        missing = [field for field in required_fields if not front_matter.get(field)]
+        missing.extend(field for field in list_fields if not front_matter.get(field))
+        if missing:
+            raise ValueError(f"{doc_path.relative_to(ROOT_DIR)} missing method-pack fields: {', '.join(missing)}")
+
+        entry = {
+            field: front_matter[field]
+            for field in required_fields
+        }
+        for field in list_fields:
+            value = front_matter[field]
+            entry[field] = value if isinstance(value, list) else [value]
+        entry["file"] = doc_path.relative_to(KNOWLEDGE_ROOT).as_posix()
+        entries.append(entry)
+
+    payload = {
+        "metadata": {
+            "version": "1.2.0",
+            "last_updated": str(date.today()),
+            "total_method_packs": len(entries),
+            "integration_policy": "Absorbed as original oh-my-growth operating frameworks with source skill attribution; not a verbatim mirror of external skill repositories.",
+        },
+        "method_packs": entries,
+    }
+    write_json(path, payload)
+    return payload
+
+
 def main():
     cases_payload = sync_cases_index()
     weapons_payload = sync_weapons_index()
     theories_payload = sync_theories_index()
     failures_payload = sync_failures_index()
-    sync_readme_indexes(cases_payload, weapons_payload)
+    method_packs_payload = sync_method_packs_index()
+    readme_synced = sync_readme_indexes(cases_payload, weapons_payload)
 
     case_count = cases_payload["metadata"]["total_cases"]
     weapon_count = weapons_payload["metadata"]["total_weapons"]
     theory_count = theories_payload["metadata"]["total_theories"]
     failure_count = failures_payload["metadata"]["total_failures"]
+    method_pack_count = method_packs_payload["metadata"]["total_method_packs"]
     print(
-        f"Indexes updated: {case_count} cases, {weapon_count} weapons, {theory_count} theories, {failure_count} failures"
+        f"Indexes updated: {case_count} cases, {weapon_count} weapons, {theory_count} theories, {failure_count} failures, {method_pack_count} method packs"
     )
+    if not readme_synced:
+        print("README index sync skipped: auto-index markers not found")
 
 
 if __name__ == "__main__":

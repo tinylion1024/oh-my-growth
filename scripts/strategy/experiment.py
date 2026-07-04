@@ -6,10 +6,10 @@ This module contains methods for building experiment designs and action items.
 
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Union
 
-from strategy.constants import CATEGORY_ACTIONS, CATEGORY_AVOIDS
+from .constants import CATEGORY_ACTIONS, CATEGORY_AVOIDS
 
 if TYPE_CHECKING:
-    from strategy_brain import StrategyOption
+    from ..strategy_brain import StrategyOption
 
 
 class ExperimentBuilder:
@@ -62,6 +62,8 @@ class ExperimentBuilder:
 
         top_case = self.brain._top_case_reference(results)
         top_theory = self.brain._top_theory_reference(results)
+        top_method_pack = results.get("method_packs", [None])[0]
+        method_pack_meta = top_method_pack.get("metadata", {}) if top_method_pack else {}
         case_highlight = ""
         if top_case and top_case.get("highlights"):
             case_highlight = top_case["highlights"][0]
@@ -77,6 +79,8 @@ class ExperimentBuilder:
             if top_theory:
                 evidence_bits.append(f"遵循理论「{top_theory['name']}」")
             hypothesis = f"{hypothesis} {'，'.join(evidence_bits)} 的成立条件。"
+        if top_method_pack:
+            hypothesis = f"{hypothesis} 同时用「{top_method_pack['name']}」约束实验组织方式。"
 
         steps = [
             f"定义单一实验对象：围绕「{query}」只验证一个关键动作。",
@@ -85,6 +89,12 @@ class ExperimentBuilder:
         ]
         if case_highlight:
             steps.insert(1, f"把案例「{top_case['name']}」中的做法「{case_highlight}」转成当前业务可执行版本。")
+        if top_method_pack:
+            pack_highlights = top_method_pack.get("highlights", [])
+            if pack_highlights:
+                steps.insert(1, f"按「{top_method_pack['name']}」先落实：{pack_highlights[0]}")
+            for shape in method_pack_meta.get("experiment_shapes", [])[:1]:
+                steps.append(f"方法包实验样式：{shape}")
         if theory_highlight:
             steps.append(f"实验设计优先遵循「{top_theory['name']}」中的原则：{theory_highlight}。")
         for control in protection_controls[:2]:
@@ -105,6 +115,8 @@ class ExperimentBuilder:
         ]
         if top_theory:
             stop_signals.append(f"如果连「{top_theory['name']}」要求的基础机制都无法成立，应停止继续放大。")
+        for guardrail in method_pack_meta.get("guardrails", [])[:2]:
+            stop_signals.append(f"方法包停止线：{guardrail}")
         for control in protection_controls[:2]:
             stop_signals.append(f"复发保护：{control['stop']}。")
 

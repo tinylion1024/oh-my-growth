@@ -4,11 +4,10 @@ This module contains the core Kelly calculation functions for binary
 and multi-scenario resource allocation.
 """
 
+from math import log
 from typing import List, Dict
-from scipy.optimize import minimize_scalar
-import numpy as np
 
-from kelly.types import (
+from .types import (
     BinaryKellyResult,
     Scenario,
     ScenarioKellyResult,
@@ -121,24 +120,51 @@ def scenario_kelly(scenarios: List[Dict]) -> ScenarioKellyResult:
             # Avoid log of negative or zero
             if growth_factor <= 0:
                 return float('inf')  # Penalize bankruptcy
-            result -= scenario.probability * np.log(growth_factor)
+            result -= scenario.probability * log(growth_factor)
         return result
 
-    # Optimize using scipy
-    result = minimize_scalar(
-        expected_log_growth,
-        bounds=(0.0, 2.0),
-        method='bounded'
-    )
-
-    optimal_fraction = result.x
-
-    # Check if optimization converged and result is valid
-    if not result.success or optimal_fraction < 0:
+    # Optimize with a bounded golden-section search to avoid external dependencies.
+    lower, upper = 0.0, 2.0
+    phi = (1 + 5 ** 0.5) / 2
+    inv_phi = 1 / phi
+    inv_phi_sq = inv_phi * inv_phi
+    a, b = lower, upper
+    h = b - a
+    if h <= 1e-9:
         optimal_fraction = 0.0
+        expected_log = 0.0
+    else:
+        n = 32
+        c = a + inv_phi_sq * h
+        d = a + inv_phi * h
+        fc = expected_log_growth(c)
+        fd = expected_log_growth(d)
+        for _ in range(n):
+            if fc < fd:
+                b = d
+                d = c
+                fd = fc
+                h = b - a
+                c = a + inv_phi_sq * h
+                fc = expected_log_growth(c)
+            else:
+                a = c
+                c = d
+                fc = fd
+                h = b - a
+                d = a + inv_phi * h
+                fd = expected_log_growth(d)
 
-    # Calculate expected log growth at optimal
-    expected_log = -result.fun if result.success else 0.0
+        if fc < fd:
+            optimal_fraction = c
+            expected_log = -fc
+        else:
+            optimal_fraction = d
+            expected_log = -fd
+
+        if optimal_fraction < 0 or not (optimal_fraction == optimal_fraction):
+            optimal_fraction = 0.0
+            expected_log = 0.0
 
     return ScenarioKellyResult(
         optimal_fraction=optimal_fraction,
@@ -146,7 +172,7 @@ def scenario_kelly(scenarios: List[Dict]) -> ScenarioKellyResult:
         quarter_kelly=optimal_fraction * 0.25,
         expected_log_growth=expected_log,
         scenarios=scenario_objs,
-        optimization_method="numerical"
+        optimization_method="golden-section"
     )
 
 

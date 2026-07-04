@@ -7,13 +7,13 @@ sub-modules for different aspects of strategy analysis.
 
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Union
 
-from strategy.diagnosis import DiagnosisBuilder
-from strategy.evidence import EvidenceBuilder
-from strategy.experiment import ExperimentBuilder
-from strategy.planning import PlanningBuilder
+from .diagnosis import DiagnosisBuilder
+from .evidence import EvidenceBuilder
+from .experiment import ExperimentBuilder
+from .planning import PlanningBuilder
 
 if TYPE_CHECKING:
-    from strategy_brain import StrategyOption
+    from ..strategy_brain import StrategyOption
 
 
 class StrategyBuilder:

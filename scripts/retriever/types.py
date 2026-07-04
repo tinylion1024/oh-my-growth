@@ -29,7 +29,7 @@ class SearchResult:
     """检索结果"""
     id: str
     name: str
-    type: str  # case, weapon, theory
+    type: str  # case, weapon, theory, failure, method_pack
     score: float
     highlights: List[str]
     metadata: Dict

@@ -1,0 +1,479 @@
+{
+  "metadata": {
+    "version": "1.2.0",
+    "last_updated": "2026-07-04",
+    "total_method_packs": 7,
+    "integration_policy": "Absorbed as original oh-my-growth operating frameworks with source skill attribution; not a verbatim mirror of external skill repositories."
+  },
+  "method_packs": [
+    {
+      "id": "conversion-rate-optimization-system",
+      "name": "CRO 转化率优化系统",
+      "summary": "把落地页、表单、注册、onboarding、paywall 和 popup 优化统一为旅程断点实验。",
+      "growth_process": "用户深耕",
+      "journey_stage": "注册/激活",
+      "resource_profile": "产品、设计、工程、数据协同；适合已有稳定流量的团队",
+      "evidence_tier": "C",
+      "domains": [
+        "cro",
+        "landing-page",
+        "signup",
+        "onboarding",
+        "paywall"
+      ],
+      "problem_types": [
+        "activation",
+        "monetization",
+        "acquisition"
+      ],
+      "categories": [
+        "plg",
+        "retention",
+        "monetization"
+      ],
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "source_skills": [
+        "coreyhaines31/page-cro",
+        "coreyhaines31/form-cro",
+        "coreyhaines31/signup-flow-cro",
+        "coreyhaines31/onboarding-cro",
+        "coreyhaines31/paywall-upgrade-cro",
+        "coreyhaines31/popup-cro",
+        "coreyhaines31/marketing-psychology"
+      ],
+      "canonical_questions": [
+        "用户在哪一步停止，停止前看见了什么承诺和摩擦？",
+        "转化问题来自动机不足、信任不足、理解不足还是操作摩擦？",
+        "哪个微转化最能预测最终付费或留存？"
+      ],
+      "decision_rules": [
+        "先定位旅程断点，再改页面元素。",
+        "每次实验只改一个主假设：动机、信任、理解或摩擦。",
+        "CRO 成功必须同时检查用户质量、留存和退款。"
+      ],
+      "experiment_shapes": [
+        "重写首屏承诺和 CTA，观察注册率与激活率。",
+        "减少表单字段或分步展示，观察提交率与线索质量。",
+        "调整 paywall 价值证明，观察升级率、退款率和留存。"
+      ],
+      "guardrails": [
+        "不要用诱导式文案换取低质量注册。",
+        "不要只优化点击率而忽略激活和留存。",
+        "不要同时改流量来源和转化路径。"
+      ],
+      "related_weapons": [
+        "plg",
+        "retention",
+        "monetization"
+      ],
+      "related_failures": [
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "file": "method-packs/conversion-rate-optimization-system.md"
+    },
+    {
+      "id": "geo-llm-discovery-system",
+      "name": "GEO/LLM 发现系统",
+      "summary": "把生成式搜索、答案引擎可见性、品牌实体一致性和可引用事实组织成一个可验证的发现系统。",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "resource_profile": "内容、品牌、工程、数据协同；适合已有基础内容资产和可验证事实的团队",
+      "evidence_tier": "C",
+      "domains": [
+        "geo",
+        "llm-search",
+        "answer-engine",
+        "generative-search"
+      ],
+      "problem_types": [
+        "acquisition",
+        "brand"
+      ],
+      "categories": [
+        "content-growth",
+        "brand"
+      ],
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "source_skills": [
+        "coreyhaines31/ai-seo",
+        "coreyhaines31/programmatic-seo",
+        "coreyhaines31/schema-markup",
+        "coreyhaines31/seo-audit",
+        "sanity-io/seo-aeo-best-practices",
+        "addyosmani/seo",
+        "AgriciDaniel/claude-seo"
+      ],
+      "canonical_questions": [
+        "目标用户在生成式搜索里会问什么，答案引擎会引用哪些实体和事实？",
+        "哪些品牌事实、产品事实和比较结论能够被机器稳定提取？",
+        "当前内容是否对人类可读，也对模型可引用？"
+      ],
+      "decision_rules": [
+        "先统一品牌实体、事实口径和页面结构，再扩内容规模。",
+        "生成式搜索优化优先做可引用结论、实体定义和对比表，而不是先扩词。",
+        "只有能被验证的内容资产才值得被 LLM 与答案引擎引用。"
+      ],
+      "experiment_shapes": [
+        "为 5 个核心页面补实体、FAQ、对比和结论块，观察生成式搜索引用与自然访问变化。",
+        "对 10 个高意图问题页加入结构化数据和可引用摘要，观察 AI 搜索可见性。",
+        "统一品牌术语与产品命名，比较引用一致性和落地页转化质量。"
+      ],
+      "guardrails": [
+        "不要伪造引用、来源或数据。",
+        "不要用生成式搜索当作低质量内容分发渠道。",
+        "不要在品牌事实不一致时扩内容规模。"
+      ],
+      "related_weapons": [
+        "content-growth",
+        "brand"
+      ],
+      "related_failures": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "file": "method-packs/geo-llm-discovery-system.md"
+    },
+    {
+      "id": "gtm-positioning-system",
+      "name": "GTM 与定位系统",
+      "summary": "把 ICP、beachhead、定位、价值主张、竞品 battlecard 和 launch 计划合成上市路径。",
+      "growth_process": "增长经营",
+      "journey_stage": "认知/到达",
+      "resource_profile": "创始人、产品市场、销售和客户成功协同",
+      "evidence_tier": "C",
+      "domains": [
+        "gtm",
+        "positioning",
+        "icp",
+        "launch",
+        "sales-enablement"
+      ],
+      "problem_types": [
+        "acquisition",
+        "activation",
+        "monetization"
+      ],
+      "categories": [
+        "b2b-sales",
+        "plg",
+        "brand"
+      ],
+      "stage_fit": [
+        "0-1",
+        "1-10"
+      ],
+      "source_skills": [
+        "coreyhaines31/launch-strategy",
+        "coreyhaines31/product-marketing-context",
+        "coreyhaines31/sales-enablement",
+        "phuryn/beachhead-segment",
+        "phuryn/competitive-battlecard",
+        "phuryn/gtm-motions",
+        "phuryn/gtm-strategy",
+        "phuryn/ideal-customer-profile",
+        "phuryn/positioning-ideas",
+        "phuryn/value-prop-statements",
+        "infrasity-labs/dev-gtm-claude-skills"
+      ],
+      "canonical_questions": [
+        "哪个细分市场最痛、最容易触达、最能形成可复用案例？",
+        "客户为什么现在必须换，而不是继续忍受现状或用替代品？",
+        "GTM motion 应该由产品自助、销售驱动、渠道伙伴还是内容引导？"
+      ],
+      "decision_rules": [
+        "先选 beachhead，再写泛化定位。",
+        "价值主张必须连接痛点、结果、差异和可信证据。",
+        "Launch 不是发布公告，而是围绕一个可验证市场假设组织渠道和销售动作。"
+      ],
+      "experiment_shapes": [
+        "选 2 个 ICP 细分做信息访谈和冷启动外联，比较回复率与问题强度。",
+        "用 3 个定位角度测试落地页、外联和销售通话质量。",
+        "为一个 feature launch 设计 2 周多渠道发布，观察高意向线索。"
+      ],
+      "guardrails": [
+        "不要同时追多个 ICP，导致信息和渠道都不可验证。",
+        "不要把功能列表当定位。",
+        "不要在没有销售反馈时写 battlecard。"
+      ],
+      "related_weapons": [
+        "b2b-sales",
+        "plg",
+        "brand"
+      ],
+      "related_failures": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "file": "method-packs/gtm-positioning-system.md"
+    },
+    {
+      "id": "lifecycle-email-retention-system",
+      "name": "生命周期邮件与留存系统",
+      "summary": "把冷邮件、drip、onboarding、召回、失败付款和邮件送达整合成生命周期触达系统。",
+      "growth_process": "用户深耕",
+      "journey_stage": "留存",
+      "resource_profile": "低预算可启动；需要 CRM、内容和运营节奏",
+      "evidence_tier": "C",
+      "domains": [
+        "email",
+        "lifecycle",
+        "cold-outreach",
+        "retention",
+        "deliverability"
+      ],
+      "problem_types": [
+        "acquisition",
+        "activation",
+        "retention",
+        "monetization"
+      ],
+      "categories": [
+        "b2b-sales",
+        "retention",
+        "monetization"
+      ],
+      "stage_fit": [
+        "0-1",
+        "1-10",
+        "10-100"
+      ],
+      "source_skills": [
+        "coreyhaines31/cold-email",
+        "coreyhaines31/email-sequence",
+        "coreyhaines31/churn-prevention",
+        "resend/resend",
+        "resend/react-email",
+        "resend/email-best-practices",
+        "trycourier/courier-skills",
+        "CosmoBlk/email-marketing-bible"
+      ],
+      "canonical_questions": [
+        "这封邮件服务于获客、激活、留存、升级还是挽回？",
+        "触发条件是用户行为、生命周期阶段，还是销售动作？",
+        "邮件成功后用户下一步关键动作是什么？"
+      ],
+      "decision_rules": [
+        "先定义触发事件和下一步动作，再写邮件。",
+        "冷邮件看高意向回复和会议质量，不只看打开率。",
+        "生命周期邮件必须和产品内行为联动。"
+      ],
+      "experiment_shapes": [
+        "测试两个 cold email 角度，比较正向回复和合格会议。",
+        "为未激活用户设置 3 封 onboarding drip，观察首次价值达成率。",
+        "为取消和失败付款用户设计挽回流程，观察恢复率和投诉率。"
+      ],
+      "guardrails": [
+        "不要用高频触达替代产品价值。",
+        "不要只优化打开率而忽略下一步行为。",
+        "不要牺牲送达率和品牌信任。"
+      ],
+      "related_weapons": [
+        "b2b-sales",
+        "retention",
+        "monetization"
+      ],
+      "related_failures": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/retention-failure-modes.md"
+      ],
+      "file": "method-packs/lifecycle-email-retention-system.md"
+    },
+    {
+      "id": "paid-acquisition-creative-system",
+      "name": "付费获客与创意测试系统",
+      "summary": "把广告创意、受众、offer、转化路径和投放诊断合成可迭代的效果营销系统。",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "resource_profile": "预算密集、创意产能、投放和数据协同",
+      "evidence_tier": "C",
+      "domains": [
+        "paid-ads",
+        "creative-testing",
+        "offer",
+        "funnel"
+      ],
+      "problem_types": [
+        "acquisition"
+      ],
+      "categories": [
+        "paid-ads"
+      ],
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "source_skills": [
+        "coreyhaines31/ad-creative",
+        "coreyhaines31/paid-ads",
+        "realkimbarrett/avatar-extraction",
+        "realkimbarrett/offer-extraction",
+        "realkimbarrett/ad-angle-multiplier",
+        "realkimbarrett/scroll-stopping-creative",
+        "realkimbarrett/conversion-path-builder",
+        "realkimbarrett/performance-diagnosis",
+        "nowork-studio/NotFair"
+      ],
+      "canonical_questions": [
+        "当前瓶颈是受众不准、创意不吸引、offer 不成立，还是落地页漏斗承接差？",
+        "每个创意角度对应哪个买家痛点、触发场景和反对意见？",
+        "CPA 高是点击前问题、点击后问题，还是用户质量问题？"
+      ],
+      "decision_rules": [
+        "投放放大前必须先证明转化路径和回收期。",
+        "创意测试按角度分组，不按零散素材堆量。",
+        "诊断先分层：展示、点击、落地页、注册、激活、付费。"
+      ],
+      "experiment_shapes": [
+        "用 3 个买家痛点生成 9 个创意角度，固定落地页测试 CTR 与 CVR。",
+        "同一创意分别测试两个 offer，观察 CPA、激活率和退款率。",
+        "对高点击低转化广告做漏斗审计，定位断点后再加预算。"
+      ],
+      "guardrails": [
+        "不要用预算掩盖未验证的产品和页面问题。",
+        "不要只看平台 CPA，必须看激活、付费和回收周期。",
+        "不要让创意承诺超过产品实际交付。"
+      ],
+      "related_weapons": [
+        "paid-ads"
+      ],
+      "related_failures": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "file": "method-packs/paid-acquisition-creative-system.md"
+    },
+    {
+      "id": "referral-revops-growth-system",
+      "name": "推荐裂变与 RevOps 系统",
+      "summary": "把推荐、affiliate、口碑、线索生命周期和营销销售交接整合成可控的增长运营系统。",
+      "growth_process": "用户获取",
+      "journey_stage": "分享",
+      "resource_profile": "跨团队协同；需要销售、市场、数据和客户成功共同维护",
+      "evidence_tier": "C",
+      "domains": [
+        "referral",
+        "affiliate",
+        "revops",
+        "sales-handoff"
+      ],
+      "problem_types": [
+        "referral",
+        "acquisition",
+        "monetization"
+      ],
+      "categories": [
+        "viral-referral",
+        "b2b-sales",
+        "monetization"
+      ],
+      "stage_fit": [
+        "1-10",
+        "10-100"
+      ],
+      "source_skills": [
+        "coreyhaines31/referral-program",
+        "coreyhaines31/revops",
+        "coreyhaines31/sales-enablement",
+        "phuryn/growth-loops",
+        "phuryn/north-star-metric",
+        "realkimbarrett/objection-crusher"
+      ],
+      "canonical_questions": [
+        "用户为什么愿意推荐：身份、利益、便利、关系还是成果证明？",
+        "推荐进入后，谁负责跟进，什么时候算合格线索？",
+        "增长飞轮的输入、循环动作、复利资产和约束线分别是什么？"
+      ],
+      "decision_rules": [
+        "先验证非补贴型分享动机，再设计奖励。",
+        "推荐计划必须接入线索状态和销售跟进定义。",
+        "RevOps 的目标是减少漏损，不是增加报表。"
+      ],
+      "experiment_shapes": [
+        "对高 NPS 用户测试低摩擦推荐入口，观察邀请、激活和留存。",
+        "建立 MQL/SQL 交接定义，观察线索响应时间和成交率。",
+        "为一个增长飞轮设置输入指标、循环指标和约束线，跑 4 周复盘。"
+      ],
+      "guardrails": [
+        "不要让补贴吸引低质量用户和套利行为。",
+        "不要把所有新增都塞给销售而不分层。",
+        "不要只看线索量，必须看转化、回收和留存。"
+      ],
+      "related_weapons": [
+        "viral-referral",
+        "b2b-sales",
+        "monetization"
+      ],
+      "related_failures": [
+        "knowledge/failures/acquisition-anti-patterns.md",
+        "knowledge/failures/referral-failure-modes.md"
+      ],
+      "file": "method-packs/referral-revops-growth-system.md"
+    },
+    {
+      "id": "seo-aeo-growth-system",
+      "name": "SEO/AEO 获客系统",
+      "summary": "把搜索、内容结构、Schema、AEO 与内容实验合成一个可验证的自然获客系统。",
+      "growth_process": "用户获取",
+      "journey_stage": "认知/到达",
+      "resource_profile": "内容、工程、数据协同；适合低预算但需要持续产能",
+      "evidence_tier": "C",
+      "domains": [
+        "seo",
+        "aeo",
+        "content",
+        "programmatic-seo"
+      ],
+      "problem_types": [
+        "acquisition"
+      ],
+      "categories": [
+        "content-growth"
+      ],
+      "stage_fit": [
+        "0-1",
+        "1-10",
+        "10-100"
+      ],
+      "source_skills": [
+        "coreyhaines31/ai-seo",
+        "coreyhaines31/programmatic-seo",
+        "coreyhaines31/schema-markup",
+        "coreyhaines31/seo-audit",
+        "sanity-io/seo-aeo-best-practices",
+        "addyosmani/seo",
+        "AgriciDaniel/claude-seo"
+      ],
+      "canonical_questions": [
+        "目标用户会用哪些问题、替代品、场景和结果词来搜索？",
+        "现有页面是否能同时回答人类搜索和 AI 摘要引用？",
+        "哪些页面模板可以规模化生成但仍保持可验证价值？"
+      ],
+      "decision_rules": [
+        "先修搜索意图和页面结构，再扩大内容产能。",
+        "程序化 SEO 只有在模板能承载独立价值时才放大。",
+        "AEO 输出必须有实体、步骤、比较和可引用结论。"
+      ],
+      "experiment_shapes": [
+        "选 10 个高意图长尾词，重写页面结构，观察 4 周索引、点击和转化。",
+        "为 3 类页面加入结构化数据，比较搜索展示和转化质量。",
+        "生成一个小规模模板集，先验证收录和高意向线索再扩库。"
+      ],
+      "guardrails": [
+        "不要用低质量批量内容替代真实问题回答。",
+        "不要只看流量，必须看高意向行为和线索质量。",
+        "不要在技术 SEO 未达标时盲目扩内容。"
+      ],
+      "related_weapons": [
+        "content-growth"
+      ],
+      "related_failures": [
+        "knowledge/failures/acquisition-anti-patterns.md"
+      ],
+      "file": "method-packs/seo-aeo-growth-system.md"
+    }
+  ]
+}

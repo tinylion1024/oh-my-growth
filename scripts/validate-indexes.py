@@ -54,6 +54,23 @@ def validate_index(file_path, required_fields, items_key, required_item_fields):
             return False, f"marketplace_side must be a string: {item}"
         if "problem_types" in item and not isinstance(item["problem_types"], list):
             return False, f"problem_types must be a list: {item}"
+        for list_field in [
+            "domains",
+            "categories",
+            "source_skills",
+            "canonical_questions",
+            "decision_rules",
+            "experiment_shapes",
+            "guardrails",
+            "related_weapons",
+            "related_failures",
+        ]:
+            if list_field in item and not isinstance(item[list_field], list):
+                return False, f"{list_field} must be a list: {item}"
+        if "related_failures" in item:
+            for failure_ref in item["related_failures"]:
+                if not (ROOT_DIR / failure_ref).exists():
+                    return False, f"Referenced related failure doc does not exist: {failure_ref}"
 
     return True, "Valid"
 
@@ -124,6 +141,42 @@ def main():
             errors.append(f"{failures_index}: {msg}")
     else:
         errors.append(f"Missing: {failures_index}")
+
+    # Validate method packs index
+    method_packs_index = indexes_dir / 'method-packs-index.json'
+    if method_packs_index.exists():
+        valid, msg = validate_index(
+            method_packs_index,
+            ['metadata', 'method_packs'],
+            'method_packs',
+            [
+                'id',
+                'name',
+                'file',
+                'summary',
+                'domains',
+                'problem_types',
+                'categories',
+                'growth_process',
+                'journey_stage',
+                'stage_fit',
+                'resource_profile',
+                'evidence_tier',
+                'source_skills',
+                'canonical_questions',
+                'decision_rules',
+                'experiment_shapes',
+                'guardrails',
+                'related_weapons',
+                'related_failures',
+            ]
+        )
+        if valid:
+            print(f"✅ {method_packs_index}")
+        else:
+            errors.append(f"{method_packs_index}: {msg}")
+    else:
+        errors.append(f"Missing: {method_packs_index}")
 
     if errors:
         print("\n❌ Validation errors:")

@@ -5,24 +5,40 @@ import json
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from bayesian_decision import BayesianDecision
-from gametheory_analysis import GameTheoryAnalysis, GameType
-from kelly_sizing import KellySizing
-from knowledge_retriever import KnowledgeRetriever
-
-# Import constants from strategy module
-from strategy.constants import (
-    PROBLEM_LABELS,
-    STAGE_FRAMEWORK,
-    PROBLEM_TO_PROCESS,
-    PROBLEM_TO_JOURNEY,
-    CATEGORY_ACTIONS,
-    CATEGORY_AVOIDS,
-)
-from strategy.builder import StrategyBuilder
-from strategy.formatter import StrategyFormatter
-from strategy.history import StrategyHistory
-from strategy.scorer import StrategyScorer
+try:
+    from .bayesian_decision import BayesianDecision
+    from .gametheory_analysis import GameTheoryAnalysis, GameType
+    from .kelly_sizing import KellySizing
+    from .knowledge_retriever import KnowledgeRetriever
+    from .strategy.constants import (
+        PROBLEM_LABELS,
+        STAGE_FRAMEWORK,
+        PROBLEM_TO_PROCESS,
+        PROBLEM_TO_JOURNEY,
+        CATEGORY_ACTIONS,
+        CATEGORY_AVOIDS,
+    )
+    from .strategy.builder import StrategyBuilder
+    from .strategy.formatter import StrategyFormatter
+    from .strategy.history import StrategyHistory
+    from .strategy.scorer import StrategyScorer
+except ImportError:  # pragma: no cover - direct script compatibility.
+    from bayesian_decision import BayesianDecision
+    from gametheory_analysis import GameTheoryAnalysis, GameType
+    from kelly_sizing import KellySizing
+    from knowledge_retriever import KnowledgeRetriever
+    from strategy.constants import (
+        PROBLEM_LABELS,
+        STAGE_FRAMEWORK,
+        PROBLEM_TO_PROCESS,
+        PROBLEM_TO_JOURNEY,
+        CATEGORY_ACTIONS,
+        CATEGORY_AVOIDS,
+    )
+    from strategy.builder import StrategyBuilder
+    from strategy.formatter import StrategyFormatter
+    from strategy.history import StrategyHistory
+    from strategy.scorer import StrategyScorer
 
 # Keep local references for backward compatibility (deprecated, will be removed)
 # All constants are now imported from strategy.constants
@@ -58,6 +74,7 @@ class StrategyOption:
     history_adjustment: float = 0.0
     history_condition_penalty: float = 0.0
     explicit_guardrail_penalty: float = 0.0
+    method_pack_bonus: float = 0.0
 
 
 class StrategyBrain:
@@ -84,7 +101,14 @@ class StrategyBrain:
 
     def analyze(self, query: str, context: Dict[str, str], mode: str = "assess") -> Dict:
         working_context = self.builder._build_retrieval_context(context)
-        results = self.retriever.retrieve(query, working_context, case_limit=5, weapon_limit=6, theory_limit=3)
+        results = self.retriever.retrieve(
+            query,
+            working_context,
+            case_limit=5,
+            weapon_limit=6,
+            theory_limit=3,
+            method_pack_limit=3,
+        )
         options = self._prioritize_options(results, working_context)
         top_option = options[0] if options else None
         decision_text, confidence_label, posterior = self.builder._build_confidence(query, working_context, results, top_option)
@@ -134,6 +158,7 @@ class StrategyBrain:
             "reference_cases": results["cases"][:3],
             "reference_theories": results["theories"][:2],
             "reference_failures": results.get("failures", [])[:2],
+            "reference_method_packs": results.get("method_packs", [])[:3],
             "decision_text": decision_text,
             "confidence_label": confidence_label,
             "confidence_score": posterior,
@@ -195,7 +220,14 @@ class StrategyBrain:
     def build_learning_path(self, query: str, context: Dict[str, str]) -> Dict[str, List[Dict[str, str]]]:
         """Build a lightweight learning path around the retrieval results."""
         working_context = self.builder._build_retrieval_context(context)
-        results = self.retriever.retrieve(query, working_context, case_limit=3, weapon_limit=4, theory_limit=3)
+        results = self.retriever.retrieve(
+            query,
+            working_context,
+            case_limit=3,
+            weapon_limit=4,
+            theory_limit=3,
+            method_pack_limit=3,
+        )
         analysis = self.analyze(query, working_context, mode="learn")
         guide_map = {
             "acquisition": [
@@ -258,6 +290,14 @@ class StrategyBrain:
                     "reason": theory_reason(item),
                 }
                 for item in results["theories"]
+            ],
+            "method_packs": [
+                {
+                    "name": item["name"],
+                    "file": item["metadata"].get("file", ""),
+                    "reason": "；".join(item.get("highlights", [])),
+                }
+                for item in results.get("method_packs", [])
             ],
             "cases": [
                 {

@@ -101,6 +101,44 @@
 - `warning_signals`：高频预警信号
 - `suggestions`：优先动作建议
 
+## Method Packs Index
+
+每个 method pack 至少包含：
+
+- `id`
+- `name`
+- `file`
+- `summary`
+- `domains`
+- `problem_types`
+- `categories`
+- `growth_process`
+- `journey_stage`
+- `stage_fit`
+- `resource_profile`
+- `evidence_tier`
+- `source_skills`
+- `canonical_questions`
+- `decision_rules`
+- `experiment_shapes`
+- `guardrails`
+- `related_weapons`
+- `related_failures`
+
+字段说明：
+
+- `domains`：该方法包覆盖的外部增长主题，例如 `seo` / `cro` / `paid-ads`
+- `categories`：映射到 weapons 的类别 id，例如 `content-growth` / `paid-ads`
+- `source_skills`：吸收和重写时参考的外部 skill 来源，只做溯源，不代表镜像内容
+- `canonical_questions`：进入这类增长工作前必须回答的诊断问题
+- `decision_rules`：组织这类增长工作的优先级和取舍规则
+- `experiment_shapes`：适合作为最小验证的实验形态
+- `guardrails`：停止、降权或复盘的约束线
+- `related_weapons`：可被该方法包组织的 weapon category id
+- `related_failures`：该方法包需要同时检查的失败模式文档路径
+
+方法包是增长操作系统层：它回答“这类增长工作如何组织、诊断、实验和停止”。具体动作仍由 weapons 给出，证据仍由 cases/theories/failures 约束。
+
 ## Validation
 
 当前以下脚本会约束 schema：

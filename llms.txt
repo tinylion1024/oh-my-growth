@@ -1,0 +1,46 @@
+# oh-my-growth
+
+Growth strategy external brain for SEO, AEO, GEO, and LLM retrieval.
+
+## Canonical Docs
+
+- README: ./README.md
+- Chinese README: ./README_CN.md
+- Skill contract: ./SKILL.md
+- Command reference: ./docs/COMMANDS.md
+- API documentation: ./docs/API.md
+- GEO / LLM discovery use case: ./docs/use-cases/geo-llm-discovery.md
+- SEO / AEO growth use case: ./docs/use-cases/seo-growth-diagnosis.md
+- SaaS cold-start example: ./docs/examples/saas-cold-start.md
+- Retention drop example: ./docs/examples/retention-drop.md
+- Knowledge router: ./references/knowledge-router.md
+- Output schema: ./references/output-schema.md
+
+## What It Does
+
+- Diagnoses growth problems into stage, journey, and constraint signals.
+- Matches cases, weapons, theories, failures, and method packs.
+- Outputs priority ranking, do/don't guidance, and experiment plans.
+- Supports acquisition, retention, monetization, referral, and growth operating workflows.
+- Uses `llms.txt` as an AI/agent discovery aid; search ranking still depends on crawlable, useful, well-structured content.
+
+## Search Terms
+
+growth strategy, growth diagnosis, SEO, AEO, GEO, LLM retrieval, answer engine optimization, growth playbook, growth cases, experiment design, decision memo
+
+## Key Entry Points
+
+- `/omg-diagnose` - full diagnosis
+- `/omg-assess` - feasibility assessment
+- `/omg-design` - strategy design
+- `/omg-match` - case matching
+- `/omg-search` - knowledge search
+- `/omg-validate` - report validation
+
+## Knowledge Base
+
+- `knowledge/cases/` - growth cases
+- `knowledge/weapons/` - growth plays
+- `knowledge/schools/` - theories
+- `knowledge/failures/` - failure modes
+- `knowledge/method-packs/` - operating frameworks for SEO, CRO, paid acquisition, GTM, lifecycle email, and referral systems

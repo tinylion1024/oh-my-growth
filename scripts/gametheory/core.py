@@ -7,7 +7,7 @@ game theory analysis operations.
 import json
 from typing import List, Optional, Dict, Tuple, Any
 
-from gametheory.types import (
+from .types import (
     GameType,
     TimingType,
     InformationType,
@@ -20,11 +20,11 @@ from gametheory.types import (
     SignalCheck,
     GameReport,
 )
-from gametheory.equilibrium import (
+from .equilibrium import (
     find_nash_equilibrium,
     find_dominated_strategies,
 )
-from gametheory.calibration import (
+from .calibration import (
     calibrate_with_history,
     get_predicted_behavior,
     check_commitment_credibility,

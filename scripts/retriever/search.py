@@ -1,15 +1,16 @@
 """Search methods for knowledge retrieval.
 
-This module contains methods for searching cases, weapons, theories, and failures.
+This module contains methods for searching cases, weapons, theories, failures,
+and method packs.
 """
 
 from typing import Dict, List, Optional
 
-from retriever.types import (
+from .types import (
     normalize_stage,
     SearchResult,
 )
-from retriever.context import (
+from .context import (
     normalize_text,
     tokenize,
     compute_similarity,
@@ -422,6 +423,93 @@ def search_failures(
                     "summary": failure.get("summary", ""),
                     "suggestions": failure.get("suggestions", [])[:2],
                     "journey_fit": round(journey_fit, 2),
+                }
+            ))
+
+    results.sort(key=lambda x: x.score, reverse=True)
+    return results[:limit]
+
+
+def search_method_packs(
+    method_packs: List[Dict],
+    query: str,
+    context: Optional[Dict] = None,
+    limit: int = 3
+) -> List[SearchResult]:
+    """Search absorbed marketing-growth method packs."""
+    if context is None:
+        context = {}
+
+    query_tokens = build_query_tokens(query, context)
+    problem = context.get("problem_type", "").lower()
+    stage = normalize_stage(context.get("stage", ""))
+    journey_stage = context.get("journey_stage", "") or problem_to_journey(problem)
+    growth_process = context.get("growth_process", "") or problem_to_process(problem)
+    preferred_categories = context_preferred_categories(context, problem)
+    metric_focus = metric_category_focus(context)
+
+    results = []
+    for pack in method_packs:
+        categories = set(pack.get("categories", []))
+        doc_text = " ".join([
+            pack.get("id", ""),
+            pack.get("name", ""),
+            pack.get("summary", ""),
+            " ".join(pack.get("domains", [])),
+            " ".join(pack.get("problem_types", [])),
+            " ".join(pack.get("categories", [])),
+            " ".join(pack.get("canonical_questions", [])),
+            " ".join(pack.get("decision_rules", [])),
+            " ".join(pack.get("experiment_shapes", [])),
+            " ".join(pack.get("guardrails", [])),
+        ])
+        doc_tokens = tokenize(doc_text)
+
+        score = compute_similarity(query_tokens, doc_tokens)
+        if problem in pack.get("problem_types", []):
+            score += 0.3
+        if categories & preferred_categories:
+            score += 0.22
+        if categories & metric_focus:
+            score += 0.12
+        if pack.get("growth_process") == growth_process:
+            score += 0.08
+
+        indexed_stage_fit = pack.get("stage_fit", [])
+        stage_fit = 1.0 if stage and stage in indexed_stage_fit else 0.35
+        score += stage_fit * 0.12
+
+        indexed_journey = pack.get("journey_stage", "")
+        journey_fit = 1.0 if indexed_journey == journey_stage else 0.35
+        score += journey_fit * 0.1
+
+        resource_fit_score = resource_profile_fit(pack.get("resource_profile", ""), context)
+        score += resource_fit_score * 0.08
+
+        if score > 0:
+            results.append(SearchResult(
+                id=pack.get("id", ""),
+                name=pack.get("name", ""),
+                type="method_pack",
+                score=round(min(1.5, score), 4),
+                highlights=pack.get("decision_rules", [])[:2] or [pack.get("summary", "")],
+                metadata={
+                    "file": pack.get("file", ""),
+                    "domains": pack.get("domains", []),
+                    "categories": pack.get("categories", []),
+                    "problem_types": pack.get("problem_types", []),
+                    "source_skills": pack.get("source_skills", []),
+                    "growth_process": pack.get("growth_process", growth_process),
+                    "journey_stage": indexed_journey or journey_stage,
+                    "stage_fit": round(stage_fit, 2),
+                    "journey_fit": round(journey_fit, 2),
+                    "resource_fit": round(resource_fit_score, 2),
+                    "resource_profile": pack.get("resource_profile", ""),
+                    "guardrails": pack.get("guardrails", [])[:3],
+                    "experiment_shapes": pack.get("experiment_shapes", [])[:3],
+                    "related_weapons": pack.get("related_weapons", []),
+                    "related_failures": pack.get("related_failures", []),
+                    "evidence_tier": pack.get("evidence_tier", "C"),
                 }
             ))
 

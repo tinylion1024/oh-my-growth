@@ -1,6 +1,6 @@
 ---
 name: oh-my-growth
-description: 增长策略外脑 - 整合81个案例、111种玩法、12大流派，输出诊断、优先级判断、实验计划
+description: 增长策略外脑 - 整合81个案例、111种玩法、12大流派，面向SEO、AEO、GEO和LLM检索输出诊断、优先级判断、实验计划
 triggers:
   - /omg-diagnose
   - /omg-assess
@@ -27,7 +27,7 @@ metadata:
 
 **多平台增长决策插件** — 支持 Claude Code、OpenClaw 和 Hermes Agent；主 Skill 可在 Claude Code 会话中直接调用。
 
-将增长知识库与多Agent决策引擎融合，帮助增长负责人完成前 70% 的策略思考。
+将增长知识库、多Agent决策引擎与营销增长方法论包融合，帮助增长负责人完成前 70% 的策略思考。
 
 **核心价值**：从”查阅知识”升级为”先诊断、再判断、后给实验”的增长外脑
 
@@ -68,16 +68,17 @@ metadata:
 详见 [workflow.md](references/workflow.md)
 
 ```
-用户输入 → 阶段/业务过程定位 → 问题诊断 → 知识检索 → 优先级判断 → 实验建议 → 输出生成
+用户输入 → 阶段/业务过程定位 → 问题诊断 → 知识检索 → 方法论包匹配 → 优先级判断 → 实验建议 → 输出生成
 ```
 
 1. **阶段与业务过程定位** → 先判断当前属于产品验证期、增长放大期还是规模经营期，以及问题更偏用户获取还是用户深耕
 2. **项目记忆注入** → 结合公司画像、目标用户、历史实验和重复失败模式
 3. **问题诊断** → 再判断主目标、北极星指标、最大约束与最可能的主矛盾
 4. **知识检索** → Case/Weapon/Theory Agent 检索最相关的案例、打法和理论
-5. **优先级判断** → 用 ROI、执行复杂度、阶段匹配度、证据加分和失败模式惩罚排序
-6. **建议做 / 不做** → 明确指出当前该押注什么，不该分散到什么方向
-7. **实验计划** → 输出最小实验、成功信号、停止信号和复盘节奏
+5. **方法论包匹配** → 匹配吸收后的 SEO/AEO、GEO/LLM、CRO、Paid Ads、GTM、Lifecycle Email、Referral/RevOps 框架
+6. **优先级判断** → 用 ROI、执行复杂度、阶段匹配度、证据加分和失败模式惩罚排序
+7. **建议做 / 不做** → 明确指出当前该押注什么，不该分散到什么方向
+8. **实验计划** → 输出最小实验、成功信号、停止信号和复盘节奏
 
 ## Agent 体系
 
@@ -159,6 +160,7 @@ output:
 knowledge/
 ├── cases/           # 81个增长案例（china/overseas/vertical）
 ├── weapons/         # 111种增长玩法
+├── method-packs/    # 营销增长方法论包（吸收外部skill后重写）
 ├── guides/          # 核心方法论
 ├── schools/         # 12大流派理论
 └── modules/         # 系统学习模块
@@ -191,6 +193,7 @@ knowledge/
 - [博弈论战略框架](references/gametheory-framework.md)
 - [Kelly资源分配框架](references/kelly-allocation.md)
 - [商业模式分析框架](references/business-model.md)
+- [营销增长方法论包](knowledge/method-packs/README.md)
 
 ### 质量保障
 - [现状清晰度门控](references/current-state-clarity.md)

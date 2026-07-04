@@ -6,11 +6,13 @@
 
 **5分钟增长诊断 — 从问题到实验方案**
 
+面向增长运营、SEO 收录、AEO 问答引擎和 GEO / LLM 检索。
+
 **输入：** 你的增长问题
 **输出：** 阶段判断 · 优先级排序 · 建议做/别做 · 2周实验
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-96%2F96%20passed-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-98%2F98%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 **[30秒安装](#-安装)** · **[立即体验](#-快速开始)** · **[English](./README.md)**
@@ -138,6 +140,37 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 /omg-referral        # 规划裂变
 ```
 
+### Command Reference
+
+核心命令:
+
+- `/omg-assess` - 机会评估
+- `/omg-diagnose` - 完整增长诊断
+- `/omg-design` - 策略设计
+- `/omg-fast-scan` - 快速可行性检查
+- `/omg-brd` - 决策 BRD 草稿
+- `/omg-match` - 匹配相似案例
+- `/omg-learn` - 生成学习路径
+
+辅助命令:
+
+- `/omg-search` - 搜索案例、玩法和理论
+- `/omg-validate` - 校验报告质量
+
+场景命令:
+
+- `/omg-cold-start` - 冷启动获客
+- `/omg-retention` - 留存诊断
+- `/omg-monetization` - 变现设计
+- `/omg-referral` - 裂变规划
+
+视图引用:
+
+- `weekly`
+- `experiment-card`
+- `decision-memo`
+- `qbr`
+
 ---
 
 ## 🎯 为什么选择 oh-my-growth？
@@ -146,7 +179,7 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 
 | 功能特性 | oh-my-growth | ChatGPT/Claude 原生 | GrowthHackers |
 |---------|--------------|-------------------|---------------|
-| 结构化知识库 | ✅ 194案例、111玩法 | ❌ 无结构化知识 | ✅ 社区案例 |
+| 结构化知识库 | ✅ 81案例、111玩法、7方法包 | ❌ 无结构化知识 | ✅ 社区案例 |
 | 决策引擎 | ✅ 贝叶斯+Kelly+博弈论 | ❌ 无决策框架 | ❌ 无决策框架 |
 | 即时诊断 | ✅ 5分钟输出 | ⚠️ 需要多次迭代 | ❌ 手动研究 |
 | 可执行输出 | ✅ 2周实验方案 | ⚠️ 泛泛建议 | ❌ 仅案例聚合 |
@@ -154,9 +187,10 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 
 ### 知识库规模
 
-- **194 个案例** — Notion、Airbnb、抖音、GPT-4o、Claude 3.5、拼多多...
+- **81 个案例** — Notion、Airbnb、抖音、GPT-4o、Claude 3.5、拼多多...
 - **111 种玩法** — 裂变、PLG、内容增长、留存...
 - **12 大理论流派** — 增长黑客、网络效应、PLG...
+- **7 个增长方法包** — SEO/AEO、GEO/LLM、CRO、付费获客、GTM、生命周期、转介绍...
 - **7 大学习模块** — 冷启动、留存、变现...
 
 [**→ 浏览完整案例索引**](./knowledge/cases/) · [**→ 浏览完整玩法索引**](./knowledge/weapons/)
@@ -219,9 +253,10 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 ### 知识路由器
 
 自动将你的问题路由到正确的知识库:
-- 案例数据库（194 个案例）
+- 案例数据库（81 个案例）
 - 玩法数据库（111 种玩法）
 - 理论数据库（12 大流派）
+- 方法包数据库（7 个增长操作系统）
 
 ### 输出验证
 
@@ -238,11 +273,27 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 
 ## 📚 文档
 
-- **[完整命令参考](./docs/COMMANDS.md)** — 全部 13 个命令详解
-- **[案例库](./knowledge/cases/)** — 194 个增长案例
-- **[增长玩法库](./knowledge/weapons/)** — 111 种验证玩法
-- **[理论框架](./knowledge/schools/)** — 12 大增长理论
-- **[API 文档](./docs/API.md)** — 开发者接口
+- **[完整命令参考](./docs/COMMANDS.md)** — 所有命令、视图和输出模式
+- **[GEO / LLM 发现用例](./docs/use-cases/geo-llm-discovery.md)** — AI 搜索可见性工作流
+- **[SEO / AEO 增长诊断](./docs/use-cases/seo-growth-diagnosis.md)** — 自然获客工作流
+- **[案例库](./knowledge/cases/)** — 增长案例和索引示例
+- **[增长玩法库](./knowledge/weapons/)** — 验证过的增长玩法
+- **[理论框架](./knowledge/schools/)** — 增长理论流派
+- **[API 文档](./docs/API.md)** — CLI 契约、检索入口和输出视图
+
+## ❓ 常见问题
+
+### 什么是 oh-my-growth？
+
+oh-my-growth 是一个增长策略外脑，把结构化知识库、多 Agent 决策逻辑和实验计划结合起来，用于获客、留存、变现和裂变分析。
+
+### 它适合谁？
+
+适合增长运营、创始人、产品经理，以及需要稳定增长答案的 AI 助手。
+
+### 为什么这有助于 SEO 和 GEO？
+
+仓库现在有更明确的关键词、命令引用、标准化文档和 `llms.txt` 入口，agent 和大模型更容易理解项目用途。对 Google 这类搜索来说，GEO/AEO 仍然要建立在可抓取、有价值、结构清晰的 SEO 内容之上。
 
 ---
 

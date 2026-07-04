@@ -9,16 +9,17 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from retriever.types import (
+from .types import (
     BASE_DIR,
     normalize_stage,
     SearchResult,
 )
-from retriever.search import (
+from .search import (
     search_cases,
     search_weapons,
     search_theories,
     search_failures,
+    search_method_packs,
 )
 
 
@@ -30,6 +31,7 @@ class KnowledgeRetriever:
         self.weapons = []
         self.theories = []
         self.failures = []
+        self.method_packs = []
         self.weapon_categories: Dict[str, str] = {}
         self.weapon_details: Dict[str, Dict[str, str]] = {}
         self._load_indexes()
@@ -68,6 +70,12 @@ class KnowledgeRetriever:
             with open(failures_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.failures = data.get('failures', [])
+
+        method_packs_path = indexes_dir / "method-packs-index.json"
+        if method_packs_path.exists():
+            with open(method_packs_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                self.method_packs = data.get('method_packs', [])
 
         self.weapon_details = self._load_weapon_details()
 
@@ -143,6 +151,15 @@ class KnowledgeRetriever:
         """Search failure modes and anti-patterns."""
         return search_failures(self.failures, query, context, limit)
 
+    def search_method_packs(
+        self,
+        query: str,
+        context: Optional[Dict] = None,
+        limit: int = 3
+    ) -> List[SearchResult]:
+        """Search absorbed marketing-growth method packs."""
+        return search_method_packs(self.method_packs, query, context, limit)
+
     def retrieve(
         self,
         query: str,
@@ -150,7 +167,8 @@ class KnowledgeRetriever:
         case_limit: int = 5,
         weapon_limit: int = 5,
         theory_limit: int = 3,
-        failure_limit: int = 2
+        failure_limit: int = 2,
+        method_pack_limit: int = 3
     ) -> Dict:
         """综合检索"""
         return {
@@ -193,5 +211,15 @@ class KnowledgeRetriever:
                     'metadata': r.metadata
                 }
                 for r in self.search_failures(query, context, failure_limit)
+            ],
+            'method_packs': [
+                {
+                    'id': r.id,
+                    'name': r.name,
+                    'score': r.score,
+                    'highlights': r.highlights,
+                    'metadata': r.metadata
+                }
+                for r in self.search_method_packs(query, context, method_pack_limit)
             ],
         }

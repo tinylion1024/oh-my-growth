@@ -7,9 +7,8 @@ Kelly criterion resource allocation operations.
 import json
 from typing import List, Optional, Dict, Any
 from enum import Enum
-import numpy as np
 
-from kelly.types import (
+from .types import (
     DecisionReadinessStatus,
     KellySuitability,
     BinaryKellyResult,
@@ -19,12 +18,12 @@ from kelly.types import (
     ActionPackage,
     KellyAllocationReport,
 )
-from kelly.calculation import (
+from .calculation import (
     binary_kelly as _binary_kelly,
     scenario_kelly as _scenario_kelly,
     fractional_kelly as _fractional_kelly,
 )
-from kelly.readiness import (
+from .readiness import (
     decision_readiness as _decision_readiness,
     assess_kelly_suitability as _assess_kelly_suitability,
 )
@@ -124,7 +123,8 @@ class KellySizing:
         adjusted = []
         for i, f in enumerate(kelly_fractions):
             # Average correlation with other opportunities
-            avg_corr = np.mean([correlations[i][j] for j in range(n) if j != i])
+            corr_values = [correlations[i][j] for j in range(n) if j != i]
+            avg_corr = sum(corr_values) / len(corr_values) if corr_values else 0.0
 
             # Apply haircut: reduce by correlation
             adjustment = 1.0 - abs(avg_corr) * 0.5

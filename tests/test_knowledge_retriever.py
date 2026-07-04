@@ -6,6 +6,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 from knowledge_retriever import KnowledgeRetriever
+from strategy_brain import StrategyBrain
 
 
 def test_referral_query_returns_weapons_and_theories():
@@ -298,3 +299,68 @@ def test_failure_results_are_retrievable_for_referral_context():
     top_failure = results["failures"][0]
     assert "referral" in top_failure["metadata"]["problem_types"]
     assert top_failure["metadata"]["journey_stage"] == "分享"
+
+
+def test_marketing_growth_method_packs_are_retrievable_by_growth_problem():
+    retriever = KnowledgeRetriever()
+
+    seo_results = retriever.retrieve(
+        "我们的网站搜索流量很少，需要做 SEO 和 AEO 获客",
+        {"industry": "saas", "problem_type": "acquisition", "stage": "1-10"},
+        case_limit=1,
+        weapon_limit=1,
+        theory_limit=1,
+        method_pack_limit=3,
+    )
+    seo_pack_ids = {item["id"] for item in seo_results["method_packs"]}
+    assert "seo-aeo-growth-system" in seo_pack_ids
+    assert seo_results["method_packs"][0]["metadata"]["source_skills"]
+    assert seo_results["method_packs"][0]["metadata"]["related_weapons"]
+    assert seo_results["method_packs"][0]["metadata"]["related_failures"]
+
+    geo_results = retriever.retrieve(
+        "我们的品牌在 GEO 和 LLM 搜索里没有曝光，想提高引用率",
+        {"industry": "saas", "problem_type": "acquisition", "stage": "10-100"},
+        case_limit=1,
+        weapon_limit=1,
+        theory_limit=1,
+        method_pack_limit=3,
+    )
+    geo_pack_ids = {item["id"] for item in geo_results["method_packs"]}
+    assert "geo-llm-discovery-system" in geo_pack_ids
+
+    cro_results = retriever.retrieve(
+        "落地页访问不少，但是注册和试用转化率很低，想做 CRO",
+        {"industry": "saas", "problem_type": "activation", "stage": "1-10"},
+        case_limit=1,
+        weapon_limit=1,
+        theory_limit=1,
+        method_pack_limit=3,
+    )
+    cro_pack_ids = {item["id"] for item in cro_results["method_packs"]}
+    assert "conversion-rate-optimization-system" in cro_pack_ids
+
+    ads_results = retriever.retrieve(
+        "Meta 和 Google 广告 CPA 太高，创意测试没有结论",
+        {"industry": "ecommerce", "problem_type": "acquisition", "stage": "10-100"},
+        case_limit=1,
+        weapon_limit=1,
+        theory_limit=1,
+        method_pack_limit=3,
+    )
+    ads_pack_ids = {item["id"] for item in ads_results["method_packs"]}
+    assert "paid-acquisition-creative-system" in ads_pack_ids
+
+
+def test_method_pack_shapes_geo_diagnosis_experiment_and_evidence():
+    analysis = StrategyBrain().analyze(
+        "我们的品牌在 GEO 和 LLM 搜索里没有曝光，想提高引用率",
+        {"industry": "saas", "problem_type": "acquisition", "stage": "10-100"},
+        mode="diagnose",
+    )
+
+    assert analysis["reference_method_packs"][0]["id"] == "geo-llm-discovery-system"
+    assert any(item["type_label"] == "操作系统" for item in analysis["evidence_chain"])
+    assert any("GEO/LLM 发现系统" in step for step in analysis["experiment"]["steps"])
+    assert any("方法包停止线" in signal for signal in analysis["experiment"]["stop_signals"])
+    assert analysis["priorities"][0].method_pack_bonus > 0

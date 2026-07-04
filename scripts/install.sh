@@ -174,21 +174,26 @@ echo -e "  ${YELLOW}/omg-monetization${NC} 变现策略"
 echo -e "  ${YELLOW}/omg-referral${NC}    裂变策略"
 echo ""
 echo -e "${GREEN}功能特性:${NC}"
-echo -e "  • 194个增长案例（中国/海外/垂直行业）"
+echo -e "  • 81个增长案例（中国/海外/垂直行业）"
 echo -e "  • 111种增长玩法（冷启动/裂变/内容/留存...）"
 echo -e "  • 12大增长理论流派"
+echo -e "  • 7个增长方法包（SEO/GEO/CRO/GTM...）"
 echo -e "  • 贝叶斯决策引擎"
 echo -e "  • 博弈论竞争分析"
 echo -e "  • Kelly资源分配"
 echo ""
 
-# 询问是否启动首次体验
-echo -e "${YELLOW}是否立即开始 5 分钟快速体验？${NC}"
-echo -e "${GREEN}我们将引导你完成第一次增长诊断！${NC}"
-echo ""
-read -p "开始体验？[Y/n]: " start_onboarding
-
-if [[ "$start_onboarding" =~ ^[Yy]$ ]] || [[ -z "$start_onboarding" ]]; then
+# 询问是否启动首次体验；非交互安装（CI/烟测）直接跳过。
+if [ -t 0 ]; then
+    echo -e "${YELLOW}是否立即开始 5 分钟快速体验？${NC}"
+    echo -e "${GREEN}我们将引导你完成第一次增长诊断！${NC}"
     echo ""
-    bash "$SCRIPT_DIR/onboarding.sh"
+    read -p "开始体验？[Y/n]: " start_onboarding
+
+    if [[ "$start_onboarding" =~ ^[Yy]$ ]] || [[ -z "$start_onboarding" ]]; then
+        echo ""
+        bash "$SCRIPT_DIR/onboarding.sh"
+    fi
+else
+    echo -e "${YELLOW}非交互环境，已跳过首次体验引导。${NC}"
 fi

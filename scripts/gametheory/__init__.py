@@ -9,7 +9,7 @@ Main components:
 - core: GameTheoryAnalysis main class
 """
 
-from gametheory.types import (
+from .types import (
     GameType,
     TimingType,
     InformationType,
@@ -25,16 +25,16 @@ from gametheory.types import (
     SignalCheck,
     GameReport,
 )
-from gametheory.equilibrium import (
+from .equilibrium import (
     find_nash_equilibrium,
     find_dominated_strategies,
 )
-from gametheory.calibration import (
+from .calibration import (
     calibrate_with_history,
     check_commitment_credibility,
     check_signal_quality,
 )
-from gametheory.core import GameTheoryAnalysis
+from .core import GameTheoryAnalysis
 
 __all__ = [
     # Enums

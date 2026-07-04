@@ -6,7 +6,7 @@ Kelly criterion suitability.
 
 from typing import Dict, List
 
-from kelly.types import (
+from .types import (
     DecisionReadinessStatus,
     DecisionReadinessResult,
     KellySuitability,

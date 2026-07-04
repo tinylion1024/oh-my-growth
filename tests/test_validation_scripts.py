@@ -76,10 +76,26 @@ def test_update_indexes_and_validate_indexes():
     assert all("problem_types" in failure for failure in failures_payload["failures"])
     assert all("summary" in failure for failure in failures_payload["failures"])
 
+    method_packs_payload = json.loads((ROOT_DIR / "knowledge/indexes/method-packs-index.json").read_text(encoding="utf-8"))
+    assert method_packs_payload["metadata"]["total_method_packs"] == len(method_packs_payload["method_packs"])
+    assert {pack["id"] for pack in method_packs_payload["method_packs"]} >= {
+        "seo-aeo-growth-system",
+        "geo-llm-discovery-system",
+        "conversion-rate-optimization-system",
+        "paid-acquisition-creative-system",
+    }
+    assert all(pack["file"].startswith("method-packs/") for pack in method_packs_payload["method_packs"])
+    assert all(pack.get("source_skills") for pack in method_packs_payload["method_packs"])
+    assert all(pack.get("related_weapons") for pack in method_packs_payload["method_packs"])
+    assert all(pack.get("related_failures") for pack in method_packs_payload["method_packs"])
+
     readme_content = (ROOT_DIR / "README.md").read_text(encoding="utf-8")
-    assert "[DeepSeek（深度求索）- AI开源突围战](<./knowledge/cases/china/deepseek.md>)" in readme_content
-    assert "[Beta邀请制](<./knowledge/weapons/01-cold-start/weapons/007-Beta邀请制.md>)" in readme_content
-    assert "[Landing Page注册](<./knowledge/weapons/01-cold-start/weapons/008-Landing Page注册.md>)" in readme_content
+    if "<!-- AUTO-CASE-INDEX:START -->" in readme_content:
+        assert "[DeepSeek（深度求索）- AI开源突围战](<./knowledge/cases/china/deepseek.md>)" in readme_content
+        assert "[Beta邀请制](<./knowledge/weapons/01-cold-start/weapons/007-Beta邀请制.md>)" in readme_content
+        assert "[Landing Page注册](<./knowledge/weapons/01-cold-start/weapons/008-Landing Page注册.md>)" in readme_content
+    else:
+        assert "README index sync skipped: auto-index markers not found" in update_result.stdout
 
     validate_weapons_result = run_script("scripts/validate-weapons.py")
     assert validate_weapons_result.returncode == 0, validate_weapons_result.stdout + validate_weapons_result.stderr
@@ -88,6 +104,7 @@ def test_update_indexes_and_validate_indexes():
     validate_result = run_script("scripts/validate-indexes.py")
     assert validate_result.returncode == 0, validate_result.stdout + validate_result.stderr
     assert "All indexes validated successfully" in validate_result.stdout
+    assert "method-packs-index.json" in validate_result.stdout
 
 
 def test_validate_agents_without_external_yaml_dependency():

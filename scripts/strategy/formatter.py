@@ -399,6 +399,14 @@ class StrategyFormatter:
         )
         for item in analysis["measurement_notes"]:
             lines.append(f"- {item}")
+        if analysis.get("reference_method_packs"):
+            lines.extend(["", "## 推荐增长操作系统"])
+            for pack in analysis["reference_method_packs"][:3]:
+                meta = pack.get("metadata", {})
+                lines.append(
+                    f"- {pack['name']}：{meta.get('file', '')}；"
+                    f"{'；'.join(pack.get('highlights', [])[:2])}"
+                )
         lines.extend(["", "## 证据依据"])
         for item in analysis["evidence_chain"][:4]:
             lines.append(f"- {item['type_label']}：{item['name']}，{item['why']}")
@@ -711,6 +719,14 @@ class StrategyFormatter:
             lines.append(
                 f"- **{item['type_label']}**：{item['name']} · {item['why']} · 证据={item['evidence_tier']}"
             )
+        if analysis.get("reference_method_packs"):
+            lines.extend(["", "### 推荐增长操作系统", ""])
+            for pack in analysis["reference_method_packs"][:3]:
+                meta = pack.get("metadata", {})
+                lines.append(
+                    f"- **{pack['name']}**：{meta.get('file', '')} · "
+                    f"{'；'.join(pack.get('highlights', [])[:2])}"
+                )
         lines.extend(["", "## 6. 下一步行动", ""])
         for action in analysis["actions"]:
             lines.append(

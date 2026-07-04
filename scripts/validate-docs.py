@@ -10,15 +10,21 @@ from typing import List
 
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT_DIR / "scripts"))
 
-from cli import AUXILIARY_COMMANDS, PRIMARY_COMMANDS, SCENARIO_COMMANDS, VIEW_CHOICES  # noqa: E402
+PRIMARY_COMMANDS = ["assess", "design", "fast-scan", "brd", "diagnose", "match", "learn"]
+AUXILIARY_COMMANDS = ["search", "validate"]
+SCENARIO_COMMANDS = ["cold-start", "retention", "monetization", "referral"]
+VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "decision-memo", "qbr"]
 
 MARKDOWN_ROOTS = [
     ROOT_DIR / "README.md",
     ROOT_DIR / "SKILL.md",
     ROOT_DIR / "templates" / "quick-start.md",
+    ROOT_DIR / "docs" / "COMMANDS.md",
+    ROOT_DIR / "docs" / "API.md",
     ROOT_DIR / "docs" / "user-guide.md",
+    ROOT_DIR / "docs" / "use-cases",
+    ROOT_DIR / "docs" / "examples",
     ROOT_DIR / "agents" / "core" / "orchestrator-agent.md",
     ROOT_DIR / "references",
     ROOT_DIR / "knowledge" / "failures",

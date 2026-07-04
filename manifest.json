@@ -1,7 +1,7 @@
 {
   "name": "oh-my-growth",
   "version": "1.0.1",
-  "description": "增长策略外脑 - 支持 Claude Code、OpenClaw 和 Hermes Agent",
+  "description": "增长策略外脑 - 面向 SEO、AEO、GEO 和 LLM 检索的增长决策系统，支持 Claude Code、OpenClaw 和 Hermes Agent",
   "author": "Growth Master Team",
   "license": "MIT",
   "maturity": "production",
@@ -16,7 +16,12 @@
     "north-star",
     "journey-diagnosis",
     "multi-agent",
-    "knowledge-driven"
+    "knowledge-driven",
+    "seo",
+    "geo",
+    "aeo",
+    "llm-seo",
+    "answer-engine-optimization"
   ],
   "capabilities": [
     "assess",
@@ -34,6 +39,8 @@
     "cases": 81,
     "weapons": 111,
     "theories": 12,
+    "failures": 4,
+    "method_packs": 7,
     "modules": 7
   },
   "agents": {
@@ -58,8 +65,8 @@
     "install": "scripts/install.sh"
   },
   "testing": {
-    "scripted_checks": 96,
-    "pass_rate": "96/96",
+    "scripted_checks": 98,
+    "pass_rate": "98/98",
     "scenario_templates": 10
   },
   "dependencies": {

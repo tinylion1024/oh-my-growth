@@ -1,14 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "growth-master-skill"
 version = "1.0.1"
-description = "Growth Master Skill - AI-powered growth decision support system"
+description = "Growth Master Skill - AI-powered growth decision support system for SEO, AEO, GEO, and LLM retrieval"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Growth Master Team"}
 ]
-keywords = ["growth", "ai", "decision-support", "saas", "business"]
+keywords = ["growth", "ai", "decision-support", "saas", "business", "seo", "geo", "aeo", "llm", "answer-engine-optimization"]
 
 [project.optional-dependencies]
 dev = [
@@ -18,8 +22,34 @@ dev = [
 ]
 
 [project.scripts]
+growth = "scripts.cli:main"
 growth-e2e = "scripts.e2e_test_runner:main"
 growth-verify = "scripts.verify_report:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = [
+    "knowledge",
+    "scripts",
+    "scripts.gametheory",
+    "scripts.kelly",
+    "scripts.retriever",
+    "scripts.strategy",
+]
+
+[tool.setuptools.package-data]
+knowledge = [
+    "STRUCTURE-SPEC.md",
+    "cases/**/*.md",
+    "failures/*.md",
+    "frameworks/*.json",
+    "guides/*.md",
+    "indexes/*.json",
+    "method-packs/*.md",
+    "modules/**/*.md",
+    "schools/*.md",
+    "weapons/**/*.md",
+]
 
 [tool.black]
 line-length = 100
