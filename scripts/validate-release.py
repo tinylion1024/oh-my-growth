@@ -120,11 +120,11 @@ def main() -> int:
         )
 
     install_script = (ROOT_DIR / "scripts" / "install.sh").read_text(encoding="utf-8")
-    if f"version: {version}" not in install_script:
-        issues.append("scripts/install.sh fallback skill version is inconsistent")
-    for command in commands:
-        if f'"{command}"' not in install_script:
-            issues.append(f"scripts/install.sh is missing command {command}")
+    if "--platform" not in install_script:
+        issues.append("scripts/install.sh is missing the platform selection contract")
+    for platform in ["claude", "openclaw", "hermes"]:
+        if platform not in install_script:
+            issues.append(f"scripts/install.sh is missing platform {platform}")
     if "/oh-my-growth " in install_script or re.search(r"/omg\s+[a-z]", install_script):
         issues.append("scripts/install.sh fallback docs use legacy command syntax")
 

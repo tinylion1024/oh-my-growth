@@ -4,18 +4,17 @@
 
 # 🚀 oh-my-growth
 
-**5-Minute Growth Diagnosis — From Problem to Experiment Plan**
+**Evidence-backed growth decisions for AI-agent teams.**
 
-Built for growth operators, SEO discovery, AEO answer engines, and GEO/LLM retrieval.
+Turn a growth question into a ranked, evidence-linked **2-week experiment** with a success signal and a stop condition.
 
-**Input:** Your growth question  
-**Output:** Stage Diagnosis · Priority Ranking · Do/Don't · 2-Week Experiment
+**For:** growth leads, founders, and product teams using Claude Code, OpenClaw, Hermes, or the local CLI.
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-98%2F98%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-**[Install in 30s](#-install)** · **[Try Now](#-quick-start)** · **[中文文档](./README_CN.md)**
+**[Choose your install](#-install)** · **[See an output](#-example-5-minute-diagnosis)** · **[中文文档](./README_CN.md)**
 
 </div>
 
@@ -76,20 +75,32 @@ Built for growth operators, SEO discovery, AEO answer engines, and GEO/LLM retri
 
 ---
 
-## 📦 Install (30 Seconds)
+## 📦 Install
 
-### Option 1: One-Click Install (Recommended)
+Choose the host you already use. Each command installs the same knowledge base and decision engine.
+
+### Claude Code
 
 ```bash
-cd oh-my-growth
-./scripts/install.sh
+git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth && ./scripts/install.sh --platform claude
 ```
 
-### Option 2: Manual Install
+### OpenClaw
 
 ```bash
-git clone https://github.com/tinylion1024/oh-my-growth.git
-cp -R oh-my-growth ~/.claude/skills/oh-my-growth
+git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth && ./scripts/install.sh --platform openclaw
+```
+
+### Hermes Agent
+
+```bash
+git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth && ./scripts/install.sh --platform hermes
+```
+
+### Standalone CLI
+
+```bash
+python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
 ```
 
 ### Verify Installation
@@ -197,7 +208,9 @@ View references:
 
 ---
 
-## 📊 Use Cases
+## 📊 Representative Outputs
+
+The following are illustrative scenarios that show the expected output shape. They are **not customer outcome claims**. We are collecting anonymized, reproducible user case studies; see [how to contribute a case](./CONTRIBUTING.md#添加新案例).
 
 ### Case 1: SaaS Cold Start
 **Problem:** "How to get first 1000 users for my AI writing SaaS?"
@@ -207,7 +220,7 @@ View references:
 2. Matched 3 cases: Notion, Calendly, Dropbox
 3. 2-week experiment: Manual outreach to 50 target users
 
-**Result:** ✅ Acquired 120 beta users in 2 weeks
+**Success signal:** acquire 3 paid customers from 50 founder-led outreach attempts
 
 ### Case 2: Retention Drop
 **Problem:** "My DAU dropped 20% after product update"
@@ -217,7 +230,7 @@ View references:
 2. Priority: Re-engage power users > Rollback features
 3. Matched case: Slack's onboarding improvement
 
-**Result:** ✅ Recovered 15% DAU in 3 weeks
+**Success signal:** improve D7 retention before scaling acquisition
 
 ### Case 3: Monetization Strategy
 **Problem:** "How to design pricing for my B2B SaaS?"
@@ -227,7 +240,7 @@ View references:
 2. Matched cases: Notion, Linear, Slack
 3. Key principle: Free tier for PLG, Pro tier for revenue
 
-**Result:** ✅ Increased ARPU by 40% in 2 months
+**Success signal:** validate willingness to pay and retention guardrails before rollout
 
 ---
 
@@ -299,10 +312,9 @@ The repository exposes searchable keywords, explicit command references, canonic
 
 ## 🌟 Community
 
-- **Discord:** Join our growth community (coming soon)
-- **Twitter:** [@ohmygrowth](https://twitter.com/ohmygrowth) — Weekly case breakdowns
-- **WeChat:** oh-my-growth — 中文社区
-- **GitHub Discussions:** Share your use cases
+- **GitHub Issues:** report a bug, request a case, or propose an improvement.
+- **Case contributions:** add an anonymized, evidence-backed case via the [contribution guide](./CONTRIBUTING.md).
+- **Twitter/X:** [@ohmygrowth](https://twitter.com/ohmygrowth).
 
 ---
 
@@ -356,7 +368,7 @@ Special thanks to all contributors and case study authors.
 
 <div align="center">
 
-**[Install Now](#-install)** · **[Read Full Docs](./docs/)** · **[Join Community](#-community)**
+**[Choose your install](#-install)** · **[Read Full Docs](./docs/)** · **[Contribute a case](./CONTRIBUTING.md)**
 
 Made with ❤️ by Growth Master Team
 

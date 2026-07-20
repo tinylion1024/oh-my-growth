@@ -4,18 +4,17 @@
 
 # 🚀 oh-my-growth
 
-**5分钟增长诊断 — 从问题到实验方案**
+**面向 AI Agent 团队的、带证据的增长决策工具。**
 
-面向增长运营、SEO 收录、AEO 问答引擎和 GEO / LLM 检索。
+把一个增长问题转成带证据链的优先级排序、**2 周实验**、成功信号和停止条件。
 
-**输入：** 你的增长问题
-**输出：** 阶段判断 · 优先级排序 · 建议做/别做 · 2周实验
+**适合：** 使用 Claude Code、OpenClaw、Hermes 或本地 CLI 的增长负责人、创始人和产品团队。
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-98%2F98%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-**[30秒安装](#-安装)** · **[立即体验](#-快速开始)** · **[English](./README.md)**
+**[选择安装方式](#-安装)** · **[查看输出示例](#-示例5分钟诊断流程)** · **[English](./README.md)**
 
 </div>
 
@@ -76,20 +75,32 @@
 
 ---
 
-## 📦 安装（30秒）
+## 📦 安装
 
-### 方式一：一键安装（推荐）
+选择你正在使用的平台；以下命令均安装相同的知识库和决策引擎。
+
+### Claude Code
 
 ```bash
-cd oh-my-growth
-./scripts/install.sh
+git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth && ./scripts/install.sh --platform claude
 ```
 
-### 方式二：手动安装
+### OpenClaw
 
 ```bash
-git clone https://github.com/tinylion1024/oh-my-growth.git
-cp -R oh-my-growth ~/.claude/skills/oh-my-growth
+git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth && ./scripts/install.sh --platform openclaw
+```
+
+### Hermes Agent
+
+```bash
+git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth && ./scripts/install.sh --platform hermes
+```
+
+### 独立 CLI
+
+```bash
+python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
 ```
 
 ### 验证安装
@@ -197,7 +208,9 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 
 ---
 
-## 📊 实际案例
+## 📊 输出示例
+
+以下场景用于展示输出结构，**不是客户成果声明**。项目正在收集匿名、可复现的真实使用案例；可参考[案例贡献规范](./CONTRIBUTING.md#添加新案例)提交。
 
 ### 案例 1：SaaS 冷启动
 **问题：** "AI 写作 SaaS 如何获取首批 1000 用户？"
@@ -207,7 +220,7 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 2. 匹配 3 个案例：Notion、Calendly、Dropbox
 3. 2周实验：手动触达 50 个目标用户
 
-**结果：** ✅ 2周内获得 120 个内测用户
+**成功信号：** 50 次创始人触达中获得 3 个付费客户
 
 ### 案例 2：留存下降
 **问题：** "产品更新后日活下降 20%"
@@ -217,7 +230,7 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 2. 优先级：激活核心用户 > 回滚功能
 3. 匹配案例：Slack 的新手引导优化
 
-**结果：** ✅ 3周内恢复 15% 日活
+**成功信号：** 在扩大获客前先提升 D7 留存
 
 ### 案例 3：变现策略
 **问题：** "B2B SaaS 如何设计定价？"
@@ -227,7 +240,7 @@ cp -R oh-my-growth ~/.claude/skills/oh-my-growth
 2. 匹配案例：Notion、Linear、Slack
 3. 核心原则：免费版做 PLG，Pro版做收入
 
-**结果：** ✅ 2个月 ARPU 提升 40%
+**成功信号：** 在全量上线前验证付费意愿与留存护栏
 
 ---
 
@@ -299,10 +312,9 @@ oh-my-growth 是一个增长策略外脑，把结构化知识库、多 Agent 决
 
 ## 🌟 社区
 
-- **Discord:** 加入增长社区（即将上线）
-- **Twitter:** [@ohmygrowth](https://twitter.com/ohmygrowth) — 每周案例拆解
-- **微信公众号:** oh-my-growth — 中文社区
-- **GitHub Discussions:** 分享你的使用案例
+- **GitHub Issues：** 报告问题、请求案例或提出改进建议。
+- **案例贡献：** 按[贡献指南](./CONTRIBUTING.md)提交匿名、有证据支撑的案例。
+- **Twitter/X：** [@ohmygrowth](https://twitter.com/ohmygrowth)。
 
 ---
 
@@ -356,7 +368,7 @@ MIT 许可证 — 详见 [LICENSE](./LICENSE)。
 
 <div align="center">
 
-**[立即安装](#-安装)** · **[阅读完整文档](./docs/)** · **[加入社区](#-社区)**
+**[选择安装方式](#-安装)** · **[阅读完整文档](./docs/)** · **[贡献案例](./CONTRIBUTING.md)**
 
 由 Growth Master Team 用 ❤️ 打造
 
