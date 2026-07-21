@@ -3,7 +3,7 @@ name: omg-monetization
 description: 变现策略 - 设计变现策略
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

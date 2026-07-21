@@ -3,8 +3,8 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "growth-master-skill"
-version = "1.0.1"
+name = "oh-my-growth"
+version = "1.0.2"
 description = "Growth Master Skill - AI-powered growth decision support system for SEO, AEO, GEO, and LLM retrieval"
 readme = "README.md"
 requires-python = ">=3.8"

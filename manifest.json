@@ -1,6 +1,6 @@
 {
   "name": "oh-my-growth",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "增长策略外脑 - 面向 SEO、AEO、GEO 和 LLM 检索的增长决策系统，支持 Claude Code、OpenClaw 和 Hermes Agent",
   "author": "Growth Master Team",
   "license": "MIT",

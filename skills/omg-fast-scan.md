@@ -3,7 +3,7 @@ name: omg-fast-scan
 description: 快速扫描 - 快速判断可行性
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

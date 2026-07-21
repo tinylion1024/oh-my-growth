@@ -3,7 +3,7 @@ name: omg-brd
 description: 决策文档 - 完整的决策BRD文档
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

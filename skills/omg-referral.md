@@ -3,7 +3,7 @@ name: omg-referral
 description: 裂变策略 - 设计裂变增长
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

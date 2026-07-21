@@ -3,7 +3,7 @@ name: omg-assess
 description: 机会评估 - 评估是否值得深入分析
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

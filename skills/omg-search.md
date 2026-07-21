@@ -3,7 +3,7 @@ name: omg-search
 description: 知识搜索 - 搜索知识库
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

@@ -10,7 +10,7 @@ Turn a growth question into a ranked, evidence-linked **2-week experiment** with
 
 **For:** growth leads, founders, and product teams using Claude Code, OpenClaw, Hermes, or the local CLI.
 
-[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
+[![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-99%2F99%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
@@ -100,10 +100,10 @@ git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth &&
 ### Standalone CLI
 
 ```bash
-python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
+python3 -m pip install "oh-my-growth"
 ```
 
-For an isolated CLI install, use `pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`.
+For an isolated CLI install, use `pipx install oh-my-growth`. Until the first PyPI release is published, use `pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`.
 
 ### Verify Installation
 

@@ -3,7 +3,7 @@ name: omg-validate
 description: 文档验证 - 校验输出文档完整性
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

@@ -3,7 +3,7 @@ name: omg-diagnose
 description: 策略诊断 - 诊断增长问题，输出优先级和实验建议
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

@@ -1,8 +1,8 @@
-# Release v1.0.1
+# Release v1.0.2
 
 ## oh-my-growth 发布收口更新
 
-v1.0.1 聚焦发布可靠性，不新增策略框架。
+v1.0.2 聚焦公开分发与社区增长，不新增策略框架。
 
 ### 修复内容
 
@@ -13,6 +13,7 @@ v1.0.1 聚焦发布可靠性，不新增策略框架。
 - 新增 `scripts/release-check.sh` 发布门禁。
 - 全量自动化检查恢复为 **98/98**。
 - 新增三平台安装烟雾测试、反馈/决策样本池和输出质量 fixture 门禁。
+- 将 PyPI 发行包名对齐为 `oh-my-growth`，并配置 GitHub Release 驱动的 Trusted Publishing 工作流。
 
 ### 核心命令
 

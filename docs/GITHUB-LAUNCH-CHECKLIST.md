@@ -12,12 +12,12 @@ Complete these in **GitHub → Settings → General**:
 - Add the project homepage when a public landing page exists.
 - Enable Discussions only when a maintainer has capacity to respond weekly.
 
-## Release v1.0.1
+## Release process
 
 1. Run `./scripts/release-check.sh` and confirm it passes.
-2. Review `RELEASE_NOTES.md` and create the GitHub release named `v1.0.1`.
+2. Review `RELEASE_NOTES.md` and create the GitHub release matching `VERSION`.
 3. Attach the source archive and publish the release from the matching signed tag.
-4. Verify that the GitHub release version, `VERSION`, `pyproject.toml`, `manifest.json`, and README badge all show `1.0.1`.
+4. Verify that the GitHub release version, `VERSION`, `pyproject.toml`, `manifest.json`, and README badge agree.
 
 ## Real-user proof before publishing it
 

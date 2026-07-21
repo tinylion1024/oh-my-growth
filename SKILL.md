@@ -18,7 +18,7 @@ triggers:
 metadata:
   author: Growth Master Team
   maturity: production
-  version: 1.0.1
+  version: 1.0.2
   license: MIT
   category: business-strategy
 ---

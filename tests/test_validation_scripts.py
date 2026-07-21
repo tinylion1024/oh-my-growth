@@ -121,7 +121,7 @@ def test_validate_docs_checks_structure_and_links():
 
 def test_release_metadata_is_consistent():
     version = (ROOT_DIR / "VERSION").read_text(encoding="utf-8").strip()
-    assert version == "1.0.1"
+    assert version == "1.0.2"
 
     manifest = json.loads((ROOT_DIR / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["version"] == version
