@@ -25,7 +25,7 @@ except ImportError:  # pragma: no cover - exercised by direct script execution.
 PRIMARY_COMMANDS = ["assess", "design", "fast-scan", "brd", "diagnose", "match", "learn"]
 AUXILIARY_COMMANDS = ["search", "validate"]
 SCENARIO_COMMANDS = ["cold-start", "retention", "monetization", "referral"]
-VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "decision-memo", "qbr"]
+VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "share", "decision-memo", "qbr"]
 
 
 def _load_json_object(path: str) -> Dict[str, Any]:
@@ -330,6 +330,9 @@ def render_strategy_output(
         return
     if view == "experiment-card":
         print(brain.to_experiment_card_markdown(analysis))
+        return
+    if view == "share":
+        print(brain.to_share_markdown(analysis))
         return
     if view == "decision-memo":
         print(brain.to_decision_memo_markdown(analysis))

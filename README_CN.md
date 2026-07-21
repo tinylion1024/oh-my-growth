@@ -11,7 +11,7 @@
 **适合：** 使用 Claude Code、OpenClaw、Hermes 或本地 CLI 的增长负责人、创始人和产品团队。
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-98%2F98%20passed-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-99%2F99%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 **[选择安装方式](#-安装)** · **[查看输出示例](#-示例5分钟诊断流程)** · **[English](./README.md)**
@@ -103,6 +103,8 @@ git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth &&
 python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
 ```
 
+如需隔离安装 CLI，可使用：`pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`。
+
 ### 验证安装
 
 在 Claude Code 中输入:
@@ -179,6 +181,7 @@ python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
 
 - `weekly`
 - `experiment-card`
+- `share`
 - `decision-memo`
 - `qbr`
 

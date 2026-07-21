@@ -11,7 +11,7 @@ Turn a growth question into a ranked, evidence-linked **2-week experiment** with
 **For:** growth leads, founders, and product teams using Claude Code, OpenClaw, Hermes, or the local CLI.
 
 [![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
-[![Tests](https://img.shields.io/badge/tests-98%2F98%20passed-brightgreen.svg)](./tests/)
+[![Tests](https://img.shields.io/badge/tests-99%2F99%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 **[Choose your install](#-install)** · **[See an output](#-example-5-minute-diagnosis)** · **[中文文档](./README_CN.md)**
@@ -103,6 +103,8 @@ git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth &&
 python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
 ```
 
+For an isolated CLI install, use `pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`.
+
 ### Verify Installation
 
 In Claude Code:
@@ -179,6 +181,7 @@ View references:
 
 - `weekly`
 - `experiment-card`
+- `share`
 - `decision-memo`
 - `qbr`
 

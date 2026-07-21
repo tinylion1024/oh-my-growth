@@ -50,6 +50,7 @@ Use skill commands inside Claude Code, OpenClaw, or Hermes. Use `growth` when th
 | `json` | Agent/API integration |
 | `weekly` | Weekly planning |
 | `experiment-card` | Single experiment ticket |
+| `share` | Public-safe experiment snapshot for a post or team update |
 | `decision-memo` | Decision record |
 | `qbr` | Quarterly business review |
 
@@ -95,6 +96,18 @@ growth diagnose "SaaS 产品如何获取首批 1000 个用户" \
   --stage 0-1 \
   --problem acquisition
 ```
+
+### Shareable Experiment Snapshot
+
+```bash
+growth diagnose "Should we test a referral loop?" \
+  --industry saas \
+  --stage 1-10 \
+  --problem referral \
+  --view share
+```
+
+`share` omits company-profile and experiment-history fields, so it can be pasted into a public post or a team update after a quick review.
 
 ### Retention Drop
 

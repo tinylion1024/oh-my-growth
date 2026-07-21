@@ -201,6 +201,10 @@ class StrategyBrain:
         """Proxy method for formatter."""
         return self.formatter.to_experiment_card_markdown(analysis)
 
+    def to_share_markdown(self, analysis: Dict) -> str:
+        """Render a concise, public-safe experiment snapshot."""
+        return self.formatter.to_share_markdown(analysis)
+
     def to_decision_memo_markdown(self, analysis: Dict) -> str:
         """Proxy method for formatter."""
         return self.formatter.to_decision_memo_markdown(analysis)
