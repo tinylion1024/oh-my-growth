@@ -138,7 +138,9 @@ def test_release_metadata_is_consistent():
         assert re.search(rf"version\s*[:=]\s*[\"']?{re.escape(version)}[\"']?", content), path
 
     install_script = (ROOT_DIR / "scripts" / "install.sh").read_text(encoding="utf-8")
-    assert f"version: {version}" in install_script
+    assert "--platform" in install_script
+    for platform in ["claude", "openclaw", "hermes"]:
+        assert platform in install_script
 
     for path in [ROOT_DIR / "README.md", ROOT_DIR / "README_CN.md"]:
         content = path.read_text(encoding="utf-8")

@@ -86,12 +86,12 @@ def verify_shared_resources(skill_dir: Path, platform: str) -> None:
     run_cli_from_install(skill_dir)
 
 
-def smoke_claude() -> None:
-    with tempfile.TemporaryDirectory(prefix="omg-claude-home-") as home:
+def smoke_installer(platform: str) -> None:
+    with tempfile.TemporaryDirectory(prefix=f"omg-{platform}-home-") as home:
         env = os.environ.copy()
         env["HOME"] = home
         result = subprocess.run(
-            ["bash", str(ROOT_DIR / "scripts" / "install.sh")],
+            ["bash", str(ROOT_DIR / "scripts" / "install.sh"), "--platform", platform],
             cwd=ROOT_DIR,
             env=env,
             capture_output=True,
@@ -100,10 +100,15 @@ def smoke_claude() -> None:
         )
         require(result.returncode == 0, result.stdout + result.stderr)
 
-        skills_root = Path(home) / ".claude" / "skills"
+        skills_root = Path(home) / f".{platform}" / "skills"
         skill_dir = skills_root / "oh-my-growth"
+        verify_trigger_contract(skill_dir / "SKILL.md", platform)
+        verify_shared_resources(skill_dir, platform)
+
+        if platform != "claude":
+            return
+
         alias = skills_root / "omg"
-        verify_shared_resources(skill_dir, "claude")
         require(alias.is_symlink(), "Claude /omg alias is not a symlink")
         require(alias.resolve() == skill_dir.resolve(), "Claude /omg alias points to the wrong target")
 
@@ -138,8 +143,9 @@ def smoke_portable_platform(platform: str) -> None:
 def run(platforms: Iterable[str]) -> None:
     for platform in platforms:
         if platform == "claude":
-            smoke_claude()
+            smoke_installer(platform)
         elif platform in {"hermes", "openclaw"}:
+            smoke_installer(platform)
             smoke_portable_platform(platform)
         else:
             raise SmokeError(f"unknown platform: {platform}")

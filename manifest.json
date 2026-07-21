@@ -65,8 +65,8 @@
     "install": "scripts/install.sh"
   },
   "testing": {
-    "scripted_checks": 98,
-    "pass_rate": "98/98",
+    "scripted_checks": 99,
+    "pass_rate": "99/99",
     "scenario_templates": 10
   },
   "dependencies": {

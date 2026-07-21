@@ -206,6 +206,27 @@ def test_experiment_card_view_is_available():
     assert "复发保护措施" in result.stdout
 
 
+def test_share_view_is_public_safe_and_attributed():
+    result = run_cli(
+        "diagnose",
+        "我们要不要做邀请裂变",
+        "--problem",
+        "referral",
+        "--profile-file",
+        "examples/company-profile.json",
+        "--history-file",
+        "examples/experiment-log.json",
+        "--view",
+        "share",
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "## Growth Experiment Snapshot" in result.stdout
+    assert "Generated with [oh-my-growth]" in result.stdout
+    assert "WriteFlow AI" not in result.stdout
+    assert "历史提醒" not in result.stdout
+
+
 def test_decision_memo_view_is_available():
     result = run_cli(
         "diagnose",

@@ -14,7 +14,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 PRIMARY_COMMANDS = ["assess", "design", "fast-scan", "brd", "diagnose", "match", "learn"]
 AUXILIARY_COMMANDS = ["search", "validate"]
 SCENARIO_COMMANDS = ["cold-start", "retention", "monetization", "referral"]
-VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "decision-memo", "qbr"]
+VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "share", "decision-memo", "qbr"]
 
 MARKDOWN_ROOTS = [
     ROOT_DIR / "README.md",
@@ -119,7 +119,7 @@ def check_mode_consistency(issues: List[str]) -> None:
     for command in SCENARIO_COMMANDS:
         if f"`/omg-{command}`" not in readme:
             issues.append(f"README.md: missing scenario command reference `/omg-{command}`")
-    for view in ["weekly", "experiment-card", "decision-memo", "qbr"]:
+    for view in ["weekly", "experiment-card", "share", "decision-memo", "qbr"]:
         if f"`{view}`" not in readme:
             issues.append(f"README.md: missing view reference `{view}`")
     if "## 所有命令" not in skill:

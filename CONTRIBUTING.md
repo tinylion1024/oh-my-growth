@@ -121,6 +121,8 @@ oh-my-growth/
 
 ### 添加新案例
 
+还没有准备好提交 PR？先使用 [Growth Case Contribution 模板](.github/ISSUE_TEMPLATE/case_contribution.yml) 提交匿名案例。维护者会协助核对证据等级、脱敏范围和目录归属。
+
 在 `knowledge/cases/` 目录下创建新的 Markdown 文件：
 
 ```markdown

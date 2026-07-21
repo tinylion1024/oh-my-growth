@@ -536,6 +536,44 @@ class StrategyFormatter:
                 lines.append(f"- {item}")
         return "\n".join(lines)
 
+    def to_share_markdown(self, analysis: Dict) -> str:
+        """Render a concise card that is safe to paste into a public update.
+
+        It deliberately omits company-profile and experiment-history fields, which
+        can contain private operating context supplied by the user.
+        """
+        action = analysis["actions"][0] if analysis["actions"] else {"name": "待确认"}
+        top_name = analysis["priorities"][0].name if analysis["priorities"] else "待确认"
+        lines = [
+            "## Growth Experiment Snapshot",
+            "",
+            f"**Decision:** prioritize {top_name}.",
+            f"**Why now:** {analysis['decision_line']}",
+            f"**Next move:** {action['name']}",
+            f"**Metric:** {analysis['north_star']['metric']}",
+            "",
+            "**Two-week experiment:**",
+        ]
+        for step in analysis["experiment"]["steps"][:3]:
+            lines.append(f"- {step}")
+        lines.extend(["", "**Success signal:**"])
+        for signal in analysis["experiment"]["success_signals"][:2]:
+            lines.append(f"- {signal}")
+        lines.extend(["", "**Stop signal:**"])
+        for signal in analysis["experiment"]["stop_signals"][:2]:
+            lines.append(f"- {signal}")
+        if analysis["evidence_chain"]:
+            lines.extend(["", "**Evidence considered:**"])
+            for item in analysis["evidence_chain"][:2]:
+                lines.append(f"- {item['type_label']}: {item['name']} ({item['evidence_tier']})")
+        lines.extend(
+            [
+                "",
+                "_Generated with [oh-my-growth](https://github.com/tinylion1024/oh-my-growth) — evidence-backed growth decisions for AI-agent teams._",
+            ]
+        )
+        return "\n".join(lines)
+
     def to_decision_memo_markdown(self, analysis: Dict) -> str:
         """Decision memo optimized for review and approval."""
         top_name = analysis["priorities"][0].name if analysis["priorities"] else "待确认"

@@ -1,0 +1,53 @@
+name: 📚 Growth Case Contribution
+description: Submit an anonymized, evidence-backed growth case for the knowledge base.
+title: "[Case] "
+labels: ["case-contribution", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for improving the shared knowledge base. Do not include PII, customer names without permission, access tokens, or confidential metrics.
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Primary growth problem
+      options: [acquisition, retention, monetization, referral]
+    validations:
+      required: true
+  - type: input
+    id: industry
+    attributes:
+      label: Industry and growth stage
+      placeholder: "B2B SaaS, 1-10"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Anonymized context and constraint
+      description: What was true before the experiment? What made the decision difficult?
+    validations:
+      required: true
+  - type: textarea
+    id: intervention
+    attributes:
+      label: Experiment and implementation
+      description: Include the hypothesis, action, measurement window, and stop condition.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome and evidence
+      description: Include the metric definition, result, limitations, and a public source if available.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Contribution checks
+      options:
+        - label: I have permission to share this anonymized case.
+          required: true
+        - label: I understand that unsupported claims may be removed or labeled as low-evidence.
+          required: true
