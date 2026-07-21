@@ -323,6 +323,8 @@ The repository exposes searchable keywords, explicit command references, canonic
 
 ## 📈 Roadmap
 
+For current priorities and how to influence them, see the [public roadmap](./docs/ROADMAP.md).
+
 ### Q3 2026
 - [ ] Web UI for non-technical users
 - [ ] Vectorized case search (semantic matching)
