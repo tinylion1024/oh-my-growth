@@ -3,7 +3,7 @@ name: omg-learn
 description: 学习路径 - 系统学习增长知识
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

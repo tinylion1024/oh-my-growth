@@ -3,7 +3,7 @@ name: omg-retention
 description: 留存策略 - 提升用户留存
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

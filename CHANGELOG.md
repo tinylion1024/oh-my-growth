@@ -11,6 +11,17 @@ All notable changes to oh-my-growth are documented here. The project follows
 - Added `growth` standalone CLI entry point and explicit setuptools package configuration.
 - Added command/API documentation, SEO/GEO use-case pages, example pages, `llms.txt`, and a GitHub Actions release-check workflow.
 
+## [1.0.2] - 2026-07-21
+
+### Added
+
+- Added public-safe `share` output, a growth-case contribution form, and a GitHub Discussions launch surface.
+- Added GitHub Release-triggered PyPI Trusted Publishing workflow.
+
+### Changed
+
+- Renamed the PyPI distribution to `oh-my-growth` to match the repository and CLI branding.
+
 ### Changed
 
 - Method packs now shape strategy scoring, evidence chains, experiment steps, and stop signals.

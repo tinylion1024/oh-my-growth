@@ -10,7 +10,7 @@
 
 **适合：** 使用 Claude Code、OpenClaw、Hermes 或本地 CLI 的增长负责人、创始人和产品团队。
 
-[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](./VERSION)
+[![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](./VERSION)
 [![Tests](https://img.shields.io/badge/tests-99%2F99%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
@@ -100,10 +100,10 @@ git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth &&
 ### 独立 CLI
 
 ```bash
-python3 -m pip install "git+https://github.com/tinylion1024/oh-my-growth.git"
+python3 -m pip install "oh-my-growth"
 ```
 
-如需隔离安装 CLI，可使用：`pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`。
+如需隔离安装 CLI，可使用：`pipx install oh-my-growth`。首个 PyPI 版本发布前，请使用：`pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`。
 
 ### 验证安装
 

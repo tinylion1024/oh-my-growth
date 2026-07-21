@@ -3,7 +3,7 @@ name: omg-match
 description: 案例匹配 - 匹配成功案例
 metadata:
   author: Growth Master Team
-  version: 1.0.1
+  version: 1.0.2
   category: growth-strategy
   parent: oh-my-growth
 ---

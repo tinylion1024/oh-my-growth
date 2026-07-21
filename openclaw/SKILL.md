@@ -1,7 +1,7 @@
 ---
 name: oh-my-growth
 description: "增长策略外脑 - 整合 81 案例、111 玩法、12 流派的增长决策插件"
-version: 1.0.1
+version: 1.0.2
 metadata:
   openclaw:
     emoji: "🧠"
