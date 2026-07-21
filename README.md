@@ -316,6 +316,7 @@ The repository exposes searchable keywords, explicit command references, canonic
 ## 🌟 Community
 
 - **GitHub Issues:** report a bug, request a case, or propose an improvement.
+- **GitHub Discussions:** share a use case or compare implementation notes.
 - **Case contributions:** add an anonymized, evidence-backed case via the [contribution guide](./CONTRIBUTING.md).
 - **Twitter/X:** [@ohmygrowth](https://twitter.com/ohmygrowth).
 

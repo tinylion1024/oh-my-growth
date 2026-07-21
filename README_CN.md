@@ -316,6 +316,7 @@ oh-my-growth 是一个增长策略外脑，把结构化知识库、多 Agent 决
 ## 🌟 社区
 
 - **GitHub Issues：** 报告问题、请求案例或提出改进建议。
+- **GitHub Discussions：** 分享使用案例或交流执行经验。
 - **案例贡献：** 按[贡献指南](./CONTRIBUTING.md)提交匿名、有证据支撑的案例。
 - **Twitter/X：** [@ohmygrowth](https://twitter.com/ohmygrowth)。
 
