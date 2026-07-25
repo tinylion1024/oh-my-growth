@@ -2,25 +2,39 @@
 
 <img src="./assets/cover.png" alt="oh-my-growth" width="100%">
 
-# 🚀 oh-my-growth
+# oh-my-growth — Open-Source Growth Decision Engine
 
-**Evidence-backed growth decisions for AI-agent teams.**
+**An open-source AI growth strategy tool for SEO, AEO, GEO, product growth, and AI-agent teams.**
 
-Turn a growth question into a ranked, evidence-linked **2-week experiment** with a success signal and a stop condition.
+Turn a growth question into a ranked, evidence-linked **2-week experiment** with a success signal and a stop condition—not a generic list of tactics.
 
-**For:** growth leads, founders, and product teams using Claude Code, OpenClaw, Hermes, or the local CLI.
+**For:** growth leads, founders, product teams, and AI agents using Claude Code, OpenClaw, Hermes, or the local `growth` CLI.
 
 [![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](./VERSION)
+[![PyPI](https://img.shields.io/pypi/v/oh-my-growth?label=PyPI)](https://pypi.org/project/oh-my-growth/)
 [![Tests](https://img.shields.io/badge/tests-99%2F99%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-**[Choose your install](#-install)** · **[See an output](#-example-5-minute-diagnosis)** · **[中文文档](./README_CN.md)**
+**[Install from PyPI](#-install)** · **[See a real command](#-quick-start)** · **[Star or fork on GitHub](https://github.com/tinylion1024/oh-my-growth)** · **[中文文档](./README_CN.md)**
 
 </div>
 
 ---
 
-## 💡 What Can It Do?
+## What is oh-my-growth?
+
+oh-my-growth is a **growth decision-support system**, not an analytics dashboard or an autonomous ad-buying tool. It combines a versioned growth knowledge base with decision logic to help a team choose a small, testable next move.
+
+| If you need to… | oh-my-growth returns… |
+|---|---|
+| Decide what to test first | A ranked set of actions with rationale and risks |
+| Diagnose acquisition, retention, monetization, or referral | The stage, core tension, metric, and missing context |
+| Improve SEO, AEO, or GEO / LLM discovery | A search-visibility experiment tied to a conversion goal |
+| Reuse a decision in a team or agent workflow | Operator, executive, JSON, decision-memo, or public-safe share views |
+
+**Use it when the question is “what should we validate next?”—not when you only need a dashboard of existing metrics.**
+
+## When to use it
 
 **When your DAU drops 20%, oh-my-growth helps you:**
 1. Identify the core tension in 3 minutes
@@ -28,7 +42,7 @@ Turn a growth question into a ranked, evidence-linked **2-week experiment** with
 3. Match 3 similar success cases
 4. Generate a 2-week experiment plan
 
-**All within Claude Code, OpenClaw, or Hermes Agent.**
+Use it inside Claude Code, OpenClaw, or Hermes Agent, or from any terminal with the standalone CLI.
 
 ### Core User Personas
 
@@ -79,6 +93,13 @@ Turn a growth question into a ranked, evidence-linked **2-week experiment** with
 
 Choose the host you already use. Each command installs the same knowledge base and decision engine.
 
+**Fastest standalone install from PyPI:**
+
+```bash
+uv tool install oh-my-growth
+growth --help
+```
+
 ### Claude Code
 
 ```bash
@@ -99,11 +120,34 @@ git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth &&
 
 ### Standalone CLI
 
+**Recommended for macOS and other developer machines — isolated install with `uv`:**
+
 ```bash
-python3 -m pip install "oh-my-growth"
+brew install uv
+uv tool install oh-my-growth
+growth --help
 ```
 
-For an isolated CLI install, use `pipx install oh-my-growth`. Until the first PyPI release is published, use `pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`.
+**Install with `pip` in a virtual environment:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install oh-my-growth
+growth --help
+```
+
+Homebrew Python intentionally blocks global `pip install` commands (PEP 668). Use `uv` above, `pipx install oh-my-growth`, or a virtual environment instead of `--break-system-packages`.
+
+**Get your first recommendation:**
+
+```bash
+growth diagnose "How can my SaaS get its first 1,000 users?" \
+  --industry saas \
+  --stage 0-1 \
+  --problem acquisition
+```
 
 ### Verify Installation
 
@@ -121,6 +165,19 @@ In Claude Code:
 ---
 
 ## ✨ Quick Start
+
+### Standalone CLI
+
+Use `growth` from any terminal after installation. Add only the context you know; the tool will identify missing inputs and suggest the next experiment.
+
+```bash
+growth fast-scan "Should we test a referral loop?" \
+  --industry saas \
+  --stage 1-10 \
+  --problem referral
+```
+
+For a complete decision report, use `growth diagnose ...`; run `growth --help` to see all commands.
 
 ### Most Used Commands
 
@@ -307,6 +364,14 @@ oh-my-growth is a growth strategy external brain. It combines a structured knowl
 
 It is designed for growth operators, founders, PMs, and AI assistants that need grounded growth answers, not generic advice.
 
+### Does it replace product analytics, a BI tool, or a growth team?
+
+No. Bring the metrics, constraints, and prior experiment history you already have. oh-my-growth helps turn that context into a decision, an experiment design, and explicit success and stop signals.
+
+### Can I use it without an AI-agent host?
+
+Yes. Install the PyPI package and use `growth diagnose`, `growth design`, `growth fast-scan`, or `growth search` from a terminal. Claude Code, OpenClaw, and Hermes are additional integration surfaces, not prerequisites.
+
 ### Why does this help SEO and GEO?
 
 The repository exposes searchable keywords, explicit command references, canonical docs, and an AI-readable `llms.txt` entry point so agents and LLMs can understand what the project does. For Google-style search, GEO/AEO work still depends on crawlable, useful, well-structured SEO content.
@@ -315,6 +380,8 @@ The repository exposes searchable keywords, explicit command references, canonic
 
 ## 🌟 Community
 
+- **Star the repository** if evidence-backed growth decisions are useful to your team; it makes the project easier for other builders to discover.
+- **Fork it** if you want to add a vertical knowledge base, adapt the decision logic, or integrate a new agent host; the project is MIT-licensed.
 - **GitHub Issues:** report a bug, request a case, or propose an improvement.
 - **GitHub Discussions:** share a use case or compare implementation notes.
 - **Case contributions:** add an anonymized, evidence-backed case via the [contribution guide](./CONTRIBUTING.md).
@@ -374,7 +441,7 @@ Special thanks to all contributors and case study authors.
 
 <div align="center">
 
-**[Choose your install](#-install)** · **[Read Full Docs](./docs/)** · **[Contribute a case](./CONTRIBUTING.md)**
+**[Install from PyPI](#-install)** · **[Read Full Docs](./docs/)** · **[Contribute a case](./CONTRIBUTING.md)** · **[Star or fork on GitHub](https://github.com/tinylion1024/oh-my-growth)**
 
 Made with ❤️ by Growth Master Team
 
