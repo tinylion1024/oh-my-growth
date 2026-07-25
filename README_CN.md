@@ -2,25 +2,39 @@
 
 <img src="./assets/cover.png" alt="oh-my-growth" width="100%">
 
-# 🚀 oh-my-growth
+# oh-my-growth — 开源增长决策引擎
 
-**面向 AI Agent 团队的、带证据的增长决策工具。**
+**面向 SEO、AEO、GEO、产品增长和 AI Agent 团队的开源 AI 增长策略工具。**
 
-把一个增长问题转成带证据链的优先级排序、**2 周实验**、成功信号和停止条件。
+把一个增长问题转成带证据链的优先级排序、**2 周实验**、成功信号和停止条件，而不是泛泛的增长玩法清单。
 
-**适合：** 使用 Claude Code、OpenClaw、Hermes 或本地 CLI 的增长负责人、创始人和产品团队。
+**适合：** 使用 Claude Code、OpenClaw、Hermes 或本地 `growth` CLI 的增长负责人、创始人、产品团队和 AI Agent。
 
 [![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](./VERSION)
+[![PyPI](https://img.shields.io/pypi/v/oh-my-growth?label=PyPI)](https://pypi.org/project/oh-my-growth/)
 [![Tests](https://img.shields.io/badge/tests-99%2F99%20passed-brightgreen.svg)](./tests/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-**[选择安装方式](#-安装)** · **[查看输出示例](#-示例5分钟诊断流程)** · **[English](./README.md)**
+**[从 PyPI 安装](#-安装)** · **[查看真实命令](#-快速开始)** · **[在 GitHub Star 或 Fork](https://github.com/tinylion1024/oh-my-growth)** · **[English](./README.md)**
 
 </div>
 
 ---
 
-## 💡 能解决什么问题?
+## 什么是 oh-my-growth？
+
+oh-my-growth 是一个**增长决策支持系统**，不是数据看板，也不会自动执行广告投放。它将版本化增长知识库与决策逻辑结合，帮助团队选择一个小而可验证的下一步动作。
+
+| 当你需要… | oh-my-growth 会输出… |
+|---|---|
+| 决定优先验证什么 | 带理由和风险的行动优先级 |
+| 诊断获客、留存、变现或裂变 | 阶段、核心矛盾、指标和缺失上下文 |
+| 提升 SEO、AEO 或 GEO / LLM 可发现性 | 与转化目标绑定的搜索可见性实验 |
+| 在团队或 Agent 工作流中复用决策 | 执行版、负责人摘要、JSON、决策备忘录或公开安全分享视图 |
+
+**适合回答“下一步该验证什么”，不适合只查看既有指标。**
+
+## 适用场景
 
 **当你的 DAU 下降 20% 时,oh-my-growth 帮你:**
 1. 3分钟内定位核心矛盾
@@ -28,7 +42,7 @@
 3. 匹配 3 个相似成功案例
 4. 生成 2 周实验方案
 
-**全部在 Claude Code、OpenClaw 或 Hermes Agent 中完成。**
+可在 Claude Code、OpenClaw、Hermes Agent 中使用，也可通过独立 CLI 在任意终端运行。
 
 ### 核心用户画像
 
@@ -79,6 +93,13 @@
 
 选择你正在使用的平台；以下命令均安装相同的知识库和决策引擎。
 
+**最快的独立 CLI 安装方式（PyPI）：**
+
+```bash
+uv tool install oh-my-growth
+growth --help
+```
+
 ### Claude Code
 
 ```bash
@@ -99,11 +120,34 @@ git clone https://github.com/tinylion1024/oh-my-growth.git && cd oh-my-growth &&
 
 ### 独立 CLI
 
+**推荐 macOS 及开发者环境使用 `uv` 隔离安装：**
+
 ```bash
-python3 -m pip install "oh-my-growth"
+brew install uv
+uv tool install oh-my-growth
+growth --help
 ```
 
-如需隔离安装 CLI，可使用：`pipx install oh-my-growth`。首个 PyPI 版本发布前，请使用：`pipx install "git+https://github.com/tinylion1024/oh-my-growth.git"`。
+**通过 `pip` 在虚拟环境中安装：**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install oh-my-growth
+growth --help
+```
+
+Homebrew Python 会主动拦截全局 `pip install`（PEP 668）。请使用上方的 `uv`、`pipx install oh-my-growth` 或虚拟环境，不要使用 `--break-system-packages`。
+
+**立刻得到第一条建议：**
+
+```bash
+growth diagnose "SaaS 产品如何获取首批 1000 个用户" \
+  --industry saas \
+  --stage 0-1 \
+  --problem acquisition
+```
 
 ### 验证安装
 
@@ -121,6 +165,19 @@ python3 -m pip install "oh-my-growth"
 ---
 
 ## ✨ 快速开始
+
+### 独立 CLI
+
+安装后可在任意终端直接使用 `growth`。只需提供已知上下文；工具会指出缺失信息并给出下一步实验建议。
+
+```bash
+growth fast-scan "我们要不要做邀请裂变" \
+  --industry saas \
+  --stage 1-10 \
+  --problem referral
+```
+
+需要完整决策报告时使用 `growth diagnose ...`；运行 `growth --help` 可查看全部命令。
 
 ### 最常用命令
 
@@ -307,6 +364,14 @@ oh-my-growth 是一个增长策略外脑，把结构化知识库、多 Agent 决
 
 适合增长运营、创始人、产品经理，以及需要稳定增长答案的 AI 助手。
 
+### 它会替代产品分析、BI 工具或增长团队吗？
+
+不会。请提供你已有的指标、约束和历史实验；oh-my-growth 负责把这些上下文转成决策、实验设计，以及明确的成功与停止信号。
+
+### 不使用 AI Agent 宿主也能用吗？
+
+可以。安装 PyPI 包后，可在终端使用 `growth diagnose`、`growth design`、`growth fast-scan` 或 `growth search`。Claude Code、OpenClaw 和 Hermes 是额外接入方式，并非前置条件。
+
 ### 为什么这有助于 SEO 和 GEO？
 
 仓库现在有更明确的关键词、命令引用、标准化文档和 `llms.txt` 入口，agent 和大模型更容易理解项目用途。对 Google 这类搜索来说，GEO/AEO 仍然要建立在可抓取、有价值、结构清晰的 SEO 内容之上。
@@ -315,6 +380,8 @@ oh-my-growth 是一个增长策略外脑，把结构化知识库、多 Agent 决
 
 ## 🌟 社区
 
+- 如果带证据的增长决策对你的团队有帮助，欢迎 **Star** 仓库，让更多构建者发现项目。
+- 如果你要补充垂直行业知识库、调整决策逻辑或接入新的 Agent 宿主，欢迎 **Fork**；项目采用 MIT 许可证。
 - **GitHub Issues：** 报告问题、请求案例或提出改进建议。
 - **GitHub Discussions：** 分享使用案例或交流执行经验。
 - **案例贡献：** 按[贡献指南](./CONTRIBUTING.md)提交匿名、有证据支撑的案例。

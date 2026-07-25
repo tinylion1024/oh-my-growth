@@ -15,6 +15,7 @@ PRIMARY_COMMANDS = ["assess", "design", "fast-scan", "brd", "diagnose", "match",
 AUXILIARY_COMMANDS = ["search", "validate"]
 SCENARIO_COMMANDS = ["cold-start", "retention", "monetization", "referral"]
 VIEW_CHOICES = ["operator", "executive", "report", "json", "weekly", "experiment-card", "share", "decision-memo", "qbr"]
+EXTERNAL_INSTALL_COMMANDS = {"python", "pip", "pipx", "uv"}
 
 MARKDOWN_ROOTS = [
     ROOT_DIR / "README.md",
@@ -136,7 +137,7 @@ def check_mode_consistency(issues: List[str]) -> None:
         for token in re.findall(r"`([a-z][a-z-]+)`", content):
             if token in {"json", "report", "operator", "executive"}:
                 continue
-            if token not in allowed_modes and token not in {"python", "growth"}:
+            if token not in allowed_modes and token not in EXTERNAL_INSTALL_COMMANDS | {"growth"}:
                 issues.append(f"{path.relative_to(ROOT_DIR)}: command/view `{token}` is not backed by the CLI contract")
 
 
